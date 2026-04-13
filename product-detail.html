@@ -226,7 +226,7 @@ a{text-decoration:none;color:inherit;}
 .product-card__cta i{font-size:11px;display:flex;}
 
 /* ═══ FOOTER ═══ */
-.footer{background:#fff;padding:56px 0 0;border-top:1px solid var(--border);}
+.footer{background:#F8F9FA;padding:56px 0 0;border-top:1px solid var(--border);}
 .footer-main{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px;border-bottom:1px solid var(--border);}
 .footer-brand__logo-img{height:34px;width:auto;}
 .footer-brand__desc{font-size:13px;color:var(--text-secondary);line-height:1.75;margin:16px 0 20px;max-width:270px;}
@@ -867,14 +867,45 @@ a{text-decoration:none;color:inherit;}
 <footer class="footer">
   <div class="container">
     <div class="footer-main">
-      <div><a href="famco-homepage.html"><img src="HeaderLogoIcon.png" alt="FAMCO" class="footer-brand__logo-img"></a><p class="footer-brand__desc">The GCC's most trusted marketplace for certified used commercial vehicles. Backed by Al-Futtaim Group since 1930.</p></div>
-      <div><h4 class="footer-col__title">Marketplace</h4><ul class="footer-col__links"><li><a href="listing.html">Browse Equipment</a></li><li><a href="#">Sell Your Vehicle</a></li><li><a href="#">FAMCO Approved Process</a></li><li><a href="#">Compare Vehicles</a></li></ul></div>
-      <div><h4 class="footer-col__title">Company</h4><ul class="footer-col__links"><li><a href="#">About Us</a></li><li><a href="#">Finance Options</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Careers</a></li></ul></div>
-      <div><h4 class="footer-col__title">Contact</h4><div style="font-size:14px;color:var(--text-secondary);line-height:2;">Al-Futtaim Group<br>Dubai, UAE<br>+971 4 XXX XXXX<br>info@famco-used.ae</div></div>
+      <div class="footer-brand">
+        <a href="famco-homepage.html"><img src="HeaderLogoIcon.png" alt="FAMCO Logo" class="footer-brand__logo-img"></a>
+        <p class="footer-brand__desc">The GCC's most trusted marketplace for certified used commercial vehicles. Backed by Al-Futtaim Group since 1930.</p>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-muted);">Part of <span style="padding:4px 10px;background:var(--bg-warm);border-radius:4px;font-weight:600;font-size:11px;color:var(--text-primary);">Al-Futtaim Group</span></div>
+      </div>
+      <div>
+        <h4 class="footer-col__title">Marketplace</h4>
+        <ul class="footer-col__links">
+          <li><a href="listing.html">Browse Equipment</a></li>
+          <li><a href="#">Sell Your Vehicle</a></li>
+          <li><a href="#">FAMCO Approved Process</a></li>
+          <li><a href="#">Compare Vehicles</a></li>
+          <li><a href="#">Wishlist</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col__title">Company</h4>
+        <ul class="footer-col__links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Finance Options</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">News & Media</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col__title">Contact</h4>
+        <div style="font-size:14px;color:var(--text-secondary);line-height:2;">
+          Al-Futtaim Group<br>
+          Dubai, UAE<br><br>
+          +971 4 XXX XXXX<br>
+          info@famco-used.ae<br><br>
+          Sun–Thu: 8AM – 6PM
+        </div>
+      </div>
     </div>
     <div class="footer-bottom">
       <div>&copy; 2026 Al-Futtaim FAMCO. All rights reserved. <span style="color:var(--brand-navy);font-weight:700;">FAMCO Approved Marketplace</span></div>
-      <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div>
     </div>
   </div>
 </footer>
