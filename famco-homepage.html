@@ -807,10 +807,11 @@ body {
 }
 
 .cert-card__icon {
-  width: 40px;
-  height: 40px;
-  margin: 0 auto 14px;
-  background: none;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 16px;
+  background: rgba(0,102,179,0.08);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -819,13 +820,14 @@ body {
 }
 
 .cert-card__icon svg {
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
 }
 
 .cert-card:hover .cert-card__icon {
-  color: var(--brand-navy-light);
-  transform: scale(1.1);
+  background: var(--brand-navy);
+  color: #fff;
+  transform: scale(1.08);
 }
 
 .cert-card__icon svg {
@@ -2027,7 +2029,25 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0 40px;
+  gap: 0 48px;
+}
+
+.faq-item {
+  background: var(--bg-warm);
+  border: 1px solid var(--border-light) !important;
+  border-radius: var(--radius-sm) !important;
+  margin-bottom: 10px;
+  padding: 0 20px;
+  transition: all 0.2s;
+}
+
+.faq-item:hover {
+  border-color: var(--brand-navy) !important;
+}
+
+.faq-item.active {
+  border-color: var(--brand-navy) !important;
+  background: #fff;
 }
 
 .faq-item {
@@ -2184,7 +2204,7 @@ body {
    ═══════════════════════════════════════════════════════ */
 
 .footer {
-  background: #FFFFFF;
+  background: #F8F9FA;
   padding: 72px 0 0;
   border-top: 1px solid var(--border);
 }
@@ -2533,7 +2553,7 @@ body {
         <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
       </div>
       <input class="nav-search__input" type="text" placeholder="Search brand, model, category, or location…">
-      <button class="nav-search__btn">
+      <button class="nav-search__btn" onclick="window.location.href='listing.html'">
         <svg fill="none" stroke="white" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       </button>
     </div>
@@ -3132,41 +3152,7 @@ body {
 
 <!-- Sections 10, 11, 12 removed -->
 
-<!-- ═══════════════════════════════════════════════════════
-     SECTION 13 — AI INTELLIGENCE
-     ═══════════════════════════════════════════════════════ -->
-<section class="ai-section">
-  <div class="container" style="text-align:center;">
-    <div class="section-label reveal">Platform Intelligence</div>
-    <h2 class="section-title reveal reveal-delay-1">Smarter Buying. Smarter Selling.</h2>
-    <p class="section-subtitle reveal reveal-delay-2">AI-powered valuation, market pricing intelligence, and equipment scoring — giving you data-driven confidence in every transaction.</p>
-    <div class="ai-grid">
-      <div class="ai-card reveal">
-        <div class="ai-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
-        <h3 class="ai-card__title">AI Valuation Engine</h3>
-        <p class="ai-card__desc">Instant market-accurate valuations powered by regional transaction data, equipment age, hours, and condition analysis.</p>
-      </div>
-      <div class="ai-card reveal reveal-delay-1">
-        <div class="ai-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <h3 class="ai-card__title">Market Price Intelligence</h3>
-        <p class="ai-card__desc">Real-time pricing trends across the GCC market. Know whether you're getting a fair deal before you commit.</p>
-      </div>
-      <div class="ai-card reveal reveal-delay-2">
-        <div class="ai-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <h3 class="ai-card__title">Equipment Score</h3>
-        <p class="ai-card__desc">A comprehensive score combining condition, service history, market demand, and residual value prediction into one clear metric.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 14 removed -->
+<!-- AI & Seller sections removed -->
 
 <!-- ═══════════════════════════════════════════════════════
      SECTION 15 — CONTACT / SUPPORT SECTION
@@ -3434,7 +3420,7 @@ body {
 <!-- ═══════════════════════════════════════════════════════
      FLOATING WHATSAPP BUTTON
      ═══════════════════════════════════════════════════════ -->
-<a href="#" class="whatsapp-float" aria-label="Chat on WhatsApp">
+<a href="#" class="whatsapp-float" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .612.612l4.458-1.495A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.752-6.336-2.071l-.442-.331-3.273 1.098 1.098-3.273-.331-.442A9.958 9.958 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
 </a>
 

@@ -91,7 +91,7 @@ a{text-decoration:none;color:inherit;}
 .gallery__3d-btn{position:absolute;bottom:14px;right:14px;padding:8px 14px;background:rgba(0,0,0,0.7);color:#fff;border-radius:6px;font-size:11px;font-weight:700;display:flex;align-items:center;gap:6px;cursor:pointer;backdrop-filter:blur(4px);}
 .gallery__3d-btn i{font-size:14px;display:flex;}
 .gallery__thumbs{display:flex;gap:8px;}
-.gallery__thumb{width:80px;height:60px;border-radius:var(--radius-xs);overflow:hidden;border:2px solid var(--border);cursor:pointer;transition:all 0.2s;background:#fff;}
+.gallery__thumb{width:96px;height:72px;border-radius:var(--radius-xs);overflow:hidden;border:2px solid var(--border);cursor:pointer;transition:all 0.2s;background:#fff;}
 .gallery__thumb:hover,.gallery__thumb.active{border-color:var(--brand-navy);}
 .gallery__thumb img{width:100%;height:100%;object-fit:cover;}
 .gallery__thumb--video{position:relative;}
@@ -350,6 +350,11 @@ a{text-decoration:none;color:inherit;}
           <button class="pdp-cta__btn pdp-cta__btn--primary" onclick="document.getElementById('priceRow').style.display='flex';document.getElementById('priceHidden').style.display='none';"><i class="fi fi-rr-shopping-cart"></i> Buy Now — Show Price</button>
           <button class="pdp-cta__btn pdp-cta__btn--outline"><i class="fi fi-rr-envelope"></i> Submit Inquiry</button>
           <button class="pdp-cta__btn pdp-cta__btn--outline"><i class="fi fi-rr-calculator"></i> Get Finance</button>
+          <button class="pdp-cta__btn pdp-cta__btn--whatsapp" style="padding:13px;font-size:13px;"><i class="fi fi-rr-phone-call"></i> Request Callback</button>
+          <div style="display:flex;gap:10px;">
+            <button class="pdp-cta__btn pdp-cta__btn--outline" style="flex:1;padding:11px;font-size:12px;"><i class="fi fi-rr-share"></i> Share</button>
+            <button class="pdp-cta__btn pdp-cta__btn--outline" style="flex:1;padding:11px;font-size:12px;" onclick="window.print()"><i class="fi fi-rr-print"></i> Print</button>
+          </div>
         </div>
       </div>
 
@@ -797,7 +802,10 @@ a{text-decoration:none;color:inherit;}
 
   <!-- ═══ SIMILAR PRODUCTS ═══ -->
   <div class="similar-section" style="margin-bottom:64px;">
-      <h2>Similar Vehicles</h2>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <h2 style="font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--text-primary);margin:0;">Similar Vehicles</h2>
+        <a href="listing.html" style="font-size:13px;font-weight:700;color:var(--brand-navy);display:flex;align-items:center;gap:4px;">View All <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+      </div>
       <div class="product-grid" style="grid-template-columns:repeat(4,1fr);">
         <!-- Card 1 -->
         <div class="product-card">
@@ -871,7 +879,7 @@ a{text-decoration:none;color:inherit;}
   </div>
 </footer>
 
-<a href="#" class="whatsapp-float"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .612.612l4.458-1.495A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.752-6.336-2.071l-.442-.331-3.273 1.098 1.098-3.273-.331-.442A9.958 9.958 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg></a>
+<a href="#" class="whatsapp-float" title="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .612.612l4.458-1.495A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.752-6.336-2.071l-.442-.331-3.273 1.098 1.098-3.273-.331-.442A9.958 9.958 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg></a>
 
 <script>
 // Gallery image swap
