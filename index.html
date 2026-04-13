@@ -246,13 +246,13 @@ body {
    ═══════════════════════════════════════════════════════ */
 
 .utility-bar {
-  background: var(--brand-navy-dark);
-  color: rgba(255,255,255,0.75);
+  background: #F8F9FA;
+  color: var(--text-secondary);
   font-size: 12.5px;
   font-weight: 400;
   padding: 8px 0;
   letter-spacing: 0.02em;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid var(--border);
 }
 
 .utility-bar .container {
@@ -272,39 +272,39 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: var(--text-on-dark-muted);
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.2s;
 }
-.utility-bar__item:hover { color: #fff; }
+.utility-bar__item:hover { color: var(--text-primary); }
 
 .utility-bar__divider {
   width: 1px;
   height: 14px;
-  background: var(--border-dark);
+  background: var(--border);
 }
 
 .utility-bar svg {
   width: 14px;
   height: 14px;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .lang-toggle {
   display: flex;
   align-items: center;
   gap: 4px;
-  background: rgba(255,255,255,0.06);
+  background: rgba(0,0,0,0.04);
   padding: 4px 10px;
   border-radius: 4px;
-  color: var(--text-on-dark-muted);
+  color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s;
 }
 .lang-toggle:hover {
-  background: rgba(255,255,255,0.1);
-  color: #fff;
+  background: rgba(0,0,0,0.07);
+  color: var(--text-primary);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -2500,7 +2500,7 @@ body {
 <div class="utility-bar">
   <div class="container">
     <div class="utility-bar__left">
-      <a href="#" class="utility-bar__item" style="opacity:1;color:#fff;">
+      <a href="#" class="utility-bar__item" style="opacity:1;color:var(--text-primary);font-weight:600;">
         <span>🇦🇪 UAE AED</span>
       </a>
       <div class="utility-bar__divider"></div>
@@ -2516,7 +2516,7 @@ body {
         <span>🇧🇭 Bahrain BHD</span>
       </a>
       <div class="utility-bar__divider"></div>
-      <span class="utility-bar__item" style="color:#8BC4F6;font-weight:600;">Free 150-point inspection report with every listing — FAMCO Approved</span>
+      <span class="utility-bar__item" style="color:var(--brand-navy);font-weight:600;">Free 150-point inspection report with every listing — FAMCO Approved</span>
     </div>
     <div class="utility-bar__right">
       <a href="tel:+97142345678" class="utility-bar__item">
@@ -2573,7 +2573,7 @@ body {
 <nav class="sub-nav">
   <div class="container" style="display:flex;gap:0;padding:0 80px;">
     <a href="#" class="sub-nav__link active">Home</a>
-    <a href="#" class="sub-nav__link">Browse Equipment</a>
+    <a href="listing.html" class="sub-nav__link">Browse Equipment</a>
     <a href="#" class="sub-nav__link">Sell Your Equipment</a>
     <a href="#" class="sub-nav__link">FAMCO Approved Process</a>
     <a href="#" class="sub-nav__link">Finance</a>
@@ -2597,7 +2597,7 @@ body {
       </h1>
 
       <div class="hero__actions" style="justify-content:center;">
-        <a href="#" class="btn btn--primary">
+        <a href="listing.html" class="btn btn--primary">
           Browse Equipment <i class="fi fi-rr-arrow-right" style="font-size:14px;"></i>
         </a>
         <a href="#" class="btn btn--secondary">Sell Your Vehicle <i class="fi fi-rr-arrow-right" style="font-size:14px;"></i></a>
@@ -2714,7 +2714,7 @@ body {
     </div>
     <!-- Category pills -->
     <div class="categories-scroll reveal reveal-delay-3">
-      <a href="#" class="cat-tile" style="border-color:var(--brand-navy);background:rgba(0,102,179,0.06);color:var(--brand-navy);">
+      <a href="listing.html" class="cat-tile" style="border-color:var(--brand-navy);background:rgba(0,102,179,0.06);color:var(--brand-navy);">
         <div class="cat-tile__icon" style="background:rgba(0,102,179,0.1);color:var(--brand-navy);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
         </div>
@@ -3382,7 +3382,7 @@ body {
     </div>
     <!-- Right CTAs -->
     <div style="display:flex;gap:14px;flex-shrink:0;">
-      <a href="#" class="btn btn--primary" style="background:#FFD100;color:#1A2F4A;">
+      <a href="listing.html" class="btn btn--primary" style="background:#FFD100;color:#1A2F4A;">
         <i class="fi fi-rr-search" style="font-size:14px;"></i> Browse Equipment
       </a>
       <a href="#" style="display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:#fff;color:var(--brand-navy);border-radius:var(--radius-sm);font-weight:800;font-size:15px;text-decoration:none;font-family:var(--font-body);transition:all 0.3s;">
@@ -3410,7 +3410,7 @@ body {
       <div class="footer-col">
         <h4 class="footer-col__title">Marketplace</h4>
         <ul class="footer-col__links">
-          <li><a href="#">Browse Equipment</a></li>
+          <li><a href="listing.html">Browse Equipment</a></li>
           <li><a href="#">Sell Your Vehicle</a></li>
           <li><a href="#">FAMCO Approved Process</a></li>
           <li><a href="#">Compare Vehicles</a></li>

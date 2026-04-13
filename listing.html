@@ -30,15 +30,15 @@ body{font-family:var(--font-body);background:var(--bg-warm);color:var(--text-pri
 a{text-decoration:none;}
 
 /* ═══ UTILITY BAR ═══ */
-.utility-bar{background:var(--brand-navy-dark);color:rgba(255,255,255,0.75);font-size:12.5px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.utility-bar{background:#F8F9FA;color:var(--text-secondary);font-size:12.5px;padding:8px 0;border-bottom:1px solid var(--border);}
 .utility-bar .container{display:flex;justify-content:space-between;align-items:center;}
 .utility-bar__left,.utility-bar__right{display:flex;align-items:center;gap:20px;}
-.utility-bar__item{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.6);font-size:12.5px;transition:color 0.2s;}
-.utility-bar__item:hover{color:#fff;}
-.utility-bar__divider{width:1px;height:14px;background:rgba(255,255,255,0.12);}
-.utility-bar svg{width:14px;height:14px;opacity:0.7;}
-.lang-toggle{display:flex;align-items:center;gap:4px;background:rgba(255,255,255,0.06);padding:4px 10px;border-radius:4px;color:rgba(255,255,255,0.6);font-weight:500;font-size:12.5px;transition:all 0.2s;}
-.lang-toggle:hover{background:rgba(255,255,255,0.1);color:#fff;}
+.utility-bar__item{display:flex;align-items:center;gap:6px;color:var(--text-secondary);font-size:12.5px;transition:color 0.2s;}
+.utility-bar__item:hover{color:var(--text-primary);}
+.utility-bar__divider{width:1px;height:14px;background:var(--border);}
+.utility-bar svg{width:14px;height:14px;opacity:0.6;}
+.lang-toggle{display:flex;align-items:center;gap:4px;background:rgba(0,0,0,0.04);padding:4px 10px;border-radius:4px;color:var(--text-secondary);font-weight:500;font-size:12.5px;transition:all 0.2s;}
+.lang-toggle:hover{background:rgba(0,0,0,0.07);color:var(--text-primary);}
 
 /* ═══ MAIN NAV ═══ */
 .main-nav{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border-light);box-shadow:0 1px 8px rgba(0,0,0,0.04);}
@@ -168,7 +168,7 @@ a{text-decoration:none;}
 .product-card__price{font-family:var(--font-display);font-weight:900;font-size:18px;color:var(--text-primary);}
 .product-card__price-currency{font-size:12px;font-weight:500;color:var(--text-muted);}
 .product-card__finance{font-size:10px;color:var(--text-muted);margin-top:1px;}
-.product-card__cta{padding:10px 16px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12.5px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;width:auto;}
+.product-card__cta{padding:10px 16px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12.5px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;width:auto;text-decoration:none;}
 .product-card__cta:hover{background:var(--brand-navy-dark);}
 .product-card__cta i{font-size:11px;display:flex;}
 
@@ -229,7 +229,7 @@ a{text-decoration:none;}
 <div class="utility-bar">
   <div class="container">
     <div class="utility-bar__left">
-      <a href="#" class="utility-bar__item" style="opacity:1;color:#fff;"><span>🇦🇪 UAE AED</span></a>
+      <a href="#" class="utility-bar__item" style="opacity:1;color:var(--text-primary);font-weight:600;"><span>🇦🇪 UAE AED</span></a>
       <div class="utility-bar__divider"></div>
       <a href="#" class="utility-bar__item"><span>🇸🇦 KSA SAR</span></a>
       <div class="utility-bar__divider"></div>
@@ -237,7 +237,7 @@ a{text-decoration:none;}
       <div class="utility-bar__divider"></div>
       <a href="#" class="utility-bar__item"><span>🇧🇭 Bahrain BHD</span></a>
       <div class="utility-bar__divider"></div>
-      <span class="utility-bar__item" style="color:#8BC4F6;font-weight:600;">Free 150-point inspection report with every listing — FAMCO Approved</span>
+      <span class="utility-bar__item" style="color:var(--brand-navy);font-weight:600;">Free 150-point inspection report with every listing — FAMCO Approved</span>
     </div>
     <div class="utility-bar__right">
       <a href="tel:+97142345678" class="utility-bar__item">
@@ -404,21 +404,21 @@ a{text-decoration:none;}
       <!-- Product Grid -->
       <div class="product-grid" id="productGrid">
 
-        <!-- Card 1 — VIDEO on hover -->
+        <!-- Card 1 — Volvo EC220E Crawler Excavator -->
         <div class="product-card">
           <div class="product-card__img">
-            <img class="primary" src="Volvo FH500 Globetrotter.jpg" alt="Volvo FH500" loading="lazy">
-            <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
-            <span class="product-card__hover-tag product-card__hover-tag--video"><i class="fi fi-rr-play"></i> Video</span>
+            <img class="primary" src="ChatGPT Image Apr 13, 2026, 06_40_48 PM.png" alt="Volvo EC220E Crawler Excavator" loading="lazy">
+            <img class="hover-img" src="ChatGPT Image Apr 13, 2026, 06_39_56 PM.png" alt="Volvo EC220E Side View" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 3 Photos</span>
             <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
             <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
           </div>
           <div class="product-card__body">
-            <h3 class="product-card__name">Volvo FH500 Globetrotter</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2022</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 45,200 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
+            <h3 class="product-card__name">2022 Volvo EC220E Crawler Excavator</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2022</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 2,100 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
             <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>285,000</div><div class="product-card__finance">from AED 4,200/mo</div></div>
-              <button class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></button>
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>285,000</div><div class="product-card__finance">from AED 20,000/mo</div></div>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -437,7 +437,7 @@ a{text-decoration:none;}
             <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 72,000 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> KSA</span></div>
             <div class="product-card__footer">
               <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>220,000</div><div class="product-card__finance">from AED 3,100/mo</div></div>
-              <button class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></button>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -461,7 +461,7 @@ a{text-decoration:none;}
             <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2020</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 3,200 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Qatar</span></div>
             <div class="product-card__footer">
               <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>485,000</div><div class="product-card__finance">from AED 7,200/mo</div></div>
-              <button class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></button>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -480,7 +480,7 @@ a{text-decoration:none;}
             <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2023</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 18,400 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
             <div class="product-card__footer">
               <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>195,000</div><div class="product-card__finance">from AED 2,800/mo</div></div>
-              <button class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></button>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -499,7 +499,7 @@ a{text-decoration:none;}
             <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 4,800 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> KSA</span></div>
             <div class="product-card__footer">
               <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>85,000</div><div class="product-card__finance">from AED 1,250/mo</div></div>
-              <button class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></button>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -523,7 +523,7 @@ a{text-decoration:none;}
             <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2022</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 2,100 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
             <div class="product-card__footer">
               <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>520,000</div><div class="product-card__finance">from AED 7,800/mo</div></div>
-              <button class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></button>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -542,7 +542,7 @@ a{text-decoration:none;}
             <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 92,000 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Bahrain</span></div>
             <div class="product-card__footer">
               <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>380,000</div><div class="product-card__finance">from AED 5,600/mo</div></div>
-              <button class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></button>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -561,7 +561,7 @@ a{text-decoration:none;}
             <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2020</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 5,600 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Qatar</span></div>
             <div class="product-card__footer">
               <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>62,000</div><div class="product-card__finance">from AED 920/mo</div></div>
-              <button class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></button>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -585,7 +585,7 @@ a{text-decoration:none;}
             <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2022</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 1,800 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> KSA</span></div>
             <div class="product-card__footer">
               <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>310,000</div><div class="product-card__finance">from AED 4,600/mo</div></div>
-              <button class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></button>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -677,13 +677,17 @@ document.querySelector('.active-filters__clear')?.addEventListener('click', () =
   document.querySelectorAll('.active-filter-tag').forEach(t => t.remove());
 });
 
-// Video hover on product cards
+// Video hover on product cards + card click to detail page
 document.querySelectorAll('.product-card').forEach(card => {
   const video = card.querySelector('video');
   if (video) {
     card.addEventListener('mouseenter', () => { video.play().catch(()=>{}); });
     card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
   }
+  card.addEventListener('click', (e) => {
+    if (e.target.closest('.product-card__fav') || e.target.closest('.product-card__cta')) return;
+    window.location.href = 'product-detail.html';
+  });
 });
 
 // View toggle

@@ -246,13 +246,13 @@ body {
    ═══════════════════════════════════════════════════════ */
 
 .utility-bar {
-  background: var(--brand-navy-dark);
-  color: rgba(255,255,255,0.75);
+  background: #F8F9FA;
+  color: var(--text-secondary);
   font-size: 12.5px;
   font-weight: 400;
   padding: 8px 0;
   letter-spacing: 0.02em;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid var(--border);
 }
 
 .utility-bar .container {
@@ -272,39 +272,39 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: var(--text-on-dark-muted);
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.2s;
 }
-.utility-bar__item:hover { color: #fff; }
+.utility-bar__item:hover { color: var(--text-primary); }
 
 .utility-bar__divider {
   width: 1px;
   height: 14px;
-  background: var(--border-dark);
+  background: var(--border);
 }
 
 .utility-bar svg {
   width: 14px;
   height: 14px;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .lang-toggle {
   display: flex;
   align-items: center;
   gap: 4px;
-  background: rgba(255,255,255,0.06);
+  background: rgba(0,0,0,0.04);
   padding: 4px 10px;
   border-radius: 4px;
-  color: var(--text-on-dark-muted);
+  color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s;
 }
 .lang-toggle:hover {
-  background: rgba(255,255,255,0.1);
-  color: #fff;
+  background: rgba(0,0,0,0.07);
+  color: var(--text-primary);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -2500,7 +2500,7 @@ body {
 <div class="utility-bar">
   <div class="container">
     <div class="utility-bar__left">
-      <a href="#" class="utility-bar__item" style="opacity:1;color:#fff;">
+      <a href="#" class="utility-bar__item" style="opacity:1;color:var(--text-primary);font-weight:600;">
         <span>🇦🇪 UAE AED</span>
       </a>
       <div class="utility-bar__divider"></div>
@@ -2516,7 +2516,7 @@ body {
         <span>🇧🇭 Bahrain BHD</span>
       </a>
       <div class="utility-bar__divider"></div>
-      <span class="utility-bar__item" style="color:#8BC4F6;font-weight:600;">Free 150-point inspection report with every listing — FAMCO Approved</span>
+      <span class="utility-bar__item" style="color:var(--brand-navy);font-weight:600;">Free 150-point inspection report with every listing — FAMCO Approved</span>
     </div>
     <div class="utility-bar__right">
       <a href="tel:+97142345678" class="utility-bar__item">
@@ -2573,7 +2573,7 @@ body {
 <nav class="sub-nav">
   <div class="container" style="display:flex;gap:0;padding:0 80px;">
     <a href="#" class="sub-nav__link active">Home</a>
-    <a href="#" class="sub-nav__link">Browse Equipment</a>
+    <a href="listing.html" class="sub-nav__link">Browse Equipment</a>
     <a href="#" class="sub-nav__link">Sell Your Equipment</a>
     <a href="#" class="sub-nav__link">FAMCO Approved Process</a>
     <a href="#" class="sub-nav__link">Finance</a>
@@ -2597,7 +2597,7 @@ body {
       </h1>
 
       <div class="hero__actions" style="justify-content:center;">
-        <a href="#" class="btn btn--primary">
+        <a href="listing.html" class="btn btn--primary">
           Browse Equipment <i class="fi fi-rr-arrow-right" style="font-size:14px;"></i>
         </a>
         <a href="#" class="btn btn--secondary">Sell Your Vehicle <i class="fi fi-rr-arrow-right" style="font-size:14px;"></i></a>
@@ -2714,7 +2714,7 @@ body {
     </div>
     <!-- Category pills -->
     <div class="categories-scroll reveal reveal-delay-3">
-      <a href="#" class="cat-tile" style="border-color:var(--brand-navy);background:rgba(0,102,179,0.06);color:var(--brand-navy);">
+      <a href="listing.html" class="cat-tile" style="border-color:var(--brand-navy);background:rgba(0,102,179,0.06);color:var(--brand-navy);">
         <div class="cat-tile__icon" style="background:rgba(0,102,179,0.1);color:var(--brand-navy);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
         </div>
@@ -2781,28 +2781,28 @@ body {
     <!-- Equipment grid — 2 rows x 4 columns -->
     <div style="height:24px;"></div>
     <div class="equip-grid">
-      <!-- Row 1, Card 1 — Volvo FH500 Globetrotter -->
+      <!-- Row 1, Card 1 — 2022 Volvo EC220E Crawler Excavator -->
       <div class="equip-card reveal">
         <div class="equip-card__img">
-          <img src="Volvo FH500 Globetrotter.jpg" alt="Volvo FH500 Globetrotter" loading="lazy">
-          <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
+          <img src="ChatGPT Image Apr 13, 2026, 06_40_48 PM.png" alt="Volvo EC220E Crawler Excavator" loading="lazy">
+          <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.4s var(--ease);" src="ChatGPT Image Apr 13, 2026, 06_39_56 PM.png" alt="Volvo EC220E Side View" loading="lazy">
           <div class="equip-card__img-overlay"></div>
           <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
           <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
         </div>
         <div class="equip-card__body">
-          <h3 class="equip-card__name">Volvo FH500 Globetrotter</h3>
+          <h3 class="equip-card__name">2022 Volvo EC220E Crawler Excavator</h3>
           <div class="equip-card__meta">
             <span><i class="fi fi-rr-calendar"></i> 2022</span><span class="meta-sep">•</span>
-            <span><i class="fi fi-rr-dashboard"></i> 45,200 km</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-dashboard"></i> 2,100 hrs</span><span class="meta-sep">•</span>
             <span><i class="fi fi-rr-marker"></i> UAE</span>
           </div>
           <div class="equip-card__footer">
             <div>
               <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>285,000</div>
-              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 4,200/mo</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 20,000/mo</div>
             </div>
-            <button class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></button>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
@@ -2827,7 +2827,7 @@ body {
               <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>220,000</div>
               <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 3,100/mo</div>
             </div>
-            <button class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></button>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
@@ -2852,7 +2852,7 @@ body {
               <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>485,000</div>
               <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 7,200/mo</div>
             </div>
-            <button class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></button>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
@@ -2877,7 +2877,7 @@ body {
               <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>195,000</div>
               <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 2,800/mo</div>
             </div>
-            <button class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></button>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
@@ -2902,7 +2902,7 @@ body {
               <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>85,000</div>
               <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 1,250/mo</div>
             </div>
-            <button class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></button>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
@@ -2927,7 +2927,7 @@ body {
               <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>520,000</div>
               <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 7,800/mo</div>
             </div>
-            <button class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></button>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
@@ -2952,7 +2952,7 @@ body {
               <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>380,000</div>
               <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 5,600/mo</div>
             </div>
-            <button class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></button>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
@@ -2977,7 +2977,7 @@ body {
               <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>62,000</div>
               <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 920/mo</div>
             </div>
-            <button class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></button>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
@@ -3204,7 +3204,7 @@ body {
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:32px;">
           <div style="display:flex;align-items:center;gap:10px;padding:14px 16px;background:#fff;border-radius:10px;border:1px solid var(--border);">
             <div style="width:36px;height:36px;border-radius:8px;background:rgba(37,211,102,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <i class="fi fi-rr-phone-call" style="font-size:15px;color:#25D366;"></i>
+              <i class="fi fi-rr-phone-call" style="font-size:15px;color:#25D366;display:flex;"></i>
             </div>
             <div>
               <div style="font-size:11px;color:var(--text-muted);font-weight:500;">WhatsApp</div>
@@ -3213,7 +3213,7 @@ body {
           </div>
           <div style="display:flex;align-items:center;gap:10px;padding:14px 16px;background:#fff;border-radius:10px;border:1px solid var(--border);">
             <div style="width:36px;height:36px;border-radius:8px;background:rgba(0,102,179,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <i class="fi fi-rr-phone-flip" style="font-size:15px;color:var(--brand-navy);"></i>
+              <i class="fi fi-rr-phone-flip" style="font-size:15px;color:var(--brand-navy);display:flex;"></i>
             </div>
             <div>
               <div style="font-size:11px;color:var(--text-muted);font-weight:500;">Call Us</div>
@@ -3222,7 +3222,7 @@ body {
           </div>
           <div style="display:flex;align-items:center;gap:10px;padding:14px 16px;background:#fff;border-radius:10px;border:1px solid var(--border);">
             <div style="width:36px;height:36px;border-radius:8px;background:rgba(0,102,179,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <i class="fi fi-rr-envelope" style="font-size:15px;color:var(--brand-navy);"></i>
+              <i class="fi fi-rr-envelope" style="font-size:15px;color:var(--brand-navy);display:flex;"></i>
             </div>
             <div>
               <div style="font-size:11px;color:var(--text-muted);font-weight:500;">Email</div>
@@ -3231,7 +3231,7 @@ body {
           </div>
           <div style="display:flex;align-items:center;gap:10px;padding:14px 16px;background:#fff;border-radius:10px;border:1px solid var(--border);">
             <div style="width:36px;height:36px;border-radius:8px;background:rgba(0,102,179,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <i class="fi fi-rr-clock" style="font-size:15px;color:var(--brand-navy);"></i>
+              <i class="fi fi-rr-clock" style="font-size:15px;color:var(--brand-navy);display:flex;"></i>
             </div>
             <div>
               <div style="font-size:11px;color:var(--text-muted);font-weight:500;">Working Hours</div>
@@ -3382,7 +3382,7 @@ body {
     </div>
     <!-- Right CTAs -->
     <div style="display:flex;gap:14px;flex-shrink:0;">
-      <a href="#" class="btn btn--primary" style="background:#FFD100;color:#1A2F4A;">
+      <a href="listing.html" class="btn btn--primary" style="background:#FFD100;color:#1A2F4A;">
         <i class="fi fi-rr-search" style="font-size:14px;"></i> Browse Equipment
       </a>
       <a href="#" style="display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:#fff;color:var(--brand-navy);border-radius:var(--radius-sm);font-weight:800;font-size:15px;text-decoration:none;font-family:var(--font-body);transition:all 0.3s;">
@@ -3410,7 +3410,7 @@ body {
       <div class="footer-col">
         <h4 class="footer-col__title">Marketplace</h4>
         <ul class="footer-col__links">
-          <li><a href="#">Browse Equipment</a></li>
+          <li><a href="listing.html">Browse Equipment</a></li>
           <li><a href="#">Sell Your Vehicle</a></li>
           <li><a href="#">FAMCO Approved Process</a></li>
           <li><a href="#">Compare Vehicles</a></li>
@@ -3507,7 +3507,7 @@ document.querySelectorAll('.faq-question').forEach(button => {
   });
 });
 
-// ── Video Hover on Equipment Cards ──
+// ── Video Hover + Click on Equipment Cards ──
 document.querySelectorAll('.equip-card').forEach(card => {
   const video = card.querySelector('video');
   if (video) {
@@ -3519,6 +3519,10 @@ document.querySelectorAll('.equip-card').forEach(card => {
       video.currentTime = 0;
     });
   }
+  card.addEventListener('click', (e) => {
+    if (e.target.closest('.fav-btn') || e.target.closest('.btn-view')) return;
+    window.location.href = 'product-detail.html';
+  });
 });
 
 // ── Smooth Category Scroll ──
