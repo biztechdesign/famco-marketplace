@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volvo EC220E Crawler Excavator — FAMCO Approved Marketplace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg-primary:#FFFFFF;--bg-warm:#F4F8FD;--bg-white:#FFFFFF;
+  --graphite:#0D1F35;--charcoal:#152A42;
+  --brand-navy:#0066B3;--brand-navy-light:#0078D4;--brand-navy-dark:#00457A;
+  --success:#16A34A;--success-light:#ECFDF5;--error:#DC2626;--warning:#F59E0B;
+  --text-primary:#1A2F4A;--text-secondary:#5C6B7A;--text-muted:#9BA8B5;
+  --text-on-dark:#E8F0FA;--text-on-dark-muted:#8A9AB0;
+  --border:#E2E8F0;--border-light:#EDF1F7;--border-dark:#1E3450;
+  --whatsapp:#25D366;
+  --container:1440px;--radius:12px;--radius-sm:8px;--radius-xs:6px;
+  --font-display:'Outfit',sans-serif;--font-body:'DM Sans',sans-serif;
+  --ease:cubic-bezier(0.25,0.46,0.45,0.94);--duration:0.3s;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+body{font-family:var(--font-body);background:var(--bg-warm);color:var(--text-primary);line-height:1.6;}
+::selection{background:var(--brand-navy);color:#fff;}
+.container{max-width:var(--container);margin:0 auto;padding:0 80px;}
+a{text-decoration:none;color:inherit;}
+
+/* ═══ UTILITY BAR ═══ */
+.utility-bar{background:var(--brand-navy-dark);color:rgba(255,255,255,0.75);font-size:12.5px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.utility-bar .container{display:flex;justify-content:space-between;align-items:center;}
+.utility-bar__left,.utility-bar__right{display:flex;align-items:center;gap:20px;}
+.utility-bar__item{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.6);font-size:12.5px;transition:color 0.2s;}
+.utility-bar__item:hover{color:#fff;}
+.utility-bar__divider{width:1px;height:14px;background:rgba(255,255,255,0.12);}
+.utility-bar svg{width:14px;height:14px;opacity:0.7;}
+.lang-toggle{display:flex;align-items:center;gap:4px;background:rgba(255,255,255,0.06);padding:4px 10px;border-radius:4px;color:rgba(255,255,255,0.6);font-weight:500;font-size:12.5px;}
+
+/* ═══ MAIN NAV ═══ */
+.main-nav{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border-light);box-shadow:0 1px 8px rgba(0,0,0,0.04);}
+.main-nav .container{display:flex;align-items:center;height:72px;gap:28px;}
+.nav-logo__img{height:40px;width:auto;}
+.nav-search{flex:1;display:flex;align-items:center;height:44px;border:1.5px solid var(--border);border-radius:9px;overflow:hidden;}
+.nav-search:focus-within{border-color:var(--brand-navy);}
+.nav-search__cat{padding:0 14px;height:100%;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text-primary);background:var(--bg-warm);border-right:1.5px solid var(--border);white-space:nowrap;cursor:pointer;}
+.nav-search__cat svg{width:12px;height:12px;}
+.nav-search__input{flex:1;border:none;outline:none;padding:0 16px;font-size:13.5px;color:var(--text-secondary);font-family:var(--font-body);background:#fff;}
+.nav-search__input::placeholder{color:var(--text-muted);}
+.nav-search__btn{width:46px;height:100%;background:var(--brand-navy);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.nav-search__btn svg{width:18px;height:18px;}
+.nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.nav-icon-btn{width:42px;height:42px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;background:#fff;color:var(--text-secondary);transition:all 0.2s;}
+.nav-icon-btn:hover{border-color:var(--brand-navy);color:var(--brand-navy);}
+.nav-icon-btn svg{width:19px;height:19px;}
+.nav-icon-btn__badge{position:absolute;top:-6px;right:-6px;background:var(--brand-navy);color:#fff;width:18px;height:18px;border-radius:50%;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.btn-login{padding:10px 20px;border:1.5px solid var(--brand-navy);border-radius:8px;background:transparent;color:var(--brand-navy);font-size:13px;font-weight:600;font-family:var(--font-body);}
+.btn-register{padding:10px 22px;border:none;border-radius:8px;background:var(--brand-navy);color:#fff;font-size:13px;font-weight:600;font-family:var(--font-body);}
+
+/* ═══ SUB NAV ═══ */
+.sub-nav{background:#fff;border-bottom:1px solid var(--border);}
+.sub-nav__link{color:var(--text-secondary);font-size:13.5px;font-weight:500;padding:13px 18px;border-bottom:2.5px solid transparent;white-space:nowrap;display:block;transition:all 0.15s;}
+.sub-nav__link.active{color:var(--brand-navy);border-bottom-color:var(--brand-navy);font-weight:700;}
+.sub-nav__link:not(.active):hover{color:var(--text-primary);}
+
+/* ═══ BREADCRUMB ═══ */
+.breadcrumb{padding:16px 0;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);transition:color 0.2s;}
+.breadcrumb a:hover{color:var(--brand-navy);}
+.breadcrumb__sep i{font-size:9px;}
+.breadcrumb__current{color:var(--text-primary);font-weight:600;}
+
+/* ═══ PRODUCT DETAIL LAYOUT ═══ */
+.pdp-layout{display:grid;grid-template-columns:1fr 420px;gap:32px;padding-bottom:32px;}
+.pdp-right{display:flex;flex-direction:column;gap:0;}
+
+/* ═══ GALLERY ═══ */
+.gallery{position:sticky;top:130px;align-self:flex-start;}
+.gallery__main{position:relative;border-radius:var(--radius);overflow:hidden;background:#fff;border:1px solid var(--border);aspect-ratio:4/3;margin-bottom:12px;}
+.gallery__main img,.gallery__main video{width:100%;height:100%;object-fit:contain;background:#fff;}
+.gallery__badge{position:absolute;top:14px;left:14px;display:flex;gap:6px;}
+.gallery__badge span{font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:5px 10px;border-radius:4px;display:flex;align-items:center;gap:4px;line-height:1;}
+.gallery__badge--approved{background:var(--success);color:#fff;}
+.gallery__badge--featured{background:#FFD100;color:#1A2F4A;}
+.gallery__fav{position:absolute;top:14px;right:14px;width:40px;height:40px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);cursor:pointer;transition:all 0.2s;}
+.gallery__fav:hover{background:var(--error);color:#fff;}
+.gallery__fav i{font-size:16px;color:var(--text-muted);display:flex;}
+.gallery__fav:hover i{color:#fff;}
+.gallery__3d-btn{position:absolute;bottom:14px;right:14px;padding:8px 14px;background:rgba(0,0,0,0.7);color:#fff;border-radius:6px;font-size:11px;font-weight:700;display:flex;align-items:center;gap:6px;cursor:pointer;backdrop-filter:blur(4px);}
+.gallery__3d-btn i{font-size:14px;display:flex;}
+.gallery__thumbs{display:flex;gap:8px;}
+.gallery__thumb{width:80px;height:60px;border-radius:var(--radius-xs);overflow:hidden;border:2px solid var(--border);cursor:pointer;transition:all 0.2s;background:#fff;}
+.gallery__thumb:hover,.gallery__thumb.active{border-color:var(--brand-navy);}
+.gallery__thumb img{width:100%;height:100%;object-fit:cover;}
+.gallery__thumb--video{position:relative;}
+.gallery__thumb--video::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;}
+.gallery__thumb--video i{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:16px;z-index:1;}
+
+/* ═══ PRODUCT INFO ═══ */
+.pdp-info{display:flex;flex-direction:column;gap:0;}
+.pdp-info__header{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:16px;}
+.pdp-info__status{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.pdp-info__approved{display:inline-flex;align-items:center;gap:5px;background:var(--success-light);color:var(--success);padding:5px 12px;border-radius:4px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;}
+.pdp-info__approved i{font-size:12px;display:flex;}
+.pdp-info__id{font-size:12px;color:var(--text-muted);}
+.pdp-info__title{font-family:var(--font-display);font-weight:900;font-size:26px;color:var(--text-primary);line-height:1.2;margin-bottom:10px;}
+.pdp-info__meta{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted);margin-bottom:20px;}
+.pdp-info__meta i{font-size:13px;display:flex;}
+.pdp-info__meta .sep{color:var(--border);}
+.pdp-info__price-row{display:flex;align-items:flex-end;gap:16px;padding-top:18px;border-top:1px solid var(--border-light);}
+.pdp-info__price{font-family:var(--font-display);font-weight:900;font-size:34px;color:var(--text-primary);line-height:1;}
+.pdp-info__price-currency{font-size:16px;font-weight:600;color:var(--text-muted);}
+.pdp-info__finance{font-size:13px;color:var(--brand-navy);font-weight:600;display:flex;align-items:center;gap:4px;}
+.pdp-info__finance i{font-size:13px;display:flex;}
+
+/* CTA Box */
+.pdp-cta{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;}
+.pdp-cta__actions{display:flex;flex-direction:column;gap:10px;}
+.pdp-cta__btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:var(--radius-sm);font-size:15px;font-weight:800;cursor:pointer;font-family:var(--font-body);border:none;transition:all 0.2s;width:100%;}
+.pdp-cta__btn i{font-size:16px;display:flex;}
+.pdp-cta__btn--primary{background:var(--brand-navy);color:#fff;}
+.pdp-cta__btn--primary:hover{background:var(--brand-navy-dark);}
+.pdp-cta__btn--whatsapp{background:var(--whatsapp);color:#fff;}
+.pdp-cta__btn--whatsapp:hover{background:#1DA851;}
+.pdp-cta__btn--outline{background:transparent;color:var(--text-primary);border:1.5px solid var(--border);}
+.pdp-cta__btn--outline:hover{border-color:var(--brand-navy);color:var(--brand-navy);}
+.pdp-cta__row{display:flex;gap:10px;}
+.pdp-cta__row .pdp-cta__btn{flex:1;}
+.pdp-cta__trust{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border-light);}
+.pdp-cta__trust-item{display:flex;align-items:center;gap:5px;font-size:11.5px;color:var(--text-muted);font-weight:500;}
+.pdp-cta__trust-item i{font-size:13px;color:var(--success);display:flex;}
+
+/* Specs Card */
+.pdp-specs{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;}
+.pdp-specs__title{font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--text-primary);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.pdp-specs__title i{font-size:16px;color:var(--brand-navy);display:flex;}
+.pdp-specs__grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.pdp-specs__item{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--border-light);}
+.pdp-specs__item:nth-last-child(-n+2){border-bottom:none;}
+.pdp-specs__label{font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:6px;}
+.pdp-specs__label i{font-size:13px;display:flex;}
+.pdp-specs__value{font-size:13px;font-weight:700;color:var(--text-primary);text-align:right;}
+
+/* Seller Card */
+.pdp-seller{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;}
+.pdp-seller__header{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
+.pdp-seller__avatar{width:48px;height:48px;border-radius:50%;background:var(--brand-navy);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-weight:800;font-size:18px;}
+.pdp-seller__info h4{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--text-primary);}
+.pdp-seller__info p{font-size:12px;color:var(--text-muted);}
+.pdp-seller__rating{display:flex;align-items:center;gap:4px;margin-top:2px;}
+.pdp-seller__rating i{font-size:11px;color:var(--warning);display:flex;}
+.pdp-seller__rating span{font-size:12px;font-weight:700;color:var(--text-primary);}
+.pdp-seller__stats{display:flex;gap:16px;padding-top:14px;border-top:1px solid var(--border-light);}
+.pdp-seller__stat{flex:1;text-align:center;}
+.pdp-seller__stat-num{font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--text-primary);}
+.pdp-seller__stat-label{font-size:11px;color:var(--text-muted);}
+
+/* ═══ DESCRIPTION / TABS ═══ */
+.pdp-details{margin-top:0;}
+.pdp-tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:24px;}
+.pdp-tab{padding:14px 24px;font-size:14px;font-weight:600;color:var(--text-muted);cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-2px;transition:all 0.2s;}
+.pdp-tab.active{color:var(--brand-navy);border-bottom-color:var(--brand-navy);}
+.pdp-tab:hover:not(.active){color:var(--text-primary);}
+.pdp-tab i{margin-right:6px;font-size:14px;display:inline-flex;vertical-align:middle;}
+.pdp-tab-content{display:none;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:32px;}
+.pdp-tab-content.active{display:block;}
+.pdp-tab-content h3{font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--text-primary);margin-bottom:12px;}
+.pdp-tab-content p{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;}
+.pdp-tab-content ul{list-style:none;margin-bottom:16px;}
+.pdp-tab-content li{display:flex;align-items:flex-start;gap:8px;padding:8px 0;font-size:14px;color:var(--text-secondary);border-bottom:1px solid var(--border-light);}
+.pdp-tab-content li:last-child{border-bottom:none;}
+.pdp-tab-content li i{color:var(--success);font-size:14px;display:flex;margin-top:3px;flex-shrink:0;}
+
+/* Inspection report */
+.inspection-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px;}
+.inspection-item{background:var(--bg-warm);border-radius:var(--radius-sm);padding:16px;text-align:center;}
+.inspection-item__icon{width:40px;height:40px;margin:0 auto 10px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.inspection-item__icon--pass{background:var(--success-light);color:var(--success);}
+.inspection-item__icon--warn{background:#FEF3C7;color:var(--warning);}
+.inspection-item__icon i{font-size:18px;display:flex;}
+.inspection-item__label{font-size:12px;font-weight:700;color:var(--text-primary);}
+.inspection-item__status{font-size:11px;font-weight:600;margin-top:4px;}
+.inspection-item__status--pass{color:var(--success);}
+.inspection-item__status--good{color:var(--warning);}
+
+/* ═══ SIMILAR PRODUCTS ═══ */
+.similar-section{margin-top:0;}
+.similar-section h2{font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--text-primary);margin-bottom:20px;}
+.similar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.sim-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all var(--duration) var(--ease);cursor:pointer;}
+.sim-card:hover{border-color:var(--brand-navy);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,102,179,0.08);}
+.sim-card__img{aspect-ratio:16/10;overflow:hidden;background:var(--bg-warm);}
+.sim-card__img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;}
+.sim-card:hover .sim-card__img img{transform:scale(1.04);}
+.sim-card__body{padding:14px 16px;}
+.sim-card__name{font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--text-primary);margin-bottom:6px;}
+.sim-card__meta{font-size:11.5px;color:var(--text-muted);margin-bottom:10px;}
+.sim-card__price{font-family:var(--font-display);font-weight:900;font-size:16px;color:var(--text-primary);}
+.sim-card__price span{font-size:11px;font-weight:500;color:var(--text-muted);}
+
+/* ═══ PRODUCT CARDS (for similar vehicles) ═══ */
+.product-grid{display:grid;gap:20px;}
+.product-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all 0.3s var(--ease);cursor:pointer;}
+.product-card:hover{border-color:var(--brand-navy);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,102,179,0.08);}
+.product-card__img{position:relative;aspect-ratio:16/10;background:var(--bg-warm);overflow:hidden;}
+.product-card__img img.primary{width:100%;height:100%;object-fit:cover;transition:transform 0.4s var(--ease);}
+.product-card:hover .product-card__img img.primary{transform:scale(1.04);}
+.product-card__badges{position:absolute;top:10px;left:10px;display:flex;gap:6px;}
+.product-card__badge{font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:4px 9px;border-radius:4px;display:flex;align-items:center;gap:4px;line-height:1;}
+.product-card__badge--approved{background:var(--success);color:#fff;}
+.product-card__fav{position:absolute;top:10px;right:10px;width:32px;height:32px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);cursor:pointer;transition:all 0.2s;}
+.product-card__fav:hover{background:var(--error);}
+.product-card__fav i{font-size:13px;color:var(--text-muted);display:flex;}
+.product-card__fav:hover i{color:#fff;}
+.product-card__body{padding:16px 18px 18px;}
+.product-card__name{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:8px;line-height:1.3;}
+.product-card__meta{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);margin-bottom:14px;}
+.product-card__meta span{display:flex;align-items:center;gap:4px;white-space:nowrap;}
+.product-card__meta i{font-size:12px;display:flex;}
+.product-card__meta .sep{color:var(--border);font-size:10px;}
+.product-card__footer{padding-top:14px;border-top:1px solid var(--border-light);}
+.product-card__cta{padding:10px 16px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12.5px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;width:100%;}
+.product-card__cta:hover{background:var(--brand-navy-dark);}
+.product-card__cta i{font-size:11px;display:flex;}
+
+/* ═══ FOOTER ═══ */
+.footer{background:#fff;padding:56px 0 0;border-top:1px solid var(--border);}
+.footer-main{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:40px;border-bottom:1px solid var(--border);}
+.footer-brand__logo-img{height:34px;width:auto;}
+.footer-brand__desc{font-size:13px;color:var(--text-secondary);line-height:1.75;margin:16px 0 20px;max-width:270px;}
+.footer-col__title{font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--text-primary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:18px;}
+.footer-col__links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col__links a{font-size:13px;color:var(--text-secondary);transition:color 0.2s;}
+.footer-col__links a:hover{color:var(--brand-navy);}
+.footer-bottom{padding:20px 0;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-muted);}
+.footer-bottom a{color:var(--text-muted);margin-left:20px;}
+
+/* WhatsApp Float */
+.whatsapp-float{position:fixed;bottom:32px;right:32px;z-index:9999;width:56px;height:56px;background:var(--whatsapp);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 6px 24px rgba(37,211,102,0.35);transition:all 0.3s;}
+.whatsapp-float:hover{transform:translateY(-3px) scale(1.05);}
+.whatsapp-float svg{width:28px;height:28px;}
+@keyframes live-blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+</style>
+</head>
+<body>
+
+<!-- ═══ UTILITY BAR ═══ -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-bar__left">
+      <a href="#" class="utility-bar__item" style="opacity:1;color:#fff;"><span>🇦🇪 UAE AED</span></a>
+      <div class="utility-bar__divider"></div><a href="#" class="utility-bar__item"><span>🇸🇦 KSA SAR</span></a>
+      <div class="utility-bar__divider"></div><a href="#" class="utility-bar__item"><span>🇶🇦 Qatar QAR</span></a>
+      <div class="utility-bar__divider"></div><a href="#" class="utility-bar__item"><span>🇧🇭 Bahrain BHD</span></a>
+      <div class="utility-bar__divider"></div>
+      <span class="utility-bar__item" style="color:#8BC4F6;font-weight:600;">Free 150-point inspection report with every listing</span>
+    </div>
+    <div class="utility-bar__right">
+      <a href="tel:+97142345678" class="utility-bar__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+971 4 234 5678</span></a>
+      <div class="utility-bar__divider"></div>
+      <a href="#" class="lang-toggle"><span>عربي</span><span>/</span><span>EN</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MAIN NAV ═══ -->
+<nav class="main-nav">
+  <div class="container">
+    <a href="famco-homepage.html" class="nav-logo"><img src="HeaderLogoIcon.png" alt="FAMCO" class="nav-logo__img"></a>
+    <div class="nav-search">
+      <div class="nav-search__cat">All Categories <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+      <input class="nav-search__input" type="text" placeholder="Search brand, model, category, or location…">
+      <button class="nav-search__btn"><svg fill="none" stroke="white" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+    </div>
+    <div class="nav-actions">
+      <a href="#" class="nav-icon-btn" title="Wishlist"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><div class="nav-icon-btn__badge">1</div></a>
+      <a href="#" class="btn-login">Login</a>
+      <a href="#" class="btn-register">Register</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ SUB NAV ═══ -->
+<nav class="sub-nav">
+  <div class="container" style="display:flex;gap:0;padding:0 80px;">
+    <a href="famco-homepage.html" class="sub-nav__link">Home</a>
+    <a href="listing.html" class="sub-nav__link active">Browse Equipment</a>
+    <a href="#" class="sub-nav__link">Sell Your Equipment</a>
+    <a href="#" class="sub-nav__link">FAMCO Approved Process</a>
+    <a href="#" class="sub-nav__link">Finance</a>
+    <a href="#" class="sub-nav__link">About Us</a>
+    <a href="#" class="sub-nav__link">Contact</a>
+  </div>
+</nav>
+
+<!-- ═══ PAGE CONTENT ═══ -->
+<div class="container">
+  <div class="breadcrumb">
+    <a href="famco-homepage.html"><i class="fi fi-rr-home" style="font-size:12px;display:flex;"></i></a>
+    <span class="breadcrumb__sep"><i class="fi fi-rr-angle-right"></i></span>
+    <a href="listing.html">Browse Equipment</a>
+    <span class="breadcrumb__sep"><i class="fi fi-rr-angle-right"></i></span>
+    <a href="listing.html">Construction</a>
+    <span class="breadcrumb__sep"><i class="fi fi-rr-angle-right"></i></span>
+    <span class="breadcrumb__current">Volvo EC220E Crawler Excavator</span>
+  </div>
+
+  <div class="pdp-layout">
+    <!-- ═══ LEFT — GALLERY ═══ -->
+    <div class="gallery">
+      <div class="gallery__main" id="mainGallery">
+        <img src="Volvo EC220E Crawler.jpg" alt="Volvo FH500 Globetrotter" id="mainImage">
+        <div class="gallery__badge">
+          <span class="gallery__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:10px;display:flex;"></i> FAMCO Approved</span>
+        </div>
+        <div class="gallery__fav"><i class="fi fi-rr-heart"></i></div>
+        <div class="gallery__3d-btn"><i class="fi fi-rr-cube"></i> 360° View</div>
+      </div>
+      <div class="gallery__thumbs">
+        <div class="gallery__thumb active" onclick="changeImage('Volvo EC220E Crawler.jpg',this)"><img src="Volvo EC220E Crawler.jpg" alt="Front"></div>
+        <div class="gallery__thumb" onclick="changeImage('white volvo.png',this)"><img src="white volvo.png" alt="Side"></div>
+        <div class="gallery__thumb" onclick="changeImage('volvo yellow.png',this)"><img src="volvo yellow.png" alt="Rear"></div>
+        <div class="gallery__thumb" onclick="changeImage('Volvo FM460.jpg',this)"><img src="Volvo FM460.jpg" alt="Interior"></div>
+        <div class="gallery__thumb" onclick="changeImage('high quality image.png',this)"><img src="high quality image.png" alt="Engine"></div>
+        <div class="gallery__thumb gallery__thumb--video" onclick="playVideo()"><img src="Volvo EC220E Crawler.jpg" alt="Video"><i class="fi fi-rr-play"></i></div>
+      </div>
+    </div>
+
+
+    <!-- ═══ RIGHT — PRODUCT INFO (sticky sidebar) ═══ -->
+    <div class="pdp-right">
+      <!-- Header -->
+      <div class="pdp-info__header">
+        <div class="pdp-info__status">
+          <span class="pdp-info__approved"><i class="fi fi-rr-badge-check"></i> FAMCO Approved</span>
+          <span class="pdp-info__id">ID: FMC-2022-VH-0847</span>
+        </div>
+        <h1 class="pdp-info__title">2022 Volvo EC220E Crawler Excavator</h1>
+        <div class="pdp-info__price-row" id="priceRow" style="display:none;">
+          <div class="pdp-info__price"><span class="pdp-info__price-currency">AED </span>285,000</div>
+          <div class="pdp-info__finance"><i class="fi fi-rr-calculator"></i> Finance from AED 4,200/mo</div>
+        </div>
+      </div>
+
+      <!-- CTA Box -->
+      <div class="pdp-cta">
+        <div class="pdp-cta__actions">
+          <button class="pdp-cta__btn pdp-cta__btn--primary" onclick="document.getElementById('priceRow').style.display='flex';document.getElementById('priceHidden').style.display='none';"><i class="fi fi-rr-shopping-cart"></i> Buy Now — Show Price</button>
+          <button class="pdp-cta__btn pdp-cta__btn--outline"><i class="fi fi-rr-envelope"></i> Submit Inquiry</button>
+          <button class="pdp-cta__btn pdp-cta__btn--outline"><i class="fi fi-rr-calculator"></i> Get Finance</button>
+        </div>
+      </div>
+
+      <!-- Live Video Inspection -->
+      <div style="background:linear-gradient(135deg,#0D1F35 0%,#00457A 100%);border-radius:var(--radius);padding:0;margin-bottom:16px;overflow:hidden;position:relative;">
+        <!-- Subtle pattern -->
+        <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,0.03) 1px,transparent 0);background-size:20px 20px;pointer-events:none;"></div>
+        <!-- Top banner with icon -->
+        <div style="position:relative;z-index:1;padding:24px 24px 20px;">
+          <div style="display:flex;align-items:flex-start;gap:16px;">
+            <!-- Large video icon -->
+            <div style="width:64px;height:64px;border-radius:16px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;">
+              <i class="fi fi-rr-video-camera-alt" style="font-size:28px;color:#fff;display:flex;"></i>
+              <!-- Live dot -->
+              <div style="position:absolute;top:-3px;right:-3px;width:14px;height:14px;border-radius:50%;background:#DC2626;border:2px solid #0D1F35;animation:live-blink 1.5s infinite;"></div>
+            </div>
+            <div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                <span style="font-family:var(--font-display);font-weight:800;font-size:17px;color:#fff;">Live Video Inspection</span>
+                <span style="padding:3px 8px;background:rgba(220,38,38,0.2);border:1px solid rgba(220,38,38,0.3);border-radius:4px;font-size:10px;font-weight:800;color:#FCA5A5;text-transform:uppercase;letter-spacing:0.06em;">Live</span>
+              </div>
+              <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.5;">Get a real-time video walkthrough of this vehicle with our certified technician — inspect every detail before you buy.</p>
+            </div>
+          </div>
+        </div>
+        <!-- CTA area -->
+        <div style="position:relative;z-index:1;padding:0 24px 20px;">
+          <button class="pdp-cta__btn" style="width:100%;padding:14px;font-size:14px;background:#fff;color:var(--brand-navy);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;gap:8px;font-weight:800;cursor:pointer;border:none;font-family:var(--font-body);transition:all 0.2s;">
+            <i class="fi fi-rr-video-camera-alt" style="font-size:16px;display:flex;"></i> Schedule Live Inspection
+          </button>
+        </div>
+        <!-- Bottom info strip -->
+        <div style="position:relative;z-index:1;padding:12px 24px;background:rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:space-between;">
+          <span style="display:flex;align-items:center;gap:6px;font-size:11.5px;color:rgba(255,255,255,0.45);"><i class="fi fi-rr-clock" style="font-size:12px;display:flex;"></i> Sun–Thu, 9AM–5PM GST</span>
+          <span style="display:flex;align-items:center;gap:4px;font-size:11.5px;color:#4ade80;font-weight:700;"><i class="fi fi-rr-check-circle" style="font-size:11px;display:flex;"></i> Free Service</span>
+        </div>
+      </div>
+
+      <!-- Current Stock Status -->
+      <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:16px;">
+        <div class="pdp-specs__title"><i class="fi fi-rr-box-open"></i> Stock Availability</div>
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--success-light);border-radius:var(--radius-sm);margin-bottom:16px;">
+          <i class="fi fi-rr-check-circle" style="font-size:20px;color:var(--success);display:flex;flex-shrink:0;"></i>
+          <div>
+            <div style="font-size:15px;font-weight:800;color:var(--success);line-height:1.3;">In Stock — Available Now</div>
+            <div style="font-size:13px;color:var(--text-secondary);margin-top:2px;">Located at FAMCO Yard, Dubai</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+          <div style="padding:14px;background:var(--bg-warm);border-radius:var(--radius-sm);text-align:center;">
+            <div style="font-family:var(--font-display);font-weight:900;font-size:22px;color:var(--brand-navy);line-height:1;">3</div>
+            <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;font-weight:500;">Units Available</div>
+          </div>
+          <div style="padding:14px;background:var(--bg-warm);border-radius:var(--radius-sm);text-align:center;">
+            <div style="font-family:var(--font-display);font-weight:900;font-size:22px;color:var(--brand-navy);line-height:1;">12</div>
+            <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;font-weight:500;">People Viewing</div>
+          </div>
+          <div style="padding:14px;background:var(--bg-warm);border-radius:var(--radius-sm);text-align:center;">
+            <div style="font-family:var(--font-display);font-weight:900;font-size:22px;color:var(--warning);line-height:1;">5</div>
+            <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;font-weight:500;">Enquiries This Week</div>
+          </div>
+          <div style="padding:14px;background:var(--bg-warm);border-radius:var(--radius-sm);text-align:center;">
+            <div style="font-family:var(--font-display);font-weight:900;font-size:22px;color:var(--text-primary);line-height:1;">7d</div>
+            <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;font-weight:500;">Listed</div>
+          </div>
+        </div>
+        <div style="padding:12px 16px;background:#FEF3C7;border:1px solid #FDE68A;border-radius:var(--radius-sm);display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:#FBBF24;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="fi fi-rr-flame" style="font-size:14px;color:#92400E;display:flex;"></i>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:800;color:#92400E;">High Demand</div>
+            <div style="font-size:12px;color:#A16207;line-height:1.4;">This vehicle has received 5 enquiries this week</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seller -->
+      <div class="pdp-seller">
+        <div class="pdp-specs__title"><i class="fi fi-rr-user"></i> Seller Information</div>
+        <div class="pdp-seller__header">
+          <div class="pdp-seller__avatar">FA</div>
+          <div class="pdp-seller__info">
+            <h4>FAMCO Official — Dubai</h4>
+            <p>Verified Dealer · Member since 2020</p>
+            <div class="pdp-seller__rating">
+              <i class="fi fi-rr-star"></i><i class="fi fi-rr-star"></i><i class="fi fi-rr-star"></i><i class="fi fi-rr-star"></i><i class="fi fi-rr-star"></i>
+              <span>4.9</span><span style="color:var(--text-muted);font-weight:400;">(142 reviews)</span>
+            </div>
+          </div>
+        </div>
+        <div class="pdp-seller__stats">
+          <div class="pdp-seller__stat"><div class="pdp-seller__stat-num">86</div><div class="pdp-seller__stat-label">Active Listings</div></div>
+          <div class="pdp-seller__stat"><div class="pdp-seller__stat-num">98%</div><div class="pdp-seller__stat-label">Response Rate</div></div>
+          <div class="pdp-seller__stat"><div class="pdp-seller__stat-num">&lt;2h</div><div class="pdp-seller__stat-label">Response Time</div></div>
+        </div>
+      </div>
+    </div><!-- end pdp-right -->
+  </div><!-- end pdp-layout -->
+
+  <!-- ═══ TABS — Description / Inspection / Finance (full width below) ═══ -->
+  <div class="pdp-details" style="margin-bottom:32px;">
+      <div class="pdp-tabs">
+        <div class="pdp-tab active" data-tab="description"><i class="fi fi-rr-document"></i> Description</div>
+        <div class="pdp-tab" data-tab="inspection"><i class="fi fi-rr-shield-check"></i> Inspection Report</div>
+        <div class="pdp-tab" data-tab="finance"><i class="fi fi-rr-calculator"></i> Finance Options</div>
+        <div class="pdp-tab" data-tab="delivery"><i class="fi fi-rr-truck-side"></i> Delivery & Escrow</div>
+        <div class="pdp-tab" data-tab="warranty"><i class="fi fi-rr-shield"></i> Optional Warranties</div>
+      </div>
+
+      <!-- Description Tab -->
+      <div class="pdp-tab-content active" id="tab-description">
+        <!-- Vehicle Description -->
+        <h3>Vehicle Description</h3>
+        <p>This 2022 Volvo FH500 Globetrotter XL is a premium heavy-duty tractor unit configured as a 6×4 for maximum hauling capacity. Powered by the renowned D13K engine delivering 500 HP, paired with Volvo's I-Shift 12-speed automated transmission for effortless driving and fuel efficiency.</p>
+        <p>The Globetrotter XL cab offers best-in-class driver comfort with a full standing height interior, premium dashboard, leather steering wheel, dual bunks, climate control, and Volvo's integrated infotainment system. This vehicle has been meticulously maintained under FAMCO's certified service program.</p>
+
+        <!-- Key Specifications — Card Grid -->
+        <h3 style="margin-top:12px;">Key Specifications</h3>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:32px;">
+          <div style="background:var(--bg-warm);border-radius:10px;padding:18px 16px;text-align:center;">
+            <div style="width:40px;height:40px;margin:0 auto 10px;border-radius:10px;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;"><i class="fi fi-rr-truck-side" style="font-size:18px;color:var(--brand-navy);display:flex;"></i></div>
+            <div style="font-size:11px;color:var(--text-muted);font-weight:500;margin-bottom:3px;">Type</div>
+            <div style="font-size:14px;font-weight:800;color:var(--text-primary);">Tractor Unit</div>
+          </div>
+          <div style="background:var(--bg-warm);border-radius:10px;padding:18px 16px;text-align:center;">
+            <div style="width:40px;height:40px;margin:0 auto 10px;border-radius:10px;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;"><i class="fi fi-rr-calendar" style="font-size:18px;color:var(--brand-navy);display:flex;"></i></div>
+            <div style="font-size:11px;color:var(--text-muted);font-weight:500;margin-bottom:3px;">Year</div>
+            <div style="font-size:14px;font-weight:800;color:var(--text-primary);">2022</div>
+          </div>
+          <div style="background:var(--bg-warm);border-radius:10px;padding:18px 16px;text-align:center;">
+            <div style="width:40px;height:40px;margin:0 auto 10px;border-radius:10px;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;"><i class="fi fi-rr-dashboard" style="font-size:18px;color:var(--brand-navy);display:flex;"></i></div>
+            <div style="font-size:11px;color:var(--text-muted);font-weight:500;margin-bottom:3px;">Mileage</div>
+            <div style="font-size:14px;font-weight:800;color:var(--text-primary);">45,200 km</div>
+          </div>
+          <div style="background:var(--bg-warm);border-radius:10px;padding:18px 16px;text-align:center;">
+            <div style="width:40px;height:40px;margin:0 auto 10px;border-radius:10px;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;"><i class="fi fi-rr-bolt" style="font-size:18px;color:var(--brand-navy);display:flex;"></i></div>
+            <div style="font-size:11px;color:var(--text-muted);font-weight:500;margin-bottom:3px;">Engine</div>
+            <div style="font-size:14px;font-weight:800;color:var(--text-primary);">D13K 500 HP</div>
+          </div>
+          <div style="background:var(--bg-warm);border-radius:10px;padding:18px 16px;text-align:center;">
+            <div style="width:40px;height:40px;margin:0 auto 10px;border-radius:10px;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;"><i class="fi fi-rr-settings" style="font-size:18px;color:var(--brand-navy);display:flex;"></i></div>
+            <div style="font-size:11px;color:var(--text-muted);font-weight:500;margin-bottom:3px;">Transmission</div>
+            <div style="font-size:14px;font-weight:800;color:var(--text-primary);">I-Shift Auto 12</div>
+          </div>
+          <div style="background:var(--bg-warm);border-radius:10px;padding:18px 16px;text-align:center;">
+            <div style="width:40px;height:40px;margin:0 auto 10px;border-radius:10px;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;"><i class="fi fi-rr-ruler-combined" style="font-size:18px;color:var(--brand-navy);display:flex;"></i></div>
+            <div style="font-size:11px;color:var(--text-muted);font-weight:500;margin-bottom:3px;">Configuration</div>
+            <div style="font-size:14px;font-weight:800;color:var(--text-primary);">6×4</div>
+          </div>
+          <div style="background:var(--bg-warm);border-radius:10px;padding:18px 16px;text-align:center;">
+            <div style="width:40px;height:40px;margin:0 auto 10px;border-radius:10px;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;"><i class="fi fi-rr-gas-pump" style="font-size:18px;color:var(--brand-navy);display:flex;"></i></div>
+            <div style="font-size:11px;color:var(--text-muted);font-weight:500;margin-bottom:3px;">Fuel</div>
+            <div style="font-size:14px;font-weight:800;color:var(--text-primary);">Diesel</div>
+          </div>
+          <div style="background:var(--bg-warm);border-radius:10px;padding:18px 16px;text-align:center;">
+            <div style="width:40px;height:40px;margin:0 auto 10px;border-radius:10px;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;"><i class="fi fi-rr-palette" style="font-size:18px;color:var(--brand-navy);display:flex;"></i></div>
+            <div style="font-size:11px;color:var(--text-muted);font-weight:500;margin-bottom:3px;">Color</div>
+            <div style="font-size:14px;font-weight:800;color:var(--text-primary);">Silver</div>
+          </div>
+          <div style="background:var(--bg-warm);border-radius:10px;padding:18px 16px;text-align:center;">
+            <div style="width:40px;height:40px;margin:0 auto 10px;border-radius:10px;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;"><i class="fi fi-rr-marker" style="font-size:18px;color:var(--brand-navy);display:flex;"></i></div>
+            <div style="font-size:11px;color:var(--text-muted);font-weight:500;margin-bottom:3px;">Location</div>
+            <div style="font-size:14px;font-weight:800;color:var(--text-primary);">Dubai, UAE</div>
+          </div>
+          <div style="background:var(--success-light);border-radius:10px;padding:18px 16px;text-align:center;">
+            <div style="width:40px;height:40px;margin:0 auto 10px;border-radius:10px;background:rgba(22,163,74,0.15);display:flex;align-items:center;justify-content:center;"><i class="fi fi-rr-badge-check" style="font-size:18px;color:var(--success);display:flex;"></i></div>
+            <div style="font-size:11px;color:var(--text-muted);font-weight:500;margin-bottom:3px;">Condition</div>
+            <div style="font-size:14px;font-weight:800;color:var(--success);">Excellent</div>
+          </div>
+        </div>
+
+        <!-- Key Features — Clean List with Icons -->
+        <h3>Key Features</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--border-light);">
+            <div style="width:32px;height:32px;border-radius:8px;background:var(--success-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fi fi-rr-engine" style="font-size:14px;color:var(--success);display:flex;"></i></div>
+            <span style="font-size:14px;color:var(--text-primary);font-weight:500;">Volvo D13K 500 HP Euro 5 Engine</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 0 14px 24px;border-bottom:1px solid var(--border-light);">
+            <div style="width:32px;height:32px;border-radius:8px;background:var(--success-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fi fi-rr-settings" style="font-size:14px;color:var(--success);display:flex;"></i></div>
+            <span style="font-size:14px;color:var(--text-primary);font-weight:500;">I-Shift 12-Speed Automated Transmission</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--border-light);">
+            <div style="width:32px;height:32px;border-radius:8px;background:var(--success-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fi fi-rr-home" style="font-size:14px;color:var(--success);display:flex;"></i></div>
+            <span style="font-size:14px;color:var(--text-primary);font-weight:500;">Globetrotter XL High-Roof Sleeper Cab</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 0 14px 24px;border-bottom:1px solid var(--border-light);">
+            <div style="width:32px;height:32px;border-radius:8px;background:var(--success-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fi fi-rr-arrows-alt-v" style="font-size:14px;color:var(--success);display:flex;"></i></div>
+            <span style="font-size:14px;color:var(--text-primary);font-weight:500;">Full Air Suspension (Front & Rear)</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--border-light);">
+            <div style="width:32px;height:32px;border-radius:8px;background:var(--success-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fi fi-rr-steering-wheel" style="font-size:14px;color:var(--success);display:flex;"></i></div>
+            <span style="font-size:14px;color:var(--text-primary);font-weight:500;">Volvo Dynamic Steering (VDS)</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 0 14px 24px;border-bottom:1px solid var(--border-light);">
+            <div style="width:32px;height:32px;border-radius:8px;background:var(--success-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fi fi-rr-shield-check" style="font-size:14px;color:var(--success);display:flex;"></i></div>
+            <span style="font-size:14px;color:var(--text-primary);font-weight:500;">Adaptive Cruise Control + Emergency Brake</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--border-light);">
+            <div style="width:32px;height:32px;border-radius:8px;background:var(--success-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fi fi-rr-road" style="font-size:14px;color:var(--success);display:flex;"></i></div>
+            <span style="font-size:14px;color:var(--text-primary);font-weight:500;">Lane Departure Warning System</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 0 14px 24px;border-bottom:1px solid var(--border-light);">
+            <div style="width:32px;height:32px;border-radius:8px;background:var(--success-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fi fi-rr-snowflake" style="font-size:14px;color:var(--success);display:flex;"></i></div>
+            <span style="font-size:14px;color:var(--text-primary);font-weight:500;">Dual Climate Control A/C</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 0;">
+            <div style="width:32px;height:32px;border-radius:8px;background:var(--success-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fi fi-rr-document" style="font-size:14px;color:var(--success);display:flex;"></i></div>
+            <span style="font-size:14px;color:var(--text-primary);font-weight:500;">Complete Service History Available</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inspection Tab -->
+      <div class="pdp-tab-content" id="tab-inspection">
+        <h3>FAMCO 150-Point Inspection Report</h3>
+        <p>This vehicle has passed our comprehensive 150-point inspection performed by certified FAMCO technicians. Below is a summary of the key inspection areas.</p>
+
+        <!-- Overall Grade Banner -->
+        <div style="display:flex;align-items:center;gap:16px;padding:20px 24px;background:var(--success-light);border-radius:var(--radius);margin:20px 0 28px;border:1px solid rgba(22,163,74,0.15);">
+          <div style="width:56px;height:56px;border-radius:50%;background:var(--success);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="fi fi-rr-badge-check" style="font-size:26px;color:#fff;display:flex;"></i>
+          </div>
+          <div style="flex:1;">
+            <div style="font-family:var(--font-display);font-weight:900;font-size:20px;color:var(--success);margin-bottom:2px;">Overall Grade: Excellent</div>
+            <div style="font-size:13px;color:var(--text-secondary);">147 of 150 points passed · Inspected on March 28, 2026</div>
+          </div>
+          <div style="text-align:center;padding-left:20px;border-left:1px solid rgba(22,163,74,0.15);">
+            <div style="font-family:var(--font-display);font-weight:900;font-size:32px;color:var(--success);line-height:1;">98%</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Pass Rate</div>
+          </div>
+        </div>
+
+        <!-- Inspection Grid — with unique icons per area -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+          <!-- Engine -->
+          <div style="background:var(--bg-warm);border-radius:var(--radius);padding:20px 16px;text-align:center;border:1px solid var(--border-light);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--success)'" onmouseout="this.style.borderColor='var(--border-light)'">
+            <div style="width:44px;height:44px;margin:0 auto 12px;border-radius:50%;background:var(--success-light);display:flex;align-items:center;justify-content:center;">
+              <i class="fi fi-rr-engine" style="font-size:20px;color:var(--success);display:flex;"></i>
+            </div>
+            <div style="font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:4px;">Engine</div>
+            <div style="display:inline-flex;align-items:center;gap:4px;padding:3px 10px;background:var(--success-light);border-radius:12px;font-size:11px;font-weight:700;color:var(--success);">
+              <i class="fi fi-rr-check-circle" style="font-size:10px;display:flex;"></i> Excellent
+            </div>
+          </div>
+          <!-- Transmission -->
+          <div style="background:var(--bg-warm);border-radius:var(--radius);padding:20px 16px;text-align:center;border:1px solid var(--border-light);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--success)'" onmouseout="this.style.borderColor='var(--border-light)'">
+            <div style="width:44px;height:44px;margin:0 auto 12px;border-radius:50%;background:var(--success-light);display:flex;align-items:center;justify-content:center;">
+              <i class="fi fi-rr-settings" style="font-size:20px;color:var(--success);display:flex;"></i>
+            </div>
+            <div style="font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:4px;">Transmission</div>
+            <div style="display:inline-flex;align-items:center;gap:4px;padding:3px 10px;background:var(--success-light);border-radius:12px;font-size:11px;font-weight:700;color:var(--success);">
+              <i class="fi fi-rr-check-circle" style="font-size:10px;display:flex;"></i> Excellent
+            </div>
+          </div>
+          <!-- Brakes -->
+          <div style="background:var(--bg-warm);border-radius:var(--radius);padding:20px 16px;text-align:center;border:1px solid var(--border-light);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--success)'" onmouseout="this.style.borderColor='var(--border-light)'">
+            <div style="width:44px;height:44px;margin:0 auto 12px;border-radius:50%;background:var(--success-light);display:flex;align-items:center;justify-content:center;">
+              <i class="fi fi-rr-stop-circle" style="font-size:20px;color:var(--success);display:flex;"></i>
+            </div>
+            <div style="font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:4px;">Brakes</div>
+            <div style="display:inline-flex;align-items:center;gap:4px;padding:3px 10px;background:var(--success-light);border-radius:12px;font-size:11px;font-weight:700;color:var(--success);">
+              <i class="fi fi-rr-check-circle" style="font-size:10px;display:flex;"></i> Excellent
+            </div>
+          </div>
+          <!-- Suspension -->
+          <div style="background:var(--bg-warm);border-radius:var(--radius);padding:20px 16px;text-align:center;border:1px solid var(--border-light);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--success)'" onmouseout="this.style.borderColor='var(--border-light)'">
+            <div style="width:44px;height:44px;margin:0 auto 12px;border-radius:50%;background:var(--success-light);display:flex;align-items:center;justify-content:center;">
+              <i class="fi fi-rr-arrows-alt-v" style="font-size:20px;color:var(--success);display:flex;"></i>
+            </div>
+            <div style="font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:4px;">Suspension</div>
+            <div style="display:inline-flex;align-items:center;gap:4px;padding:3px 10px;background:var(--success-light);border-radius:12px;font-size:11px;font-weight:700;color:var(--success);">
+              <i class="fi fi-rr-check-circle" style="font-size:10px;display:flex;"></i> Excellent
+            </div>
+          </div>
+          <!-- Electrical -->
+          <div style="background:var(--bg-warm);border-radius:var(--radius);padding:20px 16px;text-align:center;border:1px solid var(--border-light);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--success)'" onmouseout="this.style.borderColor='var(--border-light)'">
+            <div style="width:44px;height:44px;margin:0 auto 12px;border-radius:50%;background:var(--success-light);display:flex;align-items:center;justify-content:center;">
+              <i class="fi fi-rr-bolt" style="font-size:20px;color:var(--success);display:flex;"></i>
+            </div>
+            <div style="font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:4px;">Electrical</div>
+            <div style="display:inline-flex;align-items:center;gap:4px;padding:3px 10px;background:var(--success-light);border-radius:12px;font-size:11px;font-weight:700;color:var(--success);">
+              <i class="fi fi-rr-check-circle" style="font-size:10px;display:flex;"></i> Excellent
+            </div>
+          </div>
+          <!-- Tyres (Warning) -->
+          <div style="background:#FFFBEB;border-radius:var(--radius);padding:20px 16px;text-align:center;border:1px solid #FDE68A;transition:all 0.2s;">
+            <div style="width:44px;height:44px;margin:0 auto 12px;border-radius:50%;background:#FEF3C7;display:flex;align-items:center;justify-content:center;">
+              <i class="fi fi-rr-tire" style="font-size:20px;color:var(--warning);display:flex;"></i>
+            </div>
+            <div style="font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:4px;">Tyres</div>
+            <div style="display:inline-flex;align-items:center;gap:4px;padding:3px 10px;background:#FEF3C7;border-radius:12px;font-size:11px;font-weight:700;color:#D97706;">
+              <i class="fi fi-rr-exclamation" style="font-size:10px;display:flex;"></i> Good (70%)
+            </div>
+          </div>
+          <!-- Body/Frame -->
+          <div style="background:var(--bg-warm);border-radius:var(--radius);padding:20px 16px;text-align:center;border:1px solid var(--border-light);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--success)'" onmouseout="this.style.borderColor='var(--border-light)'">
+            <div style="width:44px;height:44px;margin:0 auto 12px;border-radius:50%;background:var(--success-light);display:flex;align-items:center;justify-content:center;">
+              <i class="fi fi-rr-shield" style="font-size:20px;color:var(--success);display:flex;"></i>
+            </div>
+            <div style="font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:4px;">Body / Frame</div>
+            <div style="display:inline-flex;align-items:center;gap:4px;padding:3px 10px;background:var(--success-light);border-radius:12px;font-size:11px;font-weight:700;color:var(--success);">
+              <i class="fi fi-rr-check-circle" style="font-size:10px;display:flex;"></i> Excellent
+            </div>
+          </div>
+          <!-- Cab Interior -->
+          <div style="background:var(--bg-warm);border-radius:var(--radius);padding:20px 16px;text-align:center;border:1px solid var(--border-light);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--success)'" onmouseout="this.style.borderColor='var(--border-light)'">
+            <div style="width:44px;height:44px;margin:0 auto 12px;border-radius:50%;background:var(--success-light);display:flex;align-items:center;justify-content:center;">
+              <i class="fi fi-rr-chair" style="font-size:20px;color:var(--success);display:flex;"></i>
+            </div>
+            <div style="font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:4px;">Cab Interior</div>
+            <div style="display:inline-flex;align-items:center;gap:4px;padding:3px 10px;background:var(--success-light);border-radius:12px;font-size:11px;font-weight:700;color:var(--success);">
+              <i class="fi fi-rr-check-circle" style="font-size:10px;display:flex;"></i> Excellent
+            </div>
+          </div>
+        </div>
+
+        <!-- Download Report -->
+        <div style="margin-top:24px;padding:18px 24px;background:var(--bg-warm);border-radius:var(--radius);display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;">
+              <i class="fi fi-rr-file-pdf" style="font-size:18px;color:var(--brand-navy);display:flex;"></i>
+            </div>
+            <div>
+              <div style="font-size:14px;font-weight:700;color:var(--text-primary);">Full Inspection Report</div>
+              <div style="font-size:12px;color:var(--text-muted);">PDF · 2.4 MB · 12 pages</div>
+            </div>
+          </div>
+          <a href="#" style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--brand-navy);color:#fff;border-radius:var(--radius-sm);font-size:13px;font-weight:700;font-family:var(--font-body);transition:all 0.2s;">
+            <i class="fi fi-rr-download" style="font-size:14px;display:flex;"></i> Download PDF
+          </a>
+        </div>
+      </div>
+
+      <!-- Finance Tab -->
+      <div class="pdp-tab-content" id="tab-finance">
+        <h3>Finance This Vehicle</h3>
+        <p>Pre-approved financing available from leading GCC banks. Conventional and Shariah-compliant options.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px;">
+          <div style="padding:24px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-warm);">
+            <h4 style="font-family:var(--font-display);font-weight:700;font-size:16px;margin-bottom:12px;">Conventional Finance</h4>
+            <div style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--brand-navy);margin-bottom:4px;">AED 4,200<span style="font-size:14px;font-weight:500;color:var(--text-muted);">/month</span></div>
+            <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">60 months · 10% down · 3.9% APR</p>
+            <ul style="list-style:none;">
+              <li style="display:flex;align-items:center;gap:6px;padding:6px 0;font-size:13px;color:var(--text-secondary);"><i class="fi fi-rr-check" style="color:var(--success);font-size:12px;display:flex;"></i> Pre-approval in 24 hours</li>
+              <li style="display:flex;align-items:center;gap:6px;padding:6px 0;font-size:13px;color:var(--text-secondary);"><i class="fi fi-rr-check" style="color:var(--success);font-size:12px;display:flex;"></i> Flexible terms 12–60 months</li>
+              <li style="display:flex;align-items:center;gap:6px;padding:6px 0;font-size:13px;color:var(--text-secondary);"><i class="fi fi-rr-check" style="color:var(--success);font-size:12px;display:flex;"></i> No early repayment penalty</li>
+            </ul>
+          </div>
+          <div style="padding:24px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-warm);">
+            <h4 style="font-family:var(--font-display);font-weight:700;font-size:16px;margin-bottom:12px;">Islamic Finance (Murabaha)</h4>
+            <div style="font-family:var(--font-display);font-weight:900;font-size:28px;color:var(--brand-navy);margin-bottom:4px;">AED 4,450<span style="font-size:14px;font-weight:500;color:var(--text-muted);">/month</span></div>
+            <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">60 months · 10% down · Shariah-compliant</p>
+            <ul style="list-style:none;">
+              <li style="display:flex;align-items:center;gap:6px;padding:6px 0;font-size:13px;color:var(--text-secondary);"><i class="fi fi-rr-check" style="color:var(--success);font-size:12px;display:flex;"></i> Shariah board approved</li>
+              <li style="display:flex;align-items:center;gap:6px;padding:6px 0;font-size:13px;color:var(--text-secondary);"><i class="fi fi-rr-check" style="color:var(--success);font-size:12px;display:flex;"></i> ZATCA compliant</li>
+              <li style="display:flex;align-items:center;gap:6px;padding:6px 0;font-size:13px;color:var(--text-secondary);"><i class="fi fi-rr-check" style="color:var(--success);font-size:12px;display:flex;"></i> Transparent profit rate</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Delivery Tab -->
+      <div class="pdp-tab-content" id="tab-delivery">
+        <h3>Delivery & Escrow Protection</h3>
+        <p>All purchases are protected through our secure escrow service. Funds are held safely until you confirm delivery and verify the vehicle matches the listing.</p>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px;">
+          <div style="text-align:center;padding:20px;background:var(--bg-warm);border-radius:var(--radius-sm);">
+            <div style="width:48px;height:48px;margin:0 auto 12px;border-radius:50%;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;color:var(--brand-navy);"><i class="fi fi-rr-credit-card" style="font-size:20px;display:flex;"></i></div>
+            <div style="font-weight:700;font-size:13px;margin-bottom:4px;">Secure Payment</div>
+            <div style="font-size:12px;color:var(--text-muted);">Pay through platform escrow</div>
+          </div>
+          <div style="text-align:center;padding:20px;background:var(--bg-warm);border-radius:var(--radius-sm);">
+            <div style="width:48px;height:48px;margin:0 auto 12px;border-radius:50%;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;color:var(--brand-navy);"><i class="fi fi-rr-lock" style="font-size:20px;display:flex;"></i></div>
+            <div style="font-weight:700;font-size:13px;margin-bottom:4px;">Funds Protected</div>
+            <div style="font-size:12px;color:var(--text-muted);">Held until you confirm</div>
+          </div>
+          <div style="text-align:center;padding:20px;background:var(--bg-warm);border-radius:var(--radius-sm);">
+            <div style="width:48px;height:48px;margin:0 auto 12px;border-radius:50%;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;color:var(--brand-navy);"><i class="fi fi-rr-truck-side" style="font-size:20px;display:flex;"></i></div>
+            <div style="font-weight:700;font-size:13px;margin-bottom:4px;">GCC Delivery</div>
+            <div style="font-size:12px;color:var(--text-muted);">Tracked delivery available</div>
+          </div>
+          <div style="text-align:center;padding:20px;background:var(--bg-warm);border-radius:var(--radius-sm);">
+            <div style="width:48px;height:48px;margin:0 auto 12px;border-radius:50%;background:rgba(22,163,74,0.1);display:flex;align-items:center;justify-content:center;color:var(--success);"><i class="fi fi-rr-check-circle" style="font-size:20px;display:flex;"></i></div>
+            <div style="font-weight:700;font-size:13px;margin-bottom:4px;">Buyer Confirms</div>
+            <div style="font-size:12px;color:var(--text-muted);">Seller paid after verification</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Warranty Tab -->
+      <div class="pdp-tab-content" id="tab-warranty">
+        <h3>Protect Your Investment</h3>
+        <p>Add an extended FAMCO warranty at checkout. Serviced at any Al-Futtaim FAMCO center across the GCC.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px;">
+          <!-- Basic Plan -->
+          <div style="border:1.5px solid var(--border);border-radius:var(--radius);padding:28px 24px;position:relative;transition:all 0.2s;">
+            <h4 style="font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--text-primary);margin-bottom:8px;">Basic Mechanical</h4>
+            <div style="font-family:var(--font-display);font-weight:900;font-size:24px;color:var(--brand-navy);margin-bottom:16px;">AED 950<span style="font-size:14px;font-weight:500;color:var(--text-muted);">/month</span></div>
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Coverage</div>
+            <div style="font-size:14px;color:var(--text-primary);font-weight:600;margin-bottom:14px;">Engine & Transmission</div>
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Duration</div>
+            <div style="font-size:14px;color:var(--text-primary);font-weight:600;margin-bottom:24px;">3 months / 500 hours</div>
+            <button style="width:100%;padding:12px;background:transparent;color:var(--text-primary);border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--brand-navy)';this.style.color='var(--brand-navy)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-primary)';">Select Plan</button>
+          </div>
+
+          <!-- Comprehensive Plan (Popular) -->
+          <div style="border:2px solid var(--brand-navy);border-radius:var(--radius);padding:28px 24px;position:relative;box-shadow:0 8px 32px rgba(0,102,179,0.12);">
+            <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);padding:4px 16px;background:var(--brand-navy);color:#fff;border-radius:20px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;white-space:nowrap;">Most Popular</div>
+            <h4 style="font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--text-primary);margin-bottom:8px;">Comprehensive</h4>
+            <div style="font-family:var(--font-display);font-weight:900;font-size:24px;color:var(--brand-navy);margin-bottom:16px;">AED 1,800<span style="font-size:14px;font-weight:500;color:var(--text-muted);">/month</span></div>
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Coverage</div>
+            <div style="font-size:14px;color:var(--text-primary);font-weight:600;margin-bottom:14px;">Engine, Trans, Hydraulics, Electrical</div>
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Duration</div>
+            <div style="font-size:14px;color:var(--text-primary);font-weight:600;margin-bottom:24px;">6 months / 1000 hours</div>
+            <button style="width:100%;padding:12px;background:var(--brand-navy);color:#fff;border:none;border-radius:var(--radius-sm);font-size:14px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;" onmouseover="this.style.background='var(--brand-navy-dark)';" onmouseout="this.style.background='var(--brand-navy)';">Select Plan</button>
+          </div>
+
+          <!-- Premium Plan -->
+          <div style="border:1.5px solid var(--border);border-radius:var(--radius);padding:28px 24px;position:relative;transition:all 0.2s;">
+            <h4 style="font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--text-primary);margin-bottom:8px;">Premium Total Care</h4>
+            <div style="font-family:var(--font-display);font-weight:900;font-size:24px;color:var(--brand-navy);margin-bottom:16px;">AED 3,200<span style="font-size:14px;font-weight:500;color:var(--text-muted);">/month</span></div>
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Coverage</div>
+            <div style="font-size:14px;color:var(--text-primary);font-weight:600;margin-bottom:14px;">All systems + Preventive Maintenance</div>
+            <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Duration</div>
+            <div style="font-size:14px;color:var(--text-primary);font-weight:600;margin-bottom:24px;">12 months / 2000 hours</div>
+            <button style="width:100%;padding:12px;background:transparent;color:var(--text-primary);border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--brand-navy)';this.style.color='var(--brand-navy)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-primary)';">Select Plan</button>
+          </div>
+        </div>
+
+        <!-- Easy Claims Info -->
+        <div style="margin-top:24px;padding:18px 20px;background:var(--bg-warm);border-radius:var(--radius-sm);display:flex;align-items:flex-start;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="fi fi-rr-info" style="font-size:16px;color:var(--brand-navy);display:flex;"></i>
+          </div>
+          <div>
+            <div style="font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:4px;">Easy Claims Process</div>
+            <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Submit claims directly via the platform. A FAMCO service team will be assigned to inspect the machine at your nearest service center. Repair or replacement is authorized and tracked online.</div>
+          </div>
+        </div>
+      </div>
+
+  <!-- ═══ SIMILAR PRODUCTS ═══ -->
+  <div class="similar-section" style="margin-bottom:64px;">
+      <h2>Similar Vehicles</h2>
+      <div class="product-grid" style="grid-template-columns:repeat(4,1fr);">
+        <!-- Card 1 -->
+        <div class="product-card">
+          <div class="product-card__img">
+            <img class="primary" src="Volvo FM460.jpg" alt="Volvo FM460" loading="lazy">
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Volvo FM460 6×4 Tractor</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 72,000 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> KSA</span></div>
+            <div class="product-card__footer"><button class="product-card__cta" style="width:100%;">View Details <i class="fi fi-rr-arrow-right"></i></button></div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="product-card">
+          <div class="product-card__img">
+            <img class="primary" src="white volvo.png" alt="Volvo FH 420" loading="lazy">
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Volvo FH 420 Sleeper</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 58,000 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
+            <div class="product-card__footer"><button class="product-card__cta" style="width:100%;">View Details <i class="fi fi-rr-arrow-right"></i></button></div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="product-card">
+          <div class="product-card__img">
+            <img class="primary" src="Volvo FE 280.jpg" alt="Volvo FE 280" loading="lazy">
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Volvo FE 280 Distribution</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2023</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 18,400 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
+            <div class="product-card__footer"><button class="product-card__cta" style="width:100%;">View Details <i class="fi fi-rr-arrow-right"></i></button></div>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="product-card">
+          <div class="product-card__img">
+            <img class="primary" src="volvo yellow.png" alt="Volvo FMX 460" loading="lazy">
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Volvo FMX 460 Tipper</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2022</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 32,000 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Qatar</span></div>
+            <div class="product-card__footer"><button class="product-card__cta" style="width:100%;">View Details <i class="fi fi-rr-arrow-right"></i></button></div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-main">
+      <div><a href="famco-homepage.html"><img src="HeaderLogoIcon.png" alt="FAMCO" class="footer-brand__logo-img"></a><p class="footer-brand__desc">The GCC's most trusted marketplace for certified used commercial vehicles. Backed by Al-Futtaim Group since 1930.</p></div>
+      <div><h4 class="footer-col__title">Marketplace</h4><ul class="footer-col__links"><li><a href="listing.html">Browse Equipment</a></li><li><a href="#">Sell Your Vehicle</a></li><li><a href="#">FAMCO Approved Process</a></li><li><a href="#">Compare Vehicles</a></li></ul></div>
+      <div><h4 class="footer-col__title">Company</h4><ul class="footer-col__links"><li><a href="#">About Us</a></li><li><a href="#">Finance Options</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Careers</a></li></ul></div>
+      <div><h4 class="footer-col__title">Contact</h4><div style="font-size:14px;color:var(--text-secondary);line-height:2;">Al-Futtaim Group<br>Dubai, UAE<br>+971 4 XXX XXXX<br>info@famco-used.ae</div></div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 Al-Futtaim FAMCO. All rights reserved. <span style="color:var(--brand-navy);font-weight:700;">FAMCO Approved Marketplace</span></div>
+      <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="whatsapp-float"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .612.612l4.458-1.495A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.752-6.336-2.071l-.442-.331-3.273 1.098 1.098-3.273-.331-.442A9.958 9.958 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg></a>
+
+<script>
+// Gallery image swap
+function changeImage(src, el) {
+  document.getElementById('mainImage').src = src;
+  document.querySelectorAll('.gallery__thumb').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// Video play
+function playVideo() {
+  const main = document.getElementById('mainGallery');
+  const img = document.getElementById('mainImage');
+  img.style.display = 'none';
+  const video = document.createElement('video');
+  video.src = 'Video_Generation_From_User_Request.mp4';
+  video.controls = true;
+  video.autoplay = true;
+  video.style.cssText = 'width:100%;height:100%;object-fit:contain;background:#000;';
+  video.id = 'mainVideo';
+  main.appendChild(video);
+}
+
+// Tabs
+document.querySelectorAll('.pdp-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.pdp-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.pdp-tab-content').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
