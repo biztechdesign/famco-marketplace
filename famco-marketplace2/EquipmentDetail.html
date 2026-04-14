@@ -43,7 +43,7 @@
   --t:        .22s ease;
 }
 
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
 body{
   font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   background:var(--white);color:var(--ink);
@@ -87,7 +87,7 @@ header{
 .logo-brand{font-size:22px;font-weight:900;color:var(--ink);letter-spacing:-1px;line-height:1;}
 .logo-brand em{color:var(--y-deeper);font-style:normal;}
 .logo-sub{font-size:8px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:3px;}
-.srch{flex:0 0 560px;position:relative;}
+.srch{flex:0 1 560px;max-width:560px;min-width:0;position:relative;}
 .srch-wrap{
   display:flex;align-items:center;height:42px;
   background:var(--surface);border:1.5px solid var(--border);
@@ -142,6 +142,7 @@ header{
   background:var(--ink-2);padding:0 var(--px);
   display:flex;align-items:center;height:48px;gap:2px;
   position:sticky;top:72px;z-index:150;
+  overflow:visible;
 }
 .nv-item{position:relative;height:100%;display:flex;align-items:center;}
 .nv-link{
@@ -149,8 +150,51 @@ header{
   font-size:13px;font-weight:600;color:rgba(255,255,255,.7);
   letter-spacing:.1px;white-space:nowrap;transition:all var(--t);cursor:pointer;
 }
-.nv-link:hover{color:var(--white);background:rgba(255,255,255,.08);}
+.nv-link:hover,.nv-item:hover>.nv-link{color:var(--white);background:rgba(255,255,255,.08);}
 .nv-link.act{color:var(--y);}
+.nv-link svg{opacity:.6;transition:transform var(--t);}
+.nv-item:hover>.nv-link svg{transform:rotate(180deg);opacity:1;}
+
+/* Mega dropdown */
+.mega{
+  display:none;position:absolute;top:100%;left:0;
+  background:var(--white);
+  border:1px solid var(--border);border-top:3px solid var(--y);
+  border-radius:0 0 var(--rl) var(--rl);
+  box-shadow:var(--sh-lg);width:640px;
+  padding:28px 32px;z-index:300;gap:32px;
+}
+.nv-item:hover .mega{display:flex;}
+.mc{flex:1;}
+.mc-ttl{
+  font-size:10px;font-weight:800;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:14px;padding-bottom:8px;
+  border-bottom:1px solid var(--border);
+}
+.mc-ttl+.mc-ttl{margin-top:20px;}
+.ml{display:flex;flex-direction:column;gap:2px;}
+.ml a{
+  display:flex;align-items:center;gap:10px;
+  padding:7px 10px;border-radius:6px;
+  font-size:13px;font-weight:500;color:var(--body);
+  transition:all var(--t);
+}
+.ml a:hover{background:var(--y-light);color:var(--y-deeper);}
+.mc-cnt{
+  margin-left:auto;font-size:11px;font-weight:600;
+  color:var(--muted);background:var(--surface);
+  padding:1px 7px;border-radius:10px;
+}
+.ml a:hover .mc-cnt{background:rgba(255,209,0,.2);color:var(--y-deeper);}
+.mega-feat{width:200px;flex-shrink:0;}
+.mf-card{background:var(--ink);border-radius:var(--r);overflow:hidden;}
+.mf-img{width:100%;height:110px;overflow:hidden;background:var(--ink-2);}
+.mf-img img{width:100%;height:100%;object-fit:cover;}
+.mf-body{padding:12px;}
+.mf-tag{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--y);margin-bottom:4px;}
+.mf-title{font-size:13px;font-weight:700;color:var(--white);margin-bottom:8px;}
+.mf-cta{font-size:11px;font-weight:700;color:var(--y);display:flex;align-items:center;gap:4px;}
 
 /* ── BREADCRUMB ── */
 .breadcrumb-bar{
@@ -743,6 +787,8 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
   color: white;
   margin-left: auto;
   flex-shrink: 0;
+  position: relative;
+  z-index: 10001;
 }
 
 /* ── 1200px ── */
@@ -763,7 +809,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
   .nav-hamburger { display: flex; }
 
   /* Header search shrink */
-  .srch { flex: 0 0 300px; }
+  .srch { flex: 0 1 300px; }
   .srch-cat { min-width: 90px; }
   .h-act span { display: none; }
 
@@ -927,9 +973,103 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
 
   .ft-top { grid-template-columns: 1fr; }
 }
+
+/* ── Mobile nav drawer ── */
+@media (max-width:1024px) {
+  .nav-mobile-drawer {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 280px; height: 100vh;
+    background: var(--white);
+    z-index: 10000;
+    flex-direction: column;
+    padding: 72px 0 24px;
+    box-shadow: 4px 0 24px rgba(0,0,0,.18);
+    overflow-y: auto;
+  }
+  body.nav-open .nav-mobile-drawer { display: flex; }
+  body.nav-open::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 9999;
+  }
+  .nav-mobile-drawer .nv-link {
+    display: flex;
+    align-items: center;
+    padding: 14px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    border-bottom: 1px solid var(--border);
+    white-space: normal;
+    height: auto;
+  }
+  .nav-mobile-drawer .nv-link:hover,
+  .nav-mobile-drawer .nv-link.act {
+    background: var(--y-light);
+    color: var(--y-deeper);
+  }
+  .nav-mobile-drawer .nv-link svg { display: none; }
+  .nav-mobile-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--surface);
+    border: none; border-radius: 50%;
+    cursor: pointer; color: var(--ink);
+    font-size: 20px; line-height: 1;
+  }
+  .nav-mobile-close:hover { background: var(--border); }
+}
+
+/* ── Mobile header: single row ── */
+@media (max-width:768px) {
+  header {
+    flex-wrap: nowrap !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    gap: 0 !important;
+    align-items: center;
+  }
+  .logo {
+    flex: 0 0 auto !important;
+    margin-right: auto;
+  }
+  .srch { display: none !important; }
+  .h-acts {
+    flex: 0 0 auto !important;
+    order: unset !important;
+    gap: 6px;
+  }
+  .h-act { padding: 4px 6px; }
+  .h-btn-login { padding: 0 10px !important; font-size: 12px !important; height: 34px !important; margin-left: 4px !important; }
+  .h-cta { padding: 0 10px !important; font-size: 12px !important; height: 34px !important; margin-left: 4px !important; }
+  .nav-bar { top: 60px !important; }
+}
+@media (max-width:576px) {
+  .h-btn-login { display: flex !important; }
+}
 </style>
 </head>
 <body>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="nav-mobile-drawer" id="navMobileDrawer" role="navigation" aria-label="Mobile navigation">
+  <button class="nav-mobile-close" id="navMobileClose" aria-label="Close navigation">&#x2715;</button>
+  <a href="Homepage.html" class="nv-link">Home</a>
+  <a href="BrowseEquipment.html" class="nv-link">Browse Equipment</a>
+  <a href="#" class="nv-link">Sell Your Equipment</a>
+  <a href="#" class="nv-link">FAMCO Approved Process</a>
+  <a href="#" class="nv-link">Finance</a>
+  <a href="#" class="nv-link">About Us</a>
+  <a href="#" class="nv-link act">Contact</a>
+</div>
 
 <!-- TOP BAR -->
 <div class="top-bar">
@@ -990,7 +1130,54 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
     <a href="Homepage.html" class="nv-link">Home</a>
   </div>
   <div class="nv-item">
-    <a href="BrowseEquipment.html" class="nv-link act">Browse Equipment</a>
+    <a href="BrowseEquipment.html" class="nv-link act">Browse Equipment
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    </a>
+    <div class="mega">
+      <div class="mc">
+        <div class="mc-ttl">Construction Equipment</div>
+        <div class="ml">
+          <a href="BrowseEquipment.html"><span>🏗</span> Excavators <span class="mc-cnt">86</span></a>
+          <a href="BrowseEquipment.html"><span>🚜</span> Wheel Loaders <span class="mc-cnt">42</span></a>
+          <a href="BrowseEquipment.html"><span>🏭</span> Bulldozers <span class="mc-cnt">28</span></a>
+          <a href="BrowseEquipment.html"><span>🔩</span> Motor Graders <span class="mc-cnt">17</span></a>
+          <a href="BrowseEquipment.html"><span>⚙️</span> Compactors <span class="mc-cnt">24</span></a>
+        </div>
+        <div class="mc-ttl" style="margin-top:16px;">Material Handling</div>
+        <div class="ml">
+          <a href="BrowseEquipment.html"><span>🏋</span> Forklifts <span class="mc-cnt">67</span></a>
+          <a href="BrowseEquipment.html"><span>📦</span> Reach Stackers <span class="mc-cnt">12</span></a>
+          <a href="BrowseEquipment.html"><span>🔄</span> Telehandlers <span class="mc-cnt">19</span></a>
+        </div>
+      </div>
+      <div class="mc">
+        <div class="mc-ttl">Trucks &amp; Commercial</div>
+        <div class="ml">
+          <a href="BrowseEquipment.html"><span>🚛</span> Tractor Heads <span class="mc-cnt">55</span></a>
+          <a href="BrowseEquipment.html"><span>🚚</span> Tipper Trucks <span class="mc-cnt">33</span></a>
+          <a href="BrowseEquipment.html"><span>🛻</span> Flatbed Trucks <span class="mc-cnt">22</span></a>
+          <a href="BrowseEquipment.html"><span>🚐</span> Buses &amp; Coaches <span class="mc-cnt">38</span></a>
+        </div>
+        <div class="mc-ttl" style="margin-top:16px;">Browse by Brand</div>
+        <div class="ml">
+          <a href="BrowseEquipment.html">Volvo CE &amp; Trucks</a>
+          <a href="BrowseEquipment.html">Caterpillar / CAT</a>
+          <a href="BrowseEquipment.html">Toyota Industries</a>
+          <a href="BrowseEquipment.html">JCB</a>
+          <a href="BrowseEquipment.html">View All Brands →</a>
+        </div>
+      </div>
+      <div class="mega-feat">
+        <div class="mf-card">
+          <div class="mf-img"><img src="images/Detailimage1.png" alt="Featured" onerror="this.parentElement.style.background='var(--ink-3)'"></div>
+          <div class="mf-body">
+            <div class="mf-tag">Featured</div>
+            <div class="mf-title">Volvo FH 500 Tractor Head 2022</div>
+            <div class="mf-cta">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="nv-item">
     <a href="#" class="nv-link">Sell Your Equipment</a>
@@ -1792,12 +1979,13 @@ function switchITab(el, panel) {
   const target = document.getElementById('ipanel-' + panel);
   if (target) target.classList.add('on');
 }
-// Back to top
-(function(){
+// Back to top — deferred until DOM is fully parsed
+document.addEventListener('DOMContentLoaded', function(){
   var btn=document.getElementById('backToTop');
+  if(!btn) return;
   window.addEventListener('scroll',function(){btn.classList.toggle('show',window.scrollY>320);},{passive:true});
   btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
-})();
+});
 
 </script>
 
@@ -1812,5 +2000,56 @@ function switchITab(el, panel) {
   </button>
 </div>
 
+<script>
+/* ── Mobile hamburger nav ── */
+(function() {
+  var hamburger = document.querySelector('.nav-hamburger');
+  var drawer    = document.getElementById('navMobileDrawer');
+  var closeBtn  = document.getElementById('navMobileClose');
+  if (!hamburger || !drawer) return;
+
+  function openNav() {
+    document.body.classList.add('nav-open');
+    hamburger.setAttribute('aria-expanded', 'true');
+  }
+  function closeNav() {
+    document.body.classList.remove('nav-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+
+  hamburger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    document.body.classList.contains('nav-open') ? closeNav() : openNav();
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeNav();
+    });
+  }
+
+  /* Close on overlay click (click outside drawer) */
+  document.addEventListener('click', function(e) {
+    if (document.body.classList.contains('nav-open')) {
+      if (!drawer.contains(e.target) && !hamburger.contains(e.target)) {
+        closeNav();
+      }
+    }
+  });
+
+  /* Close on nav link click */
+  drawer.querySelectorAll('.nv-link').forEach(function(link) {
+    link.addEventListener('click', function() { closeNav(); });
+  });
+
+  /* Close on Escape key */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.body.classList.contains('nav-open')) {
+      closeNav();
+    }
+  });
+})();
+</script>
 </body>
 </html>
