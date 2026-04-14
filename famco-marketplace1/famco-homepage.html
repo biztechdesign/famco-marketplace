@@ -1,0 +1,3610 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAMCO Approved Marketplace — The GCC's Most Trusted Used Commercial Vehicle Marketplace</title>
+<meta name="description" content="Al-Futtaim backed trucks and heavy equipment — 150-point inspected, finance-ready, and escrow protected across UAE, KSA, Qatar & Bahrain.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════
+   FAMCO DESIGN SYSTEM — "The Certified Standard"
+   Premium Industrial Marketplace · GCC Enterprise
+   ═══════════════════════════════════════════════════════ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* — Backgrounds — */
+  --bg-primary: #FFFFFF;
+  --bg-warm: #F4F8FD;
+  --bg-sand: #F4F8FD;
+  --bg-white: #FFFFFF;
+
+  /* — Dark Surfaces — */
+  --graphite: #0D1F35;
+  --charcoal: #152A42;
+  --deep-dark: #091728;
+
+  /* — Brand — */
+  --brand-navy: #0066B3;
+  --brand-navy-light: #0078D4;
+  --brand-navy-dark: #00457A;
+
+  /* — Accents (Blue Shades) — */
+  --amber: #0066B3;
+  --amber-hover: #0078D4;
+  --amber-dark: #00457A;
+  --amber-glow: rgba(0, 102, 179, 0.08);
+  --amber-text: #FFFFFF;
+  --copper: #004E8C;
+
+  /* — Semantic — */
+  --success: #16A34A;
+  --success-light: #ECFDF5;
+  --warning: #D4870E;
+  --error: #DC2626;
+
+  /* — Text — */
+  --text-primary: #1A2F4A;
+  --text-secondary: #5C6B7A;
+  --text-muted: #9BA8B5;
+  --text-on-dark: #E8F0FA;
+  --text-on-dark-muted: #8A9AB0;
+
+  /* — Borders — */
+  --border: #E2E8F0;
+  --border-light: #EDF1F7;
+  --border-dark: #1E3450;
+
+  /* — WhatsApp — */
+  --whatsapp: #25D366;
+  --whatsapp-dark: #1DA851;
+
+  /* — Spacing — */
+  --section-gap: 120px;
+  --container: 1440px;
+  --container-narrow: 960px;
+  --gutter: 24px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-xs: 6px;
+
+  /* — Typography — */
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* — Transitions — */
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration: 0.35s;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* — Selection — */
+::selection {
+  background: var(--brand-navy);
+  color: #fff;
+}
+
+/* ═══════════════════════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════════════════════ */
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════════════════ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration) var(--ease);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn i { display:flex;align-items:center;line-height:1; }
+
+.btn--primary {
+  background: var(--brand-navy);
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+}
+.btn--primary:hover {
+  background: var(--brand-navy-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 102, 179, 0.35);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--brand-navy);
+  padding: 15px 31px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--brand-navy);
+  font-weight: 600;
+}
+.btn--secondary:hover {
+  background: var(--brand-navy);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn--dark {
+  background: var(--brand-navy);
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: var(--radius-sm);
+}
+.btn--dark:hover {
+  background: var(--brand-navy-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 102, 179, 0.3);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-primary);
+  padding: 12px 0;
+  font-weight: 500;
+  position: relative;
+}
+.btn--ghost::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--brand-navy);
+  transition: width var(--duration) var(--ease);
+}
+.btn--ghost:hover::after { width: 100%; }
+.btn--ghost:hover { color: var(--brand-navy); }
+
+.btn--whatsapp {
+  background: var(--brand-navy);
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: var(--radius-sm);
+}
+.btn--whatsapp:hover {
+  background: var(--brand-navy-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 102, 179, 0.3);
+}
+
+.btn--outline-light {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  padding: 15px 31px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid rgba(255,255,255,0.3);
+}
+.btn--outline-light:hover {
+  background: #fff;
+  color: var(--brand-navy);
+  border-color: #fff;
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 1 — UTILITY BAR
+   ═══════════════════════════════════════════════════════ */
+
+.utility-bar {
+  background: #F8F9FA;
+  color: var(--text-secondary);
+  font-size: 12.5px;
+  font-weight: 400;
+  padding: 8px 0;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--border);
+}
+
+.utility-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.utility-bar__left,
+.utility-bar__right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.utility-bar__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.utility-bar__item:hover { color: var(--text-primary); }
+
+.utility-bar__divider {
+  width: 1px;
+  height: 14px;
+  background: var(--border);
+}
+
+.utility-bar svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.6;
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0,0,0,0.04);
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.lang-toggle:hover {
+  background: rgba(0,0,0,0.07);
+  color: var(--text-primary);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 2 — MAIN NAVIGATION
+   ═══════════════════════════════════════════════════════ */
+
+.main-nav {
+  background: #fff;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-light);
+  transition: box-shadow 0.3s, backdrop-filter 0.3s;
+}
+
+.main-nav.scrolled {
+  background: #FFFFFF;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.main-nav .container {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  gap: 28px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.nav-logo__img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+/* Header search bar */
+.nav-search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.nav-search:focus-within { border-color: var(--brand-navy); }
+.nav-search__cat {
+  padding: 0 14px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-warm);
+  border-right: 1.5px solid var(--border);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.nav-search__cat svg { width: 12px; height: 12px; }
+.nav-search__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0 16px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  background: #fff;
+}
+.nav-search__input::placeholder { color: var(--text-muted); }
+.nav-search__btn {
+  width: 46px;
+  height: 100%;
+  background: var(--brand-navy);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nav-search__btn svg { width: 18px; height: 18px; }
+
+/* Header icon buttons */
+.nav-icon-btn {
+  width: 42px;
+  height: 42px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  background: #fff;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-icon-btn:hover { border-color: var(--brand-navy); color: var(--brand-navy); }
+.nav-icon-btn svg { width: 19px; height: 19px; }
+.nav-icon-btn__badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--amber);
+  color: var(--amber-text);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-login {
+  padding: 10px 20px;
+  border: 1.5px solid var(--brand-navy);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--brand-navy);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-login:hover { background: rgba(0,102,179,0.05); }
+.btn-register {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  background: var(--brand-navy);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-register:hover { background: var(--brand-navy-dark); }
+
+/* Sub Navigation */
+.sub-nav {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border);
+}
+.sub-nav__link {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 13px 18px;
+  border-bottom: 2.5px solid transparent;
+  white-space: nowrap;
+  display: block;
+  transition: all 0.15s;
+}
+.sub-nav__link.active {
+  color: var(--brand-navy);
+  border-bottom-color: var(--brand-navy);
+  font-weight: 700;
+}
+.sub-nav__link:not(.active):hover { color: var(--text-primary); }
+
+/* nav-links removed — using sub-nav instead */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 3 — HERO (Full-width cinematic banner)
+   ═══════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  height: calc(100vh - 160px);
+  min-height: 500px;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  background: #0D1F35;
+}
+
+/* Background image */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+/* Dark overlay for text readability */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 20, 45, 0.88) 0%,
+    rgba(0, 20, 45, 0.72) 40%,
+    rgba(0, 20, 45, 0.35) 70%,
+    rgba(0, 20, 45, 0.15) 100%
+  );
+  z-index: 1;
+}
+
+/* Bottom gradient for depth */
+.hero::after {
+  display: none;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+  padding-top: 36px;
+  padding-bottom: 0;
+}
+
+.hero__content {
+  max-width: 600px;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(22, 163, 74, 0.15);
+  border: 1px solid rgba(22, 163, 74, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #4ade80;
+  margin-bottom: 28px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.hero__badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+.hero__headline {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(38px, 4.2vw, 56px);
+  line-height: 1.35;
+  letter-spacing: -1.5px;
+  color: #fff;
+  margin-bottom: 22px;
+}
+
+.hero__headline span {
+  display: inline-block;
+  background: #FFD100;
+  color: #1A2F4A;
+  padding: 2px 14px;
+  border-radius: 5px;
+  font-style: italic;
+}
+
+.hero__subline {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.75);
+  max-width: 460px;
+  margin-bottom: 36px;
+  font-weight: 400;
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0;
+}
+
+.hero__actions .btn--secondary {
+  color: var(--brand-navy);
+  background: #fff;
+  border-color: #fff;
+}
+.hero__actions .btn--secondary:hover {
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(255,255,255,0.9);
+}
+
+/* Hero stats row */
+.hero__stats {
+  display: flex;
+  gap: 36px;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-stat__num {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 28px;
+  color: var(--amber);
+  line-height: 1;
+}
+
+.hero-stat__label {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.5);
+  font-weight: 500;
+  margin-top: 3px;
+}
+
+.hero-stat-divider {
+  width: 1px;
+  background: rgba(255,255,255,0.12);
+  align-self: stretch;
+}
+
+/* ═══ Stats Strip (below hero) ═══ */
+.trust-strip {
+  background: var(--bg-warm);
+  padding: 0;
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid var(--border);
+}
+
+.trust-strip__inner {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.trust-strip__item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 24px;
+  border-right: 1px solid var(--border);
+  transition: all 0.3s var(--ease);
+  cursor: default;
+}
+
+.trust-strip__item:first-child { padding-left: 0; }
+.trust-strip__item:last-child { border-right: none; padding-right: 0; }
+
+.trust-strip__item:hover {
+  background: rgba(0, 102, 179, 0.04);
+}
+
+.trust-strip__item:hover .trust-strip__icon {
+  transform: scale(1.12) rotate(-4deg);
+  background: var(--brand-navy);
+  color: #fff;
+}
+
+.trust-strip__item:hover .trust-strip__label {
+  color: var(--brand-navy);
+}
+
+.trust-strip__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(0, 102, 179, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--brand-navy);
+  transition: all 0.35s var(--ease);
+}
+
+.trust-strip__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.trust-strip__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-strip__label {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1;
+  transition: color 0.3s;
+}
+
+.trust-strip__sub {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 3px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 4 — CERTIFICATION TRUST MODULE
+   ═══════════════════════════════════════════════════════ */
+
+.cert-trust {
+  background: var(--bg-white);
+  padding: 56px 0;
+  position: relative;
+}
+
+.cert-trust .container {
+  text-align: center;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brand-navy);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  background: rgba(0, 102, 179, 0.08);
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+
+.section-label::before,
+.section-label::after {
+  display: none;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(32px, 3vw, 44px);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin: 0 auto 56px;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.cert-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  transition: all var(--duration) var(--ease);
+  position: relative;
+}
+
+.cert-card:hover {
+  border-color: var(--brand-navy);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,102,179,0.1);
+}
+
+.cert-card__icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 16px;
+  background: rgba(0,102,179,0.08);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-navy);
+  transition: all var(--duration) var(--ease);
+}
+
+.cert-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cert-card:hover .cert-card__icon {
+  background: var(--brand-navy);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.cert-card__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.cert-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.cert-card__desc {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 5 — SEARCH + CATEGORY DISCOVERY
+   ═══════════════════════════════════════════════════════ */
+
+/* search-section merged into featured */
+
+.search-bar {
+  max-width: 100%;
+  margin: 0 0 24px;
+  position: relative;
+}
+
+.search-bar__input {
+  width: 100%;
+  padding: 20px 28px;
+  padding-right: 140px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-primary);
+  background: var(--bg-white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: all 0.3s;
+}
+
+.search-bar__input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-bar__input:focus {
+  border-color: var(--brand-navy);
+  box-shadow: 0 0 0 4px rgba(0, 102, 179, 0.1);
+}
+
+.search-bar__btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--brand-navy);
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-bar__btn:hover {
+  background: var(--brand-navy-light);
+}
+
+.search-bar__btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.categories-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.categories-scroll::-webkit-scrollbar { display: none; }
+
+.cat-tile {
+  flex: 0 0 auto;
+  background: var(--bg-white);
+  border: 1.5px solid var(--border);
+  border-radius: 24px;
+  padding: 8px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--duration) var(--ease);
+  text-decoration: none;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cat-tile:hover {
+  border-color: var(--brand-navy);
+  background: rgba(0,102,179,0.06);
+  color: var(--brand-navy);
+}
+
+.cat-tile__icon {
+  display: none;
+}
+
+.cat-tile__name {
+  font-weight: 600;
+  font-size: 13.5px;
+  white-space: nowrap;
+}
+
+.cat-tile__count {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 6 — FEATURED CERTIFIED EQUIPMENT
+   ═══════════════════════════════════════════════════════ */
+
+.featured {
+  background: var(--bg-white);
+  padding: 100px 0;
+}
+
+.featured__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+}
+
+.featured__header-left .section-title {
+  margin-bottom: 8px;
+}
+
+.equip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gutter);
+}
+
+.equip-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all var(--duration) var(--ease);
+  cursor: pointer;
+}
+
+.equip-card:hover {
+  border-color: var(--brand-navy);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,102,179,0.1);
+}
+
+.equip-card__img {
+  position: relative;
+  aspect-ratio: 16/10;
+  background: linear-gradient(145deg, #C5D8EA 0%, #A0BECE 100%);
+  overflow: hidden;
+}
+
+.equip-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s var(--ease);
+}
+
+.equip-card:hover .equip-card__img img {
+  transform: scale(1.05);
+}
+
+.equip-card__img video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.equip-card:hover .equip-card__img video {
+  opacity: 1;
+}
+
+.equip-card__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0,40,80,0.12));
+  pointer-events: none;
+}
+
+.equip-card__img-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+.equip-card__img-inner svg {
+  width: 64px;
+  height: 64px;
+  opacity: 0.3;
+}
+
+.equip-card__badges {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.badge--certified {
+  background: var(--success);
+  color: #fff;
+}
+
+.badge--grade {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(4px);
+  color: var(--success);
+}
+
+.badge--3d {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  font-size: 10px;
+  padding: 5px 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.equip-card__body {
+  padding: 20px;
+}
+
+.equip-card__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.equip-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.equip-card__meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.equip-card__meta span i {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.equip-card__meta .meta-sep {
+  color: var(--border);
+  font-size: 10px;
+}
+
+.equip-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+
+.equip-card__price {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 19px;
+  color: var(--text-primary);
+}
+
+.equip-card__price-currency {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.equip-card__location {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.equip-card__location svg {
+  width: 13px;
+  height: 13px;
+}
+
+.equip-card .btn-view:hover {
+  background: var(--brand-navy-dark) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 7 — WHY FAMCO / DIFFERENTIATORS
+   ═══════════════════════════════════════════════════════ */
+
+.differentiators {
+  background: var(--graphite);
+  padding: 110px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.differentiators::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(196,146,61,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(27,58,92,0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.differentiators .section-label {
+  color: var(--amber);
+}
+
+.differentiators .section-label::before,
+.differentiators .section-label::after {
+  background: var(--amber);
+}
+
+.differentiators .section-title {
+  color: #fff;
+}
+
+.differentiators .section-subtitle {
+  color: var(--text-on-dark-muted);
+}
+
+.diff-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.diff-card {
+  background: var(--charcoal);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  transition: all var(--duration) var(--ease);
+}
+
+.diff-card:hover {
+  border-color: rgba(139,196,246,0.4);
+  background: rgba(139,196,246,0.04);
+  transform: translateY(-3px);
+}
+
+.diff-card__icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(139,196,246,0.12);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8BC4F6;
+  margin-bottom: 20px;
+  transition: all var(--duration) var(--ease);
+}
+
+.diff-card:hover .diff-card__icon {
+  background: var(--amber);
+  color: #fff;
+}
+
+.diff-card__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.diff-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.diff-card__desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-on-dark-muted);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 8 — PLATFORM PILLARS
+   ═══════════════════════════════════════════════════════ */
+
+.pillars {
+  background: var(--bg-warm);
+  padding: 100px 0;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.pillar {
+  text-align: center;
+  padding: 40px 24px;
+  position: relative;
+}
+
+.pillar::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: var(--border);
+}
+
+.pillar:last-child::after { display: none; }
+
+.pillar__number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 48px;
+  color: var(--amber);
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.pillar__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  background: var(--brand-navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,102,179,0.2);
+}
+
+.pillar__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.pillar__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.pillar__desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 9 — HOW IT WORKS
+   ═══════════════════════════════════════════════════════ */
+
+.process {
+  background: var(--brand-navy);
+  padding: 100px 0;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  position: relative;
+}
+
+/* Connecting line */
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: rgba(255,255,255,0.15);
+  z-index: 0;
+}
+
+.step {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.step__circle {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  background: #fff;
+  color: var(--brand-navy);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: all var(--duration) var(--ease);
+}
+
+.step:hover .step__circle {
+  background: var(--brand-navy-light);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.step__circle svg {
+  width: 28px;
+  height: 28px;
+}
+
+.step__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.step__desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  padding: 0 8px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 10 — INSPECTION TRUST LAYER
+   ═══════════════════════════════════════════════════════ */
+
+.inspection {
+  background: var(--bg-primary);
+  padding: 100px 0;
+}
+
+.inspection .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.inspection__visual {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: linear-gradient(135deg, #e8e4de, #d8d4ce);
+  aspect-ratio: 4/3;
+}
+
+.inspection__visual-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  padding: 40px;
+}
+
+.inspection__visual-inner svg {
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  opacity: 0.35;
+}
+
+.inspection__content .section-label { text-align: left; }
+.inspection__content .section-label::before { display: none; }
+.inspection__content .section-title { text-align: left; }
+.inspection__content .section-subtitle {
+  text-align: left;
+  margin: 0 0 32px;
+  max-width: none;
+}
+
+.inspection-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.check-item__icon {
+  width: 28px;
+  height: 28px;
+  background: var(--success-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--success);
+  flex-shrink: 0;
+}
+
+.check-item__icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 11 — FINANCE
+   ═══════════════════════════════════════════════════════ */
+
+.finance {
+  background: var(--amber);
+  padding: 100px 0;
+}
+
+.finance .section-label { color: var(--amber-text); opacity: 0.6; }
+.finance .section-label::before,
+.finance .section-label::after { background: var(--amber-text); opacity: 0.3; }
+.finance .section-title { color: var(--amber-text); }
+.finance .section-subtitle { color: rgba(26,47,74,0.7); }
+
+.finance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.finance-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 40px;
+  transition: all var(--duration) var(--ease);
+}
+
+.finance-card:hover {
+  border-color: var(--brand-navy);
+  box-shadow: 0 8px 24px rgba(0,102,179,0.1);
+}
+
+.finance-card__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.finance-card__label--conventional {
+  background: rgba(27, 58, 92, 0.08);
+  color: var(--brand-navy);
+}
+
+.finance-card__label--islamic {
+  background: rgba(45, 122, 79, 0.08);
+  color: var(--success);
+}
+
+.finance-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.finance-card__features {
+  list-style: none;
+  margin-bottom: 28px;
+}
+
+.finance-card__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.finance-card__features li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--brand-navy);
+  border-radius: 50%;
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 12 — ESCROW / TRANSACTION SECURITY
+   ═══════════════════════════════════════════════════════ */
+
+.escrow {
+  background: var(--bg-white);
+  padding: 100px 0;
+}
+
+.escrow-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.escrow-flow::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--border) 0,
+    var(--border) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
+.escrow-step {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.escrow-step__icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px;
+  background: rgba(0,102,179,0.1);
+  border: 2px solid var(--brand-navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-navy);
+}
+
+.escrow-step__icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.escrow-step__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.escrow-step__desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 13 — AI INTELLIGENCE
+   ═══════════════════════════════════════════════════════ */
+
+.ai-section {
+  background: var(--graphite);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-section .section-title { color: #fff; }
+.ai-section .section-subtitle { color: var(--text-on-dark-muted); }
+.ai-section .section-label { color: var(--brand-navy-light);background:rgba(0,120,212,0.12); }
+
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.ai-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  text-align: center;
+  transition: all var(--duration) var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-card:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: var(--brand-navy-light);
+  transform: translateY(-3px);
+}
+
+.ai-card__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  transition: all 0.3s;
+}
+
+.ai-card:hover .ai-card__icon {
+  background: var(--brand-navy);
+  transform: scale(1.1);
+}
+
+.ai-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.ai-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.ai-card__desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-on-dark-muted);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 14 — SELLER CTA
+   ═══════════════════════════════════════════════════════ */
+
+.seller-cta {
+  background: var(--bg-sand);
+  padding: 100px 0;
+}
+
+.seller-cta .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.seller-cta__content .section-label { text-align: left; }
+.seller-cta__content .section-label::before { display: none; }
+.seller-cta__content .section-title { text-align: left; }
+.seller-cta__content .section-subtitle {
+  text-align: left;
+  margin: 0 0 20px;
+  max-width: none;
+}
+
+.seller-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.seller-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.seller-feature__dot {
+  width: 8px;
+  height: 8px;
+  background: var(--brand-navy);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.seller-cta__actions {
+  display: flex;
+  gap: 16px;
+}
+
+.seller-cta__visual {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.08);
+  padding: 24px;
+}
+
+.portal-mock {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.portal-mock__header {
+  background: var(--graphite);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.portal-mock__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-dark);
+}
+
+.portal-mock__dot--r { background: #ff5f57; }
+.portal-mock__dot--y { background: #ffbd2e; }
+.portal-mock__dot--g { background: #28c840; }
+
+.portal-mock__body {
+  background: var(--bg-primary);
+  padding: 20px;
+  min-height: 260px;
+}
+
+.portal-mock__row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.portal-mock__thumb {
+  width: 48px;
+  height: 48px;
+  background: var(--bg-warm);
+  border-radius: var(--radius-xs);
+  flex-shrink: 0;
+}
+
+.portal-mock__info {
+  flex: 1;
+}
+
+.portal-mock__line {
+  height: 10px;
+  background: var(--border-light);
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.portal-mock__line--short { width: 60%; }
+.portal-mock__line--med { width: 80%; }
+
+.portal-mock__badge-sm {
+  width: 56px;
+  height: 24px;
+  background: var(--amber-glow);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 15 — WHATSAPP + SUPPORT
+   ═══════════════════════════════════════════════════════ */
+
+.support-section {
+  background: var(--bg-white);
+  padding: 80px 0;
+}
+
+.support-card {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 56px 48px;
+}
+
+.support-card__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  background: rgba(37, 211, 102, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--whatsapp);
+}
+
+.support-card__icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.support-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.support-card__desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.support-card__actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.support-avatars {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.support-avatars__item {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-warm);
+  border: 3px solid var(--bg-primary);
+  margin-left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.support-avatars__item:first-child { margin-left: 0; }
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 16 — CREDIBILITY STATS BAR
+   ═══════════════════════════════════════════════════════ */
+
+.stats-bar {
+  background: var(--graphite);
+  padding: 72px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.stat-block {
+  text-align: center;
+  position: relative;
+}
+
+.stat-block::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background: var(--border-dark);
+}
+
+.stat-block:last-child::after { display: none; }
+
+.stat-block__number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.stat-block__number span {
+  color: var(--amber);
+}
+
+.stat-block__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-on-dark-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 17 — FAQ
+   ═══════════════════════════════════════════════════════ */
+
+.faq {
+  background: var(--bg-primary);
+  padding: 100px 0;
+}
+
+.faq-list {
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 48px;
+}
+
+.faq-item {
+  background: var(--bg-warm);
+  border: 1px solid var(--border-light) !important;
+  border-radius: var(--radius-sm) !important;
+  margin-bottom: 10px;
+  padding: 0 20px;
+  transition: all 0.2s;
+}
+
+.faq-item:hover {
+  border-color: var(--brand-navy) !important;
+}
+
+.faq-item.active {
+  border-color: var(--brand-navy) !important;
+  background: #fff;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--border-light);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+  transition: color 0.2s;
+  gap: 16px;
+}
+
+.faq-question:hover { color: var(--brand-navy); }
+
+.faq-question__icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s var(--ease);
+}
+
+.faq-question__icon svg {
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+}
+
+.faq-item.active .faq-question__icon {
+  transform: rotate(180deg);
+}
+
+.faq-item.active .faq-question {
+  color: var(--brand-navy);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease);
+}
+
+.faq-answer__inner {
+  padding: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 18 — FINAL DUAL CTA
+   ═══════════════════════════════════════════════════════ */
+
+.final-cta {
+  background: var(--bg-warm);
+  padding: 100px 0;
+}
+
+.final-cta .container {
+  text-align: center;
+}
+
+.final-cta .section-title {
+  margin-bottom: 48px;
+}
+
+.final-cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.final-cta-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 48px 36px;
+  text-align: center;
+  transition: all var(--duration) var(--ease);
+}
+
+.final-cta-card:hover {
+  border-color: var(--brand-navy);
+  box-shadow: 0 8px 24px rgba(0,102,179,0.1);
+  transform: translateY(-3px);
+}
+
+.final-cta-card__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.final-cta-card__icon--buy {
+  background: var(--amber-glow);
+  color: var(--amber);
+}
+
+.final-cta-card__icon--sell {
+  background: rgba(27, 58, 92, 0.08);
+  color: var(--brand-navy);
+}
+
+.final-cta-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.final-cta-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.final-cta-card__desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 19 — FOOTER
+   ═══════════════════════════════════════════════════════ */
+
+.footer {
+  background: #F8F9FA;
+  padding: 72px 0 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--border);
+}
+
+.footer-brand {
+  padding-right: 24px;
+}
+
+.footer-brand__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.footer-brand__logo-img {
+  height: 34px;
+  width: auto;
+  filter: none;
+}
+
+.footer-brand__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+.footer-brand__desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.footer-brand__ecosystem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.footer-brand__ecosystem-badge {
+  padding: 4px 10px;
+  background: var(--bg-warm);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+}
+
+.footer-col__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 20px;
+}
+
+.footer-col__links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-col__links a {
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-col__links a:hover { color: var(--brand-navy); }
+
+.footer-bottom {
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom__copy {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.footer-bottom__links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-bottom__links a {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-bottom__links a:hover { color: var(--brand-navy); }
+
+.footer-bottom__links a:hover { opacity: 1; }
+
+/* ═══════════════════════════════════════════════════════
+   FLOATING WHATSAPP BUTTON
+   ═══════════════════════════════════════════════════════ */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9999;
+  width: 60px;
+  height: 60px;
+  background: var(--whatsapp);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.35);
+  transition: all 0.3s var(--ease);
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 32px rgba(37, 211, 102, 0.45);
+}
+
+.whatsapp-float svg {
+  width: 30px;
+  height: 30px;
+}
+
+/* Pulse ring */
+.whatsapp-float::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--whatsapp);
+  opacity: 0;
+  animation: whatsapp-pulse 2s infinite;
+}
+
+@keyframes whatsapp-pulse {
+  0% { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.3); }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+   ═══════════════════════════════════════════════════════ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s var(--ease-out);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* Hero entrance animations */
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-scale-in {
+  from { opacity: 0; transform: scale(1.1); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.hero__bg { animation: hero-scale-in 1.5s var(--ease-out) both; }
+.hero__badge { animation: hero-fade-up 0.8s var(--ease-out) 0.3s both; }
+.hero__headline { animation: hero-fade-up 0.8s var(--ease-out) 0.45s both; }
+.hero__subline { animation: hero-fade-up 0.8s var(--ease-out) 0.6s both; }
+.hero__actions { animation: hero-fade-up 0.8s var(--ease-out) 0.75s both; }
+.hero__stats { animation: hero-fade-up 0.8s var(--ease-out) 0.9s both; }
+.trust-strip { animation: hero-fade-up 0.6s var(--ease-out) 1s both; }
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 1200px) {
+  .equip-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero .container { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (max-width: 1024px) {
+  :root { --section-gap: 80px; }
+  .container { padding: 0 32px; }
+
+  .hero .container {
+    padding-top: 48px;
+    padding-bottom: 80px;
+  }
+  .hero__content { text-align: center; }
+  .hero__subline { margin-left: auto; margin-right: auto; }
+  .hero__actions { justify-content: center; flex-wrap: wrap; }
+  .hero__stats { justify-content: center; flex-wrap: wrap; gap: 20px; }
+  .hero-stat-divider { display: none; }
+  .trust-strip__inner { flex-wrap: wrap; }
+  .trust-strip__item { flex: 1 1 45%; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .hero__trust-pills { justify-content: center; }
+
+  .equip-grid { grid-template-columns: repeat(2, 1fr); }
+  .diff-grid { grid-template-columns: repeat(2, 1fr); }
+  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+  .pillar::after { display: none; }
+
+  .inspection .container,
+  .seller-cta .container { grid-template-columns: 1fr; gap: 48px; }
+
+  .process-steps { grid-template-columns: repeat(3, 1fr); }
+  .process-steps::before { display: none; }
+
+  .footer-main { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+
+  .utility-bar__left { display: none; }
+
+  .nav-search { display: none; }
+  .sub-nav { display: none; }
+  .btn-login, .btn-register { display: none; }
+
+  .hero { height: auto; min-height: 360px; }
+  .hero__headline { font-size: 30px; }
+  .hero__overlay { background: linear-gradient(180deg, rgba(0,20,45,0.85) 0%, rgba(0,20,45,0.65) 50%, rgba(0,20,45,0.45) 100%); }
+  .trust-strip__inner { flex-direction: column; }
+  .trust-strip__item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 16px 24px; }
+  .trust-strip__item:last-child { border-bottom: none; }
+
+  .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .diff-grid { grid-template-columns: 1fr; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: repeat(2, 1fr); }
+  .finance-grid { grid-template-columns: 1fr; }
+  .escrow-flow { grid-template-columns: repeat(2, 1fr); }
+  .escrow-flow::before { display: none; }
+  .ai-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .final-cta-grid { grid-template-columns: 1fr; }
+  .equip-grid { grid-template-columns: 1fr; }
+
+  .stat-block::after { display: none; }
+  .stat-block__number { font-size: 36px; }
+
+  .footer-main { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+  .support-card { padding: 36px 24px; }
+  .support-card__actions { flex-direction: column; }
+
+  .hero__actions { flex-direction: column; align-items: stretch; }
+  .seller-cta__actions { flex-direction: column; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 1 — UTILITY BAR
+     ═══════════════════════════════════════════════════════ -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-bar__left">
+      <a href="#" class="utility-bar__item" style="opacity:1;color:var(--text-primary);font-weight:600;">
+        <span>🇦🇪 UAE AED</span>
+      </a>
+      <div class="utility-bar__divider"></div>
+      <a href="#" class="utility-bar__item">
+        <span>🇸🇦 KSA SAR</span>
+      </a>
+      <div class="utility-bar__divider"></div>
+      <a href="#" class="utility-bar__item">
+        <span>🇶🇦 Qatar QAR</span>
+      </a>
+      <div class="utility-bar__divider"></div>
+      <a href="#" class="utility-bar__item">
+        <span>🇧🇭 Bahrain BHD</span>
+      </a>
+      <div class="utility-bar__divider"></div>
+      <span class="utility-bar__item" style="color:var(--brand-navy);font-weight:600;">Free 150-point inspection report with every listing — FAMCO Approved</span>
+    </div>
+    <div class="utility-bar__right">
+      <a href="tel:+97142345678" class="utility-bar__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>+971 4 234 5678</span>
+      </a>
+      <div class="utility-bar__divider"></div>
+      <a href="#" class="utility-bar__item" style="color: #25D366;">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .612.612l4.458-1.495A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.752-6.336-2.071l-.442-.331-3.273 1.098 1.098-3.273-.331-.442A9.958 9.958 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        <span>WhatsApp</span>
+      </a>
+      <div class="utility-bar__divider"></div>
+      <a href="#" class="lang-toggle">
+        <span>عربي</span>
+        <span>/</span>
+        <span>EN</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 2 — MAIN NAVIGATION
+     ═══════════════════════════════════════════════════════ -->
+<nav class="main-nav" id="mainNav">
+  <div class="container">
+    <a href="#" class="nav-logo">
+      <img src="HeaderLogoIcon.png" alt="FAMCO Logo" class="nav-logo__img">
+    </a>
+
+    <div class="nav-search">
+      <div class="nav-search__cat">
+        All Categories
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <input class="nav-search__input" type="text" placeholder="Search brand, model, category, or location…">
+      <button class="nav-search__btn" onclick="window.location.href='listing.html'">
+        <svg fill="none" stroke="white" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+    </div>
+
+    <div class="nav-actions">
+      <a href="#" class="nav-icon-btn" title="Wishlist">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <div class="nav-icon-btn__badge">0</div>
+      </a>
+      <a href="#" class="btn-login">Login</a>
+      <a href="#" class="btn-register">Register</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ SUB NAV ═══ -->
+<nav class="sub-nav">
+  <div class="container" style="display:flex;gap:0;padding:0 80px;">
+    <a href="#" class="sub-nav__link active">Home</a>
+    <a href="listing.html" class="sub-nav__link">Browse Equipment</a>
+    <a href="#" class="sub-nav__link">Sell Your Equipment</a>
+    <a href="#" class="sub-nav__link">FAMCO Approved Process</a>
+    <a href="#" class="sub-nav__link">Finance</a>
+    <a href="#" class="sub-nav__link">About Us</a>
+    <a href="#" class="sub-nav__link">Contact</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 3 — HERO (Full-width cinematic banner)
+     ═══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <!-- Full background image — fleet lineup on tarmac with skyline -->
+  <div class="hero__bg" style="background-image: url('Gemini_Generated_Image_6vvxlk6vvxlk6vvx.png');"></div>
+  <div class="hero__overlay" style="background: linear-gradient(180deg, rgba(0,12,30,0.9) 0%, rgba(0,12,30,0.65) 25%, rgba(0,12,30,0.2) 45%, transparent 60%, transparent 100%);"></div>
+
+  <div class="container">
+    <div class="hero__content" style="max-width:100%;text-align:center;">
+      <h1 class="hero__headline" style="text-align:center;max-width:800px;margin:0 auto 24px;">
+        The GCC's Most Trusted <span>FAMCO Approved</span> Marketplace
+      </h1>
+
+      <div class="hero__actions" style="justify-content:center;">
+        <a href="listing.html" class="btn btn--primary">
+          Browse Equipment <i class="fi fi-rr-arrow-right" style="font-size:14px;"></i>
+        </a>
+        <a href="#" class="btn btn--secondary">Sell Your Vehicle <i class="fi fi-rr-arrow-right" style="font-size:14px;"></i></a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══ STATS STRIP (below hero) ═══ -->
+<div class="trust-strip">
+  <div class="trust-strip__inner">
+    <!-- Vehicles Listed -->
+    <div class="trust-strip__item">
+      <div class="trust-strip__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <div class="trust-strip__text">
+        <span class="trust-strip__label">500+</span>
+        <span class="trust-strip__sub">Vehicles Listed</span>
+      </div>
+    </div>
+    <!-- Inspection Standard -->
+    <div class="trust-strip__item">
+      <div class="trust-strip__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="trust-strip__text">
+        <span class="trust-strip__label">150pt</span>
+        <span class="trust-strip__sub">Inspection Standard</span>
+      </div>
+    </div>
+    <!-- GCC Countries -->
+    <div class="trust-strip__item">
+      <div class="trust-strip__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+      </div>
+      <div class="trust-strip__text">
+        <span class="trust-strip__label">4</span>
+        <span class="trust-strip__sub">GCC Countries</span>
+      </div>
+    </div>
+    <!-- Brands Available -->
+    <div class="trust-strip__item">
+      <div class="trust-strip__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+      </div>
+      <div class="trust-strip__text">
+        <span class="trust-strip__label">30+</span>
+        <span class="trust-strip__sub">Brands Available</span>
+      </div>
+    </div>
+    <!-- Buyer Satisfaction -->
+    <div class="trust-strip__item">
+      <div class="trust-strip__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3H14z"/><path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/></svg>
+      </div>
+      <div class="trust-strip__text">
+        <span class="trust-strip__label">98%</span>
+        <span class="trust-strip__sub">Buyer Satisfaction</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 4 — CERTIFICATION TRUST MODULE
+     ═══════════════════════════════════════════════════════ -->
+<section class="cert-trust">
+  <div class="container">
+    <h2 class="section-title reveal" style="font-size:26px;margin-bottom:28px;">Why Choose <span style="color:var(--brand-navy);">FAMCO Approved?</span></h2>
+    <div class="cert-grid">
+      <div class="cert-card reveal reveal-delay-1">
+        <div class="cert-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3 class="cert-card__title">OEM Certification</h3>
+        <p class="cert-card__desc">The only marketplace with manufacturer-backed verification. Every machine authenticated through official OEM channels.</p>
+      </div>
+      <div class="cert-card reveal reveal-delay-2">
+        <div class="cert-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+        </div>
+        <h3 class="cert-card__title">GCC-Wide Presence</h3>
+        <p class="cert-card__desc">Physical offices and yards across UAE, KSA, Qatar & Bahrain. Not just a website — a network you can visit and trust.</p>
+      </div>
+      <div class="cert-card reveal reveal-delay-3">
+        <div class="cert-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><path d="M10 12h4"/></svg>
+        </div>
+        <h3 class="cert-card__title">Arabic-First Platform</h3>
+        <p class="cert-card__desc">Designed natively for the region's primary language with full RTL support — not an afterthought translation.</p>
+      </div>
+      <div class="cert-card reveal reveal-delay-4">
+        <div class="cert-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h3 class="cert-card__title">WhatsApp Commerce</h3>
+        <p class="cert-card__desc">Inquire, negotiate, and transact where you already communicate. Native conversational commerce for the GCC market.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 5+6 — BROWSE EQUIPMENT (merged search + listings)
+     ═══════════════════════════════════════════════════════ -->
+<section class="featured" style="padding-top:64px;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:32px;">
+      <div class="section-label reveal">Browse Equipment</div>
+      <h2 class="section-title reveal reveal-delay-1">Recently Listed Vehicles</h2>
+      <p class="section-subtitle reveal reveal-delay-2">All vehicles are FAMCO Approved and ready for immediate purchase</p>
+    </div>
+    <!-- Category pills -->
+    <div class="categories-scroll reveal reveal-delay-3">
+      <a href="listing.html" class="cat-tile" style="border-color:var(--brand-navy);background:rgba(0,102,179,0.06);color:var(--brand-navy);">
+        <div class="cat-tile__icon" style="background:rgba(0,102,179,0.1);color:var(--brand-navy);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <div class="cat-tile__name">All Equipment</div>
+        <div class="cat-tile__count">500+ listings</div>
+      </a>
+      <a href="#" class="cat-tile">
+        <div class="cat-tile__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="cat-tile__name">Trucks</div>
+        <div class="cat-tile__count">182 listings</div>
+      </a>
+      <a href="#" class="cat-tile">
+        <div class="cat-tile__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="8" width="20" height="8" rx="2"/><path d="M6 8V6"/><path d="M18 8V6"/><circle cx="6" cy="20" r="2"/><circle cx="18" cy="20" r="2"/></svg>
+        </div>
+        <div class="cat-tile__name">Trailers</div>
+        <div class="cat-tile__count">94 listings</div>
+      </a>
+      <a href="#" class="cat-tile">
+        <div class="cat-tile__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        </div>
+        <div class="cat-tile__name">Buses & Coaches</div>
+        <div class="cat-tile__count">56 listings</div>
+      </a>
+      <a href="#" class="cat-tile">
+        <div class="cat-tile__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div class="cat-tile__name">Forklifts</div>
+        <div class="cat-tile__count">68 listings</div>
+      </a>
+      <a href="#" class="cat-tile">
+        <div class="cat-tile__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <div class="cat-tile__name">Cranes</div>
+        <div class="cat-tile__count">34 listings</div>
+      </a>
+      <a href="#" class="cat-tile">
+        <div class="cat-tile__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18h6a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H15"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+        </div>
+        <div class="cat-tile__name">Construction</div>
+        <div class="cat-tile__count">42 listings</div>
+      </a>
+      <a href="#" class="cat-tile">
+        <div class="cat-tile__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9"/></svg>
+        </div>
+        <div class="cat-tile__name">Special Purpose</div>
+        <div class="cat-tile__count">18 listings</div>
+      </a>
+      <a href="#" class="cat-tile">
+        <div class="cat-tile__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        </div>
+        <div class="cat-tile__name">Agricultural</div>
+        <div class="cat-tile__count">12 listings</div>
+      </a>
+    </div>
+    <!-- Equipment grid — 2 rows x 4 columns -->
+    <div style="height:24px;"></div>
+    <div class="equip-grid">
+      <!-- Row 1, Card 1 — 2022 Volvo EC220E Crawler Excavator -->
+      <div class="equip-card reveal">
+        <div class="equip-card__img">
+          <img src="ChatGPT Image Apr 13, 2026, 06_40_48 PM.png" alt="Volvo EC220E Crawler Excavator" loading="lazy">
+          <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.4s var(--ease);" src="ChatGPT Image Apr 13, 2026, 06_39_56 PM.png" alt="Volvo EC220E Side View" loading="lazy">
+          <div class="equip-card__img-overlay"></div>
+          <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
+          <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+        </div>
+        <div class="equip-card__body">
+          <h3 class="equip-card__name">2022 Volvo EC220E Crawler Excavator</h3>
+          <div class="equip-card__meta">
+            <span><i class="fi fi-rr-calendar"></i> 2022</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-dashboard"></i> 2,100 hrs</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-marker"></i> UAE</span>
+          </div>
+          <div class="equip-card__footer">
+            <div>
+              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>285,000</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 20,000/mo</div>
+            </div>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Row 1, Card 2 — Volvo FM460 -->
+      <div class="equip-card reveal reveal-delay-1">
+        <div class="equip-card__img">
+          <img src="Volvo FM460.jpg" alt="Volvo FM460" loading="lazy">
+          <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
+          <div class="equip-card__img-overlay"></div>
+          <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
+          <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+        </div>
+        <div class="equip-card__body">
+          <h3 class="equip-card__name">Volvo FM460 6×4 Tractor</h3>
+          <div class="equip-card__meta">
+            <span><i class="fi fi-rr-calendar"></i> 2021</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-dashboard"></i> 72,000 km</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-marker"></i> KSA</span>
+          </div>
+          <div class="equip-card__footer">
+            <div>
+              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>220,000</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 3,100/mo</div>
+            </div>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Row 1, Card 3 — CAT 320 Hydraulic Excavator -->
+      <div class="equip-card reveal reveal-delay-2">
+        <div class="equip-card__img">
+          <img src="CAT 320 Hydraulic.jpg" alt="CAT 320 Hydraulic Excavator" loading="lazy">
+          <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
+          <div class="equip-card__img-overlay"></div>
+          <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
+          <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+        </div>
+        <div class="equip-card__body">
+          <h3 class="equip-card__name">CAT 320 Hydraulic Excavator</h3>
+          <div class="equip-card__meta">
+            <span><i class="fi fi-rr-calendar"></i> 2020</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-dashboard"></i> 3,200 hrs</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-marker"></i> Qatar</span>
+          </div>
+          <div class="equip-card__footer">
+            <div>
+              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>485,000</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 7,200/mo</div>
+            </div>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Row 1, Card 4 — Volvo FE 280 -->
+      <div class="equip-card reveal reveal-delay-3">
+        <div class="equip-card__img">
+          <img src="Volvo FE 280.jpg" alt="Volvo FE 280" loading="lazy">
+          <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
+          <div class="equip-card__img-overlay"></div>
+          <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
+          <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+        </div>
+        <div class="equip-card__body">
+          <h3 class="equip-card__name">Volvo FE 280 Distribution</h3>
+          <div class="equip-card__meta">
+            <span><i class="fi fi-rr-calendar"></i> 2023</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-dashboard"></i> 18,400 km</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-marker"></i> UAE</span>
+          </div>
+          <div class="equip-card__footer">
+            <div>
+              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>195,000</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 2,800/mo</div>
+            </div>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Row 2, Card 5 — Toyota Forklift -->
+      <div class="equip-card reveal">
+        <div class="equip-card__img">
+          <img src="Toyota 8FBN25 Forklift.jpg" alt="Toyota 8FBN25 Forklift" loading="lazy">
+          <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
+          <div class="equip-card__img-overlay"></div>
+          <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
+          <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+        </div>
+        <div class="equip-card__body">
+          <h3 class="equip-card__name">Toyota 8FBN25 Forklift</h3>
+          <div class="equip-card__meta">
+            <span><i class="fi fi-rr-calendar"></i> 2021</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-dashboard"></i> 4,800 hrs</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-marker"></i> KSA</span>
+          </div>
+          <div class="equip-card__footer">
+            <div>
+              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>85,000</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 1,250/mo</div>
+            </div>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Row 2, Card 6 — Volvo EC220E Crawler -->
+      <div class="equip-card reveal reveal-delay-1">
+        <div class="equip-card__img">
+          <img src="Volvo EC220E Crawler.jpg" alt="Volvo EC220E Crawler Excavator" loading="lazy">
+          <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
+          <div class="equip-card__img-overlay"></div>
+          <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
+          <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+        </div>
+        <div class="equip-card__body">
+          <h3 class="equip-card__name">Volvo EC220E Crawler Excavator</h3>
+          <div class="equip-card__meta">
+            <span><i class="fi fi-rr-calendar"></i> 2022</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-dashboard"></i> 2,100 hrs</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-marker"></i> UAE</span>
+          </div>
+          <div class="equip-card__footer">
+            <div>
+              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>520,000</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 7,800/mo</div>
+            </div>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Row 2, Card 7 — Volvo 9700 Luxury Coach -->
+      <div class="equip-card reveal reveal-delay-2">
+        <div class="equip-card__img">
+          <img src="Volvo 9700 Luxury Coach.jpg" alt="Volvo 9700 Luxury Coach" loading="lazy">
+          <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
+          <div class="equip-card__img-overlay"></div>
+          <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
+          <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+        </div>
+        <div class="equip-card__body">
+          <h3 class="equip-card__name">Volvo 9700 Luxury Coach</h3>
+          <div class="equip-card__meta">
+            <span><i class="fi fi-rr-calendar"></i> 2021</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-dashboard"></i> 92,000 km</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-marker"></i> Bahrain</span>
+          </div>
+          <div class="equip-card__footer">
+            <div>
+              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>380,000</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 5,600/mo</div>
+            </div>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Row 2, Card 8 — Hyster Reach Truck -->
+      <div class="equip-card reveal reveal-delay-3">
+        <div class="equip-card__img">
+          <img src="Hyster R1.6H Reach Truck.jpg" alt="Hyster R1.6H Reach Truck" loading="lazy">
+          <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
+          <div class="equip-card__img-overlay"></div>
+          <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
+          <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+        </div>
+        <div class="equip-card__body">
+          <h3 class="equip-card__name">Hyster R1.6H Reach Truck</h3>
+          <div class="equip-card__meta">
+            <span><i class="fi fi-rr-calendar"></i> 2020</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-dashboard"></i> 5,600 hrs</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-marker"></i> Qatar</span>
+          </div>
+          <div class="equip-card__footer">
+            <div>
+              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>62,000</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 920/mo</div>
+            </div>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 48px;">
+      <a href="#" class="btn btn--primary">View All Listings <i class="fi fi-rr-arrow-right" style="font-size:14px;display:flex;align-items:center;"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 8 — HOW IT WORKS (moved up)
+     ═══════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 8 — THE FAMCO APPROVED PROCESS (animated)
+     ═══════════════════════════════════════════════════════ -->
+<style>
+/* Process animation styles */
+.process-section { background:#F4F8FD;padding:80px 0;position:relative;overflow:hidden; }
+.process-section .pattern-bg { position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(0,102,179,0.04) 1px,transparent 0);background-size:32px 32px;pointer-events:none; }
+
+.process-grid { display:flex;align-items:flex-start;justify-content:center;gap:0;margin-top:56px;position:relative; }
+
+.process-step { flex:1;text-align:center;position:relative;z-index:2; }
+
+.process-step__circle {
+  width:80px;height:80px;margin:0 auto 24px;
+  background:#fff;border:3px solid var(--border);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-muted);
+  position:relative;z-index:2;
+  box-shadow:0 0 0 8px #F4F8FD, 0 4px 16px rgba(0,0,0,0.04);
+  transition:all 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.process-step__circle i { font-size:26px;transition:all 0.4s; }
+
+/* Number badge */
+.process-step__num {
+  position:absolute;top:-6px;right:-6px;
+  width:26px;height:26px;border-radius:50%;
+  background:var(--brand-navy);color:#fff;
+  font-family:var(--font-display);font-size:12px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  z-index:3;
+  box-shadow:0 2px 8px rgba(0,102,179,0.3);
+  transition:all 0.4s;
+}
+
+.process-step__title {
+  font-family:var(--font-display);font-weight:700;font-size:16px;
+  color:var(--text-primary);margin-bottom:8px;transition:color 0.4s;
+}
+
+.process-step__desc {
+  font-size:13px;color:var(--text-muted);line-height:1.6;
+  padding:0 12px;max-width:240px;margin:0 auto;
+}
+
+/* Arrow connector between steps */
+.process-arrow {
+  flex:0 0 60px;display:flex;align-items:center;justify-content:center;
+  padding-top:28px;z-index:1;
+}
+
+.process-arrow__line {
+  width:100%;height:2px;background:var(--border);position:relative;
+  overflow:hidden;border-radius:1px;
+}
+
+.process-arrow__line::after {
+  content:'';position:absolute;left:0;top:0;height:100%;width:0;
+  background:linear-gradient(90deg,var(--brand-navy),#0078D4);
+  border-radius:1px;
+}
+
+.process-arrow__chevron {
+  flex-shrink:0;color:var(--border);font-size:16px;
+  margin-left:-2px;transition:all 0.4s;
+}
+
+/* ── Animated states when section is in view ── */
+.process-section.animate .process-step:nth-child(1) .process-step__circle { border-color:var(--brand-navy);color:var(--brand-navy);animation:process-pop 0.5s 0.3s both; }
+.process-section.animate .process-step:nth-child(3) .process-step__circle { border-color:var(--brand-navy);color:var(--brand-navy);animation:process-pop 0.5s 0.9s both; }
+.process-section.animate .process-step:nth-child(5) .process-step__circle { border-color:var(--brand-navy);color:var(--brand-navy);animation:process-pop 0.5s 1.5s both; }
+.process-section.animate .process-step:nth-child(7) .process-step__circle { border-color:var(--brand-navy);background:var(--brand-navy);color:#fff;animation:process-pop 0.5s 2.1s both; }
+
+/* Arrow grow animation */
+.process-section.animate .process-arrow:nth-child(2) .process-arrow__line::after { animation:arrow-grow 0.5s 0.7s both; }
+.process-section.animate .process-arrow:nth-child(4) .process-arrow__line::after { animation:arrow-grow 0.5s 1.3s both; }
+.process-section.animate .process-arrow:nth-child(6) .process-arrow__line::after { animation:arrow-grow 0.5s 1.9s both; }
+
+.process-section.animate .process-arrow:nth-child(2) .process-arrow__chevron { animation:chevron-appear 0.3s 1.1s both; }
+.process-section.animate .process-arrow:nth-child(4) .process-arrow__chevron { animation:chevron-appear 0.3s 1.7s both; }
+.process-section.animate .process-arrow:nth-child(6) .process-arrow__chevron { animation:chevron-appear 0.3s 2.3s both; }
+
+/* Number badge pulse */
+.process-section.animate .process-step:nth-child(1) .process-step__num { animation:num-pulse 0.4s 0.4s both; }
+.process-section.animate .process-step:nth-child(3) .process-step__num { animation:num-pulse 0.4s 1.0s both; }
+.process-section.animate .process-step:nth-child(5) .process-step__num { animation:num-pulse 0.4s 1.6s both; }
+.process-section.animate .process-step:nth-child(7) .process-step__num { animation:num-pulse 0.4s 2.2s both; }
+
+@keyframes process-pop {
+  0% { transform:scale(0.8);opacity:0.5; }
+  50% { transform:scale(1.1); }
+  100% { transform:scale(1);opacity:1; }
+}
+
+@keyframes arrow-grow {
+  0% { width:0; }
+  100% { width:100%; }
+}
+
+@keyframes chevron-appear {
+  0% { opacity:0;transform:translateX(-8px); }
+  100% { opacity:1;transform:translateX(0);color:var(--brand-navy); }
+}
+
+@keyframes num-pulse {
+  0% { transform:scale(0); }
+  60% { transform:scale(1.3); }
+  100% { transform:scale(1); }
+}
+
+/* Hover on individual steps */
+.process-step:hover .process-step__circle {
+  border-color:var(--brand-navy) !important;
+  color:var(--brand-navy) !important;
+  background:#fff !important;
+  transform:translateY(-4px);
+  box-shadow:0 0 0 8px #F4F8FD, 0 12px 32px rgba(0,102,179,0.15);
+}
+.process-step:nth-child(7):hover .process-step__circle {
+  background:var(--brand-navy) !important;
+  color:#fff !important;
+}
+.process-step:hover .process-step__title { color:var(--brand-navy); }
+.process-step:hover .process-step__num { transform:scale(1.15);background:#FFD100;color:#1A2F4A; }
+</style>
+
+<section class="process-section" id="processSection">
+  <div class="pattern-bg"></div>
+  <div class="container" style="text-align:center;position:relative;z-index:1;">
+    <div class="section-label reveal">How It Works</div>
+    <h2 class="section-title reveal reveal-delay-1">The FAMCO <span style="display:inline-block;background:#FFD100;color:#1A2F4A;padding:2px 14px;border-radius:5px;font-style:italic;">Approved</span> Process</h2>
+    <p class="section-subtitle reveal reveal-delay-2">Every vehicle goes through our rigorous certification — so you buy with confidence</p>
+
+    <div class="process-grid">
+      <!-- Step 1 -->
+      <div class="process-step">
+        <div class="process-step__circle">
+          <div class="process-step__num">1</div>
+          <i class="fi fi-rr-document"></i>
+        </div>
+        <h3 class="process-step__title">Submit Vehicle</h3>
+        <p class="process-step__desc">Sellers submit vehicle details, documents and photos through our verified platform</p>
+      </div>
+      <!-- Arrow 1→2 -->
+      <div class="process-arrow">
+        <div class="process-arrow__line"></div>
+        <div class="process-arrow__chevron"><i class="fi fi-rr-angle-right"></i></div>
+      </div>
+      <!-- Step 2 -->
+      <div class="process-step">
+        <div class="process-step__circle">
+          <div class="process-step__num">2</div>
+          <i class="fi fi-rr-shield-check"></i>
+        </div>
+        <h3 class="process-step__title">150-Point Inspection</h3>
+        <p class="process-step__desc">Certified FAMCO technicians perform a comprehensive inspection at your location</p>
+      </div>
+      <!-- Arrow 2→3 -->
+      <div class="process-arrow">
+        <div class="process-arrow__line"></div>
+        <div class="process-arrow__chevron"><i class="fi fi-rr-angle-right"></i></div>
+      </div>
+      <!-- Step 3 -->
+      <div class="process-step">
+        <div class="process-step__circle">
+          <div class="process-step__num">3</div>
+          <i class="fi fi-rr-badge-check"></i>
+        </div>
+        <h3 class="process-step__title">FAMCO Certification</h3>
+        <p class="process-step__desc">Vehicles that pass receive the FAMCO Approved badge and full inspection report</p>
+      </div>
+      <!-- Arrow 3→4 -->
+      <div class="process-arrow">
+        <div class="process-arrow__line"></div>
+        <div class="process-arrow__chevron"><i class="fi fi-rr-angle-right"></i></div>
+      </div>
+      <!-- Step 4 -->
+      <div class="process-step">
+        <div class="process-step__circle">
+          <div class="process-step__num">4</div>
+          <i class="fi fi-rr-check"></i>
+        </div>
+        <h3 class="process-step__title">Buy with Confidence</h3>
+        <p class="process-step__desc">Purchase securely with escrow protection, finance options and Al-Futtaim backing</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Sections 10, 11, 12 removed -->
+
+<!-- AI & Seller sections removed -->
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 15 — CONTACT / SUPPORT SECTION
+     ═══════════════════════════════════════════════════════ -->
+<section style="background:#fff;padding:80px 0;border-top:1px solid var(--border);">
+  <div class="container">
+    <div style="background:var(--bg-warm);border-radius:16px;overflow:hidden;display:flex;align-items:stretch;">
+      <!-- Left content -->
+      <div style="flex:1;padding:52px 56px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,0.1);padding:6px 14px;border-radius:20px;margin-bottom:20px;">
+          <i class="fi fi-rr-headset" style="font-size:13px;color:#25D366;"></i>
+          <span style="font-size:12px;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:0.06em;">Expert Support</span>
+        </div>
+        <h2 style="font-family:var(--font-display);font-weight:900;font-size:32px;color:var(--text-primary);line-height:1.2;margin-bottom:14px;">Need Help? Talk to Our<br>Machinery Experts</h2>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.65;max-width:420px;margin-bottom:28px;">Have a question about a listing? Need help with financing or inspections? Our team is available — real people, real expertise, real-time responses.</p>
+        <!-- Contact options grid -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:32px;">
+          <div style="display:flex;align-items:center;gap:10px;padding:14px 16px;background:#fff;border-radius:10px;border:1px solid var(--border);">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(37,211,102,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fi fi-rr-phone-call" style="font-size:15px;color:#25D366;display:flex;"></i>
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);font-weight:500;">WhatsApp</div>
+              <div style="font-size:13px;color:var(--text-primary);font-weight:700;">+971 4 XXX XXXX</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:14px 16px;background:#fff;border-radius:10px;border:1px solid var(--border);">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(0,102,179,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fi fi-rr-phone-flip" style="font-size:15px;color:var(--brand-navy);display:flex;"></i>
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);font-weight:500;">Call Us</div>
+              <div style="font-size:13px;color:var(--text-primary);font-weight:700;">+971 4 XXX XXXX</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:14px 16px;background:#fff;border-radius:10px;border:1px solid var(--border);">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(0,102,179,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fi fi-rr-envelope" style="font-size:15px;color:var(--brand-navy);display:flex;"></i>
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);font-weight:500;">Email</div>
+              <div style="font-size:13px;color:var(--text-primary);font-weight:700;">info@famco-used.ae</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:14px 16px;background:#fff;border-radius:10px;border:1px solid var(--border);">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(0,102,179,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fi fi-rr-clock" style="font-size:15px;color:var(--brand-navy);display:flex;"></i>
+            </div>
+            <div>
+              <div style="font-size:11px;color:var(--text-muted);font-weight:500;">Working Hours</div>
+              <div style="font-size:13px;color:var(--text-primary);font-weight:700;">Sun–Thu: 8AM–6PM</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;">
+          <a href="#" class="btn btn--primary" style="background:#25D366;"><i class="fi fi-rr-phone-call" style="font-size:14px;"></i> Chat on WhatsApp</a>
+          <a href="#" class="btn btn--secondary"><i class="fi fi-rr-phone-flip" style="font-size:14px;"></i> Call Us</a>
+        </div>
+      </div>
+      <!-- Right side — team visual with bg image -->
+      <div style="flex:0 0 42%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 40px;position:relative;overflow:hidden;">
+        <!-- Background image -->
+        <div style="position:absolute;inset:0;background-image:url('Gemini_Generated_Image_6vvxlk6vvxlk6vvx.png');background-size:cover;background-position:center;"></div>
+        <div style="position:absolute;inset:0;background:rgba(0,69,122,0.88);"></div>
+        <div style="position:relative;z-index:1;text-align:center;">
+          <!-- Team avatars -->
+          <div style="display:flex;justify-content:center;margin-bottom:24px;">
+            <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.12);border:3px solid var(--brand-navy);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;">AK</div>
+            <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.12);border:3px solid var(--brand-navy);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;margin-left:-12px;">RS</div>
+            <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.12);border:3px solid var(--brand-navy);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;margin-left:-12px;">MA</div>
+            <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.08);border:3px solid var(--brand-navy);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:rgba(255,255,255,0.5);margin-left:-12px;">+5</div>
+          </div>
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:#fff;margin-bottom:8px;">Our Expert Team</h3>
+          <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:28px;">8+ machinery specialists available<br>across UAE, KSA, Qatar & Bahrain</p>
+          <!-- Stats -->
+          <div style="display:flex;gap:24px;justify-content:center;">
+            <div style="text-align:center;">
+              <div style="font-family:var(--font-display);font-weight:900;font-size:28px;color:#fff;line-height:1;">24/7</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:4px;">WhatsApp</div>
+            </div>
+            <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+            <div style="text-align:center;">
+              <div style="font-family:var(--font-display);font-weight:900;font-size:28px;color:#fff;line-height:1;">&lt;2h</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:4px;">Response Time</div>
+            </div>
+            <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+            <div style="text-align:center;">
+              <div style="font-family:var(--font-display);font-weight:900;font-size:28px;color:#fff;line-height:1;">4.9</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:4px;">Rating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 16 removed -->
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 17 — FAQ
+     ═══════════════════════════════════════════════════════ -->
+<section class="faq">
+  <div class="container" style="text-align:center;">
+    <div class="section-label reveal">Common Questions</div>
+    <h2 class="section-title reveal reveal-delay-1">Everything You Need to Know</h2>
+    <div style="height: 48px;"></div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          What does FAMCO Approved mean?
+          <span class="faq-question__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">FAMCO Approved means every piece of equipment has been verified through official OEM channels, undergone a comprehensive 150-point inspection by trained Famco technicians, and received a standardized condition grade (A, B, or C). This certification provides buyers with complete transparency and confidence in their purchase.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          How does the inspection process work?
+          <span class="faq-question__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">Our certified technicians perform a thorough 150-point inspection covering mechanical, structural, electrical, and cosmetic aspects of every machine. The full inspection report is made available to potential buyers before purchase, ensuring complete transparency and informed decision-making.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          What Shariah-compliant finance options are available?
+          <span class="faq-question__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">We offer Murabaha (cost-plus financing) and Ijarah (lease-to-own) structures approved by recognized Shariah boards. These are fully integrated into your purchase journey, compliant with VAT and ZATCA regulations, and feature transparent profit-rate calculations with no hidden fees.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          How does escrow protect my payment?
+          <span class="faq-question__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">When you make a purchase, your funds are held securely in escrow by a regulated third party. The seller only receives payment after you confirm delivery and verify the equipment matches its description and inspection report. This protects both buyers and sellers in every transaction.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          Can I list my equipment from outside the UAE?
+          <span class="faq-question__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">Yes. Our seller portal is accessible from anywhere, and we accept listings from across the GCC. Equipment located in UAE and Saudi Arabia can be listed immediately. For other GCC countries, our team will coordinate inspection logistics and certification support.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          Is the platform available in Arabic?
+          <span class="faq-question__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">Yes. The platform is designed Arabic-first with full RTL (right-to-left) support. All content, navigation, search, and transaction flows are available in both Arabic and English. You can switch languages at any time using the toggle in the header.</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 32px;">
+      <p style="font-size: 15px; color: var(--text-muted);">Still have questions? <a href="#" style="color: var(--brand-navy); font-weight: 700; text-decoration: none;">Talk to our team →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 18 — FINAL CTA WITH BACKGROUND IMAGE
+     ═══════════════════════════════════════════════════════ -->
+<section style="position:relative;overflow:hidden;min-height:320px;display:flex;align-items:center;">
+  <!-- Background image -->
+  <div style="position:absolute;inset:0;background-image:url('Gemini_Generated_Image_6vvxlk6vvxlk6vvx.png');background-size:cover;background-position:center bottom;"></div>
+  <!-- Dark overlay -->
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,20,45,0.92) 0%,rgba(0,20,45,0.8) 45%,rgba(0,20,45,0.5) 70%,rgba(0,20,45,0.3) 100%);"></div>
+  <div class="container" style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding-top:56px;padding-bottom:56px;">
+    <!-- Left content -->
+    <div style="max-width:550px;">
+      <h2 style="font-family:var(--font-display);font-weight:900;font-size:clamp(28px,3vw,40px);color:#fff;line-height:1.2;margin-bottom:12px;">Ready to Get Started?</h2>
+      <p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.6;">Whether you're buying or selling — join the GCC's most trusted FAMCO Approved marketplace backed by Al-Futtaim.</p>
+    </div>
+    <!-- Right CTAs -->
+    <div style="display:flex;gap:14px;flex-shrink:0;">
+      <a href="listing.html" class="btn btn--primary" style="background:#FFD100;color:#1A2F4A;">
+        <i class="fi fi-rr-search" style="font-size:14px;"></i> Browse Equipment
+      </a>
+      <a href="#" style="display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:#fff;color:var(--brand-navy);border-radius:var(--radius-sm);font-weight:800;font-size:15px;text-decoration:none;font-family:var(--font-body);transition:all 0.3s;">
+        <i class="fi fi-rr-plus" style="font-size:14px;"></i> List Your Equipment
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 19 — FOOTER
+     ═══════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="#" class="footer-brand__logo">
+          <img src="HeaderLogoIcon.png" alt="FAMCO Logo" class="footer-brand__logo-img">
+        </a>
+        <p class="footer-brand__desc">The GCC's most trusted marketplace for certified used commercial vehicles. Backed by Al-Futtaim Group since 1930.</p>
+        <div class="footer-brand__ecosystem">
+          Part of <span class="footer-brand__ecosystem-badge">Al-Futtaim Group</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Marketplace</h4>
+        <ul class="footer-col__links">
+          <li><a href="listing.html">Browse Equipment</a></li>
+          <li><a href="#">Sell Your Vehicle</a></li>
+          <li><a href="#">FAMCO Approved Process</a></li>
+          <li><a href="#">Compare Vehicles</a></li>
+          <li><a href="#">Wishlist</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Company</h4>
+        <ul class="footer-col__links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Finance Options</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">News & Media</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col__title">Contact</h4>
+        <div style="font-size: 14px; color: var(--text-secondary); line-height: 2;">
+          Al-Futtaim Group<br>
+          Dubai, UAE<br><br>
+          +971 4 XXX XXXX<br>
+          info@famco-used.ae<br><br>
+          Sun–Thu: 8AM – 6PM
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom__copy">&copy; 2026 Al-Futtaim FAMCO. All rights reserved. <span style="color:var(--brand-navy-light);font-weight:700;">FAMCO Approved Marketplace</span></div>
+      <div class="footer-bottom__links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════
+     FLOATING WHATSAPP BUTTON
+     ═══════════════════════════════════════════════════════ -->
+<a href="#" class="whatsapp-float" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .612.612l4.458-1.495A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.752-6.336-2.071l-.442-.331-3.273 1.098 1.098-3.273-.331-.442A9.958 9.958 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+</a>
+
+<!-- ═══════════════════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════════════════ -->
+<script>
+// ── Sticky Navigation Scroll Effect ──
+const mainNav = document.getElementById('mainNav');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  if (currentScroll > 40) {
+    mainNav.classList.add('scrolled');
+  } else {
+    mainNav.classList.remove('scrolled');
+  }
+  lastScroll = currentScroll;
+}, { passive: true });
+
+// ── Scroll Reveal ──
+const revealElements = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -40px 0px'
+});
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// ── FAQ Accordion ──
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.parentElement;
+    const isActive = item.classList.contains('active');
+
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+    // Toggle clicked
+    if (!isActive) {
+      item.classList.add('active');
+    }
+  });
+});
+
+// ── Video Hover + Click on Equipment Cards ──
+document.querySelectorAll('.equip-card').forEach(card => {
+  const video = card.querySelector('video');
+  if (video) {
+    card.addEventListener('mouseenter', () => {
+      video.play().catch(() => {});
+    });
+    card.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  }
+  card.addEventListener('click', (e) => {
+    if (e.target.closest('.fav-btn') || e.target.closest('.btn-view')) return;
+    window.location.href = 'product-detail.html';
+  });
+});
+
+// ── Smooth Category Scroll ──
+const categoriesScroll = document.querySelector('.categories-scroll');
+if (categoriesScroll) {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  categoriesScroll.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - categoriesScroll.offsetLeft;
+    scrollLeft = categoriesScroll.scrollLeft;
+  });
+
+  categoriesScroll.addEventListener('mouseleave', () => { isDown = false; });
+  categoriesScroll.addEventListener('mouseup', () => { isDown = false; });
+
+  categoriesScroll.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - categoriesScroll.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    categoriesScroll.scrollLeft = scrollLeft - walk;
+  });
+}
+
+// ── Counter Animation for Stats ──
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const statNumbers = entry.target.querySelectorAll('.stat-block__number');
+      statNumbers.forEach(stat => {
+        const text = stat.textContent;
+        // Only animate pure numbers
+        const match = text.match(/^(\d+)/);
+        if (match) {
+          const target = parseInt(match[1]);
+          const suffix = text.replace(match[1], '');
+          let current = 0;
+          const increment = target / 40;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            stat.innerHTML = Math.floor(current) + suffix;
+          }, 30);
+        }
+      });
+      statsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+const statsBar = document.querySelector('.stats-bar');
+if (statsBar) statsObserver.observe(statsBar);
+
+// ── Process Section Animation ──
+const processSection = document.getElementById('processSection');
+if (processSection) {
+  const processObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        processObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  processObserver.observe(processSection);
+}
+
+// ── Parallax on Hero Background ──
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  const heroBg = document.querySelector('.hero__bg');
+  if (heroBg && scrolled < 800) {
+    heroBg.style.transform = `scale(1) translateY(${scrolled * 0.15}px)`;
+  }
+}, { passive: true });
+</script>
+
+</body>
+</html>

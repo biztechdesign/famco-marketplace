@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"C:\\\\Lopa\\\\FAMCO\\\\images\" /B)",
+      "Bash(dir \"C:\\\\Lopa\\\\FAMCO\\\\images\\\\volvo truck 3d model.glb\")",
+      "Bash(powershell -Command \"\\(Get-Item 'C:\\\\Lopa\\\\FAMCO\\\\images\\\\volvo truck 3d model.glb'\\).length / 1MB\")",
+      "Bash(powershell -Command \"Test-Path 'C:\\\\Lopa\\\\FAMCO\\\\images\\\\volvo truck 3d model.glb'\")"
+    ]
+  }
+}

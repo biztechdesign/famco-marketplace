@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse Equipment — FAMCO Approved Marketplace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg-primary:#FFFFFF;--bg-warm:#F4F8FD;--bg-white:#FFFFFF;
+  --graphite:#0D1F35;--charcoal:#152A42;
+  --brand-navy:#0066B3;--brand-navy-light:#0078D4;--brand-navy-dark:#00457A;
+  --success:#16A34A;--success-light:#ECFDF5;--error:#DC2626;
+  --text-primary:#1A2F4A;--text-secondary:#5C6B7A;--text-muted:#9BA8B5;
+  --text-on-dark:#E8F0FA;--text-on-dark-muted:#8A9AB0;
+  --border:#E2E8F0;--border-light:#EDF1F7;--border-dark:#1E3450;
+  --whatsapp:#25D366;
+  --container:1440px;--radius:12px;--radius-sm:8px;--radius-xs:6px;
+  --font-display:'Outfit',sans-serif;--font-body:'DM Sans',sans-serif;
+  --ease:cubic-bezier(0.25,0.46,0.45,0.94);--duration:0.3s;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+body{font-family:var(--font-body);background:var(--bg-warm);color:var(--text-primary);line-height:1.6;}
+::selection{background:var(--brand-navy);color:#fff;}
+.container{max-width:var(--container);margin:0 auto;padding:0 80px;}
+a{text-decoration:none;}
+
+/* ═══ UTILITY BAR ═══ */
+.utility-bar{background:#F8F9FA;color:var(--text-secondary);font-size:12.5px;padding:8px 0;border-bottom:1px solid var(--border);}
+.utility-bar .container{display:flex;justify-content:space-between;align-items:center;}
+.utility-bar__left,.utility-bar__right{display:flex;align-items:center;gap:20px;}
+.utility-bar__item{display:flex;align-items:center;gap:6px;color:var(--text-secondary);font-size:12.5px;transition:color 0.2s;}
+.utility-bar__item:hover{color:var(--text-primary);}
+.utility-bar__divider{width:1px;height:14px;background:var(--border);}
+.utility-bar svg{width:14px;height:14px;opacity:0.6;}
+.lang-toggle{display:flex;align-items:center;gap:4px;background:rgba(0,0,0,0.04);padding:4px 10px;border-radius:4px;color:var(--text-secondary);font-weight:500;font-size:12.5px;transition:all 0.2s;}
+.lang-toggle:hover{background:rgba(0,0,0,0.07);color:var(--text-primary);}
+
+/* ═══ MAIN NAV ═══ */
+.main-nav{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border-light);box-shadow:0 1px 8px rgba(0,0,0,0.04);}
+.main-nav .container{display:flex;align-items:center;height:72px;gap:28px;}
+.nav-logo__img{height:40px;width:auto;}
+.nav-search{flex:1;display:flex;align-items:center;height:44px;border:1.5px solid var(--border);border-radius:9px;overflow:hidden;transition:border-color 0.2s;}
+.nav-search:focus-within{border-color:var(--brand-navy);}
+.nav-search__cat{padding:0 14px;height:100%;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text-primary);background:var(--bg-warm);border-right:1.5px solid var(--border);white-space:nowrap;cursor:pointer;}
+.nav-search__cat svg{width:12px;height:12px;}
+.nav-search__input{flex:1;border:none;outline:none;padding:0 16px;font-size:13.5px;color:var(--text-secondary);font-family:var(--font-body);background:#fff;}
+.nav-search__input::placeholder{color:var(--text-muted);}
+.nav-search__btn{width:46px;height:100%;background:var(--brand-navy);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.nav-search__btn svg{width:18px;height:18px;}
+.nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.nav-icon-btn{width:42px;height:42px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;background:#fff;color:var(--text-secondary);transition:all 0.2s;}
+.nav-icon-btn:hover{border-color:var(--brand-navy);color:var(--brand-navy);}
+.nav-icon-btn svg{width:19px;height:19px;}
+.nav-icon-btn__badge{position:absolute;top:-6px;right:-6px;background:var(--brand-navy);color:#fff;width:18px;height:18px;border-radius:50%;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.btn-login{padding:10px 20px;border:1.5px solid var(--brand-navy);border-radius:8px;background:transparent;color:var(--brand-navy);font-size:13px;font-weight:600;font-family:var(--font-body);transition:all 0.2s;}
+.btn-login:hover{background:rgba(0,102,179,0.05);}
+.btn-register{padding:10px 22px;border:none;border-radius:8px;background:var(--brand-navy);color:#fff;font-size:13px;font-weight:600;font-family:var(--font-body);transition:all 0.2s;}
+.btn-register:hover{background:var(--brand-navy-dark);}
+
+/* ═══ SUB NAV ═══ */
+.sub-nav{background:#fff;border-bottom:1px solid var(--border);}
+.sub-nav__link{color:var(--text-secondary);font-size:13.5px;font-weight:500;padding:13px 18px;border-bottom:2.5px solid transparent;white-space:nowrap;display:block;transition:all 0.15s;}
+.sub-nav__link.active{color:var(--brand-navy);border-bottom-color:var(--brand-navy);font-weight:700;}
+.sub-nav__link:not(.active):hover{color:var(--text-primary);}
+
+/* ═══ BREADCRUMB ═══ */
+.breadcrumb{padding:16px 0;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);transition:color 0.2s;}
+.breadcrumb a:hover{color:var(--brand-navy);}
+.breadcrumb__sep{font-size:10px;}
+.breadcrumb__current{color:var(--text-primary);font-weight:600;}
+
+/* ═══ PAGE LAYOUT ═══ */
+.page-layout{display:flex;gap:28px;padding-bottom:64px;}
+
+/* ═══ SIDEBAR FILTERS ═══ */
+.sidebar{width:300px;flex-shrink:0;position:sticky;top:140px;align-self:flex-start;max-height:calc(100vh - 160px);overflow-y:auto;padding-right:8px;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+.filter-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px 18px;margin-bottom:12px;}
+.filter-card__title{font-family:var(--font-display);font-weight:700;font-size:13.5px;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;}
+.filter-card__title i{font-size:12px;color:var(--text-muted);cursor:pointer;transition:transform 0.2s;}
+.filter-group{display:flex;flex-direction:column;gap:10px;}
+.filter-check{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text-secondary);}
+.filter-check input[type="checkbox"]{width:16px;height:16px;accent-color:var(--brand-navy);cursor:pointer;flex-shrink:0;}
+.filter-check span{flex:1;}
+.filter-check__count{font-size:11px;color:var(--text-muted);font-weight:500;}
+.filter-range{display:flex;gap:8px;align-items:center;}
+.filter-range input{flex:1;padding:9px 10px;border:1.5px solid var(--border);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font-body);color:var(--text-primary);outline:none;transition:border-color 0.2s;background:#fff;min-width:0;}
+.filter-range input:focus{border-color:var(--brand-navy);}
+.filter-range__sep{color:var(--text-muted);font-size:12px;}
+.filter-btn{width:100%;padding:12px;background:var(--brand-navy);color:#fff;border:none;border-radius:var(--radius-sm);font-size:13px;font-weight:700;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;margin-top:8px;}
+.filter-btn:hover{background:var(--brand-navy-dark);}
+.filter-btn--reset{background:transparent;color:var(--text-muted);border:1.5px solid var(--border);margin-top:8px;}
+.filter-btn--reset:hover{color:var(--text-primary);border-color:var(--text-muted);background:transparent;}
+
+/* ═══ LISTING CONTENT ═══ */
+.listing-content{flex:1;min-width:0;}
+
+/* Toolbar */
+.listing-toolbar{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#fff;border:1px solid var(--border);border-radius:var(--radius);margin-bottom:20px;}
+.listing-toolbar__left{display:flex;align-items:center;gap:12px;}
+.listing-toolbar__count{font-size:14px;color:var(--text-secondary);}
+.listing-toolbar__count strong{color:var(--text-primary);font-weight:700;}
+.listing-toolbar__right{display:flex;align-items:center;gap:12px;}
+.listing-toolbar__sort{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
+.listing-toolbar__sort select{padding:8px 12px;border:1.5px solid var(--border);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font-body);color:var(--text-primary);outline:none;cursor:pointer;background:#fff;}
+.listing-toolbar__view{display:flex;gap:4px;}
+.view-btn{width:36px;height:36px;border:1.5px solid var(--border);border-radius:var(--radius-xs);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-muted);background:#fff;transition:all 0.2s;}
+.view-btn.active,.view-btn:hover{border-color:var(--brand-navy);color:var(--brand-navy);background:rgba(0,102,179,0.04);}
+.view-btn i{font-size:16px;display:flex;}
+
+/* ═══ PRODUCT GRID ═══ */
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+
+.product-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all var(--duration) var(--ease);cursor:pointer;}
+.product-card:hover{border-color:var(--brand-navy);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,102,179,0.08);}
+
+.product-card__img{position:relative;aspect-ratio:16/10;background:var(--bg-warm);overflow:hidden;}
+.product-card__img img.primary{width:100%;height:100%;object-fit:cover;transition:all 0.4s var(--ease);}
+.product-card:hover .product-card__img img.primary{opacity:0;transform:scale(1.04);}
+
+/* Hover image (second angle) */
+.product-card__img img.hover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.4s var(--ease);}
+.product-card:hover .product-card__img img.hover-img{opacity:1;}
+
+/* Hover video */
+.product-card__img video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.3s;}
+.product-card:hover .product-card__img video{opacity:1;}
+
+/* 3D rotation effect */
+.product-card__img .hover-3d{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--graphite);opacity:0;transition:opacity 0.3s;}
+.product-card:hover .product-card__img .hover-3d{opacity:1;}
+.hover-3d__inner{text-align:center;color:#fff;}
+.hover-3d__spinner{width:80px;height:80px;margin:0 auto 12px;border:3px solid rgba(255,255,255,0.1);border-top-color:var(--brand-navy-light);border-radius:50%;animation:spin3d 1s linear infinite;}
+.hover-3d__label{font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);display:flex;align-items:center;justify-content:center;gap:6px;}
+.hover-3d__label i{font-size:16px;color:var(--brand-navy-light);}
+@keyframes spin3d{to{transform:rotate(360deg);}}
+
+/* Hover type indicator tag */
+.product-card__hover-tag{position:absolute;bottom:10px;left:10px;padding:5px 10px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;display:flex;align-items:center;gap:5px;line-height:1;z-index:3;backdrop-filter:blur(4px);}
+.product-card__hover-tag--video{background:rgba(0,0,0,0.6);color:#fff;}
+.product-card__hover-tag--3d{background:rgba(0,102,179,0.85);color:#fff;}
+.product-card__hover-tag--gallery{background:rgba(255,255,255,0.9);color:var(--text-primary);}
+.product-card__hover-tag i{font-size:11px;display:flex;}
+.product-card__badges{position:absolute;top:10px;left:10px;display:flex;gap:6px;}
+.product-card__badge{font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:4px 9px;border-radius:4px;display:flex;align-items:center;gap:4px;line-height:1;}
+.product-card__badge--approved{background:var(--success);color:#fff;}
+.product-card__badge--featured{background:#FFD100;color:#1A2F4A;}
+.product-card__fav{position:absolute;top:10px;right:10px;width:32px;height:32px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);cursor:pointer;transition:all 0.2s;}
+.product-card__fav:hover{background:var(--error);color:#fff;}
+.product-card__fav i{font-size:13px;color:var(--text-muted);display:flex;}
+.product-card__fav:hover i{color:#fff;}
+
+.product-card__body{padding:16px 18px 18px;}
+.product-card__name{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:8px;line-height:1.3;}
+.product-card__meta{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);margin-bottom:14px;}
+.product-card__meta span{display:flex;align-items:center;gap:4px;white-space:nowrap;}
+.product-card__meta i{font-size:12px;display:flex;}
+.product-card__meta .sep{color:var(--border);font-size:10px;}
+
+.product-card__footer{padding-top:14px;border-top:1px solid var(--border-light);display:flex;justify-content:space-between;align-items:center;}
+.product-card__price{font-family:var(--font-display);font-weight:900;font-size:18px;color:var(--text-primary);}
+.product-card__price-currency{font-size:12px;font-weight:500;color:var(--text-muted);}
+.product-card__finance{font-size:10px;color:var(--text-muted);margin-top:1px;}
+.product-card__cta{padding:10px 16px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12.5px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;width:auto;text-decoration:none;}
+.product-card__cta:hover{background:var(--brand-navy-dark);}
+.product-card__cta i{font-size:11px;display:flex;}
+
+/* ═══ PAGINATION ═══ */
+.pagination{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:32px;}
+.page-btn{width:40px;height:40px;border:1.5px solid var(--border);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--text-secondary);background:#fff;cursor:pointer;transition:all 0.2s;font-family:var(--font-body);}
+.page-btn:hover{border-color:var(--brand-navy);color:var(--brand-navy);}
+.page-btn.active{background:var(--brand-navy);color:#fff;border-color:var(--brand-navy);}
+.page-btn--nav{width:auto;padding:0 16px;gap:6px;font-size:13px;}
+.page-btn--nav i{font-size:12px;display:flex;}
+.page-dots{font-size:14px;color:var(--text-muted);padding:0 4px;}
+
+/* ═══ FOOTER ═══ */
+.footer{background:#F8F9FA;padding:72px 0 0;border-top:1px solid var(--border);}
+.footer-main{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid var(--border);}
+.footer-brand{padding-right:24px;}
+.footer-brand__logo-img{height:34px;width:auto;}
+.footer-brand__desc{font-size:14px;line-height:1.7;color:var(--text-secondary);margin-bottom:24px;}
+.footer-col__title{font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--text-primary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:20px;}
+.footer-col__links{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.footer-col__links a{font-size:14px;color:var(--text-secondary);text-decoration:none;transition:color 0.2s;}
+.footer-col__links a:hover{color:var(--brand-navy);}
+.footer-bottom{padding:24px 0;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text-muted);}
+.footer-bottom a{color:var(--text-muted);margin-left:24px;text-decoration:none;transition:color 0.2s;}
+.footer-bottom a:hover{color:var(--brand-navy);}
+
+/* ═══ WHATSAPP FLOAT ═══ */
+.whatsapp-float{position:fixed;bottom:32px;right:32px;z-index:9999;width:56px;height:56px;background:var(--whatsapp);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 6px 24px rgba(37,211,102,0.35);transition:all 0.3s;}
+.whatsapp-float:hover{transform:translateY(-3px) scale(1.05);}
+.whatsapp-float svg{width:28px;height:28px;}
+.whatsapp-float::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--whatsapp);opacity:0;animation:wa-pulse 2s infinite;}
+@keyframes wa-pulse{0%{opacity:0.6;transform:scale(1);}100%{opacity:0;transform:scale(1.3);}}
+
+/* Back to top button */
+.back-to-top{position:fixed;bottom:100px;right:32px;z-index:9998;width:44px;height:44px;background:#fff;border:1.5px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.08);transition:all 0.3s;opacity:0;pointer-events:none;transform:translateY(10px);}
+.back-to-top.visible{opacity:1;pointer-events:all;transform:translateY(0);}
+.back-to-top:hover{background:var(--brand-navy);color:#fff;border-color:var(--brand-navy);}
+.back-to-top i{font-size:18px;display:flex;}
+
+/* Active filters bar */
+.active-filters{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 20px;background:#fff;border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px;}
+.active-filters__label{font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.04em;margin-right:4px;}
+.active-filter-tag{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:rgba(0,102,179,0.06);border:1px solid rgba(0,102,179,0.15);border-radius:20px;font-size:12px;font-weight:600;color:var(--brand-navy);cursor:pointer;transition:all 0.2s;}
+.active-filter-tag:hover{background:rgba(0,102,179,0.12);}
+.active-filter-tag i{font-size:10px;display:flex;opacity:0.6;}
+.active-filters__clear{font-size:12px;font-weight:700;color:var(--error);cursor:pointer;margin-left:auto;display:flex;align-items:center;gap:4px;transition:opacity 0.2s;}
+.active-filters__clear:hover{opacity:0.7;}
+.active-filters__clear i{font-size:11px;display:flex;}
+
+/* Category scroll indicator */
+.categories-wrap{position:relative;}
+.categories-wrap::after{content:'';position:absolute;right:0;top:0;bottom:0;width:60px;background:linear-gradient(90deg,transparent,var(--bg-warm));pointer-events:none;z-index:2;border-radius:0 var(--radius) var(--radius) 0;}
+</style>
+</head>
+<body>
+
+<!-- ═══ UTILITY BAR ═══ -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-bar__left">
+      <a href="#" class="utility-bar__item" style="opacity:1;color:var(--text-primary);font-weight:600;"><span>🇦🇪 UAE AED</span></a>
+      <div class="utility-bar__divider"></div>
+      <a href="#" class="utility-bar__item"><span>🇸🇦 KSA SAR</span></a>
+      <div class="utility-bar__divider"></div>
+      <a href="#" class="utility-bar__item"><span>🇶🇦 Qatar QAR</span></a>
+      <div class="utility-bar__divider"></div>
+      <a href="#" class="utility-bar__item"><span>🇧🇭 Bahrain BHD</span></a>
+      <div class="utility-bar__divider"></div>
+      <span class="utility-bar__item" style="color:var(--brand-navy);font-weight:600;">Free 150-point inspection report with every listing — FAMCO Approved</span>
+    </div>
+    <div class="utility-bar__right">
+      <a href="tel:+97142345678" class="utility-bar__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>+971 4 234 5678</span>
+      </a>
+      <div class="utility-bar__divider"></div>
+      <a href="#" class="lang-toggle"><span>عربي</span><span>/</span><span>EN</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MAIN NAV ═══ -->
+<nav class="main-nav">
+  <div class="container">
+    <a href="famco-homepage.html" class="nav-logo"><img src="HeaderLogoIcon.png" alt="FAMCO" class="nav-logo__img"></a>
+    <div class="nav-search">
+      <div class="nav-search__cat">All Categories <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+      <input class="nav-search__input" type="text" placeholder="Search brand, model, category, or location…">
+      <button class="nav-search__btn"><svg fill="none" stroke="white" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+    </div>
+    <div class="nav-actions">
+      <a href="#" class="nav-icon-btn" title="Wishlist"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><div class="nav-icon-btn__badge">0</div></a>
+      <a href="#" class="btn-login">Login</a>
+      <a href="#" class="btn-register">Register</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ SUB NAV ═══ -->
+<nav class="sub-nav">
+  <div class="container" style="display:flex;gap:0;padding:0 80px;">
+    <a href="famco-homepage.html" class="sub-nav__link">Home</a>
+    <a href="#" class="sub-nav__link active">Browse Equipment</a>
+    <a href="#" class="sub-nav__link">Sell Your Equipment</a>
+    <a href="#" class="sub-nav__link">FAMCO Approved Process</a>
+    <a href="#" class="sub-nav__link">Finance</a>
+    <a href="#" class="sub-nav__link">About Us</a>
+    <a href="#" class="sub-nav__link">Contact</a>
+  </div>
+</nav>
+
+<!-- ═══ PAGE CONTENT ═══ -->
+<div class="container">
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="famco-homepage.html"><i class="fi fi-rr-home" style="font-size:12px;display:flex;"></i></a>
+    <span class="breadcrumb__sep"><i class="fi fi-rr-angle-right" style="font-size:9px;display:flex;"></i></span>
+    <span class="breadcrumb__current">Browse Equipment</span>
+  </div>
+
+  <div class="page-layout">
+    <!-- ═══ LEFT SIDEBAR ═══ -->
+    <aside class="sidebar">
+      <!-- Category Filter -->
+      <div class="filter-card">
+        <div class="filter-card__title">Category <i class="fi fi-rr-angle-small-up"></i></div>
+        <div class="filter-group">
+          <label class="filter-check"><input type="checkbox" checked><span>All Equipment</span><span class="filter-check__count">500+</span></label>
+          <label class="filter-check"><input type="checkbox"><span>Trucks</span><span class="filter-check__count">182</span></label>
+          <label class="filter-check"><input type="checkbox"><span>Trailers</span><span class="filter-check__count">94</span></label>
+          <label class="filter-check"><input type="checkbox"><span>Buses & Coaches</span><span class="filter-check__count">56</span></label>
+          <label class="filter-check"><input type="checkbox"><span>Forklifts</span><span class="filter-check__count">68</span></label>
+          <label class="filter-check"><input type="checkbox"><span>Cranes</span><span class="filter-check__count">34</span></label>
+          <label class="filter-check"><input type="checkbox"><span>Construction</span><span class="filter-check__count">42</span></label>
+          <label class="filter-check"><input type="checkbox"><span>Agricultural</span><span class="filter-check__count">12</span></label>
+        </div>
+      </div>
+
+      <!-- Brand Filter -->
+      <div class="filter-card">
+        <div class="filter-card__title">Brand <i class="fi fi-rr-angle-small-up"></i></div>
+        <div class="filter-group">
+          <label class="filter-check"><input type="checkbox"><span>Volvo</span><span class="filter-check__count">86</span></label>
+          <label class="filter-check"><input type="checkbox"><span>Mercedes-Benz</span><span class="filter-check__count">64</span></label>
+          <label class="filter-check"><input type="checkbox"><span>MAN</span><span class="filter-check__count">52</span></label>
+          <label class="filter-check"><input type="checkbox"><span>Scania</span><span class="filter-check__count">48</span></label>
+          <label class="filter-check"><input type="checkbox"><span>CAT</span><span class="filter-check__count">38</span></label>
+          <label class="filter-check"><input type="checkbox"><span>Toyota</span><span class="filter-check__count">32</span></label>
+          <label class="filter-check"><input type="checkbox"><span>DAF</span><span class="filter-check__count">28</span></label>
+          <label class="filter-check"><input type="checkbox"><span>Hyster</span><span class="filter-check__count">18</span></label>
+        </div>
+      </div>
+
+      <!-- Price Range -->
+      <div class="filter-card">
+        <div class="filter-card__title">Price (AED) <i class="fi fi-rr-angle-small-up"></i></div>
+        <div class="filter-range">
+          <input type="text" placeholder="Min">
+          <span class="filter-range__sep">–</span>
+          <input type="text" placeholder="Max">
+        </div>
+      </div>
+
+      <!-- Year -->
+      <div class="filter-card">
+        <div class="filter-card__title">Year <i class="fi fi-rr-angle-small-up"></i></div>
+        <div class="filter-range">
+          <input type="text" placeholder="From">
+          <span class="filter-range__sep">–</span>
+          <input type="text" placeholder="To">
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="filter-card">
+        <div class="filter-card__title">Location <i class="fi fi-rr-angle-small-up"></i></div>
+        <div class="filter-group">
+          <label class="filter-check"><input type="checkbox"><span>🇦🇪 UAE</span><span class="filter-check__count">210</span></label>
+          <label class="filter-check"><input type="checkbox"><span>🇸🇦 KSA</span><span class="filter-check__count">148</span></label>
+          <label class="filter-check"><input type="checkbox"><span>🇶🇦 Qatar</span><span class="filter-check__count">82</span></label>
+          <label class="filter-check"><input type="checkbox"><span>🇧🇭 Bahrain</span><span class="filter-check__count">60</span></label>
+        </div>
+      </div>
+
+      <!-- Condition -->
+      <div class="filter-card">
+        <div class="filter-card__title">Condition <i class="fi fi-rr-angle-small-up"></i></div>
+        <div class="filter-group">
+          <label class="filter-check"><input type="checkbox"><span>FAMCO Approved</span></label>
+          <label class="filter-check"><input type="checkbox"><span>Excellent</span></label>
+          <label class="filter-check"><input type="checkbox"><span>Good</span></label>
+          <label class="filter-check"><input type="checkbox"><span>Fair</span></label>
+        </div>
+      </div>
+
+      <button class="filter-btn"><i class="fi fi-rr-filter" style="font-size:13px;display:flex;"></i> Apply Filters</button>
+      <button class="filter-btn filter-btn--reset"><i class="fi fi-rr-refresh" style="font-size:13px;display:flex;"></i> Reset All</button>
+    </aside>
+
+    <!-- ═══ RIGHT LISTING CONTENT ═══ -->
+    <main class="listing-content">
+      <!-- Active Filters -->
+      <div class="active-filters">
+        <span class="active-filters__label">Active Filters:</span>
+        <span class="active-filter-tag">All Equipment <i class="fi fi-rr-cross-small"></i></span>
+        <span class="active-filter-tag">🇦🇪 UAE <i class="fi fi-rr-cross-small"></i></span>
+        <span class="active-filter-tag">FAMCO Approved <i class="fi fi-rr-cross-small"></i></span>
+        <span class="active-filters__clear"><i class="fi fi-rr-trash"></i> Clear All</span>
+      </div>
+      <!-- Toolbar -->
+      <div class="listing-toolbar">
+        <div class="listing-toolbar__left">
+          <span class="listing-toolbar__count">Showing <strong>1–12</strong> of <strong>500+</strong> vehicles</span>
+        </div>
+        <div class="listing-toolbar__right">
+          <div class="listing-toolbar__sort">
+            <span>Sort by:</span>
+            <select>
+              <option>Most Recent</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Year: Newest</option>
+              <option>Mileage: Lowest</option>
+            </select>
+          </div>
+          <div class="listing-toolbar__view">
+            <div class="view-btn active" title="Grid view"><i class="fi fi-rr-apps"></i></div>
+            <div class="view-btn" title="List view"><i class="fi fi-rr-list"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="product-grid" id="productGrid">
+
+        <!-- Card 1 — Volvo EC220E Crawler Excavator -->
+        <div class="product-card">
+          <div class="product-card__img">
+            <img class="primary" src="ChatGPT Image Apr 13, 2026, 06_40_48 PM.png" alt="Volvo EC220E Crawler Excavator" loading="lazy">
+            <img class="hover-img" src="ChatGPT Image Apr 13, 2026, 06_39_56 PM.png" alt="Volvo EC220E Side View" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 3 Photos</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">2022 Volvo EC220E Crawler Excavator</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2022</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 2,100 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>285,000</div><div class="product-card__finance">from AED 20,000/mo</div></div>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 — ALTERNATE IMAGE on hover -->
+        <div class="product-card">
+          <div class="product-card__img">
+            <img class="primary" src="Volvo FM460.jpg" alt="Volvo FM460" loading="lazy">
+            <img class="hover-img" src="white volvo.png" alt="Volvo FM460 Side View" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 8 Photos</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Volvo FM460 6×4 Tractor</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 72,000 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> KSA</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>220,000</div><div class="product-card__finance">from AED 3,100/mo</div></div>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 — 3D VIEW on hover -->
+        <div class="product-card">
+          <div class="product-card__img">
+            <img class="primary" src="CAT 320 Hydraulic.jpg" alt="CAT 320" loading="lazy">
+            <div class="hover-3d">
+              <div class="hover-3d__inner">
+                <div class="hover-3d__spinner"></div>
+                <div class="hover-3d__label"><i class="fi fi-rr-cube"></i> 360° Interactive View</div>
+              </div>
+            </div>
+            <span class="product-card__hover-tag product-card__hover-tag--3d"><i class="fi fi-rr-cube"></i> 3D View</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span><span class="product-card__badge product-card__badge--featured"><i class="fi fi-rr-star" style="font-size:9px;display:flex;"></i> Featured</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">CAT 320 Hydraulic Excavator</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2020</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 3,200 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Qatar</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>485,000</div><div class="product-card__finance">from AED 7,200/mo</div></div>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 — VIDEO on hover -->
+        <div class="product-card">
+          <div class="product-card__img">
+            <img class="primary" src="Volvo FE 280.jpg" alt="Volvo FE 280" loading="lazy">
+            <video src="makana video.webm" muted loop preload="none"></video>
+            <span class="product-card__hover-tag product-card__hover-tag--video"><i class="fi fi-rr-play"></i> Video</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Volvo FE 280 Distribution</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2023</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 18,400 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>195,000</div><div class="product-card__finance">from AED 2,800/mo</div></div>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 — ALTERNATE IMAGE on hover -->
+        <div class="product-card">
+          <div class="product-card__img">
+            <img class="primary" src="Toyota 8FBN25 Forklift.jpg" alt="Toyota Forklift" loading="lazy">
+            <img class="hover-img" src="orang.png" alt="Toyota Forklift Angle" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 6 Photos</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Toyota 8FBN25 Forklift</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 4,800 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> KSA</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>85,000</div><div class="product-card__finance">from AED 1,250/mo</div></div>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 — 3D VIEW on hover -->
+        <div class="product-card">
+          <div class="product-card__img">
+            <img class="primary" src="Volvo EC220E Crawler.jpg" alt="Volvo EC220E" loading="lazy">
+            <div class="hover-3d">
+              <div class="hover-3d__inner">
+                <div class="hover-3d__spinner"></div>
+                <div class="hover-3d__label"><i class="fi fi-rr-cube"></i> 360° Interactive View</div>
+              </div>
+            </div>
+            <span class="product-card__hover-tag product-card__hover-tag--3d"><i class="fi fi-rr-cube"></i> 3D View</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Volvo EC220E Crawler Excavator</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2022</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 2,100 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>520,000</div><div class="product-card__finance">from AED 7,800/mo</div></div>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7 — ALTERNATE IMAGE on hover -->
+        <div class="product-card">
+          <div class="product-card__img">
+            <img class="primary" src="Volvo 9700 Luxury Coach.jpg" alt="Volvo 9700 Coach" loading="lazy">
+            <img class="hover-img" src="volvo yellow.png" alt="Volvo 9700 Interior" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 12 Photos</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Volvo 9700 Luxury Coach</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 92,000 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Bahrain</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>380,000</div><div class="product-card__finance">from AED 5,600/mo</div></div>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8 — VIDEO on hover -->
+        <div class="product-card">
+          <div class="product-card__img">
+            <img class="primary" src="Hyster R1.6H Reach Truck.jpg" alt="Hyster Reach Truck" loading="lazy">
+            <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
+            <span class="product-card__hover-tag product-card__hover-tag--video"><i class="fi fi-rr-play"></i> Video</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Hyster R1.6H Reach Truck</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2020</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 5,600 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Qatar</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>62,000</div><div class="product-card__finance">from AED 920/mo</div></div>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 9 — 3D VIEW on hover -->
+        <div class="product-card">
+          <div class="product-card__img">
+            <img class="primary" src="jcb.png" alt="JCB Backhoe Loader" loading="lazy">
+            <div class="hover-3d">
+              <div class="hover-3d__inner">
+                <div class="hover-3d__spinner"></div>
+                <div class="hover-3d__label"><i class="fi fi-rr-cube"></i> 360° Interactive View</div>
+              </div>
+            </div>
+            <span class="product-card__hover-tag product-card__hover-tag--3d"><i class="fi fi-rr-cube"></i> 3D View</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span><span class="product-card__badge product-card__badge--featured"><i class="fi fi-rr-star" style="font-size:9px;display:flex;"></i> Featured</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">JCB 3CX Backhoe Loader</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2022</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 1,800 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> KSA</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>310,000</div><div class="product-card__finance">from AED 4,600/mo</div></div>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <div class="page-btn page-btn--nav"><i class="fi fi-rr-angle-left"></i> Prev</div>
+        <div class="page-btn active">1</div>
+        <div class="page-btn">2</div>
+        <div class="page-btn">3</div>
+        <div class="page-dots">...</div>
+        <div class="page-btn">42</div>
+        <div class="page-btn page-btn--nav">Next <i class="fi fi-rr-angle-right"></i></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="famco-homepage.html"><img src="HeaderLogoIcon.png" alt="FAMCO Logo" class="footer-brand__logo-img"></a>
+        <p class="footer-brand__desc">The GCC's most trusted marketplace for certified used commercial vehicles. Backed by Al-Futtaim Group since 1930.</p>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-muted);">Part of <span style="padding:4px 10px;background:var(--bg-warm);border-radius:4px;font-weight:600;font-size:11px;color:var(--text-primary);">Al-Futtaim Group</span></div>
+      </div>
+      <div>
+        <h4 class="footer-col__title">Marketplace</h4>
+        <ul class="footer-col__links">
+          <li><a href="listing.html">Browse Equipment</a></li>
+          <li><a href="#">Sell Your Vehicle</a></li>
+          <li><a href="#">FAMCO Approved Process</a></li>
+          <li><a href="#">Compare Vehicles</a></li>
+          <li><a href="#">Wishlist</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col__title">Company</h4>
+        <ul class="footer-col__links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Finance Options</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">News & Media</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col__title">Contact</h4>
+        <div style="font-size:14px;color:var(--text-secondary);line-height:2;">
+          Al-Futtaim Group<br>
+          Dubai, UAE<br><br>
+          +971 4 XXX XXXX<br>
+          info@famco-used.ae<br><br>
+          Sun–Thu: 8AM – 6PM
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 Al-Futtaim FAMCO. All rights reserved. <span style="color:var(--brand-navy);font-weight:700;">FAMCO Approved Marketplace</span></div>
+      <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<div class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fi fi-rr-arrow-up"></i></div>
+
+<!-- WhatsApp Float -->
+<a href="#" class="whatsapp-float" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .612.612l4.458-1.495A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.752-6.336-2.071l-.442-.331-3.273 1.098 1.098-3.273-.331-.442A9.958 9.958 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+</a>
+
+<script>
+// Back to top visibility
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('backToTop');
+  if (window.pageYOffset > 400) { btn.classList.add('visible'); }
+  else { btn.classList.remove('visible'); }
+}, { passive: true });
+
+// Active filter tag removal
+document.querySelectorAll('.active-filter-tag').forEach(tag => {
+  tag.addEventListener('click', () => tag.remove());
+});
+document.querySelector('.active-filters__clear')?.addEventListener('click', () => {
+  document.querySelectorAll('.active-filter-tag').forEach(t => t.remove());
+});
+
+// Video hover on product cards + card click to detail page
+document.querySelectorAll('.product-card').forEach(card => {
+  const video = card.querySelector('video');
+  if (video) {
+    card.addEventListener('mouseenter', () => { video.play().catch(()=>{}); });
+    card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+  }
+  card.addEventListener('click', (e) => {
+    if (e.target.closest('.product-card__fav') || e.target.closest('.product-card__cta')) return;
+    window.location.href = 'product-detail.html';
+  });
+});
+
+// View toggle
+document.querySelectorAll('.view-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const grid = document.getElementById('productGrid');
+    if (btn.title === 'List view') {
+      grid.style.gridTemplateColumns = '1fr';
+      grid.querySelectorAll('.product-card').forEach(card => {
+        card.style.display = 'flex';
+        card.querySelector('.product-card__img').style.flex = '0 0 280px';
+        card.querySelector('.product-card__img').style.aspectRatio = 'auto';
+        card.querySelector('.product-card__img').style.minHeight = '180px';
+      });
+    } else {
+      grid.style.gridTemplateColumns = 'repeat(3, 1fr)';
+      grid.querySelectorAll('.product-card').forEach(card => {
+        card.style.display = '';
+        card.querySelector('.product-card__img').style.flex = '';
+        card.querySelector('.product-card__img').style.aspectRatio = '16/10';
+        card.querySelector('.product-card__img').style.minHeight = '';
+      });
+    }
+  });
+});
+
+// Pagination active
+document.querySelectorAll('.page-btn:not(.page-btn--nav)').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
