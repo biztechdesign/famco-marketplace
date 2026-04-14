@@ -1036,6 +1036,37 @@ body {
   opacity: 1;
 }
 
+.equip-card__img img.hover-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  transform: none;
+  z-index: 2;
+}
+
+.equip-card:hover .equip-card__img img.hover-img {
+  opacity: 1;
+  transform: none;
+}
+
+.equip-card.no-hover:hover {
+  transform: none;
+  box-shadow: 0 2px 12px rgba(0,40,80,0.06);
+}
+
+.equip-card.no-hover:hover .equip-card__img img {
+  transform: none;
+}
+
+.equip-card.no-hover:hover .equip-card__img video,
+.equip-card.no-hover:hover .equip-card__img img.hover-img {
+  opacity: 0;
+}
+
 .equip-card__img-overlay {
   position: absolute;
   inset: 0;
@@ -1066,6 +1097,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  z-index: 3;
+}
+
+.equip-card__img .fav-btn {
+  z-index: 3;
 }
 
 .badge {
@@ -2413,6 +2449,131 @@ body {
    RESPONSIVE
    ═══════════════════════════════════════════════════════ */
 
+/* — Mobile menu button (hidden on desktop) — */
+.mobile-menu-btn {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  background: #fff;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.mobile-menu-btn svg { width: 20px; height: 20px; stroke: var(--text-primary); }
+
+/* — Mobile nav overlay — */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.mobile-nav-overlay.active { display: block; opacity: 1; }
+
+/* — Mobile nav drawer — */
+.mobile-nav-drawer {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  z-index: 9999;
+  transition: right 0.3s var(--ease);
+  overflow-y: auto;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+}
+.mobile-nav-drawer.active { right: 0; }
+.mobile-nav-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.mobile-nav-drawer__close {
+  width: 36px; height: 36px;
+  border: none; background: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+}
+.mobile-nav-drawer__close:hover { background: var(--bg-warm); }
+.mobile-nav-drawer__close svg { width: 20px; height: 20px; stroke: var(--text-primary); }
+.mobile-nav-drawer__links {
+  padding: 12px 0;
+}
+.mobile-nav-drawer__links a {
+  display: block;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.15s;
+}
+.mobile-nav-drawer__links a:hover { background: var(--bg-warm); }
+.mobile-nav-drawer__links a.active {
+  color: var(--brand-navy);
+  font-weight: 700;
+  background: rgba(0,102,179,0.04);
+}
+.mobile-nav-drawer__currency {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border-light);
+}
+.mobile-nav-drawer__currency-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.mobile-nav-drawer__currency-options {
+  display: flex;
+  gap: 8px;
+}
+.currency-option {
+  padding: 8px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.currency-option:hover { border-color: var(--brand-navy); color: var(--brand-navy); }
+.currency-option.active {
+  background: var(--brand-navy);
+  color: #fff;
+  border-color: var(--brand-navy);
+}
+
+.mobile-nav-drawer__actions {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mobile-nav-drawer__actions a {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
 @media (max-width: 1200px) {
   .equip-grid { grid-template-columns: repeat(3, 1fr); }
   .hero .container { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -2422,10 +2583,7 @@ body {
   :root { --section-gap: 80px; }
   .container { padding: 0 32px; }
 
-  .hero .container {
-    padding-top: 48px;
-    padding-bottom: 80px;
-  }
+  .hero .container { padding-top: 48px; padding-bottom: 80px; }
   .hero__content { text-align: center; }
   .hero__subline { margin-left: auto; margin-right: auto; }
   .hero__actions { justify-content: center; flex-wrap: wrap; }
@@ -2450,21 +2608,57 @@ body {
 }
 
 @media (max-width: 768px) {
+  :root { --section-gap: 56px; }
   .container { padding: 0 20px; }
 
-  .utility-bar__left { display: none; }
+  /* — Utility bar: compact single row on mobile — */
+  .utility-bar { padding: 6px 0; font-size: 11px; }
+  .utility-bar .container { flex-wrap: nowrap; gap: 0; }
+  .utility-bar__left { gap: 6px; flex-shrink: 0; }
+  .utility-bar__left .utility-bar__divider { height: 10px; }
+  .utility-bar__left .utility-bar__item { font-size: 11px; }
+  .utility-bar__right { gap: 8px; }
+  .utility-bar__right .utility-bar__item span { font-size: 11px; }
+  .utility-bar__right .utility-bar__divider { height: 10px; }
+  .lang-toggle { font-size: 11px; padding: 3px 8px; }
 
+  /* — Navigation — */
   .nav-search { display: none; }
-  .sub-nav { display: none; }
   .btn-login, .btn-register { display: none; }
+  .mobile-menu-btn { display: flex; }
+  .mobile-nav-drawer { display: block; }
+  .main-nav .container { height: 64px; gap: 16px; }
+  .nav-logo__img { height: 38px; }
+  .nav-actions { margin-left: auto; }
 
-  .hero { height: auto; min-height: 360px; }
-  .hero__headline { font-size: 30px; }
-  .hero__overlay { background: linear-gradient(180deg, rgba(0,20,45,0.85) 0%, rgba(0,20,45,0.65) 50%, rgba(0,20,45,0.45) 100%); }
-  .trust-strip__inner { flex-direction: column; }
-  .trust-strip__item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 16px 24px; }
-  .trust-strip__item:last-child { border-bottom: none; }
+  /* — Sub nav: hide on mobile (burger menu replaces it) — */
+  .sub-nav { display: none; }
 
+  /* — Hero — */
+  .hero { height: auto; min-height: 480px; }
+  .hero__headline { font-size: 32px; line-height: 1.2; }
+  .hero__overlay { background: linear-gradient(180deg, rgba(0,20,45,0.88) 0%, rgba(0,20,45,0.55) 45%, rgba(0,20,45,0.2) 100%); }
+  .hero__actions { flex-direction: row; align-items: center; justify-content: center; gap: 12px; }
+  .hero__actions .btn { justify-content: center; padding: 14px 20px; font-size: 13.5px; white-space: nowrap; }
+
+  /* — Trust strip: 2-row grid — */
+  .trust-strip__inner { display: grid; grid-template-columns: repeat(3, 1fr); padding: 0; gap: 0; }
+  .trust-strip__item { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 14px 16px; gap: 10px; }
+  .trust-strip__item:nth-child(3) { border-right: none; }
+  .trust-strip__item:nth-child(4), .trust-strip__item:nth-child(5) { border-bottom: none; }
+  .trust-strip__item:last-child { border-right: none; border-bottom: none; }
+  .trust-strip__item:first-child { padding-left: 16px; }
+  .trust-strip__icon { width: 34px; height: 34px; border-radius: 8px; }
+  .trust-strip__icon svg { width: 16px; height: 16px; }
+  .trust-strip__label { font-size: 18px; }
+  .trust-strip__sub { font-size: 10.5px; white-space: nowrap; }
+
+  /* — Section headers — */
+  .section-title { font-size: clamp(22px, 5.5vw, 28px); }
+  .section-subtitle { font-size: 14.5px; margin-bottom: 36px; }
+
+  /* — Grids — */
+  .equip-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .cert-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .diff-grid { grid-template-columns: 1fr; }
   .pillars-grid { grid-template-columns: 1fr; }
@@ -2475,19 +2669,181 @@ body {
   .ai-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .final-cta-grid { grid-template-columns: 1fr; }
-  .equip-grid { grid-template-columns: 1fr; }
+  .faq-list { grid-template-columns: 1fr; gap: 0; }
 
   .stat-block::after { display: none; }
   .stat-block__number { font-size: 36px; }
 
+  /* — Footer — */
   .footer-main { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
 
-  .support-card { padding: 36px 24px; }
+  /* — Support — */
+  .support-card { padding: 36px 20px; }
   .support-card__actions { flex-direction: column; }
-
-  .hero__actions { flex-direction: column; align-items: stretch; }
   .seller-cta__actions { flex-direction: column; }
+
+  /* — Contact / Expert Support — */
+  .contact-section { padding: 56px 0 !important; }
+  .contact-wrapper { flex-direction: column !important; }
+  .contact-left { padding: 36px 28px !important; }
+  .contact-title { font-size: 26px !important; }
+  .contact-desc { font-size: 14px !important; }
+  .contact-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+  .contact-actions { flex-direction: row !important; gap: 10px !important; }
+  .contact-actions .btn { font-size: 13.5px !important; padding: 13px 18px !important; }
+  .contact-right { flex: none !important; width: 100% !important; padding: 36px 28px !important; }
+
+  /* — Final CTA — */
+  .final-cta { min-height: auto !important; }
+  .final-cta__overlay { background: rgba(0,20,45,0.88) !important; }
+  .final-cta__inner { flex-direction: column !important; text-align: center; gap: 28px; padding-top: 44px !important; padding-bottom: 44px !important; }
+  .final-cta__text { max-width: 100% !important; }
+  .final-cta__text p { font-size: 14.5px !important; }
+  .final-cta__buttons { justify-content: center; }
+
+  /* — Section padding — */
+  .process { padding: 64px 0; }
+  .footer { padding: 48px 0 0; }
+}
+
+@media (max-width: 480px) {
+  :root { --section-gap: 40px; }
+  .container { padding: 0 16px; }
+
+  /* — Utility bar: tighter on phone — */
+  .utility-bar { padding: 5px 0; }
+  .utility-bar .container { gap: 0; }
+  .utility-bar__left { gap: 4px; }
+  .utility-bar__left .utility-bar__item { font-size: 10.5px; }
+  .utility-bar__right { gap: 6px; }
+  .utility-bar__right .utility-bar__item span { font-size: 10.5px; }
+  .utility-bar__right svg { width: 12px; height: 12px; }
+  .lang-toggle { font-size: 10.5px; padding: 2px 6px; gap: 2px; }
+
+  /* — Navigation — */
+  .main-nav .container { height: 58px; gap: 10px; }
+  .nav-logo__img { height: 36px; }
+  .nav-icon-btn { width: 38px; height: 38px; border-radius: 8px; }
+  .nav-icon-btn svg { width: 17px; height: 17px; }
+  .mobile-menu-btn { width: 38px; height: 38px; border-radius: 8px; }
+  .mobile-menu-btn svg { width: 18px; height: 18px; }
+
+  /* — Hero — */
+  .hero { min-height: 440px; }
+  .hero .container { padding-top: 28px; padding-bottom: 40px; }
+  .hero__badge { font-size: 10px; padding: 5px 12px; margin-bottom: 16px; }
+  .hero__headline { font-size: 26px; letter-spacing: -0.5px; margin-bottom: 14px; }
+  .hero__subline { font-size: 13px; line-height: 1.55; margin-bottom: 20px; }
+  .hero__actions .btn { padding: 12px 18px; font-size: 13px; }
+  .hero__stats { gap: 14px; }
+  .hero-stat__num { font-size: 20px; }
+  .hero-stat__label { font-size: 10px; }
+
+  /* — Trust strip — */
+  .trust-strip__item { padding: 10px 12px; gap: 8px; }
+  .trust-strip__icon { width: 30px; height: 30px; border-radius: 7px; }
+  .trust-strip__icon svg { width: 14px; height: 14px; }
+  .trust-strip__label { font-size: 16px; }
+  .trust-strip__sub { font-size: 9.5px; }
+
+  /* — Section headers — */
+  .section-label { font-size: 10px; padding: 4px 12px; margin-bottom: 10px; }
+  .section-title { font-size: clamp(20px, 5.5vw, 24px); margin-bottom: 10px; }
+  .section-subtitle { font-size: 13px; margin-bottom: 28px; }
+
+  /* — Categories — */
+  .categories-scroll { gap: 8px; }
+  .cat-tile { padding: 6px 12px; border-radius: 20px; }
+  .cat-tile__icon { display: none; }
+  .cat-tile__name { font-size: 12px; }
+  .cat-tile__count { font-size: 10px; }
+
+  /* — Equipment grid — */
+  .equip-grid { grid-template-columns: 1fr; gap: 14px; }
+
+  /* — Certification — */
+  .cert-grid { grid-template-columns: 1fr; gap: 10px; }
+  .cert-card { padding: 18px 16px; }
+  .cert-card__title { font-size: 14px; }
+  .cert-card__desc { font-size: 12.5px; }
+
+  /* — Pillars — */
+  .pillar__number { font-size: 32px; }
+  .pillar__title { font-size: 16px; }
+  .pillar__icon { width: 44px; height: 44px; }
+  .pillar__icon svg { width: 18px; height: 18px; }
+
+  /* — Process steps — */
+  .process { padding: 48px 0; }
+  .process-steps { grid-template-columns: 1fr; gap: 20px; }
+  .step__circle { width: 56px; height: 56px; }
+  .step__circle svg { width: 22px; height: 22px; }
+
+  /* — Stats — */
+  .stats-grid { grid-template-columns: 1fr; gap: 12px; }
+  .stat-block__number { font-size: 28px; }
+  .stat-block__label { font-size: 11px; }
+
+  /* — Finance / Escrow — */
+  .escrow-flow { grid-template-columns: 1fr; }
+
+  /* — Support — */
+  .support-card { padding: 24px 16px; }
+  .support-card__title { font-size: 20px; }
+  .support-card__desc { font-size: 13px; }
+
+  /* — Contact / Expert Support — */
+  .contact-section { padding: 40px 0 !important; }
+  .contact-left { padding: 28px 20px !important; }
+  .contact-title { font-size: 22px !important; line-height: 1.25 !important; }
+  .contact-title br { display: none; }
+  .contact-desc { font-size: 13.5px !important; margin-bottom: 22px !important; }
+  .contact-grid { grid-template-columns: 1fr !important; gap: 8px !important; margin-bottom: 24px !important; }
+  .contact-actions { flex-wrap: wrap !important; }
+  .contact-actions .btn { flex: 1; min-width: 140px; font-size: 13px !important; padding: 12px 16px !important; justify-content: center; }
+  .contact-right { padding: 28px 20px !important; }
+
+  /* — Final CTA — */
+  .final-cta__inner { gap: 22px; padding-top: 36px !important; padding-bottom: 36px !important; }
+  .final-cta__text h2 { font-size: 24px !important; margin-bottom: 8px !important; }
+  .final-cta__text p { font-size: 13.5px !important; }
+  .final-cta__buttons { flex-direction: column !important; width: 100%; gap: 10px !important; }
+  .final-cta__buttons a { width: 100%; justify-content: center; padding: 14px 20px !important; font-size: 14px !important; text-align: center; box-sizing: border-box; }
+
+  /* — FAQ — */
+  .faq { padding: 48px 0; }
+  .faq-item { padding: 0 12px; }
+  .faq-item__question { font-size: 14px; }
+
+  /* — Final CTA — */
+  .final-cta-card__title { font-size: 17px; }
+  .final-cta-card__desc { font-size: 12.5px; }
+  .final-cta-card { padding: 24px 16px; }
+
+  /* — Footer — */
+  .footer { padding: 36px 0 0; }
+  .footer-main { gap: 20px; padding-bottom: 24px; }
+  .footer-brand { padding-right: 0; }
+  .footer-brand__name { font-size: 15px; }
+  .footer-brand__desc { font-size: 12.5px; }
+  .footer-col__title { font-size: 13px; margin-bottom: 12px; }
+  .footer-col a { font-size: 12.5px; }
+  .footer-bottom { padding: 14px 0; }
+  .footer-bottom__links { gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .footer-bottom__links a { font-size: 11px; }
+  .footer-bottom__copy { font-size: 11px; }
+
+  /* — WhatsApp float — */
+  .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 16px; }
+  .whatsapp-float svg { width: 24px; height: 24px; }
+
+  /* — All sections: tighten padding — */
+  section[class] { padding: 48px 0; }
+
+  /* — Buttons — */
+  .btn--primary, .btn--secondary, .btn--dark, .btn--whatsapp { padding: 13px 22px; font-size: 13.5px; }
+  .btn--outline-light { padding: 12px 20px; font-size: 13px; }
 }
 
 </style>
@@ -2545,13 +2901,42 @@ body {
       </a>
       <a href="#" class="btn-login">Login</a>
       <a href="#" class="btn-register">Register</a>
+      <button class="mobile-menu-btn" onclick="document.querySelector('.mobile-nav-drawer').classList.add('active');document.querySelector('.mobile-nav-overlay').classList.add('active');document.body.style.overflow='hidden';">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
     </div>
   </div>
 </nav>
 
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav-overlay" onclick="document.querySelector('.mobile-nav-drawer').classList.remove('active');this.classList.remove('active');document.body.style.overflow='';"></div>
+
+<!-- Mobile Nav Drawer -->
+<div class="mobile-nav-drawer">
+  <div class="mobile-nav-drawer__header">
+    <img src="HeaderLogoIcon.png" alt="FAMCO" style="height:32px;">
+    <button class="mobile-nav-drawer__close" onclick="this.closest('.mobile-nav-drawer').classList.remove('active');document.querySelector('.mobile-nav-overlay').classList.remove('active');document.body.style.overflow='';">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="mobile-nav-drawer__links">
+    <a href="#" class="active">Home</a>
+    <a href="listing.html">Browse Equipment</a>
+    <a href="#">Sell Your Equipment</a>
+    <a href="#">FAMCO Approved Process</a>
+    <a href="#">Finance</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="mobile-nav-drawer__actions">
+    <a href="#" style="border:1.5px solid var(--brand-navy);color:var(--brand-navy);">Login</a>
+    <a href="#" style="background:var(--brand-navy);color:#fff;">Register</a>
+  </div>
+</div>
+
 <!-- ═══ SUB NAV ═══ -->
 <nav class="sub-nav">
-  <div class="container" style="display:flex;gap:0;padding:0 80px;">
+  <div class="container" style="display:flex;gap:0;">
     <a href="#" class="sub-nav__link active">Home</a>
     <a href="listing.html" class="sub-nav__link">Browse Equipment</a>
     <a href="#" class="sub-nav__link">Sell Your Equipment</a>
@@ -2573,7 +2958,7 @@ body {
   <div class="container">
     <div class="hero__content" style="max-width:100%;text-align:center;">
       <h1 class="hero__headline" style="text-align:center;max-width:800px;margin:0 auto 24px;">
-        The GCC's Most Trusted <span>FAMCO Approved</span> Marketplace
+        The GCC's Most Trusted<br> <span>FAMCO Approved</span><br> Marketplace
       </h1>
 
       <div class="hero__actions" style="justify-content:center;">
@@ -2648,7 +3033,7 @@ body {
      ═══════════════════════════════════════════════════════ -->
 <section class="cert-trust">
   <div class="container">
-    <h2 class="section-title reveal" style="font-size:26px;margin-bottom:28px;">Why Choose <span style="color:var(--brand-navy);">FAMCO Approved?</span></h2>
+    <h2 class="section-title reveal" style="margin-bottom:28px;">Why Choose <span style="color:var(--brand-navy);">FAMCO Approved?</span></h2>
     <div class="cert-grid">
       <div class="cert-card reveal reveal-delay-1">
         <div class="cert-card__icon">
@@ -2765,7 +3150,7 @@ body {
       <div class="equip-card reveal">
         <div class="equip-card__img">
           <img src="ChatGPT Image Apr 13, 2026, 06_40_48 PM.png" alt="Volvo EC220E Crawler Excavator" loading="lazy">
-          <img style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.4s var(--ease);" src="ChatGPT Image Apr 13, 2026, 06_39_56 PM.png" alt="Volvo EC220E Side View" loading="lazy">
+          <img class="hover-img" src="ChatGPT Image Apr 13, 2026, 06_39_56 PM.png" alt="Volvo EC220E Side View" loading="lazy">
           <div class="equip-card__img-overlay"></div>
           <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
           <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
@@ -2811,36 +3196,11 @@ body {
           </div>
         </div>
       </div>
-      <!-- Row 1, Card 3 — CAT 320 Hydraulic Excavator -->
+      <!-- Row 1, Card 3 — Volvo FE 280 -->
       <div class="equip-card reveal reveal-delay-2">
         <div class="equip-card__img">
-          <img src="CAT 320 Hydraulic.jpg" alt="CAT 320 Hydraulic Excavator" loading="lazy">
-          <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
-          <div class="equip-card__img-overlay"></div>
-          <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
-          <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
-        </div>
-        <div class="equip-card__body">
-          <h3 class="equip-card__name">CAT 320 Hydraulic Excavator</h3>
-          <div class="equip-card__meta">
-            <span><i class="fi fi-rr-calendar"></i> 2020</span><span class="meta-sep">•</span>
-            <span><i class="fi fi-rr-dashboard"></i> 3,200 hrs</span><span class="meta-sep">•</span>
-            <span><i class="fi fi-rr-marker"></i> Qatar</span>
-          </div>
-          <div class="equip-card__footer">
-            <div>
-              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>485,000</div>
-              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 7,200/mo</div>
-            </div>
-            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
-          </div>
-        </div>
-      </div>
-      <!-- Row 1, Card 4 — Volvo FE 280 -->
-      <div class="equip-card reveal reveal-delay-3">
-        <div class="equip-card__img">
           <img src="Volvo FE 280.jpg" alt="Volvo FE 280" loading="lazy">
-          <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
+          <video src="https://ik.imagekit.io/4erco1shm/PixVerse_V6_Image_Text_540P_based_on_the_attac.mp4?updatedAt=1775592049282" muted loop preload="none"></video>
           <div class="equip-card__img-overlay"></div>
           <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
           <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
@@ -2861,11 +3221,34 @@ body {
           </div>
         </div>
       </div>
+      <!-- Row 1, Card 4 — CAT 320 Hydraulic Excavator -->
+      <div class="equip-card no-hover reveal reveal-delay-3">
+        <div class="equip-card__img">
+          <img src="CAT 320 Hydraulic.jpg" alt="CAT 320 Hydraulic Excavator" loading="lazy">
+          <div class="equip-card__img-overlay"></div>
+          <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
+          <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+        </div>
+        <div class="equip-card__body">
+          <h3 class="equip-card__name">CAT 320 Hydraulic Excavator</h3>
+          <div class="equip-card__meta">
+            <span><i class="fi fi-rr-calendar"></i> 2020</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-dashboard"></i> 3,200 hrs</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-marker"></i> Qatar</span>
+          </div>
+          <div class="equip-card__footer">
+            <div>
+              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>485,000</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 7,200/mo</div>
+            </div>
+            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+          </div>
+        </div>
+      </div>
       <!-- Row 2, Card 5 — Toyota Forklift -->
-      <div class="equip-card reveal">
+      <div class="equip-card no-hover reveal">
         <div class="equip-card__img">
           <img src="Toyota 8FBN25 Forklift.jpg" alt="Toyota 8FBN25 Forklift" loading="lazy">
-          <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
           <div class="equip-card__img-overlay"></div>
           <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
           <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
@@ -2887,10 +3270,9 @@ body {
         </div>
       </div>
       <!-- Row 2, Card 6 — Volvo EC220E Crawler -->
-      <div class="equip-card reveal reveal-delay-1">
+      <div class="equip-card no-hover reveal reveal-delay-1">
         <div class="equip-card__img">
           <img src="Volvo EC220E Crawler.jpg" alt="Volvo EC220E Crawler Excavator" loading="lazy">
-          <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
           <div class="equip-card__img-overlay"></div>
           <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
           <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
@@ -2912,10 +3294,9 @@ body {
         </div>
       </div>
       <!-- Row 2, Card 7 — Volvo 9700 Luxury Coach -->
-      <div class="equip-card reveal reveal-delay-2">
+      <div class="equip-card no-hover reveal reveal-delay-2">
         <div class="equip-card__img">
           <img src="Volvo 9700 Luxury Coach.jpg" alt="Volvo 9700 Luxury Coach" loading="lazy">
-          <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
           <div class="equip-card__img-overlay"></div>
           <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
           <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
@@ -2937,10 +3318,9 @@ body {
         </div>
       </div>
       <!-- Row 2, Card 8 — Hyster Reach Truck -->
-      <div class="equip-card reveal reveal-delay-3">
+      <div class="equip-card no-hover reveal reveal-delay-3">
         <div class="equip-card__img">
           <img src="Hyster R1.6H Reach Truck.jpg" alt="Hyster R1.6H Reach Truck" loading="lazy">
-          <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
           <div class="equip-card__img-overlay"></div>
           <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
           <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
@@ -3096,6 +3476,33 @@ body {
 }
 .process-step:hover .process-step__title { color:var(--brand-navy); }
 .process-step:hover .process-step__num { transform:scale(1.15);background:#FFD100;color:#1A2F4A; }
+
+@media (max-width: 768px) {
+  .process-section { padding: 56px 0; }
+  .process-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 20px;
+    margin-top: 36px;
+  }
+  .process-arrow { display: none; }
+  .process-step { flex: none; }
+  .process-step__circle { width: 64px; height: 64px; margin-bottom: 16px; }
+  .process-step__circle i { font-size: 22px; }
+  .process-step__num { width: 22px; height: 22px; font-size: 10px; top: -4px; right: -4px; }
+  .process-step__title { font-size: 14px; margin-bottom: 6px; }
+  .process-step__desc { font-size: 12px; line-height: 1.5; padding: 0 4px; }
+}
+
+@media (max-width: 480px) {
+  .process-section { padding: 44px 0; }
+  .process-grid { gap: 28px 16px; margin-top: 28px; }
+  .process-step__circle { width: 56px; height: 56px; margin-bottom: 12px; box-shadow: 0 0 0 5px #F4F8FD, 0 3px 10px rgba(0,0,0,0.04); }
+  .process-step__circle i { font-size: 20px; }
+  .process-step__num { width: 20px; height: 20px; font-size: 9px; }
+  .process-step__title { font-size: 13px; }
+  .process-step__desc { font-size: 11.5px; padding: 0; }
+}
 </style>
 
 <section class="process-section" id="processSection">
@@ -3169,19 +3576,19 @@ body {
 <!-- ═══════════════════════════════════════════════════════
      SECTION 15 — CONTACT / SUPPORT SECTION
      ═══════════════════════════════════════════════════════ -->
-<section style="background:#fff;padding:80px 0;border-top:1px solid var(--border);">
+<section class="contact-section" style="background:#fff;padding:80px 0;border-top:1px solid var(--border);">
   <div class="container">
-    <div style="background:var(--bg-warm);border-radius:16px;overflow:hidden;display:flex;align-items:stretch;">
+    <div class="contact-wrapper" style="background:var(--bg-warm);border-radius:16px;overflow:hidden;display:flex;align-items:stretch;">
       <!-- Left content -->
-      <div style="flex:1;padding:52px 56px;">
+      <div class="contact-left" style="flex:1;padding:52px 56px;">
         <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,0.1);padding:6px 14px;border-radius:20px;margin-bottom:20px;">
           <i class="fi fi-rr-headset" style="font-size:13px;color:#25D366;"></i>
           <span style="font-size:12px;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:0.06em;">Expert Support</span>
         </div>
-        <h2 style="font-family:var(--font-display);font-weight:900;font-size:32px;color:var(--text-primary);line-height:1.2;margin-bottom:14px;">Need Help? Talk to Our<br>Machinery Experts</h2>
-        <p style="font-size:15px;color:var(--text-secondary);line-height:1.65;max-width:420px;margin-bottom:28px;">Have a question about a listing? Need help with financing or inspections? Our team is available — real people, real expertise, real-time responses.</p>
+        <h2 class="contact-title" style="font-family:var(--font-display);font-weight:900;font-size:32px;color:var(--text-primary);line-height:1.2;margin-bottom:14px;">Need Help? Talk to Our<br>Machinery Experts</h2>
+        <p class="contact-desc" style="font-size:15px;color:var(--text-secondary);line-height:1.65;max-width:420px;margin-bottom:28px;">Have a question about a listing? Need help with financing or inspections? Our team is available — real people, real expertise, real-time responses.</p>
         <!-- Contact options grid -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:32px;">
+        <div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:32px;">
           <div style="display:flex;align-items:center;gap:10px;padding:14px 16px;background:#fff;border-radius:10px;border:1px solid var(--border);">
             <div style="width:36px;height:36px;border-radius:8px;background:rgba(37,211,102,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
               <i class="fi fi-rr-phone-call" style="font-size:15px;color:#25D366;display:flex;"></i>
@@ -3219,13 +3626,13 @@ body {
             </div>
           </div>
         </div>
-        <div style="display:flex;gap:12px;">
+        <div class="contact-actions" style="display:flex;gap:12px;">
           <a href="#" class="btn btn--primary" style="background:#25D366;"><i class="fi fi-rr-phone-call" style="font-size:14px;"></i> Chat on WhatsApp</a>
           <a href="#" class="btn btn--secondary"><i class="fi fi-rr-phone-flip" style="font-size:14px;"></i> Call Us</a>
         </div>
       </div>
       <!-- Right side — team visual with bg image -->
-      <div style="flex:0 0 42%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 40px;position:relative;overflow:hidden;">
+      <div class="contact-right" style="flex:0 0 42%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 40px;position:relative;overflow:hidden;">
         <!-- Background image -->
         <div style="position:absolute;inset:0;background-image:url('Gemini_Generated_Image_6vvxlk6vvxlk6vvx.png');background-size:cover;background-position:center;"></div>
         <div style="position:absolute;inset:0;background:rgba(0,69,122,0.88);"></div>
@@ -3349,19 +3756,19 @@ body {
 <!-- ═══════════════════════════════════════════════════════
      SECTION 18 — FINAL CTA WITH BACKGROUND IMAGE
      ═══════════════════════════════════════════════════════ -->
-<section style="position:relative;overflow:hidden;min-height:320px;display:flex;align-items:center;">
+<section class="final-cta" style="position:relative;overflow:hidden;min-height:320px;display:flex;align-items:center;">
   <!-- Background image -->
   <div style="position:absolute;inset:0;background-image:url('Gemini_Generated_Image_6vvxlk6vvxlk6vvx.png');background-size:cover;background-position:center bottom;"></div>
   <!-- Dark overlay -->
-  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,20,45,0.92) 0%,rgba(0,20,45,0.8) 45%,rgba(0,20,45,0.5) 70%,rgba(0,20,45,0.3) 100%);"></div>
-  <div class="container" style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding-top:56px;padding-bottom:56px;">
+  <div class="final-cta__overlay" style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,20,45,0.92) 0%,rgba(0,20,45,0.8) 45%,rgba(0,20,45,0.5) 70%,rgba(0,20,45,0.3) 100%);"></div>
+  <div class="container final-cta__inner" style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding-top:56px;padding-bottom:56px;">
     <!-- Left content -->
-    <div style="max-width:550px;">
+    <div class="final-cta__text" style="max-width:550px;">
       <h2 style="font-family:var(--font-display);font-weight:900;font-size:clamp(28px,3vw,40px);color:#fff;line-height:1.2;margin-bottom:12px;">Ready to Get Started?</h2>
       <p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.6;">Whether you're buying or selling — join the GCC's most trusted FAMCO Approved marketplace backed by Al-Futtaim.</p>
     </div>
     <!-- Right CTAs -->
-    <div style="display:flex;gap:14px;flex-shrink:0;">
+    <div class="final-cta__buttons" style="display:flex;gap:14px;flex-shrink:0;">
       <a href="listing.html" class="btn btn--primary" style="background:#FFD100;color:#1A2F4A;">
         <i class="fi fi-rr-search" style="font-size:14px;"></i> Browse Equipment
       </a>

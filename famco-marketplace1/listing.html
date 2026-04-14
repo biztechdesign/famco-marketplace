@@ -148,6 +148,13 @@ a{text-decoration:none;}
 .product-card__hover-tag--3d{background:rgba(0,102,179,0.85);color:#fff;}
 .product-card__hover-tag--gallery{background:rgba(255,255,255,0.9);color:var(--text-primary);}
 .product-card__hover-tag i{font-size:11px;display:flex;}
+
+/* No-hover cards */
+.product-card.no-hover:hover{border-color:var(--border);transform:none;box-shadow:none;}
+.product-card.no-hover:hover .product-card__img img.primary{opacity:1;transform:none;}
+.product-card.no-hover:hover .product-card__img img.hover-img{opacity:0;}
+.product-card.no-hover:hover .product-card__img video{opacity:0;}
+.product-card.no-hover:hover .product-card__img .hover-3d{opacity:0;}
 .product-card__badges{position:absolute;top:10px;left:10px;display:flex;gap:6px;}
 .product-card__badge{font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:4px 9px;border-radius:4px;display:flex;align-items:center;gap:4px;line-height:1;}
 .product-card__badge--approved{background:var(--success);color:#fff;}
@@ -221,6 +228,144 @@ a{text-decoration:none;}
 /* Category scroll indicator */
 .categories-wrap{position:relative;}
 .categories-wrap::after{content:'';position:absolute;right:0;top:0;bottom:0;width:60px;background:linear-gradient(90deg,transparent,var(--bg-warm));pointer-events:none;z-index:2;border-radius:0 var(--radius) var(--radius) 0;}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE MEDIA QUERIES
+   ═══════════════════════════════════════════════════ */
+
+/* ─── 1200px: Tablets landscape / small desktops ─── */
+@media (max-width: 1200px) {
+  .container { padding: 0 40px; }
+  .sub-nav .container { padding: 0 40px; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+/* ─── 1024px: Tablets portrait ─── */
+@media (max-width: 1024px) {
+  .container { padding: 0 32px; }
+  .sub-nav .container { padding: 0 32px; }
+  .sidebar { display: none; }
+  .page-layout { flex-direction: column; gap: 0; }
+  .nav-search__cat { display: none; }
+  .utility-bar__left { display: none; }
+  .utility-bar__right { margin-left: auto; }
+  .sub-nav .container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .sub-nav__link { padding: 13px 14px; font-size: 13px; }
+}
+
+/* ─── 768px: Mobile landscape / small tablets ─── */
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .sub-nav .container { padding: 0 20px; }
+
+  /* Navigation */
+  .main-nav .container { height: auto; min-height: 64px; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; gap: 12px; }
+  .nav-search { order: 3; flex: 1 1 100%; height: 42px; }
+  .nav-logo__img { height: 36px; }
+  .btn-login, .btn-register { display: none; }
+  .nav-actions { gap: 8px; }
+
+  /* Sub nav scrollable */
+  .sub-nav .container { gap: 0; white-space: nowrap; scrollbar-width: none; }
+  .sub-nav .container::-webkit-scrollbar { display: none; }
+  .sub-nav__link { padding: 12px 12px; font-size: 12.5px; }
+
+  /* Product grid */
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+  /* Toolbar */
+  .listing-toolbar { flex-wrap: wrap; gap: 10px; padding: 12px 16px; }
+  .listing-toolbar__left { flex: 1 1 100%; }
+  .listing-toolbar__count { font-size: 13px; }
+  .listing-toolbar__right { flex: 1 1 100%; justify-content: space-between; }
+  .listing-toolbar__sort { font-size: 12px; }
+  .listing-toolbar__sort select { font-size: 12px; padding: 6px 10px; }
+
+  /* Breadcrumb */
+  .breadcrumb { font-size: 12px; padding: 12px 0; }
+
+  /* Active filters */
+  .active-filters { flex-wrap: wrap; padding: 10px 16px; gap: 6px; }
+  .active-filter-tag { font-size: 11px; padding: 4px 10px; }
+
+  /* Pagination */
+  .pagination { gap: 4px; margin-top: 24px; }
+  .page-btn { width: 36px; height: 36px; font-size: 13px; }
+  .page-btn--nav { padding: 0 12px; font-size: 12px; }
+
+  /* Utility bar */
+  .utility-bar { font-size: 11.5px; }
+
+  /* Footer */
+  .footer { padding: 48px 0 0; }
+  .footer-main { grid-template-columns: 1fr; gap: 28px; }
+  .footer-brand { padding-right: 0; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+  /* WhatsApp & back to top */
+  .whatsapp-float { width: 50px; height: 50px; bottom: 24px; right: 20px; }
+  .whatsapp-float svg { width: 24px; height: 24px; }
+  .back-to-top { bottom: 86px; right: 20px; width: 40px; height: 40px; }
+
+  /* Product card adjustments */
+  .product-card__body { padding: 14px 14px 16px; }
+  .product-card__name { font-size: 14px; }
+  .product-card__price { font-size: 16px; }
+  .product-card__cta { padding: 8px 12px; font-size: 11.5px; }
+}
+
+/* ─── 480px: Mobile portrait ─── */
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .sub-nav .container { padding: 0 16px; }
+
+  /* Navigation */
+  .main-nav .container { min-height: 56px; gap: 10px; }
+  .nav-logo__img { height: 32px; }
+  .nav-search { height: 40px; border-radius: 8px; }
+  .nav-search__input { font-size: 13px; padding: 0 12px; }
+  .nav-search__btn { width: 40px; }
+  .nav-icon-btn { width: 38px; height: 38px; border-radius: 8px; }
+  .nav-icon-btn svg { width: 17px; height: 17px; }
+
+  /* Product grid — single column */
+  .product-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  /* Product card */
+  .product-card__name { font-size: 14px; }
+  .product-card__body { padding: 14px 16px 16px; }
+  .product-card__price { font-size: 17px; }
+  .product-card__meta { font-size: 11px; }
+
+  /* Toolbar stacks vertically */
+  .listing-toolbar { flex-direction: column; align-items: stretch; gap: 10px; padding: 12px 14px; }
+  .listing-toolbar__left { justify-content: center; }
+  .listing-toolbar__right { justify-content: center; flex-wrap: wrap; gap: 8px; }
+
+  /* Pagination — compact for phone */
+  .pagination { gap: 4px; flex-wrap: wrap; justify-content: center; }
+  .page-btn { width: 38px; height: 38px; font-size: 13px; border-radius: 8px; }
+  .page-btn--nav { width: 38px; padding: 0; font-size: 0; }
+  .page-btn--nav i { font-size: 14px; }
+  .page-dots { font-size: 13px; }
+
+  /* Breadcrumb */
+  .breadcrumb { font-size: 11.5px; padding: 10px 0; gap: 6px; }
+
+  /* Active filters */
+  .active-filters { padding: 8px 12px; }
+  .active-filters__label { font-size: 11px; }
+  .active-filter-tag { font-size: 10.5px; padding: 3px 8px; }
+
+  /* Sub nav */
+  .sub-nav__link { padding: 10px 10px; font-size: 12px; }
+
+  /* Footer */
+  .footer-col__title { font-size: 13px; margin-bottom: 14px; }
+  .footer-col__links a { font-size: 13px; }
+  .footer-bottom { font-size: 12px; }
+}
 </style>
 </head>
 <body>
@@ -418,12 +563,12 @@ a{text-decoration:none;}
           </div>
         </div>
 
-        <!-- Card 2 — ALTERNATE IMAGE on hover -->
+        <!-- Card 2 — VIDEO on hover -->
         <div class="product-card">
           <div class="product-card__img">
             <img class="primary" src="Volvo FM460.jpg" alt="Volvo FM460" loading="lazy">
-            <img class="hover-img" src="white volvo.png" alt="Volvo FM460 Side View" loading="lazy">
-            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 8 Photos</span>
+            <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
+            <span class="product-card__hover-tag product-card__hover-tag--video"><i class="fi fi-rr-play"></i> Video</span>
             <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
             <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
           </div>
@@ -437,35 +582,11 @@ a{text-decoration:none;}
           </div>
         </div>
 
-        <!-- Card 3 — 3D VIEW on hover -->
-        <div class="product-card">
-          <div class="product-card__img">
-            <img class="primary" src="CAT 320 Hydraulic.jpg" alt="CAT 320" loading="lazy">
-            <div class="hover-3d">
-              <div class="hover-3d__inner">
-                <div class="hover-3d__spinner"></div>
-                <div class="hover-3d__label"><i class="fi fi-rr-cube"></i> 360° Interactive View</div>
-              </div>
-            </div>
-            <span class="product-card__hover-tag product-card__hover-tag--3d"><i class="fi fi-rr-cube"></i> 3D View</span>
-            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span><span class="product-card__badge product-card__badge--featured"><i class="fi fi-rr-star" style="font-size:9px;display:flex;"></i> Featured</span></div>
-            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
-          </div>
-          <div class="product-card__body">
-            <h3 class="product-card__name">CAT 320 Hydraulic Excavator</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2020</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 3,200 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Qatar</span></div>
-            <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>485,000</div><div class="product-card__finance">from AED 7,200/mo</div></div>
-              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4 — VIDEO on hover -->
+        <!-- Card 3 — Volvo FE 280 Distribution (VIDEO on hover) -->
         <div class="product-card">
           <div class="product-card__img">
             <img class="primary" src="Volvo FE 280.jpg" alt="Volvo FE 280" loading="lazy">
-            <video src="makana video.webm" muted loop preload="none"></video>
+            <video src="https://ik.imagekit.io/4erco1shm/PixVerse_V6_Image_Text_540P_based_on_the_attac.mp4?updatedAt=1775592049282" muted loop preload="none"></video>
             <span class="product-card__hover-tag product-card__hover-tag--video"><i class="fi fi-rr-play"></i> Video</span>
             <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
             <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
@@ -480,12 +601,27 @@ a{text-decoration:none;}
           </div>
         </div>
 
-        <!-- Card 5 — ALTERNATE IMAGE on hover -->
-        <div class="product-card">
+        <!-- Card 4 — CAT 320 Hydraulic Excavator -->
+        <div class="product-card no-hover">
+          <div class="product-card__img">
+            <img class="primary" src="CAT 320 Hydraulic.jpg" alt="CAT 320" loading="lazy">
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span><span class="product-card__badge product-card__badge--featured"><i class="fi fi-rr-star" style="font-size:9px;display:flex;"></i> Featured</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">CAT 320 Hydraulic Excavator</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2020</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 3,200 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Qatar</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>485,000</div><div class="product-card__finance">from AED 7,200/mo</div></div>
+              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 — Toyota 8FBN25 Forklift -->
+        <div class="product-card no-hover">
           <div class="product-card__img">
             <img class="primary" src="Toyota 8FBN25 Forklift.jpg" alt="Toyota Forklift" loading="lazy">
-            <img class="hover-img" src="orang.png" alt="Toyota Forklift Angle" loading="lazy">
-            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 6 Photos</span>
             <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
             <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
           </div>
@@ -499,17 +635,10 @@ a{text-decoration:none;}
           </div>
         </div>
 
-        <!-- Card 6 — 3D VIEW on hover -->
-        <div class="product-card">
+        <!-- Card 6 — Volvo EC220E Crawler Excavator -->
+        <div class="product-card no-hover">
           <div class="product-card__img">
             <img class="primary" src="Volvo EC220E Crawler.jpg" alt="Volvo EC220E" loading="lazy">
-            <div class="hover-3d">
-              <div class="hover-3d__inner">
-                <div class="hover-3d__spinner"></div>
-                <div class="hover-3d__label"><i class="fi fi-rr-cube"></i> 360° Interactive View</div>
-              </div>
-            </div>
-            <span class="product-card__hover-tag product-card__hover-tag--3d"><i class="fi fi-rr-cube"></i> 3D View</span>
             <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
             <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
           </div>
@@ -523,12 +652,10 @@ a{text-decoration:none;}
           </div>
         </div>
 
-        <!-- Card 7 — ALTERNATE IMAGE on hover -->
-        <div class="product-card">
+        <!-- Card 7 — Volvo 9700 Luxury Coach -->
+        <div class="product-card no-hover">
           <div class="product-card__img">
             <img class="primary" src="Volvo 9700 Luxury Coach.jpg" alt="Volvo 9700 Coach" loading="lazy">
-            <img class="hover-img" src="volvo yellow.png" alt="Volvo 9700 Interior" loading="lazy">
-            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 12 Photos</span>
             <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
             <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
           </div>
@@ -542,12 +669,10 @@ a{text-decoration:none;}
           </div>
         </div>
 
-        <!-- Card 8 — VIDEO on hover -->
-        <div class="product-card">
+        <!-- Card 8 — Hyster R1.6H Reach Truck -->
+        <div class="product-card no-hover">
           <div class="product-card__img">
             <img class="primary" src="Hyster R1.6H Reach Truck.jpg" alt="Hyster Reach Truck" loading="lazy">
-            <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
-            <span class="product-card__hover-tag product-card__hover-tag--video"><i class="fi fi-rr-play"></i> Video</span>
             <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
             <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
           </div>
@@ -561,17 +686,10 @@ a{text-decoration:none;}
           </div>
         </div>
 
-        <!-- Card 9 — 3D VIEW on hover -->
-        <div class="product-card">
+        <!-- Card 9 — JCB 3CX Backhoe Loader -->
+        <div class="product-card no-hover">
           <div class="product-card__img">
             <img class="primary" src="jcb.png" alt="JCB Backhoe Loader" loading="lazy">
-            <div class="hover-3d">
-              <div class="hover-3d__inner">
-                <div class="hover-3d__spinner"></div>
-                <div class="hover-3d__label"><i class="fi fi-rr-cube"></i> 360° Interactive View</div>
-              </div>
-            </div>
-            <span class="product-card__hover-tag product-card__hover-tag--3d"><i class="fi fi-rr-cube"></i> 3D View</span>
             <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span><span class="product-card__badge product-card__badge--featured"><i class="fi fi-rr-star" style="font-size:9px;display:flex;"></i> Featured</span></div>
             <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
           </div>

@@ -252,6 +252,110 @@ a{text-decoration:none;color:inherit;}
 .whatsapp-float:hover{transform:translateY(-3px) scale(1.05);}
 .whatsapp-float svg{width:28px;height:28px;}
 @keyframes live-blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+/* ═══ RESPONSIVE — 1200px ═══ */
+@media (max-width:1200px){
+  .container{padding:0 40px;}
+  .pdp-layout{grid-template-columns:1fr 380px;}
+  .sub-nav .container{padding:0 40px !important;}
+}
+
+/* ═══ RESPONSIVE — 1024px ═══ */
+@media (max-width:1024px){
+  .container{padding:0 32px;}
+  .sub-nav .container{padding:0 32px !important;}
+  .pdp-layout{grid-template-columns:1fr;gap:24px;}
+  .pdp-right{width:100%;}
+  .gallery{position:relative;top:auto;}
+  .similar-grid{grid-template-columns:repeat(3,1fr);}
+  .inspection-grid{grid-template-columns:repeat(3,1fr);}
+  .product-grid{grid-template-columns:repeat(3,1fr) !important;}
+  .utility-bar__left{display:none;}
+  .nav-search__cat{display:none;}
+  .footer-main{grid-template-columns:1fr 1fr 1fr;gap:32px;}
+  .footer-brand{padding-right:0;grid-column:1 / -1;}
+}
+
+/* ═══ RESPONSIVE — 768px ═══ */
+@media (max-width:768px){
+  .container{padding:0 20px;}
+  .sub-nav .container{padding:0 20px !important;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .nav-search{display:none;}
+  .btn-login,.btn-register{display:none;}
+  .main-nav .container{height:60px;gap:16px;}
+  .nav-actions{gap:8px;}
+  .pdp-info__title{font-size:22px;}
+  .pdp-info__price{font-size:28px;}
+  .pdp-specs__grid{grid-template-columns:1fr 1fr;}
+  .pdp-specs__item:nth-last-child(-n+2){border-bottom:1px solid var(--border-light);}
+  .pdp-specs__item:last-child{border-bottom:none;}
+  .similar-grid{grid-template-columns:repeat(2,1fr);}
+  .inspection-grid{grid-template-columns:repeat(2,1fr);}
+  .product-grid{grid-template-columns:repeat(2,1fr) !important;}
+  .pdp-tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;flex-wrap:nowrap;gap:0;scrollbar-width:none;-ms-overflow-style:none;}
+  .pdp-tabs::-webkit-scrollbar{display:none;}
+  .pdp-tab{white-space:nowrap;flex-shrink:0;}
+  .pdp-cta__row{flex-wrap:wrap;}
+  .pdp-cta__row .pdp-cta__btn{flex:1 1 100%;}
+  .pdp-cta__trust{flex-wrap:wrap;gap:10px;}
+  .footer-main{grid-template-columns:1fr 1fr;gap:24px;}
+  .footer-brand{grid-column:1 / -1;}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center;}
+  .footer-bottom a{margin-left:0;margin-right:16px;}
+  .pdp-tab-content{padding:24px;}
+  .pdp-specs .pdp-specs__grid[style*="grid-template-columns"]{grid-template-columns:1fr 1fr !important;}
+  .pdp-tab-content [style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+  .pdp-tab-content .key-specs-grid[style]{grid-template-columns:repeat(2,1fr) !important;gap:10px !important;}
+  .pdp-tab-content .inspection-report-grid[style]{grid-template-columns:repeat(2,1fr) !important;gap:10px !important;}
+  .download-report{flex-direction:column !important;gap:14px;align-items:stretch !important;padding:16px 18px !important;}
+  .download-report a{justify-content:center;text-align:center;}
+  .features-grid > div{padding-left:0 !important;}
+  .gallery__thumbs{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;}
+  .gallery__thumbs::-webkit-scrollbar{display:none;}
+  .pdp-seller__stats{flex-wrap:wrap;gap:12px;}
+  .pdp-info__price-row{flex-wrap:wrap;gap:10px;}
+  .whatsapp-float{bottom:20px;right:20px;width:50px;height:50px;}
+  .whatsapp-float svg{width:24px;height:24px;}
+}
+
+/* ═══ RESPONSIVE — 480px ═══ */
+@media (max-width:480px){
+  .container{padding:0 16px;}
+  .sub-nav .container{padding:0 16px !important;}
+  .main-nav .container{height:56px;}
+  .nav-logo__img{height:32px;}
+  .nav-icon-btn{width:38px;height:38px;}
+  .nav-icon-btn svg{width:17px;height:17px;}
+  .pdp-info__title{font-size:20px;}
+  .pdp-info__price{font-size:24px;}
+  .pdp-info__header{padding:20px;}
+  .similar-grid{grid-template-columns:1fr;}
+  .inspection-grid{grid-template-columns:repeat(2,1fr);}
+  .product-grid{grid-template-columns:1fr !important;}
+  .pdp-tab{padding:10px 16px;font-size:13px;}
+  .pdp-tab i{font-size:13px;margin-right:4px;}
+  .breadcrumb{font-size:11.5px;gap:6px;flex-wrap:wrap;}
+  .breadcrumb__sep i{font-size:8px;}
+  .pdp-cta{padding:18px;}
+  .pdp-cta__btn{padding:13px 18px;font-size:14px;}
+  .pdp-specs{padding:18px;}
+  .pdp-seller{padding:18px;}
+  .pdp-tab-content{padding:18px;}
+  .pdp-tab-content h3{font-size:16px;}
+  .pdp-tab-content p{font-size:13px;}
+  .footer{padding:48px 0 0;}
+  .footer-main{grid-template-columns:1fr;gap:24px;}
+  .footer-brand{grid-column:auto;}
+  .similar-section h2{font-size:18px;}
+  .pdp-info__meta{flex-wrap:wrap;gap:6px;}
+  .gallery__thumb{width:72px;height:54px;}
+  .pdp-layout{gap:20px;}
+  .pdp-info__price-currency{font-size:14px;}
+  .pdp-info__finance{font-size:12px;}
+  .pdp-tab-content .key-specs-grid[style]{grid-template-columns:repeat(2,1fr) !important;gap:8px !important;}
+  .key-specs-grid > div{padding:14px 12px !important;}
+  .pdp-tab-content .inspection-report-grid[style]{grid-template-columns:repeat(2,1fr) !important;gap:8px !important;}
+}
 </style>
 </head>
 <body>
@@ -511,7 +615,7 @@ a{text-decoration:none;color:inherit;}
 
         <!-- Key Specifications — Card Grid -->
         <h3 style="margin-top:12px;">Key Specifications</h3>
-        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:32px;">
+        <div class="key-specs-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:32px;">
           <div style="background:var(--bg-warm);border-radius:10px;padding:18px 16px;text-align:center;">
             <div style="width:40px;height:40px;margin:0 auto 10px;border-radius:10px;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;"><i class="fi fi-rr-truck-side" style="font-size:18px;color:var(--brand-navy);display:flex;"></i></div>
             <div style="font-size:11px;color:var(--text-muted);font-weight:500;margin-bottom:3px;">Type</div>
@@ -566,7 +670,7 @@ a{text-decoration:none;color:inherit;}
 
         <!-- Key Features — Clean List with Icons -->
         <h3>Key Features</h3>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px;">
+        <div class="features-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px;">
           <div style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--border-light);">
             <div style="width:32px;height:32px;border-radius:8px;background:var(--success-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fi fi-rr-engine" style="font-size:14px;color:var(--success);display:flex;"></i></div>
             <span style="font-size:14px;color:var(--text-primary);font-weight:500;">Volvo D13K 500 HP Euro 5 Engine</span>
@@ -627,7 +731,7 @@ a{text-decoration:none;color:inherit;}
         </div>
 
         <!-- Inspection Grid — with unique icons per area -->
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+        <div class="inspection-report-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
           <!-- Engine -->
           <div style="background:var(--bg-warm);border-radius:var(--radius);padding:20px 16px;text-align:center;border:1px solid var(--border-light);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--success)'" onmouseout="this.style.borderColor='var(--border-light)'">
             <div style="width:44px;height:44px;margin:0 auto 12px;border-radius:50%;background:var(--success-light);display:flex;align-items:center;justify-content:center;">
@@ -711,7 +815,7 @@ a{text-decoration:none;color:inherit;}
         </div>
 
         <!-- Download Report -->
-        <div style="margin-top:24px;padding:18px 24px;background:var(--bg-warm);border-radius:var(--radius);display:flex;align-items:center;justify-content:space-between;">
+        <div class="download-report" style="margin-top:24px;padding:18px 24px;background:var(--bg-warm);border-radius:var(--radius);display:flex;align-items:center;justify-content:space-between;">
           <div style="display:flex;align-items:center;gap:12px;">
             <div style="width:40px;height:40px;border-radius:10px;background:rgba(0,102,179,0.1);display:flex;align-items:center;justify-content:center;">
               <i class="fi fi-rr-file-pdf" style="font-size:18px;color:var(--brand-navy);display:flex;"></i>
