@@ -565,11 +565,11 @@ h2.sec-t.on-dk{color:var(--white);}
 }
 .lc-compare:hover{border-color:var(--ink-3);color:var(--ink);}
 .lc-compare:active{transform:scale(.97);}
-/* hover video */
+/* hover video — only for cards with data-hover-video */
 .lc-thumb img{transition:transform .4s ease,opacity .35s ease;}
 .lc-hover-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s ease;pointer-events:none;border-radius:var(--r) var(--r) 0 0;}
-.lc:hover .lc-hover-video{opacity:1;}
-.lc:hover .lc-thumb>img{opacity:0;}
+.lc[data-hover-video]:hover .lc-hover-video{opacity:1;}
+.lc[data-hover-video]:hover .lc-thumb>img{opacity:0;}
 
 /* ── TRUST SECTION ── */
 .trust-grid{
@@ -1366,7 +1366,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
   <div class="listings-grid">
 
     <!-- Card 1 – Video + 3D -->
-    <div class="lc" onclick="location.href='EquipmentDetail.html'">
+    <div class="lc" onclick="location.href='EquipmentDetail.html'" data-hover-video="images/Video_Generation_From_User_Request.mp4">
       <div class="lc-thumb">
         <img src="images/Detailimage1.png"
              alt="Volvo FH 500 6×4 Tractor Head"
@@ -1408,10 +1408,10 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
     </div>
 
     <!-- Card 2 – Video only -->
-    <div class="lc" onclick="location.href='EquipmentDetail.html'">
+    <div class="lc" onclick="location.href='EquipmentDetail.html'" data-hover-video="images/thumbvideo.mp4">
       <div class="lc-thumb">
-        <img src="images/Hyster R1.6H Reach Truck.jpg"
-             alt="Hyster R1.6H Reach Truck"
+        <img src="images/Volvo FE 280.jpg"
+             alt="Volvo FH16 540 Heavy Haulage"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
         <div class="lc-thumb-fallback" style="display:none;background:linear-gradient(135deg,#2a2a1a,#1a1a0d);">🚚</div>
         <div class="play-overlay">
@@ -1880,18 +1880,17 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
 <script>
 /* ── HOVER VIDEO ON CARDS ── */
 (function(){
-  document.querySelectorAll('.lc-thumb').forEach(function(thumb){
+  document.querySelectorAll('.lc[data-hover-video]').forEach(function(card){
+    var src=card.getAttribute('data-hover-video');
+    var thumb=card.querySelector('.lc-thumb');
+    if(!thumb||!src)return;
     var vid=document.createElement('video');
     vid.className='lc-hover-video';
-    vid.src='images/Video_Generation_From_User_Request.mp4';
+    vid.src=src;
     vid.muted=true; vid.loop=true;
     vid.setAttribute('playsinline','');
     vid.setAttribute('preload','none');
     thumb.appendChild(vid);
-  });
-  document.querySelectorAll('.lc').forEach(function(card){
-    var vid=card.querySelector('.lc-hover-video');
-    if(!vid)return;
     card.addEventListener('mouseenter',function(){vid.play().catch(function(){});});
     card.addEventListener('mouseleave',function(){vid.pause();vid.currentTime=0;});
   });

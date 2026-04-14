@@ -124,11 +124,11 @@ header{
 .lc-compare{flex:1;font-size:12px;font-weight:800;color:var(--body);background:transparent;border:1.5px solid var(--border);padding:8px 10px;border-radius:6px;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:4px;white-space:nowrap;transition:all var(--t);}
 .lc-compare:hover{border-color:var(--ink-3);color:var(--ink);}
 .lc-compare:active{transform:scale(.97);}
-/* hover video */
+/* hover video — only for cards with data-hover-video */
 .lc-thumb img{transition:transform .4s ease,opacity .35s ease;}
 .lc-hover-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s ease;pointer-events:none;border-radius:var(--r) var(--r) 0 0;}
-.lc:hover .lc-hover-video{opacity:1;}
-.lc:hover .lc-thumb>img{opacity:0;}
+.lc[data-hover-video]:hover .lc-hover-video{opacity:1;}
+.lc[data-hover-video]:hover .lc-thumb>img{opacity:0;}
 
 /* ── BROWSE PAGE ── */
 .pg-bar{
@@ -651,7 +651,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
     <div class="browse-grid">
 
       <!-- Card 1 -->
-      <div class="lc" onclick="location.href='EquipmentDetail.html'">
+      <div class="lc" onclick="location.href='EquipmentDetail.html'" data-hover-video="images/Video_Generation_From_User_Request.mp4">
         <div class="lc-thumb">
           <img src="images/Volvo FH500 Globetrotter.jpg" alt="Volvo FH 500"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
@@ -681,9 +681,9 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
       </div>
 
       <!-- Card 2 -->
-      <div class="lc" onclick="location.href='EquipmentDetail.html'">
+      <div class="lc" onclick="location.href='EquipmentDetail.html'" data-hover-video="images/thumbvideo.mp4">
         <div class="lc-thumb">
-          <img src="images/CAT 320 Hydraulic.jpg" alt="CAT 320 GX Excavator"
+          <img src="images/Volvo FE 280.jpg" alt="CAT 320 GX Excavator"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
           <div class="lc-thumb-fallback" style="display:none;background:linear-gradient(135deg,#2C1A0E,#1a0f07);">🏗</div>
           <span class="lc-badge">FAMCO Approved</span>
@@ -1014,18 +1014,17 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
 <script>
 /* ── HOVER VIDEO ON CARDS ── */
 (function(){
-  document.querySelectorAll('.lc-thumb').forEach(function(thumb){
+  document.querySelectorAll('.lc[data-hover-video]').forEach(function(card){
+    var src=card.getAttribute('data-hover-video');
+    var thumb=card.querySelector('.lc-thumb');
+    if(!thumb||!src)return;
     var vid=document.createElement('video');
     vid.className='lc-hover-video';
-    vid.src='images/Video_Generation_From_User_Request.mp4';
+    vid.src=src;
     vid.muted=true; vid.loop=true;
     vid.setAttribute('playsinline','');
     vid.setAttribute('preload','none');
     thumb.appendChild(vid);
-  });
-  document.querySelectorAll('.lc').forEach(function(card){
-    var vid=card.querySelector('.lc-hover-video');
-    if(!vid)return;
     card.addEventListener('mouseenter',function(){vid.play().catch(function(){});});
     card.addEventListener('mouseleave',function(){vid.pause();vid.currentTime=0;});
   });
