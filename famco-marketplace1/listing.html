@@ -44,10 +44,32 @@ a{text-decoration:none;}
 .main-nav{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border-light);box-shadow:0 1px 8px rgba(0,0,0,0.04);}
 .main-nav .container{display:flex;align-items:center;height:72px;gap:28px;}
 .nav-logo__img{height:40px;width:auto;}
-.nav-search{flex:1;display:flex;align-items:center;height:44px;border:1.5px solid var(--border);border-radius:9px;overflow:hidden;transition:border-color 0.2s;}
+.nav-search{flex:1;display:flex;align-items:center;height:44px;border:1.5px solid var(--border);border-radius:9px;overflow:visible;position:relative;transition:border-color 0.2s;}
 .nav-search:focus-within{border-color:var(--brand-navy);}
 .nav-search__cat{padding:0 14px;height:100%;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text-primary);background:var(--bg-warm);border-right:1.5px solid var(--border);white-space:nowrap;cursor:pointer;}
-.nav-search__cat svg{width:12px;height:12px;}
+.nav-search__cat svg{width:12px;height:12px;transition:transform 0.2s;}
+.nav-search__cat.open svg{transform:rotate(180deg);}
+.cat-dropdown{display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:200px;background:#fff;border:1.5px solid var(--border);border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,0.12);z-index:2000;padding:6px 0;overflow:hidden;}
+.cat-dropdown.open{display:block;}
+.cat-dropdown__item{display:flex;align-items:center;gap:10px;padding:9px 16px;font-size:13px;font-weight:500;color:var(--text-primary);cursor:pointer;transition:background 0.15s;white-space:nowrap;}
+.cat-dropdown__item:hover{background:var(--bg-warm);}
+.cat-dropdown__item.active{color:var(--brand-navy);font-weight:700;background:rgba(0,102,179,0.06);}
+.cat-dropdown__item i{font-size:13px;color:var(--brand-navy);width:16px;text-align:center;}
+.search-dropdown{display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;background:#fff;border:1.5px solid var(--border);border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,0.12);z-index:1999;max-height:380px;overflow-y:auto;padding:6px 0;}
+.search-dropdown.active{display:block;}
+.search-dropdown__item{display:flex;align-items:center;gap:12px;padding:10px 16px;cursor:pointer;transition:background 0.15s;text-decoration:none;color:inherit;}
+.search-dropdown__item:hover,.search-dropdown__item.highlighted{background:var(--bg-warm);}
+.search-dropdown__icon{width:36px;height:36px;border-radius:8px;background:rgba(0,102,179,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.search-dropdown__icon i{font-size:14px;color:var(--brand-navy);display:flex;}
+.search-dropdown__info{flex:1;min-width:0;}
+.search-dropdown__name{font-size:13.5px;font-weight:600;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.search-dropdown__name mark{background:rgba(255,209,0,0.35);color:inherit;padding:0 1px;border-radius:2px;}
+.search-dropdown__meta{font-size:11.5px;color:var(--text-muted);margin-top:1px;}
+.search-dropdown__price{font-size:13px;font-weight:700;color:var(--brand-navy);white-space:nowrap;flex-shrink:0;}
+.search-dropdown__empty{padding:20px 16px;text-align:center;font-size:13px;color:var(--text-muted);}
+.search-dropdown__footer{padding:10px 16px;border-top:1px solid var(--border);text-align:center;}
+.search-dropdown__footer a{font-size:13px;font-weight:700;color:var(--brand-navy);text-decoration:none;}
+.search-dropdown__footer a:hover{text-decoration:underline;}
 .nav-search__input{flex:1;border:none;outline:none;padding:0 16px;font-size:13.5px;color:var(--text-secondary);font-family:var(--font-body);background:#fff;}
 .nav-search__input::placeholder{color:var(--text-muted);}
 .nav-search__btn{width:46px;height:100%;background:var(--brand-navy);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;}
@@ -395,9 +417,24 @@ a{text-decoration:none;}
   <div class="container">
     <a href="famco-homepage.html" class="nav-logo"><img src="HeaderLogoIcon.png" alt="FAMCO" class="nav-logo__img"></a>
     <div class="nav-search">
-      <div class="nav-search__cat">All Categories <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-      <input class="nav-search__input" type="text" placeholder="Search brand, model, category, or location…">
-      <button class="nav-search__btn"><svg fill="none" stroke="white" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+      <div class="nav-search__cat" id="catToggle" onclick="toggleCatDropdown()">
+        <span id="catLabel">All Categories</span>
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="cat-dropdown" id="catDropdown">
+        <div class="cat-dropdown__item active" data-value="" onclick="selectCategory(this, 'All Categories', '')"><i class="fi fi-rr-apps"></i> All Categories</div>
+        <div class="cat-dropdown__item" data-value="Trucks" onclick="selectCategory(this, 'Trucks', 'Trucks')"><i class="fi fi-rr-truck-side"></i> Trucks</div>
+        <div class="cat-dropdown__item" data-value="Trailers" onclick="selectCategory(this, 'Trailers', 'Trailers')"><i class="fi fi-rr-trailer"></i> Trailers</div>
+        <div class="cat-dropdown__item" data-value="Buses" onclick="selectCategory(this, 'Buses &amp; Coaches', 'Buses')"><i class="fi fi-rr-bus"></i> Buses &amp; Coaches</div>
+        <div class="cat-dropdown__item" data-value="Forklifts" onclick="selectCategory(this, 'Forklifts', 'Forklifts')"><i class="fi fi-rr-forklift"></i> Forklifts</div>
+        <div class="cat-dropdown__item" data-value="Cranes" onclick="selectCategory(this, 'Cranes', 'Cranes')"><i class="fi fi-rr-crane"></i> Cranes</div>
+        <div class="cat-dropdown__item" data-value="Construction" onclick="selectCategory(this, 'Construction', 'Construction')"><i class="fi fi-rr-helmet-safety"></i> Construction</div>
+        <div class="cat-dropdown__item" data-value="Special Purpose" onclick="selectCategory(this, 'Special Purpose', 'Special Purpose')"><i class="fi fi-rr-customize"></i> Special Purpose</div>
+        <div class="cat-dropdown__item" data-value="Agricultural" onclick="selectCategory(this, 'Agricultural', 'Agricultural')"><i class="fi fi-rr-tractor"></i> Agricultural</div>
+      </div>
+      <input class="nav-search__input" id="headerSearch" type="text" placeholder="Search brand, model, category, or location…" autocomplete="off">
+      <button class="nav-search__btn" onclick="performSearch()"><svg fill="none" stroke="white" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+      <div class="search-dropdown" id="searchDropdown"></div>
     </div>
     <div class="nav-actions">
       <a href="#" class="nav-icon-btn" title="Wishlist"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><div class="nav-icon-btn__badge">0</div></a>
@@ -564,7 +601,7 @@ a{text-decoration:none;}
         </div>
 
         <!-- Card 2 — VIDEO on hover -->
-        <div class="product-card">
+        <div class="product-card" data-href="product-detail-2.html">
           <div class="product-card__img">
             <img class="primary" src="Volvo FM460.jpg" alt="Volvo FM460" loading="lazy">
             <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
@@ -577,7 +614,7 @@ a{text-decoration:none;}
             <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 72,000 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> KSA</span></div>
             <div class="product-card__footer">
               <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>220,000</div><div class="product-card__finance">from AED 3,100/mo</div></div>
-              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+              <a href="product-detail-2.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -601,103 +638,115 @@ a{text-decoration:none;}
           </div>
         </div>
 
-        <!-- Card 4 — CAT 320 Hydraulic Excavator -->
-        <div class="product-card no-hover">
+        <!-- Card 4 — Volvo FMX 460 Tipper Truck -->
+        <div class="product-card">
           <div class="product-card__img">
-            <img class="primary" src="CAT 320 Hydraulic.jpg" alt="CAT 320" loading="lazy">
+            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/30/03/21639708-01.jpg" alt="Volvo FMX 460 Tipper Truck" loading="lazy">
+            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/30/03/21639708-02.jpg" alt="Volvo FMX 460 Side View" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> Photos</span>
             <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span><span class="product-card__badge product-card__badge--featured"><i class="fi fi-rr-star" style="font-size:9px;display:flex;"></i> Featured</span></div>
             <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
           </div>
           <div class="product-card__body">
-            <h3 class="product-card__name">CAT 320 Hydraulic Excavator</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2020</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 3,200 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Qatar</span></div>
+            <h3 class="product-card__name">Volvo FMX 460 Tipper Truck</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> New</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 338 kW / 460 HP</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Netherlands</span></div>
             <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>485,000</div><div class="product-card__finance">from AED 7,200/mo</div></div>
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>220,000</div><div class="product-card__finance">from AED 3,200/mo</div></div>
               <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- Card 5 — Toyota 8FBN25 Forklift -->
-        <div class="product-card no-hover">
+        <!-- Card 5 — Volvo FMX 520 Tipper Truck -->
+        <div class="product-card">
           <div class="product-card__img">
-            <img class="primary" src="Toyota 8FBN25 Forklift.jpg" alt="Toyota Forklift" loading="lazy">
+            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/30/03/21639688-01.jpg" alt="Volvo FMX 520 Tipper Truck" loading="lazy">
+            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/30/03/21639688-02.jpg" alt="Volvo FMX 520 Side View" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> Photos</span>
             <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
             <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
           </div>
           <div class="product-card__body">
-            <h3 class="product-card__name">Toyota 8FBN25 Forklift</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 4,800 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> KSA</span></div>
+            <h3 class="product-card__name">Volvo FMX 520 Tipper Truck</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> New</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 382 kW / 520 HP</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Netherlands</span></div>
             <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>85,000</div><div class="product-card__finance">from AED 1,250/mo</div></div>
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>257,000</div><div class="product-card__finance">from AED 3,800/mo</div></div>
               <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- Card 6 — Volvo EC220E Crawler Excavator -->
-        <div class="product-card no-hover">
+        <!-- Card 6 — Volvo ECR235EL Tracked Excavator -->
+        <div class="product-card">
           <div class="product-card__img">
-            <img class="primary" src="Volvo EC220E Crawler.jpg" alt="Volvo EC220E" loading="lazy">
+            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/48/87/21449867-01.jpg" alt="Volvo ECR235EL Tracked Excavator" loading="lazy">
+            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/48/87/21449867-02.jpg" alt="Volvo ECR235EL Side View" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 15 Photos</span>
             <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
             <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
           </div>
           <div class="product-card__body">
-            <h3 class="product-card__name">Volvo EC220E Crawler Excavator</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2022</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 2,100 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
+            <h3 class="product-card__name">Volvo ECR235EL Tracked Excavator</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2016</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 8,000 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Norway</span></div>
             <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>520,000</div><div class="product-card__finance">from AED 7,800/mo</div></div>
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>257,000</div><div class="product-card__finance">from AED 3,800/mo</div></div>
               <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- Card 7 — Volvo 9700 Luxury Coach -->
-        <div class="product-card no-hover">
+        <!-- Card 7 — Komatsu PC210LC-11 Crawler Excavator -->
+        <div class="product-card">
           <div class="product-card__img">
-            <img class="primary" src="Volvo 9700 Luxury Coach.jpg" alt="Volvo 9700 Coach" loading="lazy">
+            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/43/86/21437172-01.jpg" alt="Komatsu PC210LC-11 Crawler Excavator" loading="lazy">
+            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/43/86/21437172-02.jpg" alt="Komatsu PC210LC-11 Side View" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 12 Photos</span>
             <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
             <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
           </div>
           <div class="product-card__body">
-            <h3 class="product-card__name">Volvo 9700 Luxury Coach</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 92,000 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Bahrain</span></div>
+            <h3 class="product-card__name">Komatsu PC210LC-11 Crawler Excavator</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2018</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 6,433 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> France</span></div>
             <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>380,000</div><div class="product-card__finance">from AED 5,600/mo</div></div>
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>248,000</div><div class="product-card__finance">from AED 3,600/mo</div></div>
               <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- Card 8 — Hyster R1.6H Reach Truck -->
-        <div class="product-card no-hover">
+        <!-- Card 8 — Volvo FH 500 Globetrotter XL -->
+        <div class="product-card">
           <div class="product-card__img">
-            <img class="primary" src="Hyster R1.6H Reach Truck.jpg" alt="Hyster Reach Truck" loading="lazy">
+            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/64/90/21487742-01.jpg" alt="Volvo FH 500 Globetrotter XL" loading="lazy">
+            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/64/90/21487742-02.jpg" alt="Volvo FH 500 Globetrotter XL Side View" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> Photos</span>
             <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
             <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
           </div>
           <div class="product-card__body">
-            <h3 class="product-card__name">Hyster R1.6H Reach Truck</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2020</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 5,600 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Qatar</span></div>
+            <h3 class="product-card__name">Volvo FH 500 Globetrotter XL</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2023</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 317,942 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Lithuania</span></div>
             <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>62,000</div><div class="product-card__finance">from AED 920/mo</div></div>
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>272,000</div><div class="product-card__finance">from AED 4,000/mo</div></div>
               <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
-        <!-- Card 9 — JCB 3CX Backhoe Loader -->
-        <div class="product-card no-hover">
+        <!-- Card 9 — Volvo FH 500 XL -->
+        <div class="product-card">
           <div class="product-card__img">
-            <img class="primary" src="jcb.png" alt="JCB Backhoe Loader" loading="lazy">
-            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span><span class="product-card__badge product-card__badge--featured"><i class="fi fi-rr-star" style="font-size:9px;display:flex;"></i> Featured</span></div>
+            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-01.jpg" alt="2023 Volvo FH 500 XL Tractor Unit" loading="lazy">
+            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-02.jpg" alt="2023 Volvo FH 500 XL Side View" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> Photos</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
             <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
           </div>
           <div class="product-card__body">
-            <h3 class="product-card__name">JCB 3CX Backhoe Loader</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2022</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 1,800 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> KSA</span></div>
+            <h3 class="product-card__name">2023 Volvo FH 500 XL Tractor Unit</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2023</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 194,329 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Austria</span></div>
             <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>310,000</div><div class="product-card__finance">from AED 4,600/mo</div></div>
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>323,000</div><div class="product-card__finance">from AED 4,800/mo</div></div>
               <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
@@ -799,7 +848,7 @@ document.querySelectorAll('.product-card').forEach(card => {
   }
   card.addEventListener('click', (e) => {
     if (e.target.closest('.product-card__fav') || e.target.closest('.product-card__cta')) return;
-    window.location.href = 'product-detail.html';
+    window.location.href = card.dataset.href || 'product-detail.html';
   });
 });
 
@@ -835,6 +884,123 @@ document.querySelectorAll('.page-btn:not(.page-btn--nav)').forEach(btn => {
     document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   });
+});
+
+// ── Search Functionality with Autocomplete ──
+const searchProducts = [
+  { name: '2022 Volvo EC220E Crawler Excavator', price: 'AED 285,000', meta: '2022 · 2,100 hrs · UAE', category: 'Excavators' },
+  { name: 'Volvo FM460 6×4 Tractor', price: 'AED 220,000', meta: '2021 · 78,500 km · UAE', category: 'Trucks' },
+  { name: 'Volvo FE 280 Distribution', price: 'AED 195,000', meta: '2023 · 32,000 km · UAE', category: 'Trucks' },
+  { name: '2022 Volvo FH 460 Tractor Unit', price: 'AED 485,000', meta: '2022 · 559,404 km · Austria', category: 'Trucks' },
+  { name: '2022 Volvo FH 460 Tractor Unit II', price: 'AED 220,000', meta: '2022 · 558,499 km · Austria', category: 'Trucks' },
+  { name: '2023 Volvo FH 500 XL Tractor Unit', price: 'AED 323,000', meta: '2023 · 194,329 km · Austria', category: 'Trucks' },
+  { name: '2020 Volvo FH 500 Globetrotter XL', price: 'AED 380,000', meta: '2020 · 615,445 km · Netherlands', category: 'Trucks' },
+  { name: '2018 Volvo FH 500 Tractor Unit', price: 'AED 62,000', meta: '2018 · 714,900 km · Germany', category: 'Trucks' },
+];
+
+const headerSearch = document.getElementById('headerSearch');
+const searchDropdown = document.getElementById('searchDropdown');
+const catToggle = document.getElementById('catToggle');
+const catDropdown = document.getElementById('catDropdown');
+const catLabel = document.getElementById('catLabel');
+let highlightIndex = -1;
+let selectedCategoryValue = '';
+
+function toggleCatDropdown() {
+  const isOpen = catDropdown.classList.toggle('open');
+  catToggle.classList.toggle('open', isOpen);
+  if (isOpen) searchDropdown.classList.remove('active');
+}
+
+function selectCategory(el, label, value) {
+  catLabel.textContent = label;
+  selectedCategoryValue = value;
+  catDropdown.querySelectorAll('.cat-dropdown__item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  catDropdown.classList.remove('open');
+  catToggle.classList.remove('open');
+  const q = headerSearch.value.trim();
+  if (q) renderDropdown(q);
+}
+
+function performSearch() {
+  const query = headerSearch.value.trim();
+  searchDropdown.classList.remove('active');
+  const params = new URLSearchParams();
+  if (query) params.set('q', query);
+  if (selectedCategoryValue) params.set('category', selectedCategoryValue);
+  window.location.href = 'listing.html' + (params.toString() ? '?' + params.toString() : '');
+}
+
+function highlightMatch(text, query) {
+  const idx = text.toLowerCase().indexOf(query.toLowerCase());
+  if (idx === -1) return text;
+  return text.slice(0, idx) + '<mark>' + text.slice(idx, idx + query.length) + '</mark>' + text.slice(idx + query.length);
+}
+
+function renderDropdown(query) {
+  if (!query) { searchDropdown.classList.remove('active'); return; }
+  const terms = query.toLowerCase().split(/\s+/);
+  const matches = searchProducts.filter(p => {
+    const text = (p.name + ' ' + p.category + ' ' + p.meta).toLowerCase();
+    const termMatch = terms.every(t => text.includes(t));
+    const catMatch = !selectedCategoryValue || p.category === selectedCategoryValue;
+    return termMatch && catMatch;
+  });
+  highlightIndex = -1;
+  if (matches.length === 0) {
+    searchDropdown.innerHTML = '<div class="search-dropdown__empty">No products found for "' + query + '"</div>' +
+      '<div class="search-dropdown__footer"><a href="listing.html">Browse All Equipment →</a></div>';
+  } else {
+    let html = matches.map((p, i) =>
+      '<a class="search-dropdown__item" data-index="' + i + '" href="listing.html?q=' + encodeURIComponent(p.name) + '">' +
+        '<div class="search-dropdown__icon"><i class="fi fi-rr-truck-side"></i></div>' +
+        '<div class="search-dropdown__info">' +
+          '<div class="search-dropdown__name">' + highlightMatch(p.name, query) + '</div>' +
+          '<div class="search-dropdown__meta">' + p.category + ' · ' + p.meta + '</div>' +
+        '</div>' +
+        '<div class="search-dropdown__price">' + p.price + '</div>' +
+      '</a>'
+    ).join('');
+    html += '<div class="search-dropdown__footer"><a href="listing.html?q=' + encodeURIComponent(query) + '">See all results for "' + query + '" →</a></div>';
+    searchDropdown.innerHTML = html;
+  }
+  searchDropdown.classList.add('active');
+}
+
+headerSearch.addEventListener('input', (e) => { renderDropdown(e.target.value.trim()); });
+
+headerSearch.addEventListener('keydown', (e) => {
+  const items = searchDropdown.querySelectorAll('.search-dropdown__item');
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    highlightIndex = Math.min(highlightIndex + 1, items.length - 1);
+    items.forEach((el, i) => el.classList.toggle('highlighted', i === highlightIndex));
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    highlightIndex = Math.max(highlightIndex - 1, -1);
+    items.forEach((el, i) => el.classList.toggle('highlighted', i === highlightIndex));
+  } else if (e.key === 'Enter') {
+    if (highlightIndex >= 0 && items[highlightIndex]) {
+      window.location.href = items[highlightIndex].href;
+    } else {
+      performSearch();
+    }
+  } else if (e.key === 'Escape') {
+    searchDropdown.classList.remove('active');
+  }
+});
+
+headerSearch.addEventListener('focus', () => {
+  if (headerSearch.value.trim()) renderDropdown(headerSearch.value.trim());
+});
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-search')) {
+    searchDropdown.classList.remove('active');
+    catDropdown.classList.remove('open');
+    catToggle.classList.remove('open');
+  }
 });
 </script>
 </body>
