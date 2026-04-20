@@ -30,22 +30,24 @@ body{font-family:var(--font-body);background:var(--bg-warm);color:var(--text-pri
 a{text-decoration:none;color:inherit;}
 
 /* ═══ UTILITY BAR ═══ */
-.utility-bar{background:#F8F9FA;color:var(--text-secondary);font-size:12.5px;padding:8px 0;border-bottom:1px solid var(--border);}
+.utility-bar{background:#F8F9FA;color:var(--text-secondary);font-size:12.5px;font-weight:400;padding:8px 0;letter-spacing:0.02em;border-bottom:1px solid var(--border);}
 .utility-bar .container{display:flex;justify-content:space-between;align-items:center;}
 .utility-bar__left,.utility-bar__right{display:flex;align-items:center;gap:20px;}
-.utility-bar__item{display:flex;align-items:center;gap:6px;color:var(--text-secondary);font-size:12.5px;transition:color 0.2s;}
+.utility-bar__item{display:flex;align-items:center;gap:6px;color:var(--text-secondary);text-decoration:none;transition:color 0.2s;}
 .utility-bar__item:hover{color:var(--text-primary);}
 .utility-bar__divider{width:1px;height:14px;background:var(--border);}
 .utility-bar svg{width:14px;height:14px;opacity:0.6;}
-.lang-toggle{display:flex;align-items:center;gap:4px;background:rgba(0,0,0,0.04);padding:4px 10px;border-radius:4px;color:var(--text-secondary);font-weight:500;font-size:12.5px;}
+.lang-toggle{display:flex;align-items:center;gap:4px;background:rgba(0,0,0,0.04);padding:4px 10px;border-radius:4px;color:var(--text-secondary);text-decoration:none;font-weight:500;font-size:12.5px;transition:all 0.2s;}
+.lang-toggle:hover{background:rgba(0,0,0,0.07);color:var(--text-primary);}
 
 /* ═══ MAIN NAV ═══ */
 .main-nav{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border-light);box-shadow:0 1px 8px rgba(0,0,0,0.04);}
 .main-nav .container{display:flex;align-items:center;height:72px;gap:28px;}
-.nav-logo__img{height:40px;width:auto;}
-.nav-search{flex:1;display:flex;align-items:center;height:44px;border:1.5px solid var(--border);border-radius:9px;overflow:visible;position:relative;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text-primary);}
+.nav-logo__img{height:40px;width:auto;display:block;}
+.nav-search{flex:1;display:flex;align-items:center;height:44px;border:1.5px solid var(--border);border-radius:9px;overflow:visible;position:relative;transition:border-color 0.2s;}
 .nav-search:focus-within{border-color:var(--brand-navy);}
-.nav-search__cat{padding:0 14px;height:100%;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text-primary);background:var(--bg-warm);border-right:1.5px solid var(--border);white-space:nowrap;cursor:pointer;}
+.nav-search__cat{padding:0 14px;height:100%;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text-primary);background:var(--bg-warm);border-right:1.5px solid var(--border);white-space:nowrap;cursor:pointer;border-radius:8px 0 0 8px;}
 .nav-search__cat svg{width:12px;height:12px;transition:transform 0.2s;}
 .nav-search__cat.open svg{transform:rotate(180deg);}
 .cat-dropdown{display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:200px;background:#fff;border:1.5px solid var(--border);border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,0.12);z-index:2000;padding:6px 0;overflow:hidden;}
@@ -54,7 +56,7 @@ a{text-decoration:none;color:inherit;}
 .cat-dropdown__item:hover{background:var(--bg-warm);}
 .cat-dropdown__item.active{color:var(--brand-navy);font-weight:700;background:rgba(0,102,179,0.06);}
 .cat-dropdown__item i{font-size:13px;color:var(--brand-navy);width:16px;text-align:center;}
-.search-dropdown{display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;background:#fff;border:1.5px solid var(--border);border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,0.12);z-index:1999;max-height:380px;overflow-y:auto;padding:6px 0;}
+.search-dropdown{display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;background:#fff;border:1.5px solid var(--border);border-radius:10px;box-shadow:0 8px 32px rgba(0,40,80,0.12);z-index:999;max-height:380px;overflow-y:auto;padding:6px 0;}
 .search-dropdown.active{display:block;}
 .search-dropdown__item{display:flex;align-items:center;gap:12px;padding:10px 16px;cursor:pointer;transition:background 0.15s;text-decoration:none;color:inherit;}
 .search-dropdown__item:hover,.search-dropdown__item.highlighted{background:var(--bg-warm);}
@@ -71,19 +73,21 @@ a{text-decoration:none;color:inherit;}
 .search-dropdown__footer a:hover{text-decoration:underline;}
 .nav-search__input{flex:1;border:none;outline:none;padding:0 16px;font-size:13.5px;color:var(--text-secondary);font-family:var(--font-body);background:#fff;}
 .nav-search__input::placeholder{color:var(--text-muted);}
-.nav-search__btn{width:46px;height:100%;background:var(--brand-navy);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.nav-search__btn{width:46px;height:100%;background:var(--brand-navy);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:0 8px 8px 0;}
 .nav-search__btn svg{width:18px;height:18px;}
 .nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;}
-.nav-icon-btn{width:42px;height:42px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;background:#fff;color:var(--text-secondary);transition:all 0.2s;}
+.nav-icon-btn{width:42px;height:42px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;background:#fff;color:var(--text-secondary);text-decoration:none;transition:all 0.2s;}
 .nav-icon-btn:hover{border-color:var(--brand-navy);color:var(--brand-navy);}
 .nav-icon-btn svg{width:19px;height:19px;}
 .nav-icon-btn__badge{position:absolute;top:-6px;right:-6px;background:var(--brand-navy);color:#fff;width:18px;height:18px;border-radius:50%;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;}
-.btn-login{padding:10px 20px;border:1.5px solid var(--brand-navy);border-radius:8px;background:transparent;color:var(--brand-navy);font-size:13px;font-weight:600;font-family:var(--font-body);}
-.btn-register{padding:10px 22px;border:none;border-radius:8px;background:var(--brand-navy);color:#fff;font-size:13px;font-weight:600;font-family:var(--font-body);}
+.btn-login{padding:10px 20px;border:1.5px solid var(--brand-navy);border-radius:8px;background:transparent;color:var(--brand-navy);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;text-decoration:none;}
+.btn-login:hover{background:rgba(0,102,179,0.05);}
+.btn-register{padding:10px 22px;border:none;border-radius:8px;background:var(--brand-navy);color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;text-decoration:none;}
+.btn-register:hover{background:var(--brand-navy-dark);}
 
 /* ═══ SUB NAV ═══ */
 .sub-nav{background:#fff;border-bottom:1px solid var(--border);}
-.sub-nav__link{color:var(--text-secondary);font-size:13.5px;font-weight:500;padding:13px 18px;border-bottom:2.5px solid transparent;white-space:nowrap;display:block;transition:all 0.15s;}
+.sub-nav__link{text-decoration:none;color:var(--text-secondary);font-size:13.5px;font-weight:500;padding:13px 18px;border-bottom:2.5px solid transparent;white-space:nowrap;display:block;transition:all 0.15s;}
 .sub-nav__link.active{color:var(--brand-navy);border-bottom-color:var(--brand-navy);font-weight:700;}
 .sub-nav__link:not(.active):hover{color:var(--text-primary);}
 
@@ -237,6 +241,14 @@ a{text-decoration:none;color:inherit;}
 .product-card__badges{position:absolute;top:10px;left:10px;display:flex;gap:6px;}
 .product-card__badge{font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:4px 9px;border-radius:4px;display:flex;align-items:center;gap:4px;line-height:1;}
 .product-card__badge--approved{background:var(--success);color:#fff;}
+/* ── Product Grade Tag ── */
+.grade-tag{position:absolute;bottom:10px;left:10px;z-index:4;display:flex;align-items:center;gap:5px;background:rgba(255,255,255,0.95);border-radius:20px;padding:3px 8px 3px 3px;box-shadow:0 2px 8px rgba(0,0,0,0.18);font-family:var(--font-display);font-size:10px;font-weight:700;color:var(--text-primary);letter-spacing:0.02em;text-transform:uppercase;backdrop-filter:blur(4px);}
+.grade-tag__letter{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0;}
+.grade-tag--A .grade-tag__letter{background:#16A34A;}
+.grade-tag--B .grade-tag__letter{background:#65A30D;}
+.grade-tag--C .grade-tag__letter{background:#CA8A04;}
+.grade-tag--D .grade-tag__letter{background:#EA580C;}
+.grade-tag--E .grade-tag__letter{background:#DC2626;}
 .product-card__fav{position:absolute;top:10px;right:10px;width:32px;height:32px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);cursor:pointer;transition:all 0.2s;}
 .product-card__fav:hover{background:var(--error);}
 .product-card__fav i{font-size:13px;color:var(--text-muted);display:flex;}
@@ -254,6 +266,32 @@ a{text-decoration:none;color:inherit;}
 .product-card__cta{padding:9px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap;flex-shrink:0;text-decoration:none;}
 .product-card__cta:hover{background:var(--brand-navy-dark);}
 .product-card__cta i{font-size:10px;display:flex;}
+
+/* ── Equip Card (Similar Vehicles — matches homepage) ── */
+.equip-card{background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden;transition:all 0.3s var(--ease);cursor:pointer;}
+.equip-card:hover{border-color:var(--brand-navy);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,102,179,0.1);}
+.equip-card__img{position:relative;aspect-ratio:16/10;background:linear-gradient(145deg,#C5D8EA 0%,#A0BECE 100%);overflow:hidden;}
+.equip-card__img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s var(--ease);}
+.equip-card__img img.hover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.4s var(--ease);transform:none;z-index:2;}
+.equip-card:hover .equip-card__img img{transform:scale(1.05);}
+.equip-card:hover .equip-card__img img.hover-img{opacity:1;transform:none;}
+.equip-card__img-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(0,40,80,0.12));pointer-events:none;}
+.equip-card__badges{position:absolute;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;align-items:flex-start;z-index:3;}
+.badge{font-size:11px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:5px 10px;border-radius:4px;line-height:1;}
+.badge--certified{background:var(--success);color:#fff;}
+.equip-fav-btn{position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;z-index:3;}
+.equip-fav-btn i{font-size:12px;color:#9BA8B5;}
+.equip-card__body{padding:20px;}
+.equip-card__name{font-family:var(--font-display);font-weight:600;font-size:16px;color:var(--text-primary);margin-bottom:8px;line-height:1.3;}
+.equip-card__meta{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);margin-bottom:14px;}
+.equip-card__meta span{display:flex;align-items:center;gap:4px;white-space:nowrap;}
+.equip-card__meta span i{font-size:13px;color:var(--text-muted);}
+.equip-card__meta .meta-sep{color:var(--border);font-size:10px;}
+.equip-card__footer{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid var(--border-light);}
+.equip-card__price{font-family:var(--font-display);font-weight:900;font-size:19px;color:var(--text-primary);}
+.btn-view{padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;}
+.btn-view:hover{background:var(--brand-navy-dark);}
+.btn-view i{font-size:11px;display:flex;}
 
 /* ═══ FOOTER ═══ */
 .footer{background:#F8F9FA;padding:72px 0 0;border-top:1px solid var(--border);}
@@ -275,6 +313,24 @@ a{text-decoration:none;color:inherit;}
 .whatsapp-float svg{width:28px;height:28px;}
 @keyframes live-blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
 
+/* ═══ MOBILE MENU ═══ */
+.mobile-menu-btn{display:none;width:42px;height:42px;border:1.5px solid var(--border);border-radius:9px;background:#fff;cursor:pointer;align-items:center;justify-content:center;flex-shrink:0;}
+.mobile-menu-btn svg{width:20px;height:20px;stroke:var(--text-primary);}
+.mobile-nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9998;opacity:0;transition:opacity 0.3s;}
+.mobile-nav-overlay.active{display:block;opacity:1;}
+.mobile-nav-drawer{display:none;position:fixed;top:0;right:-300px;width:300px;height:100%;background:#fff;z-index:9999;transition:right 0.3s var(--ease);overflow-y:auto;box-shadow:-4px 0 20px rgba(0,0,0,0.1);}
+.mobile-nav-drawer.active{right:0;}
+.mobile-nav-drawer__header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border);}
+.mobile-nav-drawer__close{width:36px;height:36px;border:none;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:8px;}
+.mobile-nav-drawer__close:hover{background:var(--bg-warm);}
+.mobile-nav-drawer__close svg{width:20px;height:20px;stroke:var(--text-primary);}
+.mobile-nav-drawer__links{padding:12px 0;}
+.mobile-nav-drawer__links a{display:block;padding:14px 24px;font-size:15px;font-weight:500;color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-light);transition:background 0.15s;}
+.mobile-nav-drawer__links a:hover{background:var(--bg-warm);}
+.mobile-nav-drawer__links a.active{color:var(--brand-navy);font-weight:700;background:rgba(0,102,179,0.04);}
+.mobile-nav-drawer__actions{padding:20px 24px;display:flex;flex-direction:column;gap:10px;}
+.mobile-nav-drawer__actions a{display:block;text-align:center;padding:12px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;}
+
 /* ═══ RESPONSIVE — 1200px ═══ */
 @media (max-width:1200px){
   .container{padding:0 40px;}
@@ -293,7 +349,9 @@ a{text-decoration:none;color:inherit;}
   .inspection-grid{grid-template-columns:repeat(3,1fr);}
   .product-grid{grid-template-columns:repeat(3,1fr) !important;}
   .utility-bar__left{display:none;}
+  .utility-bar__right{margin-left:auto;}
   .nav-search__cat{display:none;}
+  .sub-nav__link{padding:13px 14px;font-size:13px;}
   .footer-main{grid-template-columns:1fr 1fr 1fr;gap:32px;}
   .footer-brand{padding-right:0;grid-column:1 / -1;}
 }
@@ -302,10 +360,28 @@ a{text-decoration:none;color:inherit;}
 @media (max-width:768px){
   .container{padding:0 20px;}
   .sub-nav .container{padding:0 20px !important;overflow-x:auto;-webkit-overflow-scrolling:touch;}
-  .nav-search{display:none;}
+  /* — Utility bar: compact single row on mobile — */
+  .utility-bar{padding:6px 0;font-size:11px;}
+  .utility-bar .container{flex-wrap:nowrap;gap:0;}
+  .utility-bar__left{gap:6px;flex-shrink:0;}
+  .utility-bar__left .utility-bar__divider{height:10px;}
+  .utility-bar__left .utility-bar__item{font-size:11px;}
+  .utility-bar__right{gap:8px;}
+  .utility-bar__right .utility-bar__item span{font-size:11px;}
+  .utility-bar__right .utility-bar__divider{height:10px;}
+  .lang-toggle{font-size:11px;padding:3px 8px;}
+  /* — Navigation — */
+  .main-nav .container{height:auto;min-height:64px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px;gap:12px;}
+  .nav-search{order:3;flex:1 1 100%;height:42px;}
+  .nav-search__cat{display:none;}
   .btn-login,.btn-register{display:none;}
-  .main-nav .container{height:60px;gap:16px;}
-  .nav-actions{gap:8px;}
+  .mobile-menu-btn{display:flex;}
+  .mobile-nav-drawer{display:block;}
+  .nav-logo__img{height:38px;}
+  .nav-actions{margin-left:auto;}
+  /* — Sub nav: hide on mobile — */
+  .sub-nav{display:none;}
+  .features-grid{grid-template-columns:1fr !important;}
   .pdp-info__title{font-size:22px;}
   .pdp-info__price{font-size:28px;}
   .pdp-specs__grid{grid-template-columns:1fr 1fr;}
@@ -317,6 +393,7 @@ a{text-decoration:none;color:inherit;}
   .pdp-tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;flex-wrap:nowrap;gap:0;scrollbar-width:none;-ms-overflow-style:none;}
   .pdp-tabs::-webkit-scrollbar{display:none;}
   .pdp-tab{white-space:nowrap;flex-shrink:0;}
+  .pdp-cta__btn{font-size:14px !important;padding:14px 16px !important;}
   .pdp-cta__row{flex-wrap:wrap;}
   .pdp-cta__row .pdp-cta__btn{flex:1 1 100%;}
   .pdp-cta__trust{flex-wrap:wrap;gap:10px;}
@@ -338,16 +415,42 @@ a{text-decoration:none;color:inherit;}
   .pdp-info__price-row{flex-wrap:wrap;gap:10px;}
   .whatsapp-float{bottom:20px;right:20px;width:50px;height:50px;}
   .whatsapp-float svg{width:24px;height:24px;}
+
+  /* Gallery — fill image, prevent whitespace from object-fit:contain */
+  .gallery__main{aspect-ratio:4/3;}
+  .gallery__main img,.gallery__main video{object-fit:cover !important;}
+  .gallery,.pdp-right{min-width:0;}
+
+  /* Right-side sections — reduce inline paddings for mobile */
+  .pdp-right > div[style*="padding:24px"]{padding:18px !important;}
+  .pdp-right > div[style*="padding:22px"]{padding:18px !important;}
+  .pdp-right div[style*="padding:24px 24px"]{padding:18px 18px 16px !important;}
+  .pdp-right div[style*="padding:0 24px"]{padding:0 18px !important;}
+  .pdp-right div[style*="padding:12px 24px"]{padding:10px 18px !important;}
 }
 
 /* ═══ RESPONSIVE — 480px ═══ */
 @media (max-width:480px){
   .container{padding:0 16px;}
-  .sub-nav .container{padding:0 16px !important;}
-  .main-nav .container{height:56px;}
+  /* — Utility bar: tighter on phone — */
+  .utility-bar{padding:5px 0;}
+  .utility-bar .container{gap:0;}
+  .utility-bar__left{gap:4px;}
+  .utility-bar__left .utility-bar__item{font-size:10.5px;}
+  .utility-bar__right{gap:6px;}
+  .utility-bar__right .utility-bar__item span{font-size:10.5px;}
+  .utility-bar__right svg{width:12px;height:12px;}
+  .lang-toggle{font-size:10.5px;padding:2px 6px;gap:2px;}
+  /* — Navigation — */
+  .main-nav .container{min-height:56px;gap:10px;}
   .nav-logo__img{height:32px;}
-  .nav-icon-btn{width:38px;height:38px;}
+  .nav-search{height:40px;border-radius:8px;}
+  .nav-search__input{font-size:13px;padding:0 12px;}
+  .nav-search__btn{width:40px;}
+  .nav-icon-btn{width:38px;height:38px;border-radius:8px;}
   .nav-icon-btn svg{width:17px;height:17px;}
+  .mobile-menu-btn{width:38px;height:38px;border-radius:8px;}
+  .mobile-menu-btn svg{width:18px;height:18px;}
   .pdp-info__title{font-size:20px;}
   .pdp-info__price{font-size:24px;}
   .pdp-info__header{padding:20px;}
@@ -359,7 +462,7 @@ a{text-decoration:none;color:inherit;}
   .breadcrumb{font-size:11.5px;gap:6px;flex-wrap:wrap;}
   .breadcrumb__sep i{font-size:8px;}
   .pdp-cta{padding:18px;}
-  .pdp-cta__btn{padding:13px 18px;font-size:14px;}
+  .pdp-cta__btn{padding:12px 14px !important;font-size:13.5px !important;}
   .pdp-specs{padding:18px;}
   .pdp-seller{padding:18px;}
   .pdp-tab-content{padding:18px;}
@@ -370,15 +473,46 @@ a{text-decoration:none;color:inherit;}
   .footer-brand{grid-column:auto;}
   .similar-section h2{font-size:18px;}
   .pdp-info__meta{flex-wrap:wrap;gap:6px;}
-  .gallery__thumb{width:72px;height:54px;}
-  .pdp-layout{gap:20px;}
+  .gallery__thumb{width:64px;height:50px;}
+  .gallery__thumbs{gap:6px;}
+  .pdp-layout{gap:16px;}
   .pdp-info__price-currency{font-size:14px;}
   .pdp-info__finance{font-size:12px;}
   .pdp-tab-content .key-specs-grid[style]{grid-template-columns:repeat(2,1fr) !important;gap:8px !important;}
   .key-specs-grid > div{padding:14px 12px !important;}
   .pdp-tab-content .inspection-report-grid[style]{grid-template-columns:repeat(2,1fr) !important;gap:8px !important;}
+  /* Finance calculator stacks on small screens */
+  #tab-finance [style*="grid-template-columns:3fr"]{grid-template-columns:1fr !important;}
+
+  /* Gallery — squarer image on phone for more visual impact */
+  .gallery__main{aspect-ratio:1/1;}
+  .gallery__main img,.gallery__main video{object-fit:cover !important;}
+  .gallery__badge span{font-size:9px;padding:4px 8px;}
+  .gallery__fav{width:34px;height:34px;}
+  .gallery__3d-btn{padding:6px 10px;font-size:10px;}
+
+  /* Right-side sections — tighter padding on phone */
+  .pdp-right > div[style*="padding:24px"]{padding:16px !important;}
+  .pdp-right > div[style*="padding:22px"]{padding:16px !important;}
+  .pdp-right div[style*="padding:24px 24px"]{padding:14px 16px 14px !important;}
+  .pdp-right div[style*="padding:0 24px"]{padding:0 16px !important;}
+  .pdp-right div[style*="padding:12px 24px"]{padding:10px 16px !important;}
+  .pdp-right div[style*="padding:20px 24px"]{padding:16px !important;}
+  .pdp-info__header{padding:16px !important;}
 }
 </style>
+<script>
+(function(){
+  function darken(hex,amt){var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return'#'+[r,g,b].map(function(v){return Math.max(0,Math.round(v*(1-amt))).toString(16).padStart(2,'0');}).join('');}
+  function lighten(hex,amt){var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return'#'+[r,g,b].map(function(v){return Math.min(255,Math.round(v+(255-v)*amt)).toString(16).padStart(2,'0');}).join('');}
+  var c=localStorage.getItem('ctaColor');
+  if(c&&/^#[0-9A-Fa-f]{6}$/.test(c)){
+    document.documentElement.style.setProperty('--brand-navy',c);
+    document.documentElement.style.setProperty('--brand-navy-dark',darken(c,0.3));
+    document.documentElement.style.setProperty('--brand-navy-light',lighten(c,0.15));
+  }
+})();
+</script>
 </head>
 <body>
 
@@ -397,15 +531,19 @@ a{text-decoration:none;color:inherit;}
     <div class="utility-bar__right">
       <a href="tel:+97142345678" class="utility-bar__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <span>+971 4 234 5678</span></a>
       <div class="utility-bar__divider"></div>
+      <a href="#" class="utility-bar__item" style="color:#25D366;"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .612.612l4.458-1.495A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.752-6.336-2.071l-.442-.331-3.273 1.098 1.098-3.273-.331-.442A9.958 9.958 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg> <span>WhatsApp</span></a>
+      <div class="utility-bar__divider"></div>
       <a href="#" class="lang-toggle"><span>عربي</span><span>/</span><span>EN</span></a>
     </div>
   </div>
 </div>
 
-<!-- ═══ MAIN NAV ═══ -->
-<nav class="main-nav">
+<nav class="main-nav" id="mainNav">
   <div class="container">
-    <a href="famco-homepage.html" class="nav-logo"><img src="HeaderLogoIcon.png" alt="FAMCO" class="nav-logo__img"></a>
+    <a href="famco-homepage.html" class="nav-logo">
+      <img src="HeaderLogoIcon.png" alt="FAMCO" class="nav-logo__img">
+    </a>
+
     <div class="nav-search">
       <div class="nav-search__cat" id="catToggle" onclick="toggleCatDropdown()">
         <span id="catLabel">All Categories</span>
@@ -415,7 +553,7 @@ a{text-decoration:none;color:inherit;}
         <div class="cat-dropdown__item active" data-value="" onclick="selectCategory(this, 'All Categories', '')"><i class="fi fi-rr-apps"></i> All Categories</div>
         <div class="cat-dropdown__item" data-value="Trucks" onclick="selectCategory(this, 'Trucks', 'Trucks')"><i class="fi fi-rr-truck-side"></i> Trucks</div>
         <div class="cat-dropdown__item" data-value="Trailers" onclick="selectCategory(this, 'Trailers', 'Trailers')"><i class="fi fi-rr-trailer"></i> Trailers</div>
-        <div class="cat-dropdown__item" data-value="Buses" onclick="selectCategory(this, 'Buses &amp; Coaches', 'Buses')"><i class="fi fi-rr-bus"></i> Buses &amp; Coaches</div>
+        <div class="cat-dropdown__item" data-value="Buses" onclick="selectCategory(this, 'Buses & Coaches', 'Buses')"><i class="fi fi-rr-bus"></i> Buses &amp; Coaches</div>
         <div class="cat-dropdown__item" data-value="Forklifts" onclick="selectCategory(this, 'Forklifts', 'Forklifts')"><i class="fi fi-rr-forklift"></i> Forklifts</div>
         <div class="cat-dropdown__item" data-value="Cranes" onclick="selectCategory(this, 'Cranes', 'Cranes')"><i class="fi fi-rr-crane"></i> Cranes</div>
         <div class="cat-dropdown__item" data-value="Construction" onclick="selectCategory(this, 'Construction', 'Construction')"><i class="fi fi-rr-helmet-safety"></i> Construction</div>
@@ -423,20 +561,55 @@ a{text-decoration:none;color:inherit;}
         <div class="cat-dropdown__item" data-value="Agricultural" onclick="selectCategory(this, 'Agricultural', 'Agricultural')"><i class="fi fi-rr-tractor"></i> Agricultural</div>
       </div>
       <input class="nav-search__input" id="headerSearch" type="text" placeholder="Search brand, model, category, or location…" autocomplete="off">
-      <button class="nav-search__btn" onclick="performSearch()"><svg fill="none" stroke="white" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+      <button class="nav-search__btn" onclick="performSearch()">
+        <svg fill="none" stroke="white" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
       <div class="search-dropdown" id="searchDropdown"></div>
     </div>
+
     <div class="nav-actions">
-      <a href="#" class="nav-icon-btn" title="Wishlist"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><div class="nav-icon-btn__badge">1</div></a>
+      <a href="#" class="nav-icon-btn" title="Wishlist">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <div class="nav-icon-btn__badge">0</div>
+      </a>
       <a href="#" class="btn-login">Login</a>
       <a href="#" class="btn-register">Register</a>
+      <button class="mobile-menu-btn" onclick="document.querySelector('.mobile-nav-drawer').classList.add('active');document.querySelector('.mobile-nav-overlay').classList.add('active');document.body.style.overflow='hidden';">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
     </div>
   </div>
 </nav>
 
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav-overlay" onclick="document.querySelector('.mobile-nav-drawer').classList.remove('active');this.classList.remove('active');document.body.style.overflow='';"></div>
+
+<!-- Mobile Nav Drawer -->
+<div class="mobile-nav-drawer">
+  <div class="mobile-nav-drawer__header">
+    <img src="HeaderLogoIcon.png" alt="FAMCO" style="height:32px;">
+    <button class="mobile-nav-drawer__close" onclick="this.closest('.mobile-nav-drawer').classList.remove('active');document.querySelector('.mobile-nav-overlay').classList.remove('active');document.body.style.overflow='';">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="mobile-nav-drawer__links">
+    <a href="famco-homepage.html">Home</a>
+    <a href="listing.html">Browse Equipment</a>
+    <a href="#">Sell Your Equipment</a>
+    <a href="#">FAMCO Approved Process</a>
+    <a href="#">Finance</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="mobile-nav-drawer__actions">
+    <a href="#" style="border:1.5px solid var(--brand-navy);color:var(--brand-navy);">Login</a>
+    <a href="#" style="background:var(--brand-navy);color:#fff;">Register</a>
+  </div>
+</div>
+
 <!-- ═══ SUB NAV ═══ -->
 <nav class="sub-nav">
-  <div class="container" style="display:flex;gap:0;padding:0 80px;">
+  <div class="container" style="display:flex;gap:0;">
     <a href="famco-homepage.html" class="sub-nav__link">Home</a>
     <a href="listing.html" class="sub-nav__link active">Browse Equipment</a>
     <a href="#" class="sub-nav__link">Sell Your Equipment</a>
@@ -469,12 +642,8 @@ a{text-decoration:none;color:inherit;}
           <span class="gallery__badge--featured"><i class="fi fi-rr-star" style="font-size:10px;display:flex;"></i> Featured</span>
         </div>
         <div class="gallery__fav"><i class="fi fi-rr-heart"></i></div>
-        <div style="position:absolute;bottom:14px;left:14px;padding:6px 12px;background:rgba(0,0,0,0.65);color:#fff;border-radius:6px;font-size:11px;font-weight:700;display:flex;align-items:center;gap:6px;backdrop-filter:blur(4px);z-index:5;"><i class="fi fi-rr-picture" style="font-size:12px;display:flex;"></i> 28 Photos</div>
-        <div class="gallery__3d-btn" onclick="show3DView()"><i class="fi fi-rr-cube"></i> 360° View</div>
-        <div class="viewer-3d" id="viewer3d">
-          <button class="viewer-3d__close" onclick="close3DView()"><i class="fi fi-rr-cross-small" style="font-size:14px;display:flex;"></i></button>
-          <iframe id="viewer3dFrame" title="3D Truck Viewer" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" style="width:100%;height:100%;border:none;" src=""></iframe>
-        </div>
+        <div class="grade-tag grade-tag--A" style="bottom:14px;left:14px;"><span class="grade-tag__letter">A</span> Grade</div>
+        <div style="position:absolute;bottom:14px;right:14px;padding:6px 12px;background:rgba(0,0,0,0.65);color:#fff;border-radius:6px;font-size:11px;font-weight:700;display:flex;align-items:center;gap:6px;backdrop-filter:blur(4px);z-index:5;"><i class="fi fi-rr-picture" style="font-size:12px;display:flex;"></i> 28 Photos</div>
       </div>
       <div class="gallery__thumbs">
         <div class="gallery__thumb active" onclick="changeImage('https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-01.jpg',this)"><img src="https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-01.jpg" alt="View 1"></div>
@@ -485,16 +654,15 @@ a{text-decoration:none;color:inherit;}
         <div class="gallery__thumb" onclick="changeImage('https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-06.jpg',this)"><img src="https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-06.jpg" alt="View 6"></div>
         <div class="gallery__thumb" onclick="changeImage('https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-07.jpg',this)"><img src="https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-07.jpg" alt="View 7"></div>
         <div class="gallery__thumb" onclick="changeImage('https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-08.jpg',this)"><img src="https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-08.jpg" alt="View 8"></div>
-        <div class="gallery__thumb gallery__thumb--video" onclick="playVideo()"><img src="https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-01.jpg" alt="Video" style="filter:brightness(0.6);"><i class="fi fi-rr-play"></i></div>
-        <div class="gallery__thumb" onclick="show3DView()" style="position:relative;"><img src="https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-02.jpg" alt="3D View" style="filter:brightness(0.55);"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px;"><i class="fi fi-rr-cube" style="font-size:16px;color:#fff;display:flex;"></i><span style="font-size:9px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:0.04em;">360°</span></div></div>
+        <div class="gallery__thumb" onclick="playVideo(this)" style="position:relative;"><img src="https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-01.jpg" alt="360 View" style="filter:brightness(0.45);"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;pointer-events:none;"><i class="fi fi-rr-cube" style="font-size:15px;color:#fff;display:flex;"></i><span style="font-size:8px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:0.05em;">360 View</span></div></div>
       </div>
     </div>
 
 
     <!-- ═══ RIGHT — PRODUCT INFO (sticky sidebar) ═══ -->
     <div class="pdp-right">
-      <!-- Header -->
-      <div class="pdp-info__header">
+      <!-- Header + CTA — merged into one card -->
+      <div class="pdp-info__header" style="margin-bottom:16px;">
         <div class="pdp-info__status">
           <span class="pdp-info__approved"><i class="fi fi-rr-badge-check"></i> FAMCO Approved</span>
           <span class="pdp-info__id">ID: FMC-2023-VH-1542</span>
@@ -504,14 +672,13 @@ a{text-decoration:none;color:inherit;}
           <div class="pdp-info__price"><span class="pdp-info__price-currency">AED </span>323,000</div>
           <div style="font-size:15px;color:var(--text-secondary);font-weight:500;">OR AED 4,800/Month</div>
         </div>
-      </div>
 
-      <!-- CTA Box -->
-      <div class="pdp-cta">
+        <!-- Divider -->
+        <div style="border-top:1px solid var(--border-light);margin:20px 0 16px;"></div>
+
         <div style="font-size:12.5px;color:var(--text-muted);margin-bottom:4px;">* Price excludes VAT. Subject to terms and conditions.</div>
-        <div style="font-size:12.5px;color:var(--text-muted);margin-bottom:4px;">* 3-Month FAMCO Drivetrain Warranty included.</div>
-        <div style="margin-top:12px;font-size:14px;color:var(--text-secondary);font-weight:500;">OR AED 4,800/Month</div>
-        <div class="pdp-cta__actions" style="margin-top:18px;">
+        <div style="font-size:12.5px;color:var(--text-muted);margin-bottom:16px;">* 3-Month FAMCO Drivetrain Warranty included.</div>
+        <div class="pdp-cta__actions">
           <button class="pdp-cta__btn pdp-cta__btn--primary" style="font-size:17px;padding:18px 24px;">Book Now at AED 5,000</button>
           <button class="pdp-cta__btn pdp-cta__btn--outline"><i class="fi fi-rr-comment-dots"></i> Submit Enquiry</button>
           <div class="pdp-cta__row">
@@ -600,40 +767,31 @@ a{text-decoration:none;color:inherit;}
       </div>
 
       <!-- Current Stock Status -->
-      <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:16px;">
-        <div class="pdp-specs__title"><i class="fi fi-rr-box-open"></i> Stock Availability</div>
-        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--success-light);border-radius:var(--radius-sm);margin-bottom:16px;">
-          <i class="fi fi-rr-check-circle" style="font-size:20px;color:var(--success);display:flex;flex-shrink:0;"></i>
-          <div>
-            <div style="font-size:15px;font-weight:800;color:var(--success);line-height:1.3;">In Stock — Available Now</div>
-            <div style="font-size:13px;color:var(--text-secondary);margin-top:2px;">Located at FAMCO Yard, Dubai</div>
-          </div>
+      <div class="pdp-seller" style="padding:0;overflow:hidden;">
+        <div style="background:var(--bg-warm);padding:20px 24px;border-bottom:1px solid var(--border-light);">
+          <div class="pdp-specs__title" style="margin-bottom:0;"><i class="fi fi-rr-box-open" style="display:flex;"></i> Stock Availability</div>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
-          <div style="padding:14px;background:var(--bg-warm);border-radius:var(--radius-sm);text-align:center;">
-            <div style="font-family:var(--font-display);font-weight:900;font-size:22px;color:var(--brand-navy);line-height:1;">3</div>
-            <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;font-weight:500;">Units Available</div>
+        <div style="padding:24px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--success-light);border-radius:var(--radius-sm);margin-bottom:16px;">
+            <i class="fi fi-rr-check-circle" style="font-size:20px;color:var(--success);display:flex;flex-shrink:0;"></i>
+            <div>
+              <div style="font-size:15px;font-weight:800;color:var(--success);line-height:1.3;">In Stock — Available Now</div>
+              <div style="font-size:13px;color:var(--text-secondary);margin-top:2px;">Located at FAMCO Yard, Dubai</div>
+            </div>
           </div>
-          <div style="padding:14px;background:var(--bg-warm);border-radius:var(--radius-sm);text-align:center;">
-            <div style="font-family:var(--font-display);font-weight:900;font-size:22px;color:var(--brand-navy);line-height:1;">12</div>
-            <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;font-weight:500;">People Viewing</div>
-          </div>
-          <div style="padding:14px;background:var(--bg-warm);border-radius:var(--radius-sm);text-align:center;">
-            <div style="font-family:var(--font-display);font-weight:900;font-size:22px;color:var(--warning);line-height:1;">5</div>
-            <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;font-weight:500;">Enquiries This Week</div>
-          </div>
-          <div style="padding:14px;background:var(--bg-warm);border-radius:var(--radius-sm);text-align:center;">
-            <div style="font-family:var(--font-display);font-weight:900;font-size:22px;color:var(--text-primary);line-height:1;">7d</div>
-            <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;font-weight:500;">Listed</div>
-          </div>
-        </div>
-        <div style="padding:12px 16px;background:#FEF3C7;border:1px solid #FDE68A;border-radius:var(--radius-sm);display:flex;align-items:center;gap:10px;">
-          <div style="width:32px;height:32px;border-radius:50%;background:#FBBF24;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <i class="fi fi-rr-flame" style="font-size:14px;color:#92400E;display:flex;"></i>
-          </div>
-          <div>
-            <div style="font-size:13px;font-weight:800;color:#92400E;">High Demand</div>
-            <div style="font-size:12px;color:#A16207;line-height:1.4;">This vehicle has received 5 enquiries this week</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+            <div style="padding:14px;background:var(--bg-warm);border-radius:var(--radius-sm);text-align:center;">
+              <div style="font-family:var(--font-display);font-weight:900;font-size:22px;color:var(--brand-navy);line-height:1;">12</div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;font-weight:500;">People Viewing</div>
+            </div>
+            <div style="padding:14px;background:var(--bg-warm);border-radius:var(--radius-sm);text-align:center;">
+              <div style="font-family:var(--font-display);font-weight:900;font-size:22px;color:var(--warning);line-height:1;">5</div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;font-weight:500;white-space:nowrap;">Enquiries This Week</div>
+            </div>
+            <div style="padding:14px;background:var(--bg-warm);border-radius:var(--radius-sm);text-align:center;">
+              <div style="font-family:var(--font-display);font-weight:900;font-size:22px;color:var(--text-primary);line-height:1;">7d</div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;font-weight:500;">Listed</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1069,55 +1227,63 @@ a{text-decoration:none;color:inherit;}
       </div>
       <div class="product-grid" style="grid-template-columns:repeat(4,1fr);">
         <!-- Card 1 -->
-        <div class="product-card">
-          <div class="product-card__img">
-            <img class="primary" src="Volvo FM460.jpg" alt="Volvo FM460" loading="lazy">
-            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
-            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+        <div class="equip-card">
+          <div class="equip-card__img">
+            <img src="Volvo FM460.jpg" alt="Volvo FM460 6×4 Tractor" loading="lazy">
+            <div class="equip-card__img-overlay"></div>
+            <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
+            <div class="equip-fav-btn"><i class="fi fi-rr-heart"></i></div>
+            <div class="grade-tag grade-tag--B"><span class="grade-tag__letter">B</span> Grade</div>
           </div>
-          <div class="product-card__body">
-            <h3 class="product-card__name">Volvo FM460 6×4 Tractor</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 72,000 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> KSA</span></div>
-            <div class="product-card__footer"><div><div class="product-card__price"><span class="product-card__price-currency">AED </span>220,000</div><div class="product-card__finance">from AED 3,100/mo</div></div><a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a></div>
+          <div class="equip-card__body">
+            <h3 class="equip-card__name">Volvo FM460 6×4 Tractor</h3>
+            <div class="equip-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="meta-sep">•</span><span><i class="fi fi-rr-dashboard"></i> 72,000 km</span><span class="meta-sep">•</span><span><i class="fi fi-rr-marker"></i> KSA</span></div>
+            <div class="equip-card__footer"><div><div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>220,000</div><div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 3,100/mo</div></div><a href="product-detail-2.html" class="btn-view">View Details <i class="fi fi-rr-arrow-right"></i></a></div>
           </div>
         </div>
         <!-- Card 2 -->
-        <div class="product-card">
-          <div class="product-card__img">
-            <img class="primary" src="white volvo.png" alt="Volvo FH 420" loading="lazy">
-            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
-            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+        <div class="equip-card">
+          <div class="equip-card__img">
+            <img src="white volvo.png" alt="Volvo FH 420 Sleeper" loading="lazy">
+            <div class="equip-card__img-overlay"></div>
+            <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
+            <div class="equip-fav-btn"><i class="fi fi-rr-heart"></i></div>
+            <div class="grade-tag grade-tag--B"><span class="grade-tag__letter">B</span> Grade</div>
           </div>
-          <div class="product-card__body">
-            <h3 class="product-card__name">Volvo FH 420 Sleeper</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 58,000 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
-            <div class="product-card__footer"><div><div class="product-card__price"><span class="product-card__price-currency">AED </span>245,000</div></div><a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a></div>
+          <div class="equip-card__body">
+            <h3 class="equip-card__name">Volvo FH 420 Sleeper</h3>
+            <div class="equip-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="meta-sep">•</span><span><i class="fi fi-rr-dashboard"></i> 58,000 km</span><span class="meta-sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
+            <div class="equip-card__footer"><div><div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>245,000</div></div><a href="product-detail-2.html" class="btn-view">View Details <i class="fi fi-rr-arrow-right"></i></a></div>
           </div>
         </div>
         <!-- Card 3 -->
-        <div class="product-card">
-          <div class="product-card__img">
-            <img class="primary" src="Volvo FE 280.jpg" alt="Volvo FE 280" loading="lazy">
-            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
-            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+        <div class="equip-card">
+          <div class="equip-card__img">
+            <img src="Volvo FE 280.jpg" alt="Volvo FE 280 Distribution" loading="lazy">
+            <div class="equip-card__img-overlay"></div>
+            <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
+            <div class="equip-fav-btn"><i class="fi fi-rr-heart"></i></div>
+            <div class="grade-tag grade-tag--A"><span class="grade-tag__letter">A</span> Grade</div>
           </div>
-          <div class="product-card__body">
-            <h3 class="product-card__name">Volvo FE 280 Distribution</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2023</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 18,400 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
-            <div class="product-card__footer"><div><div class="product-card__price"><span class="product-card__price-currency">AED </span>195,000</div><div class="product-card__finance">from AED 2,800/mo</div></div><a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a></div>
+          <div class="equip-card__body">
+            <h3 class="equip-card__name">Volvo FE 280 Distribution</h3>
+            <div class="equip-card__meta"><span><i class="fi fi-rr-calendar"></i> 2023</span><span class="meta-sep">•</span><span><i class="fi fi-rr-dashboard"></i> 18,400 km</span><span class="meta-sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
+            <div class="equip-card__footer"><div><div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>195,000</div><div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 2,800/mo</div></div><a href="product-detail-2.html" class="btn-view">View Details <i class="fi fi-rr-arrow-right"></i></a></div>
           </div>
         </div>
         <!-- Card 4 -->
-        <div class="product-card">
-          <div class="product-card__img">
-            <img class="primary" src="volvo yellow.png" alt="Volvo FMX 460" loading="lazy">
-            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
-            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+        <div class="equip-card">
+          <div class="equip-card__img">
+            <img src="volvo yellow.png" alt="Volvo FMX 460 Tipper" loading="lazy">
+            <div class="equip-card__img-overlay"></div>
+            <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
+            <div class="equip-fav-btn"><i class="fi fi-rr-heart"></i></div>
+            <div class="grade-tag grade-tag--B"><span class="grade-tag__letter">B</span> Grade</div>
           </div>
-          <div class="product-card__body">
-            <h3 class="product-card__name">Volvo FMX 460 Tipper</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2022</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 32,000 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Qatar</span></div>
-            <div class="product-card__footer"><div><div class="product-card__price"><span class="product-card__price-currency">AED </span>310,000</div></div><a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a></div>
+          <div class="equip-card__body">
+            <h3 class="equip-card__name">Volvo FMX 460 Tipper</h3>
+            <div class="equip-card__meta"><span><i class="fi fi-rr-calendar"></i> 2022</span><span class="meta-sep">•</span><span><i class="fi fi-rr-dashboard"></i> 32,000 km</span><span class="meta-sep">•</span><span><i class="fi fi-rr-marker"></i> Qatar</span></div>
+            <div class="equip-card__footer"><div><div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>310,000</div></div><a href="product-detail-2.html" class="btn-view">View Details <i class="fi fi-rr-arrow-right"></i></a></div>
           </div>
         </div>
       </div>
@@ -1180,20 +1346,21 @@ function changeImage(src, el) {
   document.getElementById('mainImage').style.display = '';
   const vid = document.getElementById('mainVideo');
   if (vid) vid.style.display = 'none';
-  close3DView();
   document.querySelectorAll('.gallery__thumb').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
 }
 
 // Video play
-function playVideo() {
+function playVideo(el) {
   const main = document.getElementById('mainGallery');
   const img = document.getElementById('mainImage');
   img.style.display = 'none';
+  document.querySelectorAll('.gallery__thumb').forEach(t => t.classList.remove('active'));
+  if (el) el.classList.add('active');
   const existing = document.getElementById('mainVideo');
   if (existing) { existing.style.display = ''; return; }
   const iframe = document.createElement('iframe');
-  iframe.src = 'https://www.youtube.com/embed/8rQ4bWMTlNI?autoplay=1&rel=0';
+  iframe.src = 'https://www.youtube.com/embed/oPl_NCSV8w0?autoplay=1&mute=1&rel=0';
   iframe.allow = 'autoplay; encrypted-media';
   iframe.allowFullscreen = true;
   iframe.style.cssText = 'width:100%;height:100%;border:none;background:#000;';
@@ -1201,12 +1368,10 @@ function playVideo() {
   main.appendChild(iframe);
 }
 
-// 3D View — Sketchfab Embed
-const sketchfabUrl = 'https://sketchfab.com/models/56751d12f598421a8f62127e461887ae/embed?autostart=1&ui_theme=dark&ui_infos=0&ui_watermark_link=0&ui_watermark=0';
-
 function show3DView() {
   const viewer = document.getElementById('viewer3d');
   const frame = document.getElementById('viewer3dFrame');
+  if (!viewer || !frame) return;
   viewer.classList.add('active');
   document.getElementById('mainImage').style.display = 'none';
   const vid = document.getElementById('mainVideo');
@@ -1345,6 +1510,378 @@ document.addEventListener('click', (e) => {
     searchDropdown.classList.remove('active');
     catDropdown.classList.remove('open');
     catToggle.classList.remove('open');
+  }
+});
+</script>
+<!-- ── CTA Color Customizer ── -->
+<style>
+/* Trigger button */
+.color-customizer {
+  position: fixed;
+  bottom: 100px;
+  right: 32px;
+  z-index: 8000;
+}
+
+.color-customizer__trigger {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: box-shadow 0.2s, transform 0.2s;
+  outline: none;
+}
+.color-customizer__trigger:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.22);
+  transform: scale(1.06);
+}
+.color-customizer__trigger i {
+  font-size: 18px;
+  color: var(--brand-navy);
+  display: flex;
+}
+/* Tiny color indicator dot on trigger */
+.color-customizer__dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--brand-navy);
+  border: 2px solid #fff;
+}
+
+/* Popover panel */
+.color-customizer__panel {
+  position: absolute;
+  bottom: 56px;
+  right: 0;
+  width: 228px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(8px) scale(0.97);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform-origin: bottom right;
+}
+.color-customizer.open .color-customizer__panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+/* Panel header */
+.color-customizer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.color-customizer__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--text-primary);
+}
+.color-customizer__close {
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: var(--bg-warm);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 1;
+  padding: 0;
+}
+.color-customizer__close:hover { background: var(--border); }
+
+/* Swatches */
+.color-customizer__swatch-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+.color-customizer__swatch {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2.5px solid transparent;
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+.color-customizer__swatch:hover { transform: scale(1.18); box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+.color-customizer__swatch.active { border-color: var(--text-primary); transform: scale(1.1); }
+.color-customizer__swatch-name {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-align: center;
+  height: 14px;
+  margin-top: -4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Color wheel row */
+.color-customizer__wheel-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.color-customizer__wheel {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  outline: none;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.color-customizer__wheel::-webkit-color-swatch-wrapper { padding: 0; }
+.color-customizer__wheel::-webkit-color-swatch { border: none; border-radius: 50%; }
+.color-customizer__hex {
+  flex: 1;
+  padding: 6px 9px;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: monospace;
+  color: var(--text-primary);
+  outline: none;
+  min-width: 0;
+  transition: border-color 0.2s;
+}
+.color-customizer__hex:focus { border-color: var(--brand-navy); outline: none; }
+
+/* Preview row */
+.color-customizer__preview {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: var(--bg-warm);
+  border-radius: 7px;
+}
+.color-customizer__preview-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.color-customizer__preview span {
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Buttons */
+.color-customizer__btn-row {
+  display: flex;
+  gap: 7px;
+}
+.color-customizer__apply {
+  flex: 1;
+  padding: 8px 0;
+  background: var(--brand-navy);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: filter 0.2s;
+}
+.color-customizer__apply:hover { filter: brightness(1.1); }
+.color-customizer__reset {
+  padding: 8px 11px;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.color-customizer__reset:hover { border-color: var(--text-muted); color: var(--text-primary); }
+</style>
+
+<div class="color-customizer" id="colorCustomizer">
+  <!-- Popover panel -->
+  <div class="color-customizer__panel" id="customizerPanel">
+    <div class="color-customizer__header">
+      <div class="color-customizer__title">Theme Color</div>
+      <button class="color-customizer__close" onclick="toggleCustomizer()" title="Close">&#10005;</button>
+    </div>
+
+    <!-- Preset swatches — 10 curated colors (GCC market, fleet/logistics industry) -->
+    <div class="color-customizer__swatch-row" id="swatchRow">
+      <!-- Row 1: Blues & Navies — trust, authority (dominant in GCC corporates & Volvo brand) -->
+      <div class="color-customizer__swatch active" style="background:#0066B3;" data-color="#0066B3" data-name="FAMCO Navy"   title="FAMCO Navy"      onmouseenter="showSwatchName('FAMCO Navy')"   onmouseleave="clearSwatchName()" onclick="applyColor('#0066B3',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#003F87;" data-color="#003F87" data-name="Gulf Navy"    title="Gulf Navy"       onmouseenter="showSwatchName('Gulf Navy')"    onmouseleave="clearSwatchName()" onclick="applyColor('#003F87',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#1D4ED8;" data-color="#1D4ED8" data-name="Royal Blue"   title="Royal Blue"      onmouseenter="showSwatchName('Royal Blue')"   onmouseleave="clearSwatchName()" onclick="applyColor('#1D4ED8',this)"></div>
+      <!-- Row 1 cont: Teal (GCC port/maritime — Jebel Ali, DP World) -->
+      <div class="color-customizer__swatch"        style="background:#0F766E;" data-color="#0F766E" data-name="Port Teal"    title="Port Teal"       onmouseenter="showSwatchName('Port Teal')"    onmouseleave="clearSwatchName()" onclick="applyColor('#0F766E',this)"></div>
+      <!-- Steel — heavy equipment industry standard (Liebherr, MAN, Scania) -->
+      <div class="color-customizer__swatch"        style="background:#374151;" data-color="#374151" data-name="Steel Grey"   title="Steel Grey"      onmouseenter="showSwatchName('Steel Grey')"   onmouseleave="clearSwatchName()" onclick="applyColor('#374151',this)"></div>
+      <!-- Row 2: Warm tones — Gulf culture, luxury, construction industry -->
+      <div class="color-customizer__swatch"        style="background:#C8962E;" data-color="#C8962E" data-name="Desert Gold"  title="Desert Gold"     onmouseenter="showSwatchName('Desert Gold')"  onmouseleave="clearSwatchName()" onclick="applyColor('#C8962E',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#B45309;" data-color="#B45309" data-name="Amber"        title="Amber Bronze"    onmouseenter="showSwatchName('Amber')"        onmouseleave="clearSwatchName()" onclick="applyColor('#B45309',this)"></div>
+      <!-- UAE Red — national identity, energy (UAE flag, Emirates) -->
+      <div class="color-customizer__swatch"        style="background:#B91C1C;" data-color="#B91C1C" data-name="UAE Red"      title="UAE Red"         onmouseenter="showSwatchName('UAE Red')"      onmouseleave="clearSwatchName()" onclick="applyColor('#B91C1C',this)"></div>
+      <!-- Gulf Green — Saudi/UAE flag, sustainability, Islamic motifs -->
+      <div class="color-customizer__swatch"        style="background:#15803D;" data-color="#15803D" data-name="Gulf Green"   title="Gulf Green"      onmouseenter="showSwatchName('Gulf Green')"   onmouseleave="clearSwatchName()" onclick="applyColor('#15803D',this)"></div>
+      <!-- Gulf Maroon — Qatar/Oman royal, premium brand positioning -->
+      <div class="color-customizer__swatch"        style="background:#7E1D22;" data-color="#7E1D22" data-name="Gulf Maroon"  title="Gulf Maroon"     onmouseenter="showSwatchName('Gulf Maroon')"  onmouseleave="clearSwatchName()" onclick="applyColor('#7E1D22',this)"></div>
+    </div>
+    <div class="color-customizer__swatch-name" id="swatchName"></div>
+
+    <!-- Color wheel + hex -->
+    <div class="color-customizer__wheel-wrap">
+      <input class="color-customizer__wheel" type="color" id="colorWheel" value="#0066B3" title="Custom color">
+      <input class="color-customizer__hex" type="text" id="colorHex" value="#0066B3" maxlength="7" placeholder="#000000">
+    </div>
+
+    <!-- Live preview -->
+    <div class="color-customizer__preview">
+      <div class="color-customizer__preview-dot" id="previewDot" style="background:#0066B3;"></div>
+      <span id="previewLabel">FAMCO Navy (default)</span>
+    </div>
+
+    <!-- Apply / Reset -->
+    <div class="color-customizer__btn-row">
+      <button class="color-customizer__apply" onclick="applyColor(document.getElementById('colorHex').value,null);toggleCustomizer()">Apply</button>
+      <button class="color-customizer__reset" onclick="resetColor()">Reset</button>
+    </div>
+  </div>
+
+  <!-- Floating trigger button -->
+  <button class="color-customizer__trigger" id="customizerTab" onclick="toggleCustomizer()" title="Theme Color">
+    <i class="fi fi-rr-palette"></i>
+    <span class="color-customizer__dot" id="customizerDot"></span>
+  </button>
+</div>
+
+<script>
+const DEFAULT_COLOR = '#0066B3';
+const DEFAULT_DARK  = '#00457A';
+const DEFAULT_LIGHT = '#0078D4';
+
+function hexToRgb(hex) {
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return {r,g,b};
+}
+function darken(hex, amt) {
+  let {r,g,b} = hexToRgb(hex);
+  return '#' + [r,g,b].map(v => Math.max(0,Math.round(v*(1-amt))).toString(16).padStart(2,'0')).join('');
+}
+function lighten(hex, amt) {
+  let {r,g,b} = hexToRgb(hex);
+  return '#' + [r,g,b].map(v => Math.min(255,Math.round(v+(255-v)*amt)).toString(16).padStart(2,'0')).join('');
+}
+
+function applyColor(hex, swatchEl) {
+  if (!hex || !/^#[0-9A-Fa-f]{6}$/.test(hex)) return;
+  const root = document.documentElement;
+  root.style.setProperty('--brand-navy', hex);
+  root.style.setProperty('--brand-navy-dark', darken(hex, 0.3));
+  root.style.setProperty('--brand-navy-light', lighten(hex, 0.15));
+  localStorage.setItem('ctaColor', hex);
+
+  // Sync UI
+  document.getElementById('colorWheel').value = hex;
+  document.getElementById('colorHex').value = hex;
+  document.getElementById('previewDot').style.background = hex;
+  document.getElementById('previewLabel').textContent = hex === DEFAULT_COLOR ? 'FAMCO Navy (default)' : hex.toUpperCase();
+  document.getElementById('customizerDot').style.background = hex;
+  document.querySelector('.color-customizer__apply').style.background = hex;
+
+  // Swatch active state + name label
+  document.querySelectorAll('.color-customizer__swatch').forEach(s => s.classList.remove('active'));
+  let activeSwatch = swatchEl;
+  if (!activeSwatch) {
+    activeSwatch = document.querySelector(`.color-customizer__swatch[data-color="${hex.toUpperCase()}"], .color-customizer__swatch[data-color="${hex.toLowerCase()}"]`);
+  }
+  if (activeSwatch) {
+    activeSwatch.classList.add('active');
+    document.getElementById('swatchName').textContent = activeSwatch.dataset.name || '';
+  } else {
+    document.getElementById('swatchName').textContent = '';
+  }
+}
+
+function resetColor() {
+  localStorage.removeItem('ctaColor');
+  applyColor(DEFAULT_COLOR, document.querySelector(`.color-customizer__swatch[data-color="${DEFAULT_COLOR}"]`));
+}
+
+function toggleCustomizer() {
+  document.getElementById('colorCustomizer').classList.toggle('open');
+}
+
+function showSwatchName(name) {
+  document.getElementById('swatchName').textContent = name;
+}
+function clearSwatchName() {
+  // Show active swatch name instead of clearing
+  const active = document.querySelector('.color-customizer__swatch.active');
+  document.getElementById('swatchName').textContent = active ? active.dataset.name : '';
+}
+
+// Load saved color on init
+(function() {
+  const saved = localStorage.getItem('ctaColor');
+  if (saved && saved !== DEFAULT_COLOR) {
+    applyColor(saved, null);
+  } else {
+    document.getElementById('swatchName').textContent = 'FAMCO Navy';
+  }
+})();
+
+// Color wheel → sync hex input + live preview
+document.getElementById('colorWheel').addEventListener('input', function() {
+  const hex = this.value;
+  document.getElementById('colorHex').value = hex;
+  document.getElementById('previewDot').style.background = hex;
+  applyColor(hex, null);
+});
+
+// Hex input → sync wheel + apply on Enter
+document.getElementById('colorHex').addEventListener('input', function() {
+  const hex = this.value.startsWith('#') ? this.value : '#' + this.value;
+  document.getElementById('previewDot').style.background = hex;
+  if (/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+    document.getElementById('colorWheel').value = hex;
+    applyColor(hex, null);
   }
 });
 </script>

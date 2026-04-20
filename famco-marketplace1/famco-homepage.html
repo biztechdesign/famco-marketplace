@@ -300,6 +300,7 @@ body {
   color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
+  font-size: 12.5px;
   transition: all 0.2s;
 }
 .lang-toggle:hover {
@@ -313,12 +314,11 @@ body {
 
 .main-nav {
   background: #fff;
-  padding: 0;
   position: sticky;
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid var(--border-light);
-  transition: box-shadow 0.3s, backdrop-filter 0.3s;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.04);
 }
 
 .main-nav.scrolled {
@@ -548,8 +548,8 @@ body {
   position: absolute;
   top: -6px;
   right: -6px;
-  background: var(--amber);
-  color: var(--amber-text);
+  background: var(--brand-navy);
+  color: #fff;
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -1244,6 +1244,47 @@ body {
   background: var(--success);
   color: #fff;
 }
+
+/* ── Grade Tag ── */
+.grade-tag {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 20px;
+  padding: 3px 8px 3px 3px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+
+.grade-tag__letter {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 900;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.grade-tag--A .grade-tag__letter { background: #16A34A; }
+.grade-tag--B .grade-tag__letter { background: #65A30D; }
+.grade-tag--C .grade-tag__letter { background: #CA8A04; }
+.grade-tag--D .grade-tag__letter { background: #EA580C; }
+.grade-tag--E .grade-tag__letter { background: #DC2626; }
 
 .badge--grade {
   background: rgba(255,255,255,0.92);
@@ -2708,6 +2749,11 @@ body {
 @media (max-width: 1024px) {
   :root { --section-gap: 80px; }
   .container { padding: 0 32px; }
+  .sub-nav .container { padding: 0 32px; }
+  .nav-search__cat { display: none; }
+  .utility-bar__left { display: none; }
+  .utility-bar__right { margin-left: auto; }
+  .sub-nav__link { padding: 13px 14px; font-size: 13px; }
 
   .hero .container { padding-top: 48px; padding-bottom: 80px; }
   .hero__content { text-align: center; }
@@ -2749,11 +2795,12 @@ body {
   .lang-toggle { font-size: 11px; padding: 3px 8px; }
 
   /* — Navigation — */
-  .nav-search { display: none; }
+  .main-nav .container { height: auto; min-height: 64px; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; gap: 12px; }
+  .nav-search { order: 3; flex: 1 1 100%; height: 42px; }
+  .nav-search__cat { display: none; }
   .btn-login, .btn-register { display: none; }
   .mobile-menu-btn { display: flex; }
   .mobile-nav-drawer { display: block; }
-  .main-nav .container { height: 64px; gap: 16px; }
   .nav-logo__img { height: 38px; }
   .nav-actions { margin-left: auto; }
 
@@ -2848,8 +2895,11 @@ body {
   .lang-toggle { font-size: 10.5px; padding: 2px 6px; gap: 2px; }
 
   /* — Navigation — */
-  .main-nav .container { height: 58px; gap: 10px; }
-  .nav-logo__img { height: 36px; }
+  .main-nav .container { min-height: 56px; gap: 10px; }
+  .nav-logo__img { height: 32px; }
+  .nav-search { height: 40px; border-radius: 8px; }
+  .nav-search__input { font-size: 13px; padding: 0 12px; }
+  .nav-search__btn { width: 40px; }
   .nav-icon-btn { width: 38px; height: 38px; border-radius: 8px; }
   .nav-icon-btn svg { width: 17px; height: 17px; }
   .mobile-menu-btn { width: 38px; height: 38px; border-radius: 8px; }
@@ -2973,6 +3023,18 @@ body {
 }
 
 </style>
+<script>
+(function(){
+  function darken(hex,amt){var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return'#'+[r,g,b].map(function(v){return Math.max(0,Math.round(v*(1-amt))).toString(16).padStart(2,'0');}).join('');}
+  function lighten(hex,amt){var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return'#'+[r,g,b].map(function(v){return Math.min(255,Math.round(v+(255-v)*amt)).toString(16).padStart(2,'0');}).join('');}
+  var c=localStorage.getItem('ctaColor');
+  if(c&&/^#[0-9A-Fa-f]{6}$/.test(c)){
+    document.documentElement.style.setProperty('--brand-navy',c);
+    document.documentElement.style.setProperty('--brand-navy-dark',darken(c,0.3));
+    document.documentElement.style.setProperty('--brand-navy-light',lighten(c,0.15));
+  }
+})();
+</script>
 </head>
 <body>
 
@@ -3005,8 +3067,8 @@ body {
      ═══════════════════════════════════════════════════════ -->
 <nav class="main-nav" id="mainNav">
   <div class="container">
-    <a href="#" class="nav-logo">
-      <img src="HeaderLogoIcon.png" alt="FAMCO Logo" class="nav-logo__img">
+    <a href="famco-homepage.html" class="nav-logo">
+      <img src="HeaderLogoIcon.png" alt="FAMCO" class="nav-logo__img">
     </a>
 
     <div class="nav-search">
@@ -3284,28 +3346,29 @@ body {
     <!-- Equipment grid — 2 rows x 4 columns -->
     <div style="height:24px;"></div>
     <div class="equip-grid">
-      <!-- Row 1, Card 1 — 2022 Volvo EC220E Crawler Excavator -->
-      <div class="equip-card reveal">
+      <!-- Row 1, Card 1 — 2023 Volvo FH 500 XL Tractor Unit -->
+      <div class="equip-card reveal" data-href="product-detail-2.html">
         <div class="equip-card__img">
-          <img src="ChatGPT Image Apr 13, 2026, 06_40_48 PM.png" alt="Volvo EC220E Crawler Excavator" loading="lazy">
-          <img class="hover-img" src="ChatGPT Image Apr 13, 2026, 06_39_56 PM.png" alt="Volvo EC220E Side View" loading="lazy">
+          <img src="https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-01.jpg" alt="2023 Volvo FH 500 XL Tractor Unit" loading="lazy">
+          <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-02.jpg" alt="2023 Volvo FH 500 XL Side View" loading="lazy">
           <div class="equip-card__img-overlay"></div>
           <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
           <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+          <div class="grade-tag grade-tag--A"><span class="grade-tag__letter">A</span> Grade</div>
         </div>
         <div class="equip-card__body">
-          <h3 class="equip-card__name">2022 Volvo EC220E Crawler Excavator</h3>
+          <h3 class="equip-card__name">2023 Volvo FH 500 XL Tractor Unit</h3>
           <div class="equip-card__meta">
-            <span><i class="fi fi-rr-calendar"></i> 2022</span><span class="meta-sep">•</span>
-            <span><i class="fi fi-rr-dashboard"></i> 2,100 hrs</span><span class="meta-sep">•</span>
-            <span><i class="fi fi-rr-marker"></i> UAE</span>
+            <span><i class="fi fi-rr-calendar"></i> 2023</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-dashboard"></i> 194,329 km</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-marker"></i> Austria</span>
           </div>
           <div class="equip-card__footer">
             <div>
-              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>285,000</div>
-              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 20,000/mo</div>
+              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>323,000</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 4,800/mo</div>
             </div>
-            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+            <a href="product-detail-2.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
@@ -3317,6 +3380,7 @@ body {
           <div class="equip-card__img-overlay"></div>
           <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
           <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+          <div class="grade-tag grade-tag--B"><span class="grade-tag__letter">B</span> Grade</div>
         </div>
         <div class="equip-card__body">
           <h3 class="equip-card__name">Volvo FM460 6×4 Tractor</h3>
@@ -3330,7 +3394,7 @@ body {
               <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>220,000</div>
               <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 3,100/mo</div>
             </div>
-            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+            <a href="#" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
@@ -3342,6 +3406,7 @@ body {
           <div class="equip-card__img-overlay"></div>
           <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
           <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+          <div class="grade-tag grade-tag--A"><span class="grade-tag__letter">A</span> Grade</div>
         </div>
         <div class="equip-card__body">
           <h3 class="equip-card__name">Volvo FE 280 Distribution</h3>
@@ -3355,57 +3420,59 @@ body {
               <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>195,000</div>
               <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 2,800/mo</div>
             </div>
-            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+            <a href="#" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
-      <!-- Row 1, Card 4 — Volvo FMX 460 Tipper Truck -->
+      <!-- Row 1, Card 4 — 2018 Volvo FH 500 Tractor Unit -->
       <div class="equip-card reveal reveal-delay-3">
         <div class="equip-card__img">
-          <img src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/30/03/21639708-01.jpg" alt="Volvo FMX 460 Tipper Truck" loading="lazy">
-          <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/30/03/21639708-02.jpg" alt="Volvo FMX 460 Tipper Truck Side View" loading="lazy">
+          <img src="https://cdn.truckscout24.com/data/listing/img/vga/ts/47/06/21677753-01.jpg" alt="2018 Volvo FH 500 Tractor Unit" loading="lazy">
+          <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/47/06/21677753-02.jpg" alt="2018 Volvo FH 500 Side View" loading="lazy">
           <div class="equip-card__img-overlay"></div>
           <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
           <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+          <div class="grade-tag grade-tag--D"><span class="grade-tag__letter">D</span> Grade</div>
         </div>
         <div class="equip-card__body">
-          <h3 class="equip-card__name">Volvo FMX 460 Tipper Truck</h3>
+          <h3 class="equip-card__name">2018 Volvo FH 500 Tractor Unit</h3>
           <div class="equip-card__meta">
-            <span><i class="fi fi-rr-calendar"></i> New</span><span class="meta-sep">•</span>
-            <span><i class="fi fi-rr-dashboard"></i> 338 kW / 460 HP</span><span class="meta-sep">•</span>
-            <span><i class="fi fi-rr-marker"></i> Netherlands</span>
+            <span><i class="fi fi-rr-calendar"></i> 2018</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-dashboard"></i> 714,900 km</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-marker"></i> Germany</span>
           </div>
           <div class="equip-card__footer">
             <div>
-              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>220,000</div>
-              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 3,200/mo</div>
+              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>110,000</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 1,600/mo</div>
             </div>
-            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+            <a href="#" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
-      <!-- Row 2, Card 5 — Volvo FMX 520 Tipper Truck -->
+      <!-- Row 2, Card 5 — 2022 Volvo FH 500 Globetrotter XL -->
       <div class="equip-card reveal">
         <div class="equip-card__img">
-          <img src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/30/03/21639688-01.jpg" alt="Volvo FMX 520 Tipper Truck" loading="lazy">
-          <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/30/03/21639688-02.jpg" alt="Volvo FMX 520 Tipper Truck Side View" loading="lazy">
+          <img src="https://cdn.truckscout24.com/data/listing/img/vga/ts/09/86/21433102-01.jpg" alt="2022 Volvo FH 500 Globetrotter XL" loading="lazy">
+          <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/09/86/21433102-02.jpg" alt="2022 Volvo FH 500 Globetrotter XL Side View" loading="lazy">
           <div class="equip-card__img-overlay"></div>
           <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
           <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+          <div class="grade-tag grade-tag--B"><span class="grade-tag__letter">B</span> Grade</div>
         </div>
         <div class="equip-card__body">
-          <h3 class="equip-card__name">Volvo FMX 520 Tipper Truck</h3>
+          <h3 class="equip-card__name">2022 Volvo FH 500 Globetrotter XL</h3>
           <div class="equip-card__meta">
-            <span><i class="fi fi-rr-calendar"></i> New</span><span class="meta-sep">•</span>
-            <span><i class="fi fi-rr-dashboard"></i> 382 kW / 520 HP</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-calendar"></i> 2022</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-dashboard"></i> 432,176 km</span><span class="meta-sep">•</span>
             <span><i class="fi fi-rr-marker"></i> Netherlands</span>
           </div>
           <div class="equip-card__footer">
             <div>
-              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>257,000</div>
-              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 3,800/mo</div>
+              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>197,000</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 2,900/mo</div>
             </div>
-            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+            <a href="#" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
@@ -3417,6 +3484,7 @@ body {
           <div class="equip-card__img-overlay"></div>
           <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
           <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+          <div class="grade-tag grade-tag--C"><span class="grade-tag__letter">C</span> Grade</div>
         </div>
         <div class="equip-card__body">
           <h3 class="equip-card__name">Volvo ECR235EL Tracked Excavator</h3>
@@ -3430,57 +3498,59 @@ body {
               <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>257,000</div>
               <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 3,800/mo</div>
             </div>
-            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+            <a href="#" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
-      <!-- Row 2, Card 7 — Komatsu PC210LC-11 Crawler Excavator -->
+      <!-- Row 2, Card 7 — 2023 Volvo FH 500 XL Tractor Unit -->
       <div class="equip-card reveal reveal-delay-2">
         <div class="equip-card__img">
-          <img src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/43/86/21437172-01.jpg" alt="Komatsu PC210LC-11 Crawler Excavator" loading="lazy">
-          <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/43/86/21437172-02.jpg" alt="Komatsu PC210LC-11 Excavator Side View" loading="lazy">
+          <img src="https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-01.jpg" alt="2023 Volvo FH 500 XL Tractor Unit" loading="lazy">
+          <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-02.jpg" alt="2023 Volvo FH 500 XL Side View" loading="lazy">
           <div class="equip-card__img-overlay"></div>
           <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
           <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+          <div class="grade-tag grade-tag--A"><span class="grade-tag__letter">A</span> Grade</div>
         </div>
         <div class="equip-card__body">
-          <h3 class="equip-card__name">Komatsu PC210LC-11 Crawler Excavator</h3>
+          <h3 class="equip-card__name">2023 Volvo FH 500 XL Tractor Unit</h3>
           <div class="equip-card__meta">
-            <span><i class="fi fi-rr-calendar"></i> 2018</span><span class="meta-sep">•</span>
-            <span><i class="fi fi-rr-dashboard"></i> 6,433 hrs</span><span class="meta-sep">•</span>
-            <span><i class="fi fi-rr-marker"></i> France</span>
+            <span><i class="fi fi-rr-calendar"></i> 2023</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-dashboard"></i> 194,329 km</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-marker"></i> Austria</span>
           </div>
           <div class="equip-card__footer">
             <div>
-              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>248,000</div>
-              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 3,600/mo</div>
+              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>323,000</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 4,800/mo</div>
             </div>
-            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+            <a href="#" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
-      <!-- Row 2, Card 8 — Volvo FH 500 Globetrotter XL (Kleyn Trucks) -->
+      <!-- Row 2, Card 8 — 2023 Volvo FH 460 Globetrotter XL -->
       <div class="equip-card reveal reveal-delay-3">
         <div class="equip-card__img">
-          <img src="https://cdn.truckscout24.com/data/listing/img/vga/ts/64/90/21487742-01.jpg" alt="Volvo FH 500 Globetrotter XL" loading="lazy">
-          <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/64/90/21487742-02.jpg" alt="Volvo FH 500 Globetrotter XL Side View" loading="lazy">
+          <img src="https://cdn.truckscout24.com/data/listing/img/vga/ts/45/01/21617473-01.jpg" alt="2023 Volvo FH 460 Globetrotter XL" loading="lazy">
+          <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/45/01/21617473-02.jpg" alt="2023 Volvo FH 460 Globetrotter XL Side View" loading="lazy">
           <div class="equip-card__img-overlay"></div>
           <div class="equip-card__badges"><span class="badge badge--certified"><i class="fi fi-rr-badge-check" style="font-size:10px;"></i> FAMCO Approved</span></div>
           <div class="fav-btn" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.12);cursor:pointer;"><i class="fi fi-rr-heart" style="font-size:12px;color:#9BA8B5;"></i></div>
+          <div class="grade-tag grade-tag--B"><span class="grade-tag__letter">B</span> Grade</div>
         </div>
         <div class="equip-card__body">
-          <h3 class="equip-card__name">Volvo FH 500 Globetrotter XL</h3>
+          <h3 class="equip-card__name">2023 Volvo FH 460 Globetrotter XL</h3>
           <div class="equip-card__meta">
             <span><i class="fi fi-rr-calendar"></i> 2023</span><span class="meta-sep">•</span>
-            <span><i class="fi fi-rr-dashboard"></i> 317,942 km</span><span class="meta-sep">•</span>
-            <span><i class="fi fi-rr-marker"></i> Lithuania</span>
+            <span><i class="fi fi-rr-dashboard"></i> 401,900 km</span><span class="meta-sep">•</span>
+            <span><i class="fi fi-rr-marker"></i> Poland</span>
           </div>
           <div class="equip-card__footer">
             <div>
-              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>272,000</div>
-              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 4,000/mo</div>
+              <div class="equip-card__price"><span style="font-size:12px;font-weight:500;color:var(--text-muted);">AED </span>250,000</div>
+              <div style="font-size:10px;color:var(--text-muted);margin-top:1px;">from AED 3,700/mo</div>
             </div>
-            <a href="product-detail.html" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
+            <a href="#" class="btn-view" style="padding:10px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;">View Details <i class="fi fi-rr-arrow-right" style="font-size:11px;display:flex;"></i></a>
           </div>
         </div>
       </div>
@@ -4051,7 +4121,7 @@ document.querySelectorAll('.equip-card').forEach(card => {
   }
   card.addEventListener('click', (e) => {
     if (e.target.closest('.fav-btn') || e.target.closest('.btn-view')) return;
-    window.location.href = 'product-detail.html';
+    if (card.dataset.href) window.location.href = card.dataset.href;
   });
 });
 
@@ -4264,6 +4334,127 @@ document.addEventListener('click', (e) => {
     catToggle.classList.remove('open');
   }
 });
+</script>
+
+
+<!-- ── CTA Color Customizer ── -->
+<style>
+.color-customizer{position:fixed;bottom:100px;right:32px;z-index:8000;}
+.color-customizer__trigger{width:44px;height:44px;border-radius:50%;background:#fff;border:none;box-shadow:0 2px 14px rgba(0,0,0,0.15);cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative;transition:box-shadow 0.2s,transform 0.2s;outline:none;}
+.color-customizer__trigger:hover{box-shadow:0 4px 20px rgba(0,0,0,0.22);transform:scale(1.06);}
+.color-customizer__trigger i{font-size:18px;color:var(--brand-navy);display:flex;}
+.color-customizer__dot{position:absolute;bottom:2px;right:2px;width:13px;height:13px;border-radius:50%;background:var(--brand-navy);border:2px solid #fff;}
+.color-customizer__panel{position:absolute;bottom:56px;right:0;width:228px;background:#fff;border-radius:14px;padding:16px;box-shadow:0 8px 32px rgba(0,0,0,0.16);border:1px solid var(--border-light);display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(8px) scale(0.97);pointer-events:none;transition:opacity 0.2s ease,transform 0.2s ease;transform-origin:bottom right;}
+.color-customizer.open .color-customizer__panel{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}
+.color-customizer__header{display:flex;align-items:center;justify-content:space-between;}
+.color-customizer__title{font-family:var(--font-display);font-weight:800;font-size:13px;color:var(--text-primary);}
+.color-customizer__close{width:22px;height:22px;border:none;background:var(--bg-warm,#F4F8FD);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:10px;line-height:1;padding:0;}
+.color-customizer__close:hover{background:var(--border);}
+.color-customizer__swatch-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+.color-customizer__swatch{width:100%;aspect-ratio:1;border-radius:50%;cursor:pointer;border:2.5px solid transparent;transition:transform 0.15s,border-color 0.15s,box-shadow 0.15s;}
+.color-customizer__swatch:hover{transform:scale(1.18);box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+.color-customizer__swatch.active{border-color:var(--text-primary);transform:scale(1.1);}
+.color-customizer__swatch-name{font-size:10px;color:var(--text-muted);text-align:center;height:14px;margin-top:-4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.color-customizer__wheel-wrap{display:flex;align-items:center;gap:8px;}
+.color-customizer__wheel{width:34px;height:34px;border:none;border-radius:50%;cursor:pointer;padding:0;background:none;outline:none;overflow:hidden;flex-shrink:0;}
+.color-customizer__wheel::-webkit-color-swatch-wrapper{padding:0;}
+.color-customizer__wheel::-webkit-color-swatch{border:none;border-radius:50%;}
+.color-customizer__hex{flex:1;padding:6px 9px;border:1.5px solid var(--border);border-radius:6px;font-size:12px;font-family:monospace;color:var(--text-primary);outline:none;min-width:0;transition:border-color 0.2s;}
+.color-customizer__hex:focus{border-color:var(--brand-navy);}
+.color-customizer__preview{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--bg-warm,#F4F8FD);border-radius:7px;}
+.color-customizer__preview-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
+.color-customizer__preview span{font-size:11px;color:var(--text-secondary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.color-customizer__btn-row{display:flex;gap:7px;}
+.color-customizer__apply{flex:1;padding:8px 0;background:var(--brand-navy);color:#fff;border:none;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--font-body);transition:filter 0.2s;}
+.color-customizer__apply:hover{filter:brightness(1.1);}
+.color-customizer__reset{padding:8px 11px;background:transparent;color:var(--text-muted);border:1.5px solid var(--border);border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;white-space:nowrap;}
+.color-customizer__reset:hover{border-color:var(--text-muted);color:var(--text-primary);}
+</style>
+
+<div class="color-customizer" id="colorCustomizer">
+  <div class="color-customizer__panel" id="customizerPanel">
+    <div class="color-customizer__header">
+      <div class="color-customizer__title">Theme Color</div>
+      <button class="color-customizer__close" onclick="toggleCustomizer()" title="Close">&#10005;</button>
+    </div>
+    <div class="color-customizer__swatch-row" id="swatchRow">
+      <div class="color-customizer__swatch active" style="background:#0066B3;" data-color="#0066B3" data-name="FAMCO Navy"  title="FAMCO Navy"   onmouseenter="showSwatchName('FAMCO Navy')"  onmouseleave="clearSwatchName()" onclick="applyColor('#0066B3',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#003F87;" data-color="#003F87" data-name="Gulf Navy"   title="Gulf Navy"    onmouseenter="showSwatchName('Gulf Navy')"   onmouseleave="clearSwatchName()" onclick="applyColor('#003F87',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#1D4ED8;" data-color="#1D4ED8" data-name="Royal Blue"  title="Royal Blue"   onmouseenter="showSwatchName('Royal Blue')"  onmouseleave="clearSwatchName()" onclick="applyColor('#1D4ED8',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#0F766E;" data-color="#0F766E" data-name="Port Teal"   title="Port Teal"    onmouseenter="showSwatchName('Port Teal')"   onmouseleave="clearSwatchName()" onclick="applyColor('#0F766E',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#374151;" data-color="#374151" data-name="Steel Grey"  title="Steel Grey"   onmouseenter="showSwatchName('Steel Grey')"  onmouseleave="clearSwatchName()" onclick="applyColor('#374151',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#C8962E;" data-color="#C8962E" data-name="Desert Gold" title="Desert Gold"  onmouseenter="showSwatchName('Desert Gold')" onmouseleave="clearSwatchName()" onclick="applyColor('#C8962E',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#B45309;" data-color="#B45309" data-name="Amber"       title="Amber Bronze" onmouseenter="showSwatchName('Amber')"       onmouseleave="clearSwatchName()" onclick="applyColor('#B45309',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#B91C1C;" data-color="#B91C1C" data-name="UAE Red"     title="UAE Red"      onmouseenter="showSwatchName('UAE Red')"     onmouseleave="clearSwatchName()" onclick="applyColor('#B91C1C',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#15803D;" data-color="#15803D" data-name="Gulf Green"  title="Gulf Green"   onmouseenter="showSwatchName('Gulf Green')"  onmouseleave="clearSwatchName()" onclick="applyColor('#15803D',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#7E1D22;" data-color="#7E1D22" data-name="Gulf Maroon" title="Gulf Maroon"  onmouseenter="showSwatchName('Gulf Maroon')" onmouseleave="clearSwatchName()" onclick="applyColor('#7E1D22',this)"></div>
+    </div>
+    <div class="color-customizer__swatch-name" id="swatchName"></div>
+    <div class="color-customizer__wheel-wrap">
+      <input class="color-customizer__wheel" type="color" id="colorWheel" value="#0066B3" title="Custom color">
+      <input class="color-customizer__hex" type="text" id="colorHex" value="#0066B3" maxlength="7" placeholder="#000000">
+    </div>
+    <div class="color-customizer__preview">
+      <div class="color-customizer__preview-dot" id="previewDot" style="background:#0066B3;"></div>
+      <span id="previewLabel">FAMCO Navy (default)</span>
+    </div>
+    <div class="color-customizer__btn-row">
+      <button class="color-customizer__apply" onclick="applyColor(document.getElementById('colorHex').value,null);toggleCustomizer()">Apply</button>
+      <button class="color-customizer__reset" onclick="resetColor()">Reset</button>
+    </div>
+  </div>
+  <button class="color-customizer__trigger" id="customizerTab" onclick="toggleCustomizer()" title="Theme Color">
+    <i class="fi fi-rr-palette"></i>
+    <span class="color-customizer__dot" id="customizerDot"></span>
+  </button>
+</div>
+
+<script>
+(function(){
+  var DEFAULT_COLOR='#0066B3';
+  function hexToRgb(h){return{r:parseInt(h.slice(1,3),16),g:parseInt(h.slice(3,5),16),b:parseInt(h.slice(5,7),16)};}
+  function darken(h,a){var c=hexToRgb(h);return'#'+[c.r,c.g,c.b].map(function(v){return Math.max(0,Math.round(v*(1-a))).toString(16).padStart(2,'0');}).join('');}
+  function lighten(h,a){var c=hexToRgb(h);return'#'+[c.r,c.g,c.b].map(function(v){return Math.min(255,Math.round(v+(255-v)*a)).toString(16).padStart(2,'0');}).join('');}
+
+  window.applyColor=function(hex,swatchEl){
+    if(!hex||!/^#[0-9A-Fa-f]{6}$/.test(hex))return;
+    var root=document.documentElement;
+    root.style.setProperty('--brand-navy',hex);
+    root.style.setProperty('--brand-navy-dark',darken(hex,0.3));
+    root.style.setProperty('--brand-navy-light',lighten(hex,0.15));
+    localStorage.setItem('ctaColor',hex);
+    document.getElementById('colorWheel').value=hex;
+    document.getElementById('colorHex').value=hex;
+    document.getElementById('previewDot').style.background=hex;
+    document.getElementById('previewLabel').textContent=hex===DEFAULT_COLOR?'FAMCO Navy (default)':hex.toUpperCase();
+    document.getElementById('customizerDot').style.background=hex;
+    document.querySelector('.color-customizer__apply').style.background=hex;
+    document.querySelectorAll('.color-customizer__swatch').forEach(function(s){s.classList.remove('active');});
+    var active=swatchEl||document.querySelector('.color-customizer__swatch[data-color="'+hex.toUpperCase()+'"],.color-customizer__swatch[data-color="'+hex.toLowerCase()+'"]');
+    if(active){active.classList.add('active');document.getElementById('swatchName').textContent=active.dataset.name||'';}
+    else{document.getElementById('swatchName').textContent='';}
+  };
+  window.resetColor=function(){
+    localStorage.removeItem('ctaColor');
+    applyColor(DEFAULT_COLOR,document.querySelector('.color-customizer__swatch[data-color="'+DEFAULT_COLOR+'"]'));
+  };
+  window.toggleCustomizer=function(){document.getElementById('colorCustomizer').classList.toggle('open');};
+  window.showSwatchName=function(n){document.getElementById('swatchName').textContent=n;};
+  window.clearSwatchName=function(){var a=document.querySelector('.color-customizer__swatch.active');document.getElementById('swatchName').textContent=a?a.dataset.name:'';};
+
+  var saved=localStorage.getItem('ctaColor');
+  if(saved&&saved!==DEFAULT_COLOR){applyColor(saved,null);}
+  else{document.getElementById('swatchName').textContent='FAMCO Navy';}
+
+  document.getElementById('colorWheel').addEventListener('input',function(){
+    var h=this.value;document.getElementById('colorHex').value=h;document.getElementById('previewDot').style.background=h;applyColor(h,null);
+  });
+  document.getElementById('colorHex').addEventListener('input',function(){
+    var h=this.value.startsWith('#')?this.value:'#'+this.value;
+    document.getElementById('previewDot').style.background=h;
+    if(/^#[0-9A-Fa-f]{6}$/.test(h)){document.getElementById('colorWheel').value=h;applyColor(h,null);}
+  });
+})();
 </script>
 
 </body>

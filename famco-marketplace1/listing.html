@@ -30,23 +30,24 @@ body{font-family:var(--font-body);background:var(--bg-warm);color:var(--text-pri
 a{text-decoration:none;}
 
 /* ═══ UTILITY BAR ═══ */
-.utility-bar{background:#F8F9FA;color:var(--text-secondary);font-size:12.5px;padding:8px 0;border-bottom:1px solid var(--border);}
+.utility-bar{background:#F8F9FA;color:var(--text-secondary);font-size:12.5px;font-weight:400;padding:8px 0;letter-spacing:0.02em;border-bottom:1px solid var(--border);}
 .utility-bar .container{display:flex;justify-content:space-between;align-items:center;}
 .utility-bar__left,.utility-bar__right{display:flex;align-items:center;gap:20px;}
-.utility-bar__item{display:flex;align-items:center;gap:6px;color:var(--text-secondary);font-size:12.5px;transition:color 0.2s;}
+.utility-bar__item{display:flex;align-items:center;gap:6px;color:var(--text-secondary);text-decoration:none;transition:color 0.2s;}
 .utility-bar__item:hover{color:var(--text-primary);}
 .utility-bar__divider{width:1px;height:14px;background:var(--border);}
 .utility-bar svg{width:14px;height:14px;opacity:0.6;}
-.lang-toggle{display:flex;align-items:center;gap:4px;background:rgba(0,0,0,0.04);padding:4px 10px;border-radius:4px;color:var(--text-secondary);font-weight:500;font-size:12.5px;transition:all 0.2s;}
+.lang-toggle{display:flex;align-items:center;gap:4px;background:rgba(0,0,0,0.04);padding:4px 10px;border-radius:4px;color:var(--text-secondary);text-decoration:none;font-weight:500;font-size:12.5px;transition:all 0.2s;}
 .lang-toggle:hover{background:rgba(0,0,0,0.07);color:var(--text-primary);}
 
 /* ═══ MAIN NAV ═══ */
 .main-nav{background:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border-light);box-shadow:0 1px 8px rgba(0,0,0,0.04);}
 .main-nav .container{display:flex;align-items:center;height:72px;gap:28px;}
-.nav-logo__img{height:40px;width:auto;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text-primary);}
+.nav-logo__img{height:40px;width:auto;display:block;}
 .nav-search{flex:1;display:flex;align-items:center;height:44px;border:1.5px solid var(--border);border-radius:9px;overflow:visible;position:relative;transition:border-color 0.2s;}
 .nav-search:focus-within{border-color:var(--brand-navy);}
-.nav-search__cat{padding:0 14px;height:100%;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text-primary);background:var(--bg-warm);border-right:1.5px solid var(--border);white-space:nowrap;cursor:pointer;}
+.nav-search__cat{padding:0 14px;height:100%;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text-primary);background:var(--bg-warm);border-right:1.5px solid var(--border);white-space:nowrap;cursor:pointer;border-radius:8px 0 0 8px;}
 .nav-search__cat svg{width:12px;height:12px;transition:transform 0.2s;}
 .nav-search__cat.open svg{transform:rotate(180deg);}
 .cat-dropdown{display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:200px;background:#fff;border:1.5px solid var(--border);border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,0.12);z-index:2000;padding:6px 0;overflow:hidden;}
@@ -55,7 +56,7 @@ a{text-decoration:none;}
 .cat-dropdown__item:hover{background:var(--bg-warm);}
 .cat-dropdown__item.active{color:var(--brand-navy);font-weight:700;background:rgba(0,102,179,0.06);}
 .cat-dropdown__item i{font-size:13px;color:var(--brand-navy);width:16px;text-align:center;}
-.search-dropdown{display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;background:#fff;border:1.5px solid var(--border);border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,0.12);z-index:1999;max-height:380px;overflow-y:auto;padding:6px 0;}
+.search-dropdown{display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;background:#fff;border:1.5px solid var(--border);border-radius:10px;box-shadow:0 8px 32px rgba(0,40,80,0.12);z-index:999;max-height:380px;overflow-y:auto;padding:6px 0;}
 .search-dropdown.active{display:block;}
 .search-dropdown__item{display:flex;align-items:center;gap:12px;padding:10px 16px;cursor:pointer;transition:background 0.15s;text-decoration:none;color:inherit;}
 .search-dropdown__item:hover,.search-dropdown__item.highlighted{background:var(--bg-warm);}
@@ -70,23 +71,74 @@ a{text-decoration:none;}
 .search-dropdown__footer{padding:10px 16px;border-top:1px solid var(--border);text-align:center;}
 .search-dropdown__footer a{font-size:13px;font-weight:700;color:var(--brand-navy);text-decoration:none;}
 .search-dropdown__footer a:hover{text-decoration:underline;}
+
+/* ── Save Search Bar ── */
+.save-search-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 14px;background:linear-gradient(135deg,rgba(0,102,179,0.06),rgba(0,102,179,0.03));border:1.5px solid rgba(0,102,179,0.18);border-radius:var(--radius-sm);margin-bottom:6px;flex-wrap:wrap;}
+.save-search-bar__left{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-secondary);}
+.save-search-bar__left i{font-size:13px;color:var(--brand-navy);display:flex;flex-shrink:0;}
+.save-search-bar__left strong{color:var(--text-primary);}
+.save-search-bar__btn{padding:6px 14px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--font-body);white-space:nowrap;display:flex;align-items:center;gap:5px;transition:background 0.2s;flex-shrink:0;}
+.save-search-bar__btn:hover{background:var(--brand-navy-dark);}
+.save-search-bar__btn i{font-size:11px;display:flex;}
+
+/* ── Save Search Dropdown Link ── */
+.search-dropdown__save{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 16px;border-top:1px solid var(--border);font-size:12.5px;font-weight:700;color:var(--brand-navy);cursor:pointer;transition:background 0.15s;}
+.search-dropdown__save:hover{background:rgba(0,102,179,0.05);}
+.search-dropdown__save i{font-size:12px;display:flex;}
+
+/* ── Save Search Modal ── */
+.ss-overlay{position:fixed;inset:0;background:rgba(0,20,50,0.55);z-index:9000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity 0.25s;}
+.ss-overlay.active{opacity:1;pointer-events:all;}
+.ss-modal{background:#fff;border-radius:16px;padding:36px 32px;width:100%;max-width:440px;position:relative;transform:translateY(20px);transition:transform 0.25s;box-shadow:0 24px 60px rgba(0,20,60,0.18);}
+.ss-overlay.active .ss-modal{transform:translateY(0);}
+.ss-modal__close{position:absolute;top:16px;right:16px;width:30px;height:30px;border:none;background:var(--bg-warm);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-muted);font-size:16px;line-height:1;transition:background 0.2s;}
+.ss-modal__close:hover{background:var(--border);}
+.ss-modal__icon{width:56px;height:56px;border-radius:14px;background:rgba(0,102,179,0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
+.ss-modal__icon i{font-size:26px;color:var(--brand-navy);display:flex;}
+.ss-modal h3{font-family:var(--font-display);font-weight:800;font-size:20px;color:var(--text-primary);text-align:center;margin-bottom:8px;}
+.ss-modal__sub{font-size:13.5px;color:var(--text-secondary);text-align:center;line-height:1.6;margin-bottom:24px;}
+.ss-modal__sub strong{color:var(--brand-navy);}
+.ss-modal__query-pill{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:rgba(0,102,179,0.08);border:1px solid rgba(0,102,179,0.18);border-radius:20px;font-size:12px;font-weight:700;color:var(--brand-navy);margin-bottom:20px;}
+.ss-modal__query-pill i{font-size:11px;display:flex;}
+.ss-modal label{display:block;font-size:12px;font-weight:700;color:var(--text-secondary);margin-bottom:6px;letter-spacing:0.03em;text-transform:uppercase;}
+.ss-modal__input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:var(--font-body);color:var(--text-primary);outline:none;transition:border-color 0.2s;box-sizing:border-box;margin-bottom:8px;}
+.ss-modal__input:focus{border-color:var(--brand-navy);}
+.ss-modal__input.error{border-color:#DC2626;}
+.ss-modal__input-hint{font-size:11.5px;color:var(--text-muted);margin-bottom:20px;}
+.ss-modal__input-hint.error-msg{color:#DC2626;display:none;}
+.ss-modal__input.error + .ss-modal__input-hint + .ss-modal__input-hint{display:block;}
+.ss-modal__btn{width:100%;padding:14px;background:var(--brand-navy);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:800;cursor:pointer;font-family:var(--font-body);display:flex;align-items:center;justify-content:center;gap:8px;transition:background 0.2s;margin-bottom:10px;}
+.ss-modal__btn:hover{background:var(--brand-navy-dark);}
+.ss-modal__btn i{font-size:14px;display:flex;}
+.ss-modal__cancel{width:100%;padding:10px;background:transparent;color:var(--text-muted);border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;}
+.ss-modal__cancel:hover{border-color:var(--text-muted);color:var(--text-primary);}
+
+/* ── Success State ── */
+.ss-modal__success{display:none;text-align:center;}
+.ss-modal__success-icon{width:64px;height:64px;border-radius:50%;background:#DCFCE7;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
+.ss-modal__success-icon i{font-size:28px;color:#16A34A;display:flex;}
+.ss-modal__success h3{font-family:var(--font-display);font-weight:800;font-size:20px;color:var(--text-primary);margin-bottom:8px;}
+.ss-modal__success p{font-size:13.5px;color:var(--text-secondary);line-height:1.6;margin-bottom:24px;}
+.ss-modal__success p strong{color:var(--brand-navy);}
+.ss-modal__success-close{width:100%;padding:13px;background:var(--brand-navy);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;}
+.ss-modal__success-close:hover{background:var(--brand-navy-dark);}
 .nav-search__input{flex:1;border:none;outline:none;padding:0 16px;font-size:13.5px;color:var(--text-secondary);font-family:var(--font-body);background:#fff;}
 .nav-search__input::placeholder{color:var(--text-muted);}
-.nav-search__btn{width:46px;height:100%;background:var(--brand-navy);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.nav-search__btn{width:46px;height:100%;background:var(--brand-navy);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:0 8px 8px 0;}
 .nav-search__btn svg{width:18px;height:18px;}
 .nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;}
-.nav-icon-btn{width:42px;height:42px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;background:#fff;color:var(--text-secondary);transition:all 0.2s;}
+.nav-icon-btn{width:42px;height:42px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;background:#fff;color:var(--text-secondary);text-decoration:none;transition:all 0.2s;}
 .nav-icon-btn:hover{border-color:var(--brand-navy);color:var(--brand-navy);}
 .nav-icon-btn svg{width:19px;height:19px;}
 .nav-icon-btn__badge{position:absolute;top:-6px;right:-6px;background:var(--brand-navy);color:#fff;width:18px;height:18px;border-radius:50%;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;}
-.btn-login{padding:10px 20px;border:1.5px solid var(--brand-navy);border-radius:8px;background:transparent;color:var(--brand-navy);font-size:13px;font-weight:600;font-family:var(--font-body);transition:all 0.2s;}
+.btn-login{padding:10px 20px;border:1.5px solid var(--brand-navy);border-radius:8px;background:transparent;color:var(--brand-navy);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;text-decoration:none;}
 .btn-login:hover{background:rgba(0,102,179,0.05);}
-.btn-register{padding:10px 22px;border:none;border-radius:8px;background:var(--brand-navy);color:#fff;font-size:13px;font-weight:600;font-family:var(--font-body);transition:all 0.2s;}
+.btn-register{padding:10px 22px;border:none;border-radius:8px;background:var(--brand-navy);color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;text-decoration:none;}
 .btn-register:hover{background:var(--brand-navy-dark);}
 
 /* ═══ SUB NAV ═══ */
 .sub-nav{background:#fff;border-bottom:1px solid var(--border);}
-.sub-nav__link{color:var(--text-secondary);font-size:13.5px;font-weight:500;padding:13px 18px;border-bottom:2.5px solid transparent;white-space:nowrap;display:block;transition:all 0.15s;}
+.sub-nav__link{text-decoration:none;color:var(--text-secondary);font-size:13.5px;font-weight:500;padding:13px 18px;border-bottom:2.5px solid transparent;white-space:nowrap;display:block;transition:all 0.15s;}
 .sub-nav__link.active{color:var(--brand-navy);border-bottom-color:var(--brand-navy);font-weight:700;}
 .sub-nav__link:not(.active):hover{color:var(--text-primary);}
 
@@ -108,10 +160,10 @@ a{text-decoration:none;}
 .filter-card__title{font-family:var(--font-display);font-weight:700;font-size:13.5px;color:var(--text-primary);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;}
 .filter-card__title i{font-size:12px;color:var(--text-muted);cursor:pointer;transition:transform 0.2s;}
 .filter-group{display:flex;flex-direction:column;gap:10px;}
-.filter-check{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text-secondary);}
+.filter-check{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text-secondary);width:100%;}
 .filter-check input[type="checkbox"]{width:16px;height:16px;accent-color:var(--brand-navy);cursor:pointer;flex-shrink:0;}
-.filter-check span{flex:1;}
-.filter-check__count{font-size:11px;color:var(--text-muted);font-weight:500;}
+.filter-check span:not(.filter-check__count){flex:1;}
+.filter-check__count{font-size:11px;color:var(--text-muted);font-weight:500;padding-left:12px;}
 .filter-range{display:flex;gap:8px;align-items:center;}
 .filter-range input{flex:1;padding:9px 10px;border:1.5px solid var(--border);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font-body);color:var(--text-primary);outline:none;transition:border-color 0.2s;background:#fff;min-width:0;}
 .filter-range input:focus{border-color:var(--brand-navy);}
@@ -125,15 +177,15 @@ a{text-decoration:none;}
 .listing-content{flex:1;min-width:0;}
 
 /* Toolbar */
-.listing-toolbar{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#fff;border:1px solid var(--border);border-radius:var(--radius);margin-bottom:20px;}
-.listing-toolbar__left{display:flex;align-items:center;gap:12px;}
-.listing-toolbar__count{font-size:14px;color:var(--text-secondary);}
+.listing-toolbar{display:flex;align-items:center;justify-content:space-between;padding:7px 14px;background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:14px;}
+.listing-toolbar__left{display:flex;align-items:center;gap:10px;}
+.listing-toolbar__count{font-size:12.5px;color:var(--text-secondary);}
 .listing-toolbar__count strong{color:var(--text-primary);font-weight:700;}
-.listing-toolbar__right{display:flex;align-items:center;gap:12px;}
-.listing-toolbar__sort{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);}
-.listing-toolbar__sort select{padding:8px 12px;border:1.5px solid var(--border);border-radius:var(--radius-xs);font-size:13px;font-family:var(--font-body);color:var(--text-primary);outline:none;cursor:pointer;background:#fff;}
+.listing-toolbar__right{display:flex;align-items:center;gap:10px;}
+.listing-toolbar__sort{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary);}
+.listing-toolbar__sort select{padding:5px 10px;border:1.5px solid var(--border);border-radius:var(--radius-xs);font-size:12px;font-family:var(--font-body);color:var(--text-primary);outline:none;cursor:pointer;background:#fff;}
 .listing-toolbar__view{display:flex;gap:4px;}
-.view-btn{width:36px;height:36px;border:1.5px solid var(--border);border-radius:var(--radius-xs);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-muted);background:#fff;transition:all 0.2s;}
+.view-btn{width:28px;height:28px;border:1.5px solid var(--border);border-radius:var(--radius-xs);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-muted);background:#fff;transition:all 0.2s;}
 .view-btn.active,.view-btn:hover{border-color:var(--brand-navy);color:var(--brand-navy);background:rgba(0,102,179,0.04);}
 .view-btn i{font-size:16px;display:flex;}
 
@@ -165,11 +217,20 @@ a{text-decoration:none;}
 @keyframes spin3d{to{transform:rotate(360deg);}}
 
 /* Hover type indicator tag */
-.product-card__hover-tag{position:absolute;bottom:10px;left:10px;padding:5px 10px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;display:flex;align-items:center;gap:5px;line-height:1;z-index:3;backdrop-filter:blur(4px);}
+.product-card__hover-tag{position:absolute;bottom:10px;right:10px;padding:5px 10px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;display:flex;align-items:center;gap:5px;line-height:1;z-index:3;backdrop-filter:blur(4px);}
 .product-card__hover-tag--video{background:rgba(0,0,0,0.6);color:#fff;}
 .product-card__hover-tag--3d{background:rgba(0,102,179,0.85);color:#fff;}
 .product-card__hover-tag--gallery{background:rgba(255,255,255,0.9);color:var(--text-primary);}
 .product-card__hover-tag i{font-size:11px;display:flex;}
+
+/* ── Product Grade Tag ── */
+.grade-tag{position:absolute;bottom:10px;left:10px;z-index:4;display:flex;align-items:center;gap:5px;background:rgba(255,255,255,0.95);border-radius:20px;padding:3px 8px 3px 3px;box-shadow:0 2px 8px rgba(0,0,0,0.18);font-family:var(--font-display);font-size:10px;font-weight:700;color:var(--text-primary);letter-spacing:0.02em;text-transform:uppercase;backdrop-filter:blur(4px);}
+.grade-tag__letter{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;flex-shrink:0;}
+.grade-tag--A .grade-tag__letter{background:#16A34A;}
+.grade-tag--B .grade-tag__letter{background:#65A30D;}
+.grade-tag--C .grade-tag__letter{background:#CA8A04;}
+.grade-tag--D .grade-tag__letter{background:#EA580C;}
+.grade-tag--E .grade-tag__letter{background:#DC2626;}
 
 /* No-hover cards */
 .product-card.no-hover:hover{border-color:var(--border);transform:none;box-shadow:none;}
@@ -238,18 +299,46 @@ a{text-decoration:none;}
 .back-to-top i{font-size:18px;display:flex;}
 
 /* Active filters bar */
-.active-filters{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 20px;background:#fff;border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px;}
-.active-filters__label{font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.04em;margin-right:4px;}
-.active-filter-tag{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:rgba(0,102,179,0.06);border:1px solid rgba(0,102,179,0.15);border-radius:20px;font-size:12px;font-weight:600;color:var(--brand-navy);cursor:pointer;transition:all 0.2s;}
+.active-filters{display:flex;flex-direction:column;gap:8px;padding:10px 14px;background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:0;}
+.active-filters__header{display:flex;align-items:center;justify-content:space-between;}
+.active-filters__label{font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.04em;}
+.active-filters__tags{display:flex;flex-wrap:wrap;gap:6px;}
+.active-filter-tag{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;background:rgba(0,102,179,0.06);border:1px solid rgba(0,102,179,0.15);border-radius:20px;font-size:11.5px;font-weight:600;color:var(--brand-navy);cursor:pointer;transition:all 0.2s;}
 .active-filter-tag:hover{background:rgba(0,102,179,0.12);}
-.active-filter-tag i{font-size:10px;display:flex;opacity:0.6;}
-.active-filters__clear{font-size:12px;font-weight:700;color:var(--error);cursor:pointer;margin-left:auto;display:flex;align-items:center;gap:4px;transition:opacity 0.2s;}
+.active-filter-tag i{font-size:9px;display:flex;opacity:0.6;}
+.active-filters__clear{font-size:11px;font-weight:700;color:var(--error);cursor:pointer;display:flex;align-items:center;gap:4px;transition:opacity 0.2s;white-space:nowrap;}
 .active-filters__clear:hover{opacity:0.7;}
-.active-filters__clear i{font-size:11px;display:flex;}
+.active-filters__clear i{font-size:10px;display:flex;}
+
+/* Mobile filter toggle button */
+.filter-toggle-btn{display:none;align-items:center;gap:6px;padding:5px 12px;background:#fff;border:1.5px solid var(--border);border-radius:var(--radius-xs);font-size:12px;font-weight:700;color:var(--text-primary);cursor:pointer;font-family:var(--font-body);transition:all 0.2s;}
+.filter-toggle-btn:hover{border-color:var(--brand-navy);color:var(--brand-navy);}
+.filter-toggle-btn i{font-size:12px;display:flex;}
+
+/* Sidebar overlay backdrop (mobile) */
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:4999;}
 
 /* Category scroll indicator */
 .categories-wrap{position:relative;}
 .categories-wrap::after{content:'';position:absolute;right:0;top:0;bottom:0;width:60px;background:linear-gradient(90deg,transparent,var(--bg-warm));pointer-events:none;z-index:2;border-radius:0 var(--radius) var(--radius) 0;}
+
+/* ═══ MOBILE MENU ═══ */
+.mobile-menu-btn{display:none;width:42px;height:42px;border:1.5px solid var(--border);border-radius:9px;background:#fff;cursor:pointer;align-items:center;justify-content:center;flex-shrink:0;}
+.mobile-menu-btn svg{width:20px;height:20px;stroke:var(--text-primary);}
+.mobile-nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9998;opacity:0;transition:opacity 0.3s;}
+.mobile-nav-overlay.active{display:block;opacity:1;}
+.mobile-nav-drawer{display:none;position:fixed;top:0;right:-300px;width:300px;height:100%;background:#fff;z-index:9999;transition:right 0.3s var(--ease);overflow-y:auto;box-shadow:-4px 0 20px rgba(0,0,0,0.1);}
+.mobile-nav-drawer.active{right:0;}
+.mobile-nav-drawer__header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border);}
+.mobile-nav-drawer__close{width:36px;height:36px;border:none;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:8px;}
+.mobile-nav-drawer__close:hover{background:var(--bg-warm);}
+.mobile-nav-drawer__close svg{width:20px;height:20px;stroke:var(--text-primary);}
+.mobile-nav-drawer__links{padding:12px 0;}
+.mobile-nav-drawer__links a{display:block;padding:14px 24px;font-size:15px;font-weight:500;color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border-light);transition:background 0.15s;}
+.mobile-nav-drawer__links a:hover{background:var(--bg-warm);}
+.mobile-nav-drawer__links a.active{color:var(--brand-navy);font-weight:700;background:rgba(0,102,179,0.04);}
+.mobile-nav-drawer__actions{padding:20px 24px;display:flex;flex-direction:column;gap:10px;}
+.mobile-nav-drawer__actions a{display:block;text-align:center;padding:12px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;}
 
 /* ═══════════════════════════════════════════════════
    RESPONSIVE MEDIA QUERIES
@@ -267,42 +356,73 @@ a{text-decoration:none;}
 @media (max-width: 1024px) {
   .container { padding: 0 32px; }
   .sub-nav .container { padding: 0 32px; }
-  .sidebar { display: none; }
   .page-layout { flex-direction: column; gap: 0; }
   .nav-search__cat { display: none; }
   .utility-bar__left { display: none; }
   .utility-bar__right { margin-left: auto; }
-  .sub-nav .container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .sub-nav__link { padding: 13px 14px; font-size: 13px; }
+
+  /* Sidebar becomes a fixed slide-in drawer */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 300px;
+    height: 100vh;
+    max-height: 100vh;
+    z-index: 5000;
+    background: #fff;
+    box-shadow: 4px 0 32px rgba(0,0,0,0.18);
+    padding: 16px;
+    overflow-y: auto;
+    transition: left 0.28s ease;
+    display: block;
+  }
+  .sidebar.open { left: 0; }
+  .sidebar-overlay.open { display: block; }
+  .sidebar__mobile-header { display: flex !important; }
+  .filter-toggle-btn { display: flex; }
 }
 
 /* ─── 768px: Mobile landscape / small tablets ─── */
 @media (max-width: 768px) {
   .container { padding: 0 20px; }
-  .sub-nav .container { padding: 0 20px; }
 
-  /* Navigation */
+  /* — Utility bar: compact single row on mobile — */
+  .utility-bar { padding: 6px 0; font-size: 11px; }
+  .utility-bar .container { flex-wrap: nowrap; gap: 0; }
+  .utility-bar__left { gap: 6px; flex-shrink: 0; }
+  .utility-bar__left .utility-bar__divider { height: 10px; }
+  .utility-bar__left .utility-bar__item { font-size: 11px; }
+  .utility-bar__right { gap: 8px; }
+  .utility-bar__right .utility-bar__item span { font-size: 11px; }
+  .utility-bar__right .utility-bar__divider { height: 10px; }
+  .lang-toggle { font-size: 11px; padding: 3px 8px; }
+
+  /* — Navigation — */
   .main-nav .container { height: auto; min-height: 64px; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; gap: 12px; }
   .nav-search { order: 3; flex: 1 1 100%; height: 42px; }
-  .nav-logo__img { height: 36px; }
+  .nav-search__cat { display: none; }
   .btn-login, .btn-register { display: none; }
-  .nav-actions { gap: 8px; }
+  .mobile-menu-btn { display: flex; }
+  .mobile-nav-drawer { display: block; }
+  .nav-logo__img { height: 38px; }
+  .nav-actions { margin-left: auto; }
 
-  /* Sub nav scrollable */
-  .sub-nav .container { gap: 0; white-space: nowrap; scrollbar-width: none; }
-  .sub-nav .container::-webkit-scrollbar { display: none; }
-  .sub-nav__link { padding: 12px 12px; font-size: 12.5px; }
+  /* — Sub nav: hide on mobile (burger menu replaces it) — */
+  .sub-nav { display: none; }
 
   /* Product grid */
   .product-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
 
-  /* Toolbar */
-  .listing-toolbar { flex-wrap: wrap; gap: 10px; padding: 12px 16px; }
-  .listing-toolbar__left { flex: 1 1 100%; }
-  .listing-toolbar__count { font-size: 13px; }
-  .listing-toolbar__right { flex: 1 1 100%; justify-content: space-between; }
+  /* Toolbar — single row on tablet */
+  .listing-toolbar { flex-wrap: nowrap; gap: 8px; padding: 8px 14px; }
+  .listing-toolbar__left { flex: 1; min-width: 0; gap: 8px; }
+  .listing-toolbar__count { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .listing-toolbar__right { flex-shrink: 0; gap: 8px; }
   .listing-toolbar__sort { font-size: 12px; }
-  .listing-toolbar__sort select { font-size: 12px; padding: 6px 10px; }
+  .listing-toolbar__sort select { font-size: 12px; padding: 5px 8px; max-width: 140px; }
+  .listing-toolbar__sort span { display: none; }
 
   /* Breadcrumb */
   .breadcrumb { font-size: 12px; padding: 12px 0; }
@@ -340,9 +460,18 @@ a{text-decoration:none;}
 /* ─── 480px: Mobile portrait ─── */
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
-  .sub-nav .container { padding: 0 16px; }
 
-  /* Navigation */
+  /* — Utility bar: tighter on phone — */
+  .utility-bar { padding: 5px 0; }
+  .utility-bar .container { gap: 0; }
+  .utility-bar__left { gap: 4px; }
+  .utility-bar__left .utility-bar__item { font-size: 10.5px; }
+  .utility-bar__right { gap: 6px; }
+  .utility-bar__right .utility-bar__item span { font-size: 10.5px; }
+  .utility-bar__right svg { width: 12px; height: 12px; }
+  .lang-toggle { font-size: 10.5px; padding: 2px 6px; gap: 2px; }
+
+  /* — Navigation — */
   .main-nav .container { min-height: 56px; gap: 10px; }
   .nav-logo__img { height: 32px; }
   .nav-search { height: 40px; border-radius: 8px; }
@@ -350,6 +479,8 @@ a{text-decoration:none;}
   .nav-search__btn { width: 40px; }
   .nav-icon-btn { width: 38px; height: 38px; border-radius: 8px; }
   .nav-icon-btn svg { width: 17px; height: 17px; }
+  .mobile-menu-btn { width: 38px; height: 38px; border-radius: 8px; }
+  .mobile-menu-btn svg { width: 18px; height: 18px; }
 
   /* Product grid — single column */
   .product-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -360,10 +491,15 @@ a{text-decoration:none;}
   .product-card__price { font-size: 17px; }
   .product-card__meta { font-size: 11px; }
 
-  /* Toolbar stacks vertically */
-  .listing-toolbar { flex-direction: column; align-items: stretch; gap: 10px; padding: 12px 14px; }
-  .listing-toolbar__left { justify-content: center; }
-  .listing-toolbar__right { justify-content: center; flex-wrap: wrap; gap: 8px; }
+  /* Toolbar — compact single row on phone */
+  .listing-toolbar { flex-wrap: nowrap; gap: 6px; padding: 8px 12px; }
+  .listing-toolbar__left { flex: 1; min-width: 0; gap: 6px; align-items: center; }
+  .listing-toolbar__count { font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 120px; }
+  .listing-toolbar__right { flex-shrink: 0; gap: 6px; }
+  .listing-toolbar__sort select { font-size: 11.5px; padding: 4px 6px; max-width: 110px; }
+  .filter-toggle-btn { padding: 5px 10px; font-size: 11.5px; white-space: nowrap; }
+  .view-btn { width: 26px; height: 26px; }
+  #saveSearchBtn { display: none !important; }
 
   /* Pagination — compact for phone */
   .pagination { gap: 4px; flex-wrap: wrap; justify-content: center; }
@@ -380,15 +516,24 @@ a{text-decoration:none;}
   .active-filters__label { font-size: 11px; }
   .active-filter-tag { font-size: 10.5px; padding: 3px 8px; }
 
-  /* Sub nav */
-  .sub-nav__link { padding: 10px 10px; font-size: 12px; }
-
   /* Footer */
   .footer-col__title { font-size: 13px; margin-bottom: 14px; }
   .footer-col__links a { font-size: 13px; }
   .footer-bottom { font-size: 12px; }
 }
 </style>
+<script>
+(function(){
+  function darken(hex,amt){var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return'#'+[r,g,b].map(function(v){return Math.max(0,Math.round(v*(1-amt))).toString(16).padStart(2,'0');}).join('');}
+  function lighten(hex,amt){var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return'#'+[r,g,b].map(function(v){return Math.min(255,Math.round(v+(255-v)*amt)).toString(16).padStart(2,'0');}).join('');}
+  var c=localStorage.getItem('ctaColor');
+  if(c&&/^#[0-9A-Fa-f]{6}$/.test(c)){
+    document.documentElement.style.setProperty('--brand-navy',c);
+    document.documentElement.style.setProperty('--brand-navy-dark',darken(c,0.3));
+    document.documentElement.style.setProperty('--brand-navy-light',lighten(c,0.15));
+  }
+})();
+</script>
 </head>
 <body>
 
@@ -407,15 +552,19 @@ a{text-decoration:none;}
     <div class="utility-bar__right">
       <a href="tel:+97142345678" class="utility-bar__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <span>+971 4 234 5678</span></a>
       <div class="utility-bar__divider"></div>
+      <a href="#" class="utility-bar__item" style="color:#25D366;"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .612.612l4.458-1.495A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.752-6.336-2.071l-.442-.331-3.273 1.098 1.098-3.273-.331-.442A9.958 9.958 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg> <span>WhatsApp</span></a>
+      <div class="utility-bar__divider"></div>
       <a href="#" class="lang-toggle"><span>عربي</span><span>/</span><span>EN</span></a>
     </div>
   </div>
 </div>
 
-<!-- ═══ MAIN NAV ═══ -->
-<nav class="main-nav">
+<nav class="main-nav" id="mainNav">
   <div class="container">
-    <a href="famco-homepage.html" class="nav-logo"><img src="HeaderLogoIcon.png" alt="FAMCO" class="nav-logo__img"></a>
+    <a href="famco-homepage.html" class="nav-logo">
+      <img src="HeaderLogoIcon.png" alt="FAMCO" class="nav-logo__img">
+    </a>
+
     <div class="nav-search">
       <div class="nav-search__cat" id="catToggle" onclick="toggleCatDropdown()">
         <span id="catLabel">All Categories</span>
@@ -425,7 +574,7 @@ a{text-decoration:none;}
         <div class="cat-dropdown__item active" data-value="" onclick="selectCategory(this, 'All Categories', '')"><i class="fi fi-rr-apps"></i> All Categories</div>
         <div class="cat-dropdown__item" data-value="Trucks" onclick="selectCategory(this, 'Trucks', 'Trucks')"><i class="fi fi-rr-truck-side"></i> Trucks</div>
         <div class="cat-dropdown__item" data-value="Trailers" onclick="selectCategory(this, 'Trailers', 'Trailers')"><i class="fi fi-rr-trailer"></i> Trailers</div>
-        <div class="cat-dropdown__item" data-value="Buses" onclick="selectCategory(this, 'Buses &amp; Coaches', 'Buses')"><i class="fi fi-rr-bus"></i> Buses &amp; Coaches</div>
+        <div class="cat-dropdown__item" data-value="Buses" onclick="selectCategory(this, 'Buses & Coaches', 'Buses')"><i class="fi fi-rr-bus"></i> Buses &amp; Coaches</div>
         <div class="cat-dropdown__item" data-value="Forklifts" onclick="selectCategory(this, 'Forklifts', 'Forklifts')"><i class="fi fi-rr-forklift"></i> Forklifts</div>
         <div class="cat-dropdown__item" data-value="Cranes" onclick="selectCategory(this, 'Cranes', 'Cranes')"><i class="fi fi-rr-crane"></i> Cranes</div>
         <div class="cat-dropdown__item" data-value="Construction" onclick="selectCategory(this, 'Construction', 'Construction')"><i class="fi fi-rr-helmet-safety"></i> Construction</div>
@@ -433,20 +582,55 @@ a{text-decoration:none;}
         <div class="cat-dropdown__item" data-value="Agricultural" onclick="selectCategory(this, 'Agricultural', 'Agricultural')"><i class="fi fi-rr-tractor"></i> Agricultural</div>
       </div>
       <input class="nav-search__input" id="headerSearch" type="text" placeholder="Search brand, model, category, or location…" autocomplete="off">
-      <button class="nav-search__btn" onclick="performSearch()"><svg fill="none" stroke="white" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+      <button class="nav-search__btn" onclick="performSearch()">
+        <svg fill="none" stroke="white" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
       <div class="search-dropdown" id="searchDropdown"></div>
     </div>
+
     <div class="nav-actions">
-      <a href="#" class="nav-icon-btn" title="Wishlist"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><div class="nav-icon-btn__badge">0</div></a>
+      <a href="#" class="nav-icon-btn" title="Wishlist">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <div class="nav-icon-btn__badge">0</div>
+      </a>
       <a href="#" class="btn-login">Login</a>
       <a href="#" class="btn-register">Register</a>
+      <button class="mobile-menu-btn" onclick="document.querySelector('.mobile-nav-drawer').classList.add('active');document.querySelector('.mobile-nav-overlay').classList.add('active');document.body.style.overflow='hidden';">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
     </div>
   </div>
 </nav>
 
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav-overlay" onclick="document.querySelector('.mobile-nav-drawer').classList.remove('active');this.classList.remove('active');document.body.style.overflow='';"></div>
+
+<!-- Mobile Nav Drawer -->
+<div class="mobile-nav-drawer">
+  <div class="mobile-nav-drawer__header">
+    <img src="HeaderLogoIcon.png" alt="FAMCO" style="height:32px;">
+    <button class="mobile-nav-drawer__close" onclick="this.closest('.mobile-nav-drawer').classList.remove('active');document.querySelector('.mobile-nav-overlay').classList.remove('active');document.body.style.overflow='';">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="mobile-nav-drawer__links">
+    <a href="famco-homepage.html">Home</a>
+    <a href="#" class="active">Browse Equipment</a>
+    <a href="#">Sell Your Equipment</a>
+    <a href="#">FAMCO Approved Process</a>
+    <a href="#">Finance</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="mobile-nav-drawer__actions">
+    <a href="#" style="border:1.5px solid var(--brand-navy);color:var(--brand-navy);">Login</a>
+    <a href="#" style="background:var(--brand-navy);color:#fff;">Register</a>
+  </div>
+</div>
+
 <!-- ═══ SUB NAV ═══ -->
 <nav class="sub-nav">
-  <div class="container" style="display:flex;gap:0;padding:0 80px;">
+  <div class="container" style="display:flex;gap:0;">
     <a href="famco-homepage.html" class="sub-nav__link">Home</a>
     <a href="#" class="sub-nav__link active">Browse Equipment</a>
     <a href="#" class="sub-nav__link">Sell Your Equipment</a>
@@ -468,7 +652,25 @@ a{text-decoration:none;}
 
   <div class="page-layout">
     <!-- ═══ LEFT SIDEBAR ═══ -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="filterSidebar">
+      <!-- Mobile header (close button) -->
+      <div class="sidebar__mobile-header" style="display:none;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--border);">
+        <span style="font-family:var(--font-display);font-weight:800;font-size:15px;color:var(--text-primary);">Filters</span>
+        <button onclick="closeSidebar()" style="width:28px;height:28px;border:none;background:var(--bg-warm);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--text-muted);">&#10005;</button>
+      </div>
+      <!-- Active Filters -->
+      <div class="active-filters" style="margin-bottom:10px;">
+        <div class="active-filters__header">
+          <span class="active-filters__label">Active Filters</span>
+          <span class="active-filters__clear"><i class="fi fi-rr-trash"></i> Clear All</span>
+        </div>
+        <div class="active-filters__tags">
+          <span class="active-filter-tag">All Equipment <i class="fi fi-rr-cross-small"></i></span>
+          <span class="active-filter-tag">🇦🇪 UAE <i class="fi fi-rr-cross-small"></i></span>
+          <span class="active-filter-tag">FAMCO Approved <i class="fi fi-rr-cross-small"></i></span>
+        </div>
+      </div>
+
       <!-- Category Filter -->
       <div class="filter-card">
         <div class="filter-card__title">Category <i class="fi fi-rr-angle-small-up"></i></div>
@@ -476,11 +678,8 @@ a{text-decoration:none;}
           <label class="filter-check"><input type="checkbox" checked><span>All Equipment</span><span class="filter-check__count">500+</span></label>
           <label class="filter-check"><input type="checkbox"><span>Trucks</span><span class="filter-check__count">182</span></label>
           <label class="filter-check"><input type="checkbox"><span>Trailers</span><span class="filter-check__count">94</span></label>
-          <label class="filter-check"><input type="checkbox"><span>Buses & Coaches</span><span class="filter-check__count">56</span></label>
           <label class="filter-check"><input type="checkbox"><span>Forklifts</span><span class="filter-check__count">68</span></label>
-          <label class="filter-check"><input type="checkbox"><span>Cranes</span><span class="filter-check__count">34</span></label>
           <label class="filter-check"><input type="checkbox"><span>Construction</span><span class="filter-check__count">42</span></label>
-          <label class="filter-check"><input type="checkbox"><span>Agricultural</span><span class="filter-check__count">12</span></label>
         </div>
       </div>
 
@@ -493,53 +692,10 @@ a{text-decoration:none;}
           <label class="filter-check"><input type="checkbox"><span>MAN</span><span class="filter-check__count">52</span></label>
           <label class="filter-check"><input type="checkbox"><span>Scania</span><span class="filter-check__count">48</span></label>
           <label class="filter-check"><input type="checkbox"><span>CAT</span><span class="filter-check__count">38</span></label>
-          <label class="filter-check"><input type="checkbox"><span>Toyota</span><span class="filter-check__count">32</span></label>
-          <label class="filter-check"><input type="checkbox"><span>DAF</span><span class="filter-check__count">28</span></label>
-          <label class="filter-check"><input type="checkbox"><span>Hyster</span><span class="filter-check__count">18</span></label>
         </div>
       </div>
 
-      <!-- Price Range -->
-      <div class="filter-card">
-        <div class="filter-card__title">Price (AED) <i class="fi fi-rr-angle-small-up"></i></div>
-        <div class="filter-range">
-          <input type="text" placeholder="Min">
-          <span class="filter-range__sep">–</span>
-          <input type="text" placeholder="Max">
-        </div>
-      </div>
 
-      <!-- Year -->
-      <div class="filter-card">
-        <div class="filter-card__title">Year <i class="fi fi-rr-angle-small-up"></i></div>
-        <div class="filter-range">
-          <input type="text" placeholder="From">
-          <span class="filter-range__sep">–</span>
-          <input type="text" placeholder="To">
-        </div>
-      </div>
-
-      <!-- Location -->
-      <div class="filter-card">
-        <div class="filter-card__title">Location <i class="fi fi-rr-angle-small-up"></i></div>
-        <div class="filter-group">
-          <label class="filter-check"><input type="checkbox"><span>🇦🇪 UAE</span><span class="filter-check__count">210</span></label>
-          <label class="filter-check"><input type="checkbox"><span>🇸🇦 KSA</span><span class="filter-check__count">148</span></label>
-          <label class="filter-check"><input type="checkbox"><span>🇶🇦 Qatar</span><span class="filter-check__count">82</span></label>
-          <label class="filter-check"><input type="checkbox"><span>🇧🇭 Bahrain</span><span class="filter-check__count">60</span></label>
-        </div>
-      </div>
-
-      <!-- Condition -->
-      <div class="filter-card">
-        <div class="filter-card__title">Condition <i class="fi fi-rr-angle-small-up"></i></div>
-        <div class="filter-group">
-          <label class="filter-check"><input type="checkbox"><span>FAMCO Approved</span></label>
-          <label class="filter-check"><input type="checkbox"><span>Excellent</span></label>
-          <label class="filter-check"><input type="checkbox"><span>Good</span></label>
-          <label class="filter-check"><input type="checkbox"><span>Fair</span></label>
-        </div>
-      </div>
 
       <button class="filter-btn"><i class="fi fi-rr-filter" style="font-size:13px;display:flex;"></i> Apply Filters</button>
       <button class="filter-btn filter-btn--reset"><i class="fi fi-rr-refresh" style="font-size:13px;display:flex;"></i> Reset All</button>
@@ -547,20 +703,16 @@ a{text-decoration:none;}
 
     <!-- ═══ RIGHT LISTING CONTENT ═══ -->
     <main class="listing-content">
-      <!-- Active Filters -->
-      <div class="active-filters">
-        <span class="active-filters__label">Active Filters:</span>
-        <span class="active-filter-tag">All Equipment <i class="fi fi-rr-cross-small"></i></span>
-        <span class="active-filter-tag">🇦🇪 UAE <i class="fi fi-rr-cross-small"></i></span>
-        <span class="active-filter-tag">FAMCO Approved <i class="fi fi-rr-cross-small"></i></span>
-        <span class="active-filters__clear"><i class="fi fi-rr-trash"></i> Clear All</span>
-      </div>
-      <!-- Toolbar -->
+      <!-- Toolbar (save search merged in) -->
       <div class="listing-toolbar">
         <div class="listing-toolbar__left">
-          <span class="listing-toolbar__count">Showing <strong>1–12</strong> of <strong>500+</strong> vehicles</span>
+          <button class="filter-toggle-btn" onclick="openSidebar()"><i class="fi fi-rr-filter"></i> Filters</button>
+          <span class="listing-toolbar__count" id="resultCount">Showing <strong>1–12</strong> of <strong>500+</strong> vehicles</span>
+          <!-- Save search notice — shown only when searching -->
+          <span id="saveSearchLabel" style="display:none;"></span>
         </div>
         <div class="listing-toolbar__right">
+          <button class="save-search-bar__btn" id="saveSearchBtn" onclick="openSaveModal()" style="display:none;padding:5px 12px;font-size:11.5px;"><i class="fi fi-rr-bookmark"></i> Save Search</button>
           <div class="listing-toolbar__sort">
             <span>Sort by:</span>
             <select>
@@ -581,177 +733,196 @@ a{text-decoration:none;}
       <!-- Product Grid -->
       <div class="product-grid" id="productGrid">
 
-        <!-- Card 1 — Volvo EC220E Crawler Excavator -->
-        <div class="product-card">
-          <div class="product-card__img">
-            <img class="primary" src="ChatGPT Image Apr 13, 2026, 06_40_48 PM.png" alt="Volvo EC220E Crawler Excavator" loading="lazy">
-            <img class="hover-img" src="ChatGPT Image Apr 13, 2026, 06_39_56 PM.png" alt="Volvo EC220E Side View" loading="lazy">
-            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 3 Photos</span>
-            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
-            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
-          </div>
-          <div class="product-card__body">
-            <h3 class="product-card__name">2022 Volvo EC220E Crawler Excavator</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2022</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 2,100 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
-            <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>285,000</div><div class="product-card__finance">from AED 20,000/mo</div></div>
-              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2 — VIDEO on hover -->
-        <div class="product-card" data-href="product-detail-2.html">
-          <div class="product-card__img">
-            <img class="primary" src="Volvo FM460.jpg" alt="Volvo FM460" loading="lazy">
-            <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
-            <span class="product-card__hover-tag product-card__hover-tag--video"><i class="fi fi-rr-play"></i> Video</span>
-            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
-            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
-          </div>
-          <div class="product-card__body">
-            <h3 class="product-card__name">Volvo FM460 6×4 Tractor</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 72,000 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> KSA</span></div>
-            <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>220,000</div><div class="product-card__finance">from AED 3,100/mo</div></div>
-              <a href="product-detail-2.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 — Volvo FE 280 Distribution (VIDEO on hover) -->
-        <div class="product-card">
-          <div class="product-card__img">
-            <img class="primary" src="Volvo FE 280.jpg" alt="Volvo FE 280" loading="lazy">
-            <video src="https://ik.imagekit.io/4erco1shm/PixVerse_V6_Image_Text_540P_based_on_the_attac.mp4?updatedAt=1775592049282" muted loop preload="none"></video>
-            <span class="product-card__hover-tag product-card__hover-tag--video"><i class="fi fi-rr-play"></i> Video</span>
-            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
-            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
-          </div>
-          <div class="product-card__body">
-            <h3 class="product-card__name">Volvo FE 280 Distribution</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2023</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 18,400 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
-            <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>195,000</div><div class="product-card__finance">from AED 2,800/mo</div></div>
-              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4 — Volvo FMX 460 Tipper Truck -->
-        <div class="product-card">
-          <div class="product-card__img">
-            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/30/03/21639708-01.jpg" alt="Volvo FMX 460 Tipper Truck" loading="lazy">
-            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/30/03/21639708-02.jpg" alt="Volvo FMX 460 Side View" loading="lazy">
-            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> Photos</span>
-            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span><span class="product-card__badge product-card__badge--featured"><i class="fi fi-rr-star" style="font-size:9px;display:flex;"></i> Featured</span></div>
-            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
-          </div>
-          <div class="product-card__body">
-            <h3 class="product-card__name">Volvo FMX 460 Tipper Truck</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> New</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 338 kW / 460 HP</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Netherlands</span></div>
-            <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>220,000</div><div class="product-card__finance">from AED 3,200/mo</div></div>
-              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5 — Volvo FMX 520 Tipper Truck -->
-        <div class="product-card">
-          <div class="product-card__img">
-            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/30/03/21639688-01.jpg" alt="Volvo FMX 520 Tipper Truck" loading="lazy">
-            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/30/03/21639688-02.jpg" alt="Volvo FMX 520 Side View" loading="lazy">
-            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> Photos</span>
-            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
-            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
-          </div>
-          <div class="product-card__body">
-            <h3 class="product-card__name">Volvo FMX 520 Tipper Truck</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> New</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 382 kW / 520 HP</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Netherlands</span></div>
-            <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>257,000</div><div class="product-card__finance">from AED 3,800/mo</div></div>
-              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 6 — Volvo ECR235EL Tracked Excavator -->
-        <div class="product-card">
-          <div class="product-card__img">
-            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/48/87/21449867-01.jpg" alt="Volvo ECR235EL Tracked Excavator" loading="lazy">
-            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/48/87/21449867-02.jpg" alt="Volvo ECR235EL Side View" loading="lazy">
-            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 15 Photos</span>
-            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
-            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
-          </div>
-          <div class="product-card__body">
-            <h3 class="product-card__name">Volvo ECR235EL Tracked Excavator</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2016</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 8,000 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Norway</span></div>
-            <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>257,000</div><div class="product-card__finance">from AED 3,800/mo</div></div>
-              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 7 — Komatsu PC210LC-11 Crawler Excavator -->
-        <div class="product-card">
-          <div class="product-card__img">
-            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/43/86/21437172-01.jpg" alt="Komatsu PC210LC-11 Crawler Excavator" loading="lazy">
-            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/hdv/ts/43/86/21437172-02.jpg" alt="Komatsu PC210LC-11 Side View" loading="lazy">
-            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 12 Photos</span>
-            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
-            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
-          </div>
-          <div class="product-card__body">
-            <h3 class="product-card__name">Komatsu PC210LC-11 Crawler Excavator</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2018</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 6,433 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> France</span></div>
-            <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>248,000</div><div class="product-card__finance">from AED 3,600/mo</div></div>
-              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 8 — Volvo FH 500 Globetrotter XL -->
-        <div class="product-card">
-          <div class="product-card__img">
-            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/64/90/21487742-01.jpg" alt="Volvo FH 500 Globetrotter XL" loading="lazy">
-            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/64/90/21487742-02.jpg" alt="Volvo FH 500 Globetrotter XL Side View" loading="lazy">
-            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> Photos</span>
-            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
-            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
-          </div>
-          <div class="product-card__body">
-            <h3 class="product-card__name">Volvo FH 500 Globetrotter XL</h3>
-            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2023</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 317,942 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Lithuania</span></div>
-            <div class="product-card__footer">
-              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>272,000</div><div class="product-card__finance">from AED 4,000/mo</div></div>
-              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 9 — Volvo FH 500 XL -->
-        <div class="product-card">
+        <!-- Card 1 — 2023 Volvo FH 500 XL Tractor Unit -->
+        <div class="product-card" data-href="product-detail-2.html" data-search="2023 volvo fh 500 xl tractor unit trucks austria 194329 km">
           <div class="product-card__img">
             <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-01.jpg" alt="2023 Volvo FH 500 XL Tractor Unit" loading="lazy">
             <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/04/94/21528542-02.jpg" alt="2023 Volvo FH 500 XL Side View" loading="lazy">
-            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> Photos</span>
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 28 Photos</span>
             <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
             <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+            <div class="grade-tag grade-tag--A"><span class="grade-tag__letter">A</span> Grade</div>
           </div>
           <div class="product-card__body">
             <h3 class="product-card__name">2023 Volvo FH 500 XL Tractor Unit</h3>
             <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2023</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 194,329 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Austria</span></div>
             <div class="product-card__footer">
               <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>323,000</div><div class="product-card__finance">from AED 4,800/mo</div></div>
-              <a href="product-detail.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+              <a href="product-detail-2.html" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
             </div>
           </div>
         </div>
 
+        <!-- Card 2 — VIDEO on hover -->
+        <div class="product-card" data-search="volvo fm460 6x4 tractor trucks 2021 72000 km ksa saudi">
+          <div class="product-card__img">
+            <img class="primary" src="Volvo FM460.jpg" alt="Volvo FM460" loading="lazy">
+            <video src="Video_Generation_From_User_Request.mp4" muted loop preload="none"></video>
+            <span class="product-card__hover-tag product-card__hover-tag--video"><i class="fi fi-rr-play"></i> Video</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+            <div class="grade-tag grade-tag--B"><span class="grade-tag__letter">B</span> Grade</div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Volvo FM460 6×4 Tractor</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2021</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 72,000 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> KSA</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>220,000</div><div class="product-card__finance">from AED 3,100/mo</div></div>
+              <a href="#" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 — Volvo FE 280 Distribution (VIDEO on hover) -->
+        <div class="product-card" data-search="volvo fe 280 distribution trucks 2023 18400 km uae">
+          <div class="product-card__img">
+            <img class="primary" src="Volvo FE 280.jpg" alt="Volvo FE 280" loading="lazy">
+            <video src="https://ik.imagekit.io/4erco1shm/PixVerse_V6_Image_Text_540P_based_on_the_attac.mp4?updatedAt=1775592049282" muted loop preload="none"></video>
+            <span class="product-card__hover-tag product-card__hover-tag--video"><i class="fi fi-rr-play"></i> Video</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+            <div class="grade-tag grade-tag--A"><span class="grade-tag__letter">A</span> Grade</div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Volvo FE 280 Distribution</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2023</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 18,400 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>195,000</div><div class="product-card__finance">from AED 2,800/mo</div></div>
+              <a href="#" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 — 2018 Volvo FH 500 Tractor Unit -->
+        <div class="product-card" data-search="2018 volvo fh 500 tractor unit trucks germany 714900 km">
+          <div class="product-card__img">
+            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/47/06/21677753-01.jpg" alt="2018 Volvo FH 500 Tractor Unit" loading="lazy">
+            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/47/06/21677753-02.jpg" alt="2018 Volvo FH 500 Side View" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 42 Photos</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span><span class="product-card__badge product-card__badge--featured"><i class="fi fi-rr-star" style="font-size:9px;display:flex;"></i> Featured</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+            <div class="grade-tag grade-tag--D"><span class="grade-tag__letter">D</span> Grade</div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">2018 Volvo FH 500 Tractor Unit</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2018</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 714,900 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Germany</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>110,000</div><div class="product-card__finance">from AED 1,600/mo</div></div>
+              <a href="#" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 — 2022 Volvo FH 500 Globetrotter XL -->
+        <div class="product-card" data-search="2022 volvo fh 500 globetrotter xl trucks netherlands 432176 km">
+          <div class="product-card__img">
+            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/09/86/21433102-01.jpg" alt="2022 Volvo FH 500 Globetrotter XL" loading="lazy">
+            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/09/86/21433102-02.jpg" alt="2022 Volvo FH 500 Globetrotter XL Side View" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 15 Photos</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+            <div class="grade-tag grade-tag--B"><span class="grade-tag__letter">B</span> Grade</div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">2022 Volvo FH 500 Globetrotter XL</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2022</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 432,176 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Netherlands</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>197,000</div><div class="product-card__finance">from AED 2,900/mo</div></div>
+              <a href="#" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 — Volvo ECR235EL Tracked Excavator -->
+        <div class="product-card" data-search="volvo ecr235el tracked excavator construction 2016 8000 hrs norway">
+          <div class="product-card__img">
+            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/48/87/21449867-01.jpg" alt="Volvo ECR235EL Tracked Excavator" loading="lazy">
+            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/48/87/21449867-02.jpg" alt="Volvo ECR235EL Side View" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 15 Photos</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+            <div class="grade-tag grade-tag--C"><span class="grade-tag__letter">C</span> Grade</div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Volvo ECR235EL Tracked Excavator</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2016</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 8,000 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Norway</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>257,000</div><div class="product-card__finance">from AED 3,800/mo</div></div>
+              <a href="#" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7 — 2020 Volvo FH 500 Globetrotter XL -->
+        <div class="product-card" data-search="2020 volvo fh 500 globetrotter xl trucks netherlands 615445 km">
+          <div class="product-card__img">
+            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/09/86/21433102-03.jpg" alt="2020 Volvo FH 500 Globetrotter XL" loading="lazy">
+            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/09/86/21433102-04.jpg" alt="2020 Volvo FH 500 Globetrotter XL Side" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 19 Photos</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+            <div class="grade-tag grade-tag--C"><span class="grade-tag__letter">C</span> Grade</div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">2020 Volvo FH 500 Globetrotter XL</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2020</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 615,445 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Netherlands</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>380,000</div><div class="product-card__finance">from AED 5,600/mo</div></div>
+              <a href="#" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8 — 2023 Volvo FH 460 Globetrotter XL -->
+        <div class="product-card" data-search="2023 volvo fh 460 globetrotter xl trucks poland 401900 km">
+          <div class="product-card__img">
+            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/45/01/21617473-01.jpg" alt="2023 Volvo FH 460 Globetrotter XL" loading="lazy">
+            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/45/01/21617473-02.jpg" alt="2023 Volvo FH 460 Globetrotter XL Side View" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 14 Photos</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+            <div class="grade-tag grade-tag--B"><span class="grade-tag__letter">B</span> Grade</div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">2023 Volvo FH 460 Globetrotter XL</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2023</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 401,900 km</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> Poland</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>250,000</div><div class="product-card__finance">from AED 3,700/mo</div></div>
+              <a href="#" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 9 — Volvo EC220E Crawler Excavator -->
+        <div class="product-card" data-search="volvo ec220e crawler excavator excavators 2022 2100 hrs uae">
+          <div class="product-card__img">
+            <img class="primary" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/48/87/21449867-03.jpg" alt="Volvo EC220E Crawler Excavator" loading="lazy">
+            <img class="hover-img" src="https://cdn.truckscout24.com/data/listing/img/vga/ts/48/87/21449867-04.jpg" alt="Volvo EC220E Excavator Side" loading="lazy">
+            <span class="product-card__hover-tag product-card__hover-tag--gallery"><i class="fi fi-rr-picture"></i> 22 Photos</span>
+            <div class="product-card__badges"><span class="product-card__badge product-card__badge--approved"><i class="fi fi-rr-badge-check" style="font-size:9px;display:flex;"></i> Approved</span></div>
+            <div class="product-card__fav"><i class="fi fi-rr-heart"></i></div>
+            <div class="grade-tag grade-tag--B"><span class="grade-tag__letter">B</span> Grade</div>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Volvo EC220E Crawler Excavator</h3>
+            <div class="product-card__meta"><span><i class="fi fi-rr-calendar"></i> 2022</span><span class="sep">•</span><span><i class="fi fi-rr-dashboard"></i> 2,100 hrs</span><span class="sep">•</span><span><i class="fi fi-rr-marker"></i> UAE</span></div>
+            <div class="product-card__footer">
+              <div><div class="product-card__price"><span class="product-card__price-currency">AED </span>285,000</div><div class="product-card__finance">from AED 4,200/mo</div></div>
+              <a href="#" class="product-card__cta">View Details <i class="fi fi-rr-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- No Results State -->
+      <div id="noResultsState" style="display:none;text-align:center;padding:60px 20px;background:#fff;border:1px solid var(--border);border-radius:var(--radius);margin-top:4px;">
+        <div style="width:64px;height:64px;border-radius:50%;background:var(--bg-warm);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+          <i class="fi fi-rr-search" style="font-size:26px;color:var(--text-muted);display:flex;"></i>
+        </div>
+        <h3 style="font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--text-primary);margin-bottom:8px;">No listings found</h3>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:24px;">No vehicles match "<strong id="noResultsQuery" style="color:var(--text-primary);"></strong>". Try a different search term.</p>
+        <button onclick="clearGridSearch()" style="padding:10px 24px;background:var(--brand-navy);color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--font-body);">Clear Search</button>
       </div>
 
       <!-- Pagination -->
@@ -848,7 +1019,7 @@ document.querySelectorAll('.product-card').forEach(card => {
   }
   card.addEventListener('click', (e) => {
     if (e.target.closest('.product-card__fav') || e.target.closest('.product-card__cta')) return;
-    window.location.href = card.dataset.href || 'product-detail.html';
+    if (card.dataset.href) window.location.href = card.dataset.href;
   });
 });
 
@@ -888,14 +1059,15 @@ document.querySelectorAll('.page-btn:not(.page-btn--nav)').forEach(btn => {
 
 // ── Search Functionality with Autocomplete ──
 const searchProducts = [
-  { name: '2022 Volvo EC220E Crawler Excavator', price: 'AED 285,000', meta: '2022 · 2,100 hrs · UAE', category: 'Excavators' },
-  { name: 'Volvo FM460 6×4 Tractor', price: 'AED 220,000', meta: '2021 · 78,500 km · UAE', category: 'Trucks' },
-  { name: 'Volvo FE 280 Distribution', price: 'AED 195,000', meta: '2023 · 32,000 km · UAE', category: 'Trucks' },
-  { name: '2022 Volvo FH 460 Tractor Unit', price: 'AED 485,000', meta: '2022 · 559,404 km · Austria', category: 'Trucks' },
-  { name: '2022 Volvo FH 460 Tractor Unit II', price: 'AED 220,000', meta: '2022 · 558,499 km · Austria', category: 'Trucks' },
   { name: '2023 Volvo FH 500 XL Tractor Unit', price: 'AED 323,000', meta: '2023 · 194,329 km · Austria', category: 'Trucks' },
+  { name: 'Volvo FM460 6×4 Tractor', price: 'AED 220,000', meta: '2021 · 72,000 km · KSA', category: 'Trucks' },
+  { name: 'Volvo FE 280 Distribution', price: 'AED 195,000', meta: '2023 · 18,400 km · UAE', category: 'Trucks' },
+  { name: '2018 Volvo FH 500 Tractor Unit', price: 'AED 110,000', meta: '2018 · 714,900 km · Germany', category: 'Trucks' },
+  { name: '2022 Volvo FH 500 Globetrotter XL', price: 'AED 197,000', meta: '2022 · 432,176 km · Netherlands', category: 'Trucks' },
+  { name: 'Volvo ECR235EL Tracked Excavator', price: 'AED 257,000', meta: '2016 · 8,000 hrs · Norway', category: 'Excavators' },
+  { name: '2023 Volvo FH 460 Globetrotter XL', price: 'AED 250,000', meta: '2023 · 401,900 km · Poland', category: 'Trucks' },
   { name: '2020 Volvo FH 500 Globetrotter XL', price: 'AED 380,000', meta: '2020 · 615,445 km · Netherlands', category: 'Trucks' },
-  { name: '2018 Volvo FH 500 Tractor Unit', price: 'AED 62,000', meta: '2018 · 714,900 km · Germany', category: 'Trucks' },
+  { name: 'Volvo EC220E Crawler Excavator', price: 'AED 285,000', meta: '2022 · 2,100 hrs · UAE', category: 'Excavators' },
 ];
 
 const headerSearch = document.getElementById('headerSearch');
@@ -963,12 +1135,118 @@ function renderDropdown(query) {
       '</a>'
     ).join('');
     html += '<div class="search-dropdown__footer"><a href="listing.html?q=' + encodeURIComponent(query) + '">See all results for "' + query + '" →</a></div>';
+    html += '<div class="search-dropdown__save" onclick="openSaveModal(\'' + query.replace(/'/g, "\\'") + '\')"><i class="fi fi-rr-bell"></i> Save this search &amp; get alerts</div>';
     searchDropdown.innerHTML = html;
   }
   searchDropdown.classList.add('active');
 }
 
-headerSearch.addEventListener('input', (e) => { renderDropdown(e.target.value.trim()); });
+headerSearch.addEventListener('input', (e) => {
+  const q = e.target.value.trim();
+  renderDropdown(q);
+  filterGrid(q);
+});
+
+// ── Grid Filter ──────────────────────────────────────────────────
+const allCards = document.querySelectorAll('#productGrid .product-card');
+const countEl = document.querySelector('.listing-toolbar__count');
+const pagination = document.querySelector('.pagination');
+const noResults = document.getElementById('noResultsState');
+
+function filterGrid(query) {
+  const terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
+  let visible = 0;
+
+  allCards.forEach(card => {
+    const text = (card.dataset.search || card.querySelector('.product-card__name')?.textContent || '').toLowerCase();
+    const match = !terms.length || terms.every(t => text.includes(t));
+    card.style.display = match ? '' : 'none';
+    if (match) visible++;
+  });
+
+  noResults.style.display = visible === 0 ? 'block' : 'none';
+  document.getElementById('noResultsQuery').textContent = query;
+  pagination.style.display = (terms.length && visible < allCards.length) ? 'none' : '';
+
+  const saveBtn = document.getElementById('saveSearchBtn');
+  if (countEl) {
+    if (terms.length) {
+      countEl.innerHTML = 'Showing <strong>' + visible + '</strong> result' + (visible !== 1 ? 's' : '') + ' for "<strong>' + query + '</strong>"';
+      if (saveBtn) saveBtn.style.display = 'flex';
+    } else {
+      countEl.innerHTML = 'Showing <strong>1–' + allCards.length + '</strong> of <strong>500+</strong> vehicles';
+      if (saveBtn) saveBtn.style.display = 'none';
+    }
+  }
+}
+
+function clearGridSearch() {
+  headerSearch.value = '';
+  filterGrid('');
+  document.getElementById('saveSearchBtn').style.display = 'none';
+  searchDropdown.classList.remove('active');
+}
+
+// ── Save Search ──────────────────────────────────────────────────
+let currentSaveQuery = '';
+
+function openSaveModal(query) {
+  currentSaveQuery = query || headerSearch.value.trim() || document.getElementById('saveSearchLabel').textContent;
+  document.getElementById('ssQueryLabel').textContent = currentSaveQuery || 'Your Search';
+  document.getElementById('ssEmailInput').value = '';
+  document.getElementById('ssEmailInput').classList.remove('error');
+  document.getElementById('ssErrorMsg').style.display = 'none';
+  document.getElementById('ssForm').style.display = 'block';
+  document.getElementById('ssSuccess').style.display = 'none';
+  document.getElementById('ssOverlay').classList.add('active');
+  setTimeout(() => document.getElementById('ssEmailInput').focus(), 300);
+}
+
+function closeSaveModal() {
+  document.getElementById('ssOverlay').classList.remove('active');
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('ssOverlay')) closeSaveModal();
+}
+
+function submitSaveSearch() {
+  const emailEl = document.getElementById('ssEmailInput');
+  const email = emailEl.value.trim();
+  const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if (!valid) {
+    emailEl.classList.add('error');
+    document.getElementById('ssErrorMsg').style.display = 'block';
+    emailEl.focus();
+    return;
+  }
+  // Show success state
+  document.getElementById('ssConfirmEmail').textContent = email;
+  document.getElementById('ssConfirmQuery').textContent = currentSaveQuery || 'your search';
+  document.getElementById('ssForm').style.display = 'none';
+  document.getElementById('ssSuccess').style.display = 'block';
+}
+
+// Keyboard shortcuts for modal
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeSaveModal();
+  if (e.key === 'Enter' && document.getElementById('ssOverlay').classList.contains('active')) {
+    if (document.getElementById('ssForm').style.display !== 'none') submitSaveSearch();
+    else closeSaveModal();
+  }
+});
+
+// Show Save Search bar + filter grid if ?q= param is present
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('q');
+  if (q) {
+    currentSaveQuery = q;
+    document.getElementById('saveSearchBtn').style.display = 'flex';
+    if (headerSearch) headerSearch.value = q;
+    filterGrid(q);
+  }
+})();
 
 headerSearch.addEventListener('keydown', (e) => {
   const items = searchDropdown.querySelectorAll('.search-dropdown__item');
@@ -1003,5 +1281,171 @@ document.addEventListener('click', (e) => {
   }
 });
 </script>
+<!-- ── Save Search Modal ── -->
+<div class="ss-overlay" id="ssOverlay" onclick="handleOverlayClick(event)">
+  <div class="ss-modal" id="ssModal">
+    <button class="ss-modal__close" onclick="closeSaveModal()"><i class="fi fi-rr-cross-small" style="display:flex;"></i></button>
+
+    <!-- Form State -->
+    <div id="ssForm">
+      <div class="ss-modal__icon"><i class="fi fi-rr-bell"></i></div>
+      <h3>Save This Search</h3>
+      <p class="ss-modal__sub">Get email alerts when new listings matching your search are added to FAMCO Marketplace.</p>
+      <div style="text-align:center;margin-bottom:20px;">
+        <span class="ss-modal__query-pill"><i class="fi fi-rr-search"></i> <span id="ssQueryLabel">Your Search</span></span>
+      </div>
+      <label for="ssEmailInput">Your Email Address</label>
+      <input class="ss-modal__input" id="ssEmailInput" type="email" placeholder="e.g. john@example.com" autocomplete="email">
+      <p class="ss-modal__input-hint">We'll only email you when matching listings are added. No spam.</p>
+      <p class="ss-modal__input-hint error-msg" id="ssErrorMsg">Please enter a valid email address.</p>
+      <button class="ss-modal__btn" onclick="submitSaveSearch()"><i class="fi fi-rr-bell"></i> Save Search &amp; Get Alerts</button>
+      <button class="ss-modal__cancel" onclick="closeSaveModal()">Cancel</button>
+    </div>
+
+    <!-- Success State -->
+    <div class="ss-modal__success" id="ssSuccess">
+      <div class="ss-modal__success-icon"><i class="fi fi-rr-check-circle"></i></div>
+      <h3>Search Saved!</h3>
+      <p>We'll notify you at <strong id="ssConfirmEmail"></strong> whenever new listings matching <strong id="ssConfirmQuery"></strong> are added.</p>
+      <button class="ss-modal__success-close" onclick="closeSaveModal()">Done</button>
+    </div>
+  </div>
+</div>
+
+<!-- Sidebar overlay backdrop -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+<script>
+function openSidebar(){
+  document.getElementById('filterSidebar').classList.add('open');
+  document.getElementById('sidebarOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeSidebar(){
+  document.getElementById('filterSidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+</script>
+
+<!-- ── CTA Color Customizer ── -->
+<style>
+.color-customizer{position:fixed;bottom:100px;right:32px;z-index:8000;}
+.color-customizer__trigger{width:44px;height:44px;border-radius:50%;background:#fff;border:none;box-shadow:0 2px 14px rgba(0,0,0,0.15);cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative;transition:box-shadow 0.2s,transform 0.2s;outline:none;}
+.color-customizer__trigger:hover{box-shadow:0 4px 20px rgba(0,0,0,0.22);transform:scale(1.06);}
+.color-customizer__trigger i{font-size:18px;color:var(--brand-navy);display:flex;}
+.color-customizer__dot{position:absolute;bottom:2px;right:2px;width:13px;height:13px;border-radius:50%;background:var(--brand-navy);border:2px solid #fff;}
+.color-customizer__panel{position:absolute;bottom:56px;right:0;width:228px;background:#fff;border-radius:14px;padding:16px;box-shadow:0 8px 32px rgba(0,0,0,0.16);border:1px solid var(--border-light);display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(8px) scale(0.97);pointer-events:none;transition:opacity 0.2s ease,transform 0.2s ease;transform-origin:bottom right;}
+.color-customizer.open .color-customizer__panel{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}
+.color-customizer__header{display:flex;align-items:center;justify-content:space-between;}
+.color-customizer__title{font-family:var(--font-display);font-weight:800;font-size:13px;color:var(--text-primary);}
+.color-customizer__close{width:22px;height:22px;border:none;background:var(--bg-warm,#F4F8FD);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:10px;line-height:1;padding:0;}
+.color-customizer__close:hover{background:var(--border);}
+.color-customizer__swatch-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+.color-customizer__swatch{width:100%;aspect-ratio:1;border-radius:50%;cursor:pointer;border:2.5px solid transparent;transition:transform 0.15s,border-color 0.15s,box-shadow 0.15s;}
+.color-customizer__swatch:hover{transform:scale(1.18);box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+.color-customizer__swatch.active{border-color:var(--text-primary);transform:scale(1.1);}
+.color-customizer__swatch-name{font-size:10px;color:var(--text-muted);text-align:center;height:14px;margin-top:-4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.color-customizer__wheel-wrap{display:flex;align-items:center;gap:8px;}
+.color-customizer__wheel{width:34px;height:34px;border:none;border-radius:50%;cursor:pointer;padding:0;background:none;outline:none;overflow:hidden;flex-shrink:0;}
+.color-customizer__wheel::-webkit-color-swatch-wrapper{padding:0;}
+.color-customizer__wheel::-webkit-color-swatch{border:none;border-radius:50%;}
+.color-customizer__hex{flex:1;padding:6px 9px;border:1.5px solid var(--border);border-radius:6px;font-size:12px;font-family:monospace;color:var(--text-primary);outline:none;min-width:0;transition:border-color 0.2s;}
+.color-customizer__hex:focus{border-color:var(--brand-navy);}
+.color-customizer__preview{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--bg-warm,#F4F8FD);border-radius:7px;}
+.color-customizer__preview-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
+.color-customizer__preview span{font-size:11px;color:var(--text-secondary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.color-customizer__btn-row{display:flex;gap:7px;}
+.color-customizer__apply{flex:1;padding:8px 0;background:var(--brand-navy);color:#fff;border:none;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--font-body);transition:filter 0.2s;}
+.color-customizer__apply:hover{filter:brightness(1.1);}
+.color-customizer__reset{padding:8px 11px;background:transparent;color:var(--text-muted);border:1.5px solid var(--border);border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;white-space:nowrap;}
+.color-customizer__reset:hover{border-color:var(--text-muted);color:var(--text-primary);}
+</style>
+
+<div class="color-customizer" id="colorCustomizer">
+  <div class="color-customizer__panel" id="customizerPanel">
+    <div class="color-customizer__header">
+      <div class="color-customizer__title">Theme Color</div>
+      <button class="color-customizer__close" onclick="toggleCustomizer()" title="Close">&#10005;</button>
+    </div>
+    <div class="color-customizer__swatch-row" id="swatchRow">
+      <div class="color-customizer__swatch active" style="background:#0066B3;" data-color="#0066B3" data-name="FAMCO Navy"  title="FAMCO Navy"   onmouseenter="showSwatchName('FAMCO Navy')"  onmouseleave="clearSwatchName()" onclick="applyColor('#0066B3',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#003F87;" data-color="#003F87" data-name="Gulf Navy"   title="Gulf Navy"    onmouseenter="showSwatchName('Gulf Navy')"   onmouseleave="clearSwatchName()" onclick="applyColor('#003F87',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#1D4ED8;" data-color="#1D4ED8" data-name="Royal Blue"  title="Royal Blue"   onmouseenter="showSwatchName('Royal Blue')"  onmouseleave="clearSwatchName()" onclick="applyColor('#1D4ED8',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#0F766E;" data-color="#0F766E" data-name="Port Teal"   title="Port Teal"    onmouseenter="showSwatchName('Port Teal')"   onmouseleave="clearSwatchName()" onclick="applyColor('#0F766E',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#374151;" data-color="#374151" data-name="Steel Grey"  title="Steel Grey"   onmouseenter="showSwatchName('Steel Grey')"  onmouseleave="clearSwatchName()" onclick="applyColor('#374151',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#C8962E;" data-color="#C8962E" data-name="Desert Gold" title="Desert Gold"  onmouseenter="showSwatchName('Desert Gold')" onmouseleave="clearSwatchName()" onclick="applyColor('#C8962E',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#B45309;" data-color="#B45309" data-name="Amber"       title="Amber Bronze" onmouseenter="showSwatchName('Amber')"       onmouseleave="clearSwatchName()" onclick="applyColor('#B45309',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#B91C1C;" data-color="#B91C1C" data-name="UAE Red"     title="UAE Red"      onmouseenter="showSwatchName('UAE Red')"     onmouseleave="clearSwatchName()" onclick="applyColor('#B91C1C',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#15803D;" data-color="#15803D" data-name="Gulf Green"  title="Gulf Green"   onmouseenter="showSwatchName('Gulf Green')"  onmouseleave="clearSwatchName()" onclick="applyColor('#15803D',this)"></div>
+      <div class="color-customizer__swatch"        style="background:#7E1D22;" data-color="#7E1D22" data-name="Gulf Maroon" title="Gulf Maroon"  onmouseenter="showSwatchName('Gulf Maroon')" onmouseleave="clearSwatchName()" onclick="applyColor('#7E1D22',this)"></div>
+    </div>
+    <div class="color-customizer__swatch-name" id="swatchName"></div>
+    <div class="color-customizer__wheel-wrap">
+      <input class="color-customizer__wheel" type="color" id="colorWheel" value="#0066B3" title="Custom color">
+      <input class="color-customizer__hex" type="text" id="colorHex" value="#0066B3" maxlength="7" placeholder="#000000">
+    </div>
+    <div class="color-customizer__preview">
+      <div class="color-customizer__preview-dot" id="previewDot" style="background:#0066B3;"></div>
+      <span id="previewLabel">FAMCO Navy (default)</span>
+    </div>
+    <div class="color-customizer__btn-row">
+      <button class="color-customizer__apply" onclick="applyColor(document.getElementById('colorHex').value,null);toggleCustomizer()">Apply</button>
+      <button class="color-customizer__reset" onclick="resetColor()">Reset</button>
+    </div>
+  </div>
+  <button class="color-customizer__trigger" id="customizerTab" onclick="toggleCustomizer()" title="Theme Color">
+    <i class="fi fi-rr-palette"></i>
+    <span class="color-customizer__dot" id="customizerDot"></span>
+  </button>
+</div>
+
+<script>
+(function(){
+  var DEFAULT_COLOR='#0066B3';
+  function hexToRgb(h){return{r:parseInt(h.slice(1,3),16),g:parseInt(h.slice(3,5),16),b:parseInt(h.slice(5,7),16)};}
+  function darken(h,a){var c=hexToRgb(h);return'#'+[c.r,c.g,c.b].map(function(v){return Math.max(0,Math.round(v*(1-a))).toString(16).padStart(2,'0');}).join('');}
+  function lighten(h,a){var c=hexToRgb(h);return'#'+[c.r,c.g,c.b].map(function(v){return Math.min(255,Math.round(v+(255-v)*a)).toString(16).padStart(2,'0');}).join('');}
+
+  window.applyColor=function(hex,swatchEl){
+    if(!hex||!/^#[0-9A-Fa-f]{6}$/.test(hex))return;
+    var root=document.documentElement;
+    root.style.setProperty('--brand-navy',hex);
+    root.style.setProperty('--brand-navy-dark',darken(hex,0.3));
+    root.style.setProperty('--brand-navy-light',lighten(hex,0.15));
+    localStorage.setItem('ctaColor',hex);
+    document.getElementById('colorWheel').value=hex;
+    document.getElementById('colorHex').value=hex;
+    document.getElementById('previewDot').style.background=hex;
+    document.getElementById('previewLabel').textContent=hex===DEFAULT_COLOR?'FAMCO Navy (default)':hex.toUpperCase();
+    document.getElementById('customizerDot').style.background=hex;
+    document.querySelector('.color-customizer__apply').style.background=hex;
+    document.querySelectorAll('.color-customizer__swatch').forEach(function(s){s.classList.remove('active');});
+    var active=swatchEl||document.querySelector('.color-customizer__swatch[data-color="'+hex.toUpperCase()+'"],.color-customizer__swatch[data-color="'+hex.toLowerCase()+'"]');
+    if(active){active.classList.add('active');document.getElementById('swatchName').textContent=active.dataset.name||'';}
+    else{document.getElementById('swatchName').textContent='';}
+  };
+  window.resetColor=function(){
+    localStorage.removeItem('ctaColor');
+    applyColor(DEFAULT_COLOR,document.querySelector('.color-customizer__swatch[data-color="'+DEFAULT_COLOR+'"]'));
+  };
+  window.toggleCustomizer=function(){document.getElementById('colorCustomizer').classList.toggle('open');};
+  window.showSwatchName=function(n){document.getElementById('swatchName').textContent=n;};
+  window.clearSwatchName=function(){var a=document.querySelector('.color-customizer__swatch.active');document.getElementById('swatchName').textContent=a?a.dataset.name:'';};
+
+  var saved=localStorage.getItem('ctaColor');
+  if(saved&&saved!==DEFAULT_COLOR){applyColor(saved,null);}
+  else{document.getElementById('swatchName').textContent='FAMCO Navy';}
+
+  document.getElementById('colorWheel').addEventListener('input',function(){
+    var h=this.value;document.getElementById('colorHex').value=h;document.getElementById('previewDot').style.background=h;applyColor(h,null);
+  });
+  document.getElementById('colorHex').addEventListener('input',function(){
+    var h=this.value.startsWith('#')?this.value:'#'+this.value;
+    document.getElementById('previewDot').style.background=h;
+    if(/^#[0-9A-Fa-f]{6}$/.test(h)){document.getElementById('colorWheel').value=h;applyColor(h,null);}
+  });
+})();
+</script>
+
 </body>
 </html>

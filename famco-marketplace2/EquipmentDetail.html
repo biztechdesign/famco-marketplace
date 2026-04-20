@@ -16,6 +16,7 @@
 
 :root {
   --y:        #FFD100;
+  --y-rgb:    255,209,0;
   --y-dark:   #E6BC00;
   --y-deeper: #C9A400;
   --y-light:  #FFFBE6;
@@ -34,7 +35,7 @@
   --red:      #DC2626;
   --orange:   #EA580C;
 
-  --px:       80px;
+  --px:       clamp(80px,7vw,140px);
   --r:        8px;
   --rl:       14px;
   --sh-sm:    0 1px 4px rgba(0,0,0,.07);
@@ -47,7 +48,7 @@ html{scroll-behavior:smooth;overflow-x:hidden;}
 body{
   font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   background:var(--white);color:var(--ink);
-  max-width:1440px;width:100%;margin:0 auto;
+  width:100%;
   font-size:14px;line-height:1.6;
 }
 a{text-decoration:none;color:inherit;}
@@ -55,116 +56,119 @@ img{display:block;max-width:100%;}
 ul{list-style:none;}
 button{cursor:pointer;border:none;background:none;font-family:inherit;}
 
-/* ── TOP BAR ── */
-.top-bar{
-  background:var(--ink);color:rgba(255,255,255,.8);
-  font-size:12px;padding:0 var(--px);height:38px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.tb-right{display:flex;align-items:center;gap:14px;}
+/* ── LOCALE SWITCH (shared by header + footer) ── */
 .switch{
   display:flex;align-items:center;gap:2px;
-  background:rgba(255,255,255,.08);border-radius:20px;padding:3px 4px;
+  background:rgba(17,24,39,.07);border-radius:20px;padding:3px 4px;
 }
 .sw-btn{
-  font-size:11px;font-weight:600;color:rgba(255,255,255,.55);
-  padding:2px 10px;border-radius:16px;cursor:pointer;
+  font-size:11px;font-weight:600;color:var(--muted);
+  padding:2px 9px;border-radius:16px;cursor:pointer;
   transition:all var(--t);letter-spacing:.3px;
 }
-.sw-btn.on{background:var(--y);color:var(--ink);font-weight:800;}
+.sw-btn.on{background:var(--ink);color:var(--white);font-weight:700;}
 .sw-btn.ar{font-size:12px;}
 
 /* ── HEADER ── */
-header{
-  background:var(--white);padding:0 var(--px);height:72px;
-  display:flex;align-items:center;gap:28px;
-  border-bottom:1px solid var(--border);box-shadow:var(--sh-sm);
-  position:sticky;top:0;z-index:200;
+header {
+  position: sticky; top: 20px; z-index: 200;
+  background: transparent; padding: 0 var(--px);
 }
-.logo{display:flex;align-items:center;gap:10px;flex:1;}
-.logo img{height:40px;width:auto;}
-.logo-fb{display:none;flex-direction:column;justify-content:center;}
-.logo-brand{font-size:22px;font-weight:900;color:var(--ink);letter-spacing:-1px;line-height:1;}
-.logo-brand em{color:var(--y-deeper);font-style:normal;}
-.logo-sub{font-size:8px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:3px;}
-.srch{flex:0 1 560px;max-width:560px;min-width:0;position:relative;}
-.srch-wrap{
-  display:flex;align-items:center;height:42px;
-  background:var(--surface);border:1.5px solid var(--border);
-  border-radius:var(--r);overflow:hidden;
-  transition:border-color var(--t),box-shadow var(--t);
+.h-shell {
+  background: rgba(10,14,20,.82);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,.35);
 }
-.srch-wrap:focus-within{border-color:var(--y-deeper);box-shadow:0 0 0 3px rgba(255,209,0,.18);}
-.srch-cat{
-  height:100%;padding:0 28px 0 12px;
-  font-size:12.5px;font-family:inherit;color:var(--body);
-  background:var(--surface);border:none;border-right:1.5px solid var(--border);
-  outline:none;cursor:pointer;white-space:nowrap;appearance:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239CA3AF' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 8px center;
-  min-width:148px;flex-shrink:0;
-}
-.srch-input{
-  flex:1;height:100%;background:transparent;border:none;
-  padding:0 8px 0 12px;font-size:13.5px;font-family:inherit;color:var(--ink);outline:none;
-}
-.srch-input::placeholder{color:var(--muted);}
-.srch-btn{
-  flex-shrink:0;width:38px;height:34px;margin-right:4px;background:var(--y);border-radius:6px;
-  display:flex;align-items:center;justify-content:center;transition:background var(--t);
-}
-.srch-btn:hover{background:var(--y-dark);}
-.h-acts{display:flex;align-items:center;gap:6px;flex:1;justify-content:flex-end;}
-.h-act{
-  display:flex;flex-direction:column;align-items:center;gap:2px;
-  padding:6px 10px;border-radius:var(--r);
-  transition:background var(--t);color:var(--body);cursor:pointer;
-}
-.h-act:hover{background:var(--surface);color:var(--ink);}
-.h-act span{font-size:10px;font-weight:600;letter-spacing:.3px;white-space:nowrap;}
-.h-cta{
-  background:var(--y);color:var(--ink);
-  padding:0 20px;height:40px;border-radius:var(--r);
-  font-size:13px;font-weight:800;display:flex;align-items:center;gap:7px;
-  transition:background var(--t);white-space:nowrap;margin-left:8px;
-}
-.h-cta:hover{background:var(--y-dark);}
-.h-btn-login{
-  background:transparent;color:var(--ink);border:1.5px solid var(--border);
-  padding:0 18px;height:40px;border-radius:var(--r);
-  font-size:13px;font-weight:700;display:flex;align-items:center;
-  transition:all var(--t);white-space:nowrap;margin-left:8px;
-}
-.h-btn-login:hover{border-color:var(--ink-3);background:var(--surface);}
+.h-row { padding: 0 20px; height: 60px; display: flex; align-items: center; gap: 20px; }
+.logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.logo img { height: 34px; width: auto; }
+.logo-fb { display: none; flex-direction: column; justify-content: center; }
+.logo-brand { font-size: 20px; font-weight: 900; color: var(--white); letter-spacing: -1px; line-height: 1; }
+.logo-brand em { color: var(--y); font-style: normal; }
+.logo-sub { font-size: 8px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.35); margin-top: 3px; }
+.h-acts { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+.h-act { width: 38px; height: 38px; border-radius: var(--r); display: flex; align-items: center; justify-content: center; transition: background var(--t); color: rgba(255,255,255,.8); cursor: pointer; flex-shrink: 0; }
+.h-act:hover { background: rgba(255,255,255,.12); color: var(--white); }
+.h-srch-wrap { position: relative; display: flex; align-items: center; }
+.h-srch-field { position: absolute; right: 100%; top: 50%; transform: translateY(-50%); width: 0; overflow: hidden; transition: width .26s cubic-bezier(.4,0,.2,1); display: flex; align-items: center; background: var(--ink-2); border: 1.5px solid transparent; border-radius: var(--r); margin-right: 4px; }
+.h-srch-wrap.open .h-srch-field { width: 300px; border-color: var(--y-deeper); box-shadow: 0 0 0 3px rgba(var(--y-rgb),.18); }
+.h-srch-input { flex: 1; height: 36px; border: none; background: transparent; padding: 0 10px; font-size: 13px; font-family: inherit; color: var(--white); outline: none; }
+.h-srch-input::placeholder { color: rgba(255,255,255,.38); }
+.h-srch-close { flex-shrink: 0; width: 34px; height: 36px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); cursor: pointer; background: none; border: none; transition: color var(--t); }
+.h-srch-close:hover { color: var(--white); }
+.h-acct { position: relative; margin-left: 4px; }
+.h-cta { background: var(--y); color: var(--ink); padding: 0 16px; height: 38px; border-radius: var(--r); font-size: 12.5px; font-weight: 800; display: flex; align-items: center; gap: 6px; transition: background var(--t); white-space: nowrap; cursor: pointer; border: none; }
+.h-cta:hover { background: var(--y-dark); }
+.h-acct-drop { position: absolute; top: calc(100% + 6px); right: 0; background: var(--white); border: 1px solid var(--border); border-radius: var(--r); box-shadow: var(--sh-md); min-width: 160px; padding: 6px; opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity .15s, transform .15s; z-index: 300; }
+.h-acct:hover .h-acct-drop, .h-acct:focus-within .h-acct-drop { opacity: 1; pointer-events: all; transform: translateY(0); }
+.h-acct-link { display: block; padding: 9px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; color: var(--ink); transition: background var(--t); text-decoration: none; }
+.h-acct-link:hover { background: var(--surface); }
+.h-acct-primary { color: var(--y-deeper); }
+.h-locale { display: flex; align-items: center; gap: 5px; padding-left: 10px; margin-left: 4px; border-left: 1px solid rgba(255,255,255,.15); }
+.h-locale .switch { background: rgba(255,255,255,.1); }
+.h-locale .sw-btn { font-size: 10px; padding: 2px 7px; color: rgba(255,255,255,.5); }
+.h-locale .sw-btn.on { background: var(--white); color: var(--ink); }
+.h-nav { padding: 0 12px; display: flex; align-items: center; height: 44px; gap: 2px; border-top: 1px solid rgba(255,255,255,.07); border-radius: 0 0 14px 14px; }
+.nv-item { position: relative; height: 100%; display: flex; align-items: center; }
+.nv-link { display: flex; align-items: center; gap: 6px; padding: 0 16px; height: 100%; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.7); letter-spacing: .1px; white-space: nowrap; transition: all var(--t); cursor: pointer; }
+.nv-link:hover, .nv-item:hover>.nv-link { color: var(--white); background: rgba(255,255,255,.08); }
+.nv-link.act { color: var(--y); }
 
-/* ── NAV BAR ── */
-.nav-bar{
-  background:var(--ink-2);padding:0 var(--px);
-  display:flex;align-items:center;height:48px;gap:2px;
-  position:sticky;top:72px;z-index:150;
-  overflow:hidden;
+/* ── PAGE BANNER — slides behind floating header, shows page title + breadcrumb ── */
+.page-banner {
+  position: relative;
+  background: var(--ink);
+  margin-top: -104px;
+  padding: 164px var(--px) 60px;
+  overflow: hidden;
+  z-index: 1;
 }
-.nv-item{position:relative;height:100%;display:flex;align-items:center;}
-.nv-link{
-  display:flex;align-items:center;gap:6px;padding:0 16px;height:100%;
-  font-size:13px;font-weight:600;color:rgba(255,255,255,.7);
-  letter-spacing:.1px;white-space:nowrap;transition:all var(--t);cursor:pointer;
+/* Background image layer */
+.pb-bg {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.05);
+  will-change: transform;
 }
-.nv-link:hover,.nv-item:hover>.nv-link{color:var(--white);background:rgba(255,255,255,.08);}
-.nv-link.act{color:var(--y);}
-
-/* ── BREADCRUMB ── */
-.breadcrumb-bar{
-  padding:14px var(--px);
-  background:var(--surface);
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;gap:8px;
-  font-size:12.5px;color:var(--muted);
+/* Directional dark overlay — strong on left for text legibility */
+.pb-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(10,14,20,.96) 0%,
+    rgba(10,14,20,.88) 40%,
+    rgba(10,14,20,.72) 75%,
+    rgba(10,14,20,.55) 100%
+  );
 }
-.bc-link{color:var(--muted);transition:color var(--t);}
-.bc-link:hover{color:var(--y-deeper);}
-.bc-sep{color:var(--border);font-size:11px;}
-.bc-cur{color:var(--ink);font-weight:600;}
+.pb-pattern {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,209,0,.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+.pb-bar {
+  position: absolute; left: 0; top: 124px; bottom: 0;
+  width: 4px; background: var(--y);
+}
+.pb-inner { position: relative; z-index: 2; }
+.pb-crumb {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: rgba(255,255,255,.45);
+  margin-bottom: 12px; flex-wrap: wrap;
+}
+.pb-crumb a { color: rgba(255,255,255,.45); transition: color var(--t); }
+.pb-crumb a:hover { color: var(--y); }
+.pb-crumb-sep { color: rgba(255,255,255,.25); font-size: 10px; }
+.pb-crumb-cur { color: rgba(255,255,255,.72); }
+.pb-title {
+  font-size: 30px; font-weight: 800;
+  color: var(--white); letter-spacing: -0.5px;
+  line-height: 1.15;
+}
 
 /* ── DETAIL LAYOUT ── */
 .detail-wrap{
@@ -222,6 +226,13 @@ header{
   padding:4px 10px;border-radius:5px;
   backdrop-filter:blur(6px);
 }
+.gallery-main .gm-grade{
+  position:absolute;top:44px;left:14px;
+  background:rgba(17,24,39,.78);color:var(--white);
+  font-size:10px;font-weight:800;letter-spacing:.4px;
+  padding:4px 10px;border-radius:5px;
+  backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);
+}
 .gallery-nav{
   position:absolute;top:50%;transform:translateY(-50%);
   display:flex;justify-content:space-between;width:100%;padding:0 12px;pointer-events:none;
@@ -248,7 +259,7 @@ header{
   border:2px solid var(--border);cursor:pointer;
   transition:all var(--t);background:var(--white);
 }
-.gthumb.on{border-color:var(--y);box-shadow:0 0 0 2px rgba(255,209,0,.3);}
+.gthumb.on{border-color:var(--y);box-shadow:0 0 0 2px rgba(var(--y-rgb),.3);}
 .gthumb:hover{border-color:var(--ink-3);}
 .gthumb img{width:100%;height:100%;object-fit:cover;}
 .gthumb-add{
@@ -305,7 +316,7 @@ header{
 .desc-text{font-size:14px;color:var(--body);line-height:1.8;margin-bottom:18px;}
 .desc-text p{margin-bottom:14px;}
 .desc-highlights{
-  background:var(--y-pale);border:1px solid rgba(255,209,0,.3);
+  background:var(--y-pale);border:1px solid rgba(var(--y-rgb),.3);
   border-radius:var(--r);padding:16px 20px;margin-top:4px;
 }
 .desc-hl-title{
@@ -325,6 +336,159 @@ header{
 /* ── Accordion headers (mobile only — hidden on desktop) ── */
 .acc-hd {
   display: none; /* shown only inside the 768px media query */
+}
+
+/* ── Finance Options panel ── */
+.finance-wrap{display:flex;flex-direction:column;gap:20px;}
+.finance-head{margin-bottom:4px;}
+.finance-title{font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-.01em;margin-bottom:6px;}
+.finance-sub{font-size:13.5px;color:var(--body);}
+
+.finance-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:24px;
+  align-items:stretch;
+}
+
+.finance-inputs{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:22px 22px 18px;
+  display:flex;flex-direction:column;gap:22px;
+}
+
+.fin-row{display:flex;flex-direction:column;gap:10px;}
+.fin-row-hd{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
+  flex-wrap:wrap;
+}
+.fin-label{
+  font-size:12.5px;font-weight:700;color:var(--ink-3);
+  text-transform:none;letter-spacing:.01em;
+}
+.fin-value{
+  font-size:15px;font-weight:800;color:var(--ink);
+  display:inline-flex;align-items:baseline;gap:6px;
+}
+.fin-value-sub{font-size:12.5px;font-weight:600;color:var(--muted);}
+
+/* Range slider */
+.fin-slider{
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:6px;background:var(--border);
+  border-radius:999px;outline:none;cursor:pointer;
+  background-image:linear-gradient(var(--ink),var(--ink));
+  background-size:var(--fin-fill,28%) 100%;
+  background-repeat:no-repeat;
+  transition:background-size .08s linear;
+}
+.fin-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:20px;height:20px;border-radius:50%;
+  background:var(--ink);border:3px solid var(--white);
+  box-shadow:0 2px 6px rgba(17,24,39,.25), 0 0 0 1px var(--border);
+  cursor:pointer;transition:transform .12s ease;
+}
+.fin-slider::-webkit-slider-thumb:hover{transform:scale(1.08);}
+.fin-slider::-moz-range-thumb{
+  width:20px;height:20px;border-radius:50%;
+  background:var(--ink);border:3px solid var(--white);
+  box-shadow:0 2px 6px rgba(17,24,39,.25), 0 0 0 1px var(--border);
+  cursor:pointer;
+}
+.fin-slider::-moz-range-track{background:var(--border);height:6px;border-radius:999px;}
+.fin-ticks{
+  display:flex;justify-content:space-between;
+  font-size:11px;font-weight:600;color:var(--muted);
+}
+
+/* Term buttons */
+.fin-term-group{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
+}
+.fin-term-btn{
+  height:42px;border:1.5px solid var(--border);background:var(--white);
+  color:var(--ink-3);font-size:14px;font-weight:700;
+  border-radius:8px;cursor:pointer;
+  transition:all .15s ease;
+}
+.fin-term-btn:hover{border-color:var(--ink-3);color:var(--ink);}
+.fin-term-btn.on{
+  background:var(--ink);color:var(--white);
+  border-color:var(--ink);
+  box-shadow:0 2px 8px rgba(17,24,39,.2);
+}
+
+/* Summary card */
+.finance-summary{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:22px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.fin-sum-title{
+  font-size:11px;font-weight:800;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:2px;
+}
+.fin-sum-row{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:10px 0;border-bottom:1px dashed var(--border);
+  font-size:13.5px;
+}
+.fin-sum-row:last-of-type{border-bottom:none;}
+.fin-sum-key{color:var(--body);font-weight:500;}
+.fin-sum-val{color:var(--ink);font-weight:700;text-align:right;}
+.fin-sum-est{
+  display:inline-block;margin-left:4px;
+  font-size:10.5px;font-weight:700;color:var(--muted);
+  padding:2px 6px;border-radius:4px;background:var(--white);
+  border:1px solid var(--border);vertical-align:middle;
+}
+
+.fin-sum-pay{
+  margin-top:6px;
+  background:linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%);
+  color:var(--white);border-radius:10px;
+  padding:16px 18px;text-align:center;
+}
+.fin-sum-pay-lbl{
+  font-size:10.5px;font-weight:800;letter-spacing:1.2px;
+  text-transform:uppercase;color:rgba(255,255,255,.72);
+  margin-bottom:6px;
+}
+.fin-sum-pay-val{
+  font-size:26px;font-weight:900;letter-spacing:-.01em;
+  color:var(--y);
+}
+
+.fin-sum-cta{
+  margin-top:6px;
+  background:var(--y);color:var(--ink);border:none;
+  height:44px;border-radius:8px;font-size:13.5px;font-weight:800;
+  cursor:pointer;transition:background .15s ease, transform .1s ease;
+}
+.fin-sum-cta:hover{background:var(--y-deeper);color:var(--white);}
+.fin-sum-cta:active{transform:translateY(1px);}
+
+.fin-disclaimer{
+  font-size:11.5px;color:var(--muted);line-height:1.6;
+  padding:12px 14px;background:var(--surface);
+  border:1px dashed var(--border);border-radius:8px;
+}
+
+/* Finance responsive */
+@media (max-width:960px){
+  .finance-grid{grid-template-columns:1fr;}
+}
+@media (max-width:480px){
+  .finance-inputs,.finance-summary{padding:16px;}
+  .fin-term-btn{height:38px;font-size:13px;}
+  .fin-sum-pay-val{font-size:22px;}
+  .finance-title{font-size:17px;}
 }
 
 /* Condition panel */
@@ -416,7 +580,7 @@ header{
   display:flex;align-items:center;justify-content:center;gap:8px;
   transition:background var(--t),box-shadow var(--t),transform var(--t);
 }
-.btn-enquire-now:hover{background:var(--y-dark);box-shadow:0 4px 18px rgba(255,209,0,.4);transform:translateY(-1px);}
+.btn-enquire-now:hover{background:var(--y-dark);box-shadow:0 4px 18px rgba(var(--y-rgb),.4);transform:translateY(-1px);}
 .btn-enquire-now:active{transform:scale(.98);}
 .btn-finance{
   width:100%;height:44px;background:transparent;color:var(--ink);
@@ -470,8 +634,8 @@ header{
 .sec{padding:72px var(--px);}
 .sec-alt{background:var(--surface);}
 .sec-hd{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;}
-.sec-ey{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--y-deeper);margin-bottom:8px;}
-h2.sec-t{font-size:32px;font-weight:800;color:var(--ink);letter-spacing:-.8px;line-height:1.15;}
+.sec-ey{display:none;}
+h2.sec-t{font-size:32px;font-weight:700;color:var(--ink);letter-spacing:-.8px;line-height:1.15;}
 .sec-sub{font-size:15px;color:var(--body);margin-top:8px;max-width:520px;line-height:1.65;}
 .va{
   display:inline-flex;align-items:center;gap:6px;
@@ -497,8 +661,7 @@ h2.sec-t{font-size:32px;font-weight:800;color:var(--ink);letter-spacing:-.8px;li
   padding:4px 8px;border-radius:5px;font-size:10px;font-weight:800;letter-spacing:.5px;
   backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);
 }
-.mb-3d{background:rgba(17,24,39,.75);color:var(--y);border-color:rgba(255,209,0,.35);}
-.mb-vid{background:rgba(220,38,38,.85);color:var(--white);border-color:rgba(255,255,255,.2);}
+.mb-3d{background:rgba(17,24,39,.75);color:var(--y);border-color:rgba(var(--y-rgb),.35);}
 .lc-badge{
   position:absolute;top:10px;left:10px;
   background:var(--green);color:var(--white);
@@ -528,7 +691,9 @@ h2.sec-t{font-size:32px;font-weight:800;color:var(--ink);letter-spacing:-.8px;li
   display:flex;align-items:center;gap:8px;
   padding-top:14px;border-top:1px solid var(--border);
 }
-.lc-price{font-size:16px;font-weight:800;color:var(--ink);}
+.lc-price{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:12px;}
+.lc-price .lc-cur{font-size:11px;font-weight:600;color:var(--muted);margin-right:3px;}
+.lc-grade{position:absolute;bottom:10px;right:10px;background:rgba(17,24,39,.78);color:var(--white);font-size:10px;font-weight:800;letter-spacing:.4px;padding:3px 9px;border-radius:4px;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);z-index:2;}
 .lc-pl{font-size:10px;color:var(--muted);font-weight:500;}
 .lc-enq{
   flex:1;font-size:12px;font-weight:800;color:var(--ink);
@@ -564,7 +729,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
   width:36px;height:36px;background:rgba(255,255,255,.07);
   border-radius:8px;display:flex;align-items:center;justify-content:center;
   color:rgba(255,255,255,.5);font-size:13px;font-weight:800;
-  transition:all var(--t);cursor:pointer;
+  transition:all var(--t);cursor:pointer;text-decoration:none;
 }
 .soc-b:hover{background:var(--y);color:var(--ink);}
 .ft-ct{
@@ -623,7 +788,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
   opacity:0;pointer-events:none;transform:translateY(8px);
 }
 .fab-top.show{opacity:1;pointer-events:all;transform:translateY(0);}
-.fab-top:hover{background:var(--y-dark);transform:translateY(-3px);box-shadow:0 6px 20px rgba(255,209,0,.45);}
+.fab-top:hover{background:var(--y-dark);transform:translateY(-3px);box-shadow:0 6px 20px rgba(var(--y-rgb),.45);}
 .fab-top:active{transform:scale(.94);}
 
 /* ── MICROINTERACTIONS ── */
@@ -631,7 +796,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
 .h-btn-login:active{transform:scale(.97);}
 .srch-btn:active{transform:scale(.93);}
 .lc-enq{transition:background var(--t),transform var(--t),box-shadow var(--t);}
-.lc-enq:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(255,209,0,.35);}
+.lc-enq:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(var(--y-rgb),.35);}
 .lc-enq:active{transform:scale(.96);}
 .lc-save:hover{transform:scale(1.14);background:white;}
 .lc-save:active{transform:scale(.9);}
@@ -716,7 +881,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
 .video-insp-body p{font-size:13px;color:var(--body);line-height:1.7;margin-bottom:18px;}
 .vis-slots{display:flex;gap:12px;margin-bottom:20px;}
 .vis-slot{
-  flex:1;background:var(--y-light);border:1px solid rgba(255,209,0,.3);
+  flex:1;background:var(--y-light);border:1px solid rgba(var(--y-rgb),.3);
   border-radius:var(--r);padding:10px 14px;
 }
 .vis-slot-day{font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--y-deeper);margin-bottom:3px;}
@@ -766,14 +931,8 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
 @media (max-width:1024px) {
   :root { --px: 32px; }
 
-  /* Nav */
-  .nav-bar .nv-item { display: none; }
-  .nav-hamburger { display: flex; }
-
-  /* Header search shrink */
-  .srch { flex: 0 1 300px; }
-  .srch-cat { min-width: 90px; }
-  .h-act span { display: none; }
+  .h-shell { border-radius: 12px; }
+  .h-locale { display: none; }
 
   /* Detail layout: stack sidebar below left column */
   .detail-wrap {
@@ -807,31 +966,15 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
 @media (max-width:768px) {
   :root { --px: 20px; }
 
-  /* Top bar */
-  .top-bar { padding: 0 var(--px); height: auto; flex-wrap: wrap; overflow: hidden; }
-  /* Truncate the long promo text on mobile */
-  .top-bar > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: calc(100% - 120px); }
-
-  /* Header — single row on mobile */
-  header {
-    padding: 0 var(--px);
-    height: 60px;
-    min-height: 60px;
-    flex-wrap: nowrap;
-    gap: 12px;
-  }
-  .logo { flex: 1; min-width: 0; }
-  .srch { display: none; }
+  /* Header */
+  header { top: 10px; padding: 0 14px; }
+  .h-shell { border-radius: 10px; }
+  .h-row { height: 54px; padding: 0 14px; }
   .h-acts { flex: 0 0 auto; gap: 4px; }
-  .h-act { padding: 4px 6px; }
-  .h-btn-login { padding: 0 12px; font-size: 12px; height: 36px; margin-left: 4px; }
-  .h-cta { padding: 0 14px; font-size: 12px; height: 36px; margin-left: 4px; }
-
-  /* Nav */
-  .nav-bar { top: 60px; }
-
-  /* Breadcrumb */
-  .breadcrumb-bar { padding: 10px var(--px); flex-wrap: wrap; gap: 4px; }
+  .h-cta { padding: 0 12px; font-size: 12px; height: 36px; }
+  .h-locale { display: none; }
+  .page-banner { margin-top: -98px; padding-top: 140px; }
+  .pb-bar { top: 108px; }
 
   /* Detail wrap */
   .detail-wrap { padding: 20px var(--px); gap: 20px; }
@@ -918,12 +1061,27 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
   .fab-wrap { bottom: 20px; right: 16px; }
 }
 
+/* ── 640px ── */
+@media (max-width:640px) {
+  .h-nav { display: none; }
+  .nav-hamburger { display: flex; }
+  header { top: 12px; padding: 0 12px; }
+  .h-shell { border-radius: 12px; }
+  .h-row { height: 52px; padding: 0 14px; }
+  .logo img { height: 24px; }
+  .logo-brand { font-size: 15px; }
+  .h-saved { display: none; }
+  .h-cta-txt { display: none; }
+  .h-cta-chevron { display: none; }
+  .h-cta { padding: 0 10px; gap: 0; height: 34px; }
+  .page-banner { margin-top: -52px; padding-top: 92px; }
+  .pb-bar { top: 64px; }
+  .pb-title { font-size: 20px; }
+}
+
 /* ── 576px ── */
 @media (max-width:576px) {
   :root { --px: 16px; }
-
-  /* Top bar: hide long promo text, only show controls */
-  .top-bar > span { display: none; }
 
   /* Header */
   .srch-cat { display: none; }
@@ -964,16 +1122,6 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
 
 /* ── 480px: collapse remaining 2-col areas ── */
 @media (max-width:480px) {
-  /* top bar: hide long text */
-  .top-bar > span { display: none; }
-
-  /* header buttons */
-  .h-btn-login { padding: 0 10px; font-size: 11px; }
-  .h-cta        { padding: 0 10px; font-size: 11px; }
-
-  /* breadcrumb: wrap long paths */
-  .breadcrumb-bar { flex-wrap: wrap; gap: 4px; font-size: 11px; }
-  .bc-cur { word-break: break-word; overflow-wrap: break-word; }
 
   /* gallery */
   .gallery-main { height: 260px; }
@@ -1054,15 +1202,6 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
 /* ── 320px: Very small mobile ── */
 @media (max-width:320px) {
   :root { --px: 10px; }
-
-  /* header */
-  .h-btn-login { display: none; }
-  .h-cta { padding: 0 8px; font-size: 10px; height: 32px; margin-left: 2px; }
-  .h-act { padding: 3px 4px; }
-
-  /* breadcrumb: wrap aggressively */
-  .breadcrumb-bar { flex-wrap: wrap; gap: 3px; font-size: 10px; padding: 8px var(--px); }
-  .bc-cur { word-break: break-word; }
 
   /* gallery */
   .gallery-main { height: 190px; }
@@ -1186,7 +1325,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
   transition: background .2s, color .2s; border-left: 3px solid transparent;
 }
 .nav-drawer-link:hover { background: rgba(255,255,255,.07); color: var(--white); }
-.nav-drawer-link.act { color: var(--y); border-left-color: var(--y); background: rgba(255,209,0,.08); }
+.nav-drawer-link.act { color: var(--y); border-left-color: var(--y); background: rgba(var(--y-rgb),.08); }
 
 /* ── Prevent horizontal overflow ── */
 /* NOTE: detail-wrap intentionally excluded — overflow-x:hidden on it creates a
@@ -1197,8 +1336,8 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
 #viewer3d { max-width: 100%; }
 
 /* Global overflow guard — every top-level section */
-section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
-.inv-card, .top-bar { overflow-x: hidden; }
+section, footer, .video-insp-card, .price-card,
+.inv-card { overflow-x: hidden; }
 
 /* Ensure flex/grid children can shrink below their content size */
 .pc-hd-meta { min-width: 0; }
@@ -1247,97 +1386,88 @@ section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
   </nav>
 </div>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  <span><strong style="color:var(--y);font-weight:700;">FAMCO Approved</strong> — UAE's Sole Volvo Distributor · Inspected · Certified · Ready to Work · Since 1978</span>
-  <div class="tb-right">
-    <div class="switch">
-      <span class="sw-btn on">AED</span>
-      <span class="sw-btn">USD</span>
-    </div>
-    <div class="switch">
-      <span class="sw-btn on">EN</span>
-      <span class="sw-btn ar">عربي</span>
-    </div>
-  </div>
-</div>
-
 <!-- HEADER -->
 <header>
-  <a href="Homepage.html" class="logo">
-    <img src="images/branding-famco-logo.png" alt="FAMCO"
-         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-    <div class="logo-fb">
-      <div class="logo-brand">FAM<em>CO</em></div>
-      <div class="logo-sub">Used Equipment</div>
-    </div>
-  </a>
-
-  <div class="srch">
-    <div class="srch-wrap">
-      <select class="srch-cat">
-        <option>All Categories</option>
-        <option>Construction Equipment</option>
-        <option>Trucks &amp; Commercial</option>
-        <option>Material Handling</option>
-        <option>Buses &amp; Coaches</option>
-        <option>Industrial Machinery</option>
-      </select>
-      <input class="srch-input" type="text" placeholder="Search by make, model, year…">
-      <button class="srch-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+<div class="h-shell">
+  <div class="h-row">
+    <a href="Homepage.html" class="logo">
+      <img src="images/branding-famco-logo.png" alt="FAMCO"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="logo-fb">
+        <div class="logo-brand">FAM<em>CO</em></div>
+        <div class="logo-sub">Used Equipment</div>
+      </div>
+    </a>
+    <div class="h-acts">
+      <div class="h-srch-wrap" id="hSrchWrap">
+        <div class="h-srch-field" id="hSrchField">
+          <input type="text" class="h-srch-input" placeholder="Search equipment…" id="hSrchInput" autocomplete="off">
+          <button class="h-srch-close" id="hSrchClose" aria-label="Close search">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <button class="h-act h-srch-btn" id="hSrchBtn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+      </div>
+      <button class="h-act h-saved" aria-label="Saved items">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
       </button>
+      <div class="h-acct">
+        <button class="h-cta">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="h-cta-txt">Account</span>
+          <svg class="h-cta-chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="h-acct-drop">
+          <a href="#login" class="h-acct-link h-acct-primary">Sign In</a>
+          <a href="#register" class="h-acct-link">Create Account</a>
+        </div>
+      </div>
+      <div class="h-locale">
+        <div class="switch">
+          <span class="sw-btn on">AED</span>
+          <span class="sw-btn">USD</span>
+        </div>
+        <div class="switch">
+          <span class="sw-btn on">EN</span>
+          <span class="sw-btn ar">عربي</span>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="h-acts">
-    <button class="h-act">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-      <span>Saved</span>
+    <button class="nav-hamburger" aria-label="Open navigation menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
-    <a href="#" class="h-btn-login">Login</a>
-    <a href="#" class="h-cta">Register</a>
-  </div>
+  </div><!-- /.h-row -->
+  <nav class="h-nav">
+    <div class="nv-item"><a href="Homepage.html" class="nv-link">Home</a></div>
+    <div class="nv-item"><a href="BrowseEquipment.html" class="nv-link act">Browse Equipment</a></div>
+    <div class="nv-item"><a href="#" class="nv-link">Sell Your Equipment</a></div>
+    <div class="nv-item"><a href="#" class="nv-link">About Us</a></div>
+    <div class="nv-item"><a href="#" class="nv-link">Contact</a></div>
+  </nav>
+</div><!-- /.h-shell -->
 </header>
 
-<!-- NAV BAR -->
-<nav class="nav-bar">
-  <div class="nv-item">
-    <a href="Homepage.html" class="nv-link">Home</a>
+<!-- PAGE BANNER -->
+<section class="page-banner">
+  <div class="pb-bg" style="background-image:url('images/Volvo FH500 Globetrotter.jpg');"></div>
+  <div class="pb-overlay"></div>
+  <div class="pb-pattern"></div>
+  <div class="pb-bar"></div>
+  <div class="pb-inner">
+    <nav class="pb-crumb">
+      <a href="Homepage.html">Home</a>
+      <span class="pb-crumb-sep">›</span>
+      <a href="BrowseEquipment.html">Browse Equipment</a>
+      <span class="pb-crumb-sep">›</span>
+      <a href="#">Trucks &amp; Commercial</a>
+      <span class="pb-crumb-sep">›</span>
+      <span class="pb-crumb-cur">Volvo FH 500 6×4 Tractor Head</span>
+    </nav>
+    <h1 class="pb-title">Volvo FH 500 6×4 Tractor Head</h1>
   </div>
-  <div class="nv-item">
-    <a href="BrowseEquipment.html" class="nv-link act">Browse Equipment</a>
-  </div>
-  <div class="nv-item">
-    <a href="#" class="nv-link">Sell Your Equipment</a>
-  </div>
-  <div class="nv-item">
-    <a href="#" class="nv-link">FAMCO Approved Process</a>
-  </div>
-  <div class="nv-item">
-    <a href="#" class="nv-link">Finance</a>
-  </div>
-  <div class="nv-item">
-    <a href="#" class="nv-link">About Us</a>
-  </div>
-  <div class="nv-item">
-    <a href="#" class="nv-link">Contact</a>
-  </div>
-  <button class="nav-hamburger" aria-label="Open navigation menu">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  </button>
-</nav>
-
-<!-- BREADCRUMB -->
-<div class="breadcrumb-bar">
-  <a href="Homepage.html" class="bc-link">Home</a>
-  <span class="bc-sep">›</span>
-  <a href="BrowseEquipment.html" class="bc-link">Browse Equipment</a>
-  <span class="bc-sep">›</span>
-  <a href="#" class="bc-link">Trucks &amp; Commercial</a>
-  <span class="bc-sep">›</span>
-  <span class="bc-cur">Volvo FH 500 6×4 Tractor Head</span>
-</div>
+</section>
 
 
 <!-- MAIN DETAIL CONTENT -->
@@ -1351,24 +1481,21 @@ section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
       <div class="gallery-tabs">
         <div class="gtab on" onclick="switchGTab(this,'gallery')">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          Gallery (4)
+          Gallery (3)
         </div>
         <div class="gtab" onclick="switchGTab(this,'video')">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Video Tour
-        </div>
-        <div class="gtab" onclick="switchGTab(this,'360')">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/></svg>
-          360° View
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          Video
         </div>
       </div>
 
       <!-- Gallery Panel -->
       <div id="panel-gallery">
         <div class="gallery-main">
-          <img id="main-img" src="images/Detailimage1.png" alt="Volvo FH 500 6x4 Tractor Head"
+          <img id="main-img" src="images/Productimage61.jpg" alt="Volvo FH 460 Globetrotter XL"
                onerror="this.style.display='none';">
           <span class="gm-badge">FAMCO Approved</span>
+          <span class="gm-grade">Grade A</span>
           <span class="gm-ref">Ref: FA-2024-7821</span>
           <div class="gallery-nav">
             <button class="gnav-btn" onclick="changeImg(-1)">
@@ -1381,49 +1508,29 @@ section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
         </div>
         <div class="gallery-thumbs">
           <div class="gthumb on" onclick="setImg(0,this)">
-            <img src="images/Detailimage1.png" alt="View 1" onerror="this.parentElement.style.background='var(--surface)'">
+            <img src="images/Productimage61.jpg" alt="View 1" onerror="this.parentElement.style.background='var(--surface)'">
           </div>
           <div class="gthumb" onclick="setImg(1,this)">
-            <img src="images/Detailimage2.png" alt="View 2" onerror="this.parentElement.style.background='var(--surface)'">
+            <img src="images/Productimage62.jpg" alt="View 2" onerror="this.parentElement.style.background='var(--surface)'">
+          </div>
+          <div class="gthumb" onclick="setImg(2,this)">
+            <img src="images/Productimage63.jpg" alt="View 3" onerror="this.parentElement.style.background='var(--surface)'">
           </div>
         </div>
       </div>
 
       <!-- Video Panel -->
       <div id="panel-video" style="display:none;">
-        <div class="gallery-main" style="background:#000;padding:0;overflow:hidden;position:relative;cursor:pointer;" onclick="window.open('https://www.youtube.com/watch?v=1mwVA_fJuF4','_blank')">
-          <img src="https://img.youtube.com/vi/1mwVA_fJuF4/maxresdefault.jpg" alt="Video Tour" style="width:100%;height:100%;object-fit:cover;display:block;opacity:0.85;">
-          <!-- Play button overlay -->
-          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;">
-            <div style="width:72px;height:72px;background:var(--y);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,0,0,.45);transition:transform .2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--ink)" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-            </div>
-            <div style="font-size:14px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.7);">Watch Full Video Tour</div>
-            <div style="font-size:12px;color:rgba(255,255,255,.7);text-shadow:0 1px 3px rgba(0,0,0,.6);">Opens on YouTube</div>
-          </div>
+        <div class="gallery-main" style="background:#000;padding:0;overflow:hidden;">
+          <iframe id="yt-video"
+            data-src="https://www.youtube.com/embed/1mwVA_fJuF4?rel=0&amp;modestbranding=1&amp;mute=1"
+            style="width:100%;height:100%;border:none;display:block;"
+            allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+            allowfullscreen
+            title="3d Preview"></iframe>
         </div>
       </div>
 
-      <!-- 3D Model Panel -->
-      <div id="panel-360" style="display:none;">
-        <div id="viewer3d" style="width:100%;height:460px;background:var(--surface);position:relative;overflow:hidden;">
-          <canvas id="viewer3d-canvas" style="display:block;width:100%;height:100%;outline:none;"></canvas>
-          <!-- Loading spinner -->
-          <div id="viewer3d-loading" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;pointer-events:none;background:var(--surface);">
-            <div style="width:34px;height:34px;border:3px solid var(--border);border-top-color:var(--y);border-radius:50%;animation:spin3d .75s linear infinite;"></div>
-            <div style="font-size:12px;font-weight:600;color:var(--muted);">Loading 3D model…</div>
-          </div>
-          <!-- Error state -->
-          <div id="viewer3d-error" style="display:none;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:10px;pointer-events:none;background:var(--surface);">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".35"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
-            <div style="font-size:12px;font-weight:600;color:var(--muted);">3D model could not be loaded</div>
-          </div>
-          <!-- Interaction hint -->
-          <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(17,24,39,.68);color:rgba(255,255,255,.88);font-size:11px;font-weight:700;letter-spacing:.3px;padding:5px 13px;border-radius:20px;pointer-events:none;backdrop-filter:blur(6px);white-space:nowrap;">
-            Drag to rotate &nbsp;·&nbsp; Scroll to zoom
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Info Tabs: Specifications / Description / Condition -->
@@ -1433,6 +1540,7 @@ section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
         <div class="itab" onclick="switchITab(this,'desc')">Description</div>
         <div class="itab" onclick="switchITab(this,'condition')">Condition Report</div>
         <div class="itab" onclick="switchITab(this,'warranty')">Warranty &amp; Docs</div>
+        <div class="itab" onclick="switchITab(this,'finance')">Finance Options</div>
       </div>
 
       <!-- Accordion header: Specifications -->
@@ -1603,6 +1711,101 @@ section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
           </div>
         </div>
       </div>
+
+      <!-- Accordion header: Finance Options -->
+      <button class="acc-hd" onclick="toggleAcc('finance',this)" aria-expanded="false">
+        <span>Finance Options</span>
+        <svg class="acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+
+      <!-- Finance Options Panel -->
+      <div class="info-panel" id="ipanel-finance">
+        <div class="finance-wrap">
+          <div class="finance-head">
+            <div class="finance-title">Finance Calculator</div>
+            <div class="finance-sub">Estimate your monthly payments and plan your budget.</div>
+          </div>
+
+          <div class="finance-grid">
+            <!-- LEFT: Inputs -->
+            <div class="finance-inputs">
+
+              <!-- Equipment Price -->
+              <div class="fin-row">
+                <div class="fin-row-hd">
+                  <label class="fin-label" for="finPrice">Equipment Price (AED)</label>
+                  <div class="fin-value" id="finPriceVal">AED 285,000</div>
+                </div>
+                <input type="range" id="finPrice" class="fin-slider" min="50000" max="1000000" step="1000" value="285000">
+                <div class="fin-ticks">
+                  <span>AED 50K</span>
+                  <span>AED 1M+</span>
+                </div>
+              </div>
+
+              <!-- Down Payment -->
+              <div class="fin-row">
+                <div class="fin-row-hd">
+                  <label class="fin-label" for="finDown">Down Payment (%)</label>
+                  <div class="fin-value">
+                    <span id="finDownPct">25</span>%
+                    <span class="fin-value-sub">· AED <span id="finDownAmt">71,250</span></span>
+                  </div>
+                </div>
+                <input type="range" id="finDown" class="fin-slider" min="10" max="50" step="1" value="25">
+                <div class="fin-ticks">
+                  <span>10%</span>
+                  <span>50%</span>
+                </div>
+              </div>
+
+              <!-- Finance Term -->
+              <div class="fin-row">
+                <div class="fin-row-hd">
+                  <label class="fin-label">Finance Term (Months)</label>
+                </div>
+                <div class="fin-term-group" id="finTermGroup">
+                  <button type="button" class="fin-term-btn" data-term="12">12</button>
+                  <button type="button" class="fin-term-btn" data-term="24">24</button>
+                  <button type="button" class="fin-term-btn on" data-term="36">36</button>
+                  <button type="button" class="fin-term-btn" data-term="48">48</button>
+                </div>
+              </div>
+
+            </div><!-- /.finance-inputs -->
+
+            <!-- RIGHT: Summary -->
+            <div class="finance-summary">
+              <div class="fin-sum-title">Estimated Summary</div>
+
+              <div class="fin-sum-row">
+                <span class="fin-sum-key">Loan Amount</span>
+                <span class="fin-sum-val" id="finLoanAmt">AED 213,750</span>
+              </div>
+              <div class="fin-sum-row">
+                <span class="fin-sum-key">Interest Rate</span>
+                <span class="fin-sum-val">4.5% p.a. <span class="fin-sum-est">Est.</span></span>
+              </div>
+              <div class="fin-sum-row">
+                <span class="fin-sum-key">Total Term</span>
+                <span class="fin-sum-val" id="finTotalTerm">36 Months</span>
+              </div>
+
+              <div class="fin-sum-pay">
+                <div class="fin-sum-pay-lbl">Estimated Monthly Payment</div>
+                <div class="fin-sum-pay-val" id="finMonthly">AED 6,358</div>
+              </div>
+
+              <button type="button" class="fin-sum-cta">Apply for Finance</button>
+            </div>
+
+          </div><!-- /.finance-grid -->
+
+          <div class="fin-disclaimer">
+            * Estimates only. Final rates and terms are subject to approval by Al-Futtaim Finance. Actual monthly payment may vary based on credit profile, documentation, and applicable fees.
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Live Video Inspection -->
@@ -1672,7 +1875,6 @@ section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
           </span>
           <span class="badge-grade">Grade A — Excellent</span>
         </div>
-        <div style="margin-top:10px;font-size:12px;font-weight:600;color:var(--green);">● In Stock (55)</div>
       </div>
 
       <!-- Body -->
@@ -1766,18 +1968,16 @@ section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
     <!-- Related 1 -->
     <div class="lc" onclick="location.href='EquipmentDetail.html'">
       <div class="lc-thumb">
-        <img src="images/CAT 320 Hydraulic.jpg" alt="CAT 320 Hydraulic Excavator"
+        <img src="images/Productimage1.jpg" alt="CAT 320 Hydraulic Excavator"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
         <div class="lc-thumb-fallback" style="display:none;">🚜</div>
         <span class="lc-badge">FAMCO Approved</span>
         <button class="lc-save" onclick="event.stopPropagation()">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
         </button>
+        <span class="lc-grade">Grade B</span>
         <div class="media-badges">
-          <span class="mb mb-vid">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            VIDEO
-          </span>
+          <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12"/><path d="M22 7L12 12 2 7"/></svg> 360 VIEW</span>
         </div>
       </div>
       <div class="lc-body">
@@ -1786,9 +1986,9 @@ section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
         <div class="lc-specs">
           <div class="sp"><span class="sp-k">Year</span><span class="sp-v">2021</span></div>
           <div class="sp"><span class="sp-k">Hours</span><span class="sp-v">4,200 hrs</span></div>
-          <div class="sp"><span class="sp-k">Grade</span><span class="sp-v">Grade B</span></div>
           <div class="sp"><span class="sp-k">Location</span><span class="sp-v">Dubai, UAE</span></div>
         </div>
+        <div class="lc-price"><span class="lc-cur">AED</span>310,000</div>
         <div class="lc-ft">
           <button class="lc-compare" onclick="event.stopPropagation()">Compare</button>
           <a href="EquipmentDetail.html" class="lc-enq" onclick="event.stopPropagation()">View Details</a>
@@ -1799,18 +1999,16 @@ section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
     <!-- Related 2 -->
     <div class="lc" onclick="location.href='EquipmentDetail.html'">
       <div class="lc-thumb">
-        <img src="images/Toyota 8FBN25 Forklift.jpg" alt="Toyota 8FBN25 Forklift"
+        <img src="images/Productimage21.jpg" alt="Toyota 8FBN25 Forklift"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
         <div class="lc-thumb-fallback" style="display:none;">🏗️</div>
         <span class="lc-badge">FAMCO Approved</span>
         <button class="lc-save" onclick="event.stopPropagation()">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
         </button>
+        <span class="lc-grade">Grade A</span>
         <div class="media-badges">
-          <span class="mb mb-3d">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
-            3D VIEW
-          </span>
+          <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12"/><path d="M22 7L12 12 2 7"/></svg> 360 VIEW</span>
         </div>
       </div>
       <div class="lc-body">
@@ -1819,9 +2017,9 @@ section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
         <div class="lc-specs">
           <div class="sp"><span class="sp-k">Year</span><span class="sp-v">2022</span></div>
           <div class="sp"><span class="sp-k">Capacity</span><span class="sp-v">2,500 kg</span></div>
-          <div class="sp"><span class="sp-k">Grade</span><span class="sp-v">Grade A</span></div>
           <div class="sp"><span class="sp-k">Location</span><span class="sp-v">Sharjah, UAE</span></div>
         </div>
+        <div class="lc-price"><span class="lc-cur">AED</span>48,000</div>
         <div class="lc-ft">
           <button class="lc-compare" onclick="event.stopPropagation()">Compare</button>
           <a href="EquipmentDetail.html" class="lc-enq" onclick="event.stopPropagation()">View Details</a>
@@ -1832,13 +2030,17 @@ section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
     <!-- Related 3 -->
     <div class="lc" onclick="location.href='EquipmentDetail.html'">
       <div class="lc-thumb">
-        <img src="images/jcb.png" alt="JCB 3CX Backhoe Loader"
+        <img src="images/Productimage31.jpg" alt="JCB 3CX Backhoe Loader"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
         <div class="lc-thumb-fallback" style="display:none;">🚧</div>
         <span class="lc-badge">FAMCO Approved</span>
         <button class="lc-save" onclick="event.stopPropagation()">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
         </button>
+        <span class="lc-grade">Grade B</span>
+        <div class="media-badges">
+          <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12"/><path d="M22 7L12 12 2 7"/></svg> 360 VIEW</span>
+        </div>
       </div>
       <div class="lc-body">
         <span class="lc-cat">Construction</span>
@@ -1846,9 +2048,9 @@ section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
         <div class="lc-specs">
           <div class="sp"><span class="sp-k">Year</span><span class="sp-v">2020</span></div>
           <div class="sp"><span class="sp-k">Hours</span><span class="sp-v">6,800 hrs</span></div>
-          <div class="sp"><span class="sp-k">Grade</span><span class="sp-v">Grade B</span></div>
           <div class="sp"><span class="sp-k">Location</span><span class="sp-v">Abu Dhabi, UAE</span></div>
         </div>
+        <div class="lc-price"><span class="lc-cur">AED</span>125,000</div>
         <div class="lc-ft">
           <button class="lc-compare" onclick="event.stopPropagation()">Compare</button>
           <a href="EquipmentDetail.html" class="lc-enq" onclick="event.stopPropagation()">View Details</a>
@@ -1859,18 +2061,16 @@ section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
     <!-- Related 4 -->
     <div class="lc" onclick="location.href='EquipmentDetail.html'">
       <div class="lc-thumb">
-        <img src="images/Volvo 9700 Luxury Coach.jpg" alt="Volvo 9700 Luxury Coach"
+        <img src="images/Productimage71.jpg" alt="Volvo 9700 Luxury Coach"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
         <div class="lc-thumb-fallback" style="display:none;">🚌</div>
         <span class="lc-badge">FAMCO Approved</span>
         <button class="lc-save" onclick="event.stopPropagation()">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
         </button>
+        <span class="lc-grade">Grade A</span>
         <div class="media-badges">
-          <span class="mb mb-vid">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            VIDEO
-          </span>
+          <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12"/><path d="M22 7L12 12 2 7"/></svg> 360 VIEW</span>
         </div>
       </div>
       <div class="lc-body">
@@ -1879,9 +2079,9 @@ section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
         <div class="lc-specs">
           <div class="sp"><span class="sp-k">Year</span><span class="sp-v">2023</span></div>
           <div class="sp"><span class="sp-k">Mileage</span><span class="sp-v">95,000 km</span></div>
-          <div class="sp"><span class="sp-k">Grade</span><span class="sp-v">Grade A</span></div>
           <div class="sp"><span class="sp-k">Location</span><span class="sp-v">Dubai, UAE</span></div>
         </div>
+        <div class="lc-price"><span class="lc-cur">AED</span>340,000</div>
         <div class="lc-ft">
           <button class="lc-compare" onclick="event.stopPropagation()">Compare</button>
           <a href="EquipmentDetail.html" class="lc-enq" onclick="event.stopPropagation()">View Details</a>
@@ -1902,10 +2102,10 @@ section, footer, .breadcrumb-bar, .video-insp-card, .price-card,
       </div>
       <p class="ft-tag">UAE's trusted source for certified used heavy equipment since 1978. An Al-Futtaim Group company and sole UAE distributor for Volvo CE, Trucks, and Buses.</p>
       <div class="ft-soc">
-        <div class="soc-b">f</div>
-        <div class="soc-b">in</div>
-        <div class="soc-b">ig</div>
-        <div class="soc-b">▶</div>
+        <a href="#" class="soc-b" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="#" class="soc-b" aria-label="LinkedIn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="#" class="soc-b" aria-label="Instagram"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="#" class="soc-b" aria-label="YouTube"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
       </div>
     </div>
     <div class="ft-col">
@@ -1987,8 +2187,9 @@ function revealPrice() {
 
 /* ── Gallery image switcher ── */
 const images = [
-  'images/Detailimage1.png',
-  'images/Detailimage2.png'
+  'images/Productimage61.jpg',
+  'images/Productimage62.jpg',
+  'images/Productimage63.jpg'
 ];
 let current = 0;
 const thumbs = document.querySelectorAll('.gthumb');
@@ -2010,14 +2211,10 @@ function changeImg(dir) {
 function switchGTab(el, panel) {
   document.querySelectorAll('.gtab').forEach(t => t.classList.remove('on'));
   el.classList.add('on');
-  ['gallery','video','360'].forEach(p => {
+  ['gallery','video'].forEach(p => {
     const el2 = document.getElementById('panel-' + p);
     if (el2) el2.style.display = (p === panel) ? 'block' : 'none';
   });
-  /* Init Three.js viewer when 3D tab first opens */
-  if (panel === '360') {
-    setTimeout(init3DViewer, 30);
-  }
   /* Pause/resume YouTube iframe */
   var iframe = document.getElementById('yt-video');
   if (iframe) {
@@ -2170,6 +2367,67 @@ function toggleAcc(panel, hdrEl) {
     });
   }
 }
+/* ── Finance Calculator ── */
+(function(){
+  var priceEl   = document.getElementById('finPrice');
+  var downEl    = document.getElementById('finDown');
+  var termGroup = document.getElementById('finTermGroup');
+  if(!priceEl || !downEl || !termGroup) return;
+
+  var priceVal   = document.getElementById('finPriceVal');
+  var downPct    = document.getElementById('finDownPct');
+  var downAmt    = document.getElementById('finDownAmt');
+  var loanAmtEl  = document.getElementById('finLoanAmt');
+  var totalTermEl= document.getElementById('finTotalTerm');
+  var monthlyEl  = document.getElementById('finMonthly');
+
+  var rate = 0.045; // 4.5% p.a.
+  var termMonths = 36;
+
+  function fmt(n){
+    return Math.round(n).toLocaleString('en-US');
+  }
+  function setSliderFill(el){
+    var min = +el.min, max = +el.max, val = +el.value;
+    var pct = ((val - min) / (max - min)) * 100;
+    el.style.setProperty('--fin-fill', pct + '%');
+  }
+  function calc(){
+    var price = +priceEl.value;
+    var dPct  = +downEl.value;
+    var downPaymentAmt = price * (dPct / 100);
+    var loan  = price - downPaymentAmt;
+
+    // Standard amortization: M = P * r / (1 - (1+r)^-n)
+    var r = rate / 12;
+    var n = termMonths;
+    var monthly = (r === 0) ? (loan / n) : (loan * r) / (1 - Math.pow(1 + r, -n));
+
+    if(priceVal)    priceVal.textContent    = 'AED ' + fmt(price);
+    if(downPct)     downPct.textContent     = dPct;
+    if(downAmt)     downAmt.textContent     = fmt(downPaymentAmt);
+    if(loanAmtEl)   loanAmtEl.textContent   = 'AED ' + fmt(loan);
+    if(totalTermEl) totalTermEl.textContent = termMonths + ' Months';
+    if(monthlyEl)   monthlyEl.textContent   = 'AED ' + fmt(monthly);
+  }
+
+  priceEl.addEventListener('input', function(){ setSliderFill(priceEl); calc(); });
+  downEl .addEventListener('input', function(){ setSliderFill(downEl);  calc(); });
+
+  termGroup.addEventListener('click', function(e){
+    var b = e.target.closest('.fin-term-btn');
+    if(!b) return;
+    termGroup.querySelectorAll('.fin-term-btn').forEach(function(x){ x.classList.remove('on'); });
+    b.classList.add('on');
+    termMonths = +b.getAttribute('data-term');
+    calc();
+  });
+
+  setSliderFill(priceEl);
+  setSliderFill(downEl);
+  calc();
+})();
+
 // Back to top — deferred until DOM is fully parsed
 document.addEventListener('DOMContentLoaded', function(){
   var btn=document.getElementById('backToTop');
@@ -2221,5 +2479,35 @@ document.addEventListener('DOMContentLoaded', function(){
   </button>
 </div>
 
+<script src="autocomplete.js"></script>
+<script src="color-picker.js"></script>
+
+<script>
+/* ── Expandable header search ── */
+(function(){
+  var wrap  = document.getElementById('hSrchWrap');
+  var btn   = document.getElementById('hSrchBtn');
+  var close = document.getElementById('hSrchClose');
+  var input = document.getElementById('hSrchInput');
+  if(!wrap) return;
+  function open(){
+    wrap.classList.add('open');
+    setTimeout(function(){input.focus();},270);
+  }
+  function close_(){
+    wrap.classList.remove('open');
+    input.value='';
+  }
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    wrap.classList.contains('open') ? close_() : open();
+  });
+  close.addEventListener('click',function(e){e.stopPropagation();close_();});
+  document.addEventListener('click',function(e){
+    if(!wrap.contains(e.target)) close_();
+  },{passive:true});
+  input.addEventListener('keydown',function(e){if(e.key==='Escape') close_();});
+})();
+</script>
 </body>
 </html>

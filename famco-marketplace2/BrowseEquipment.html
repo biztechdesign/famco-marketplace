@@ -9,11 +9,11 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 
 :root{
-  --y:#FFD100;--y-dark:#E6BC00;--y-deeper:#C9A400;--y-light:#FFFBE6;--y-pale:#FFFDF0;
+  --y:#FFD100;--y-rgb:255,209,0;--y-dark:#E6BC00;--y-deeper:#C9A400;--y-light:#FFFBE6;--y-pale:#FFFDF0;
   --ink:#111827;--ink-2:#1F2937;--ink-3:#374151;--body:#4B5563;--muted:#9CA3AF;
   --border:#E5E7EB;--surface:#F9FAFB;--white:#FFFFFF;
   --green:#16A34A;--red:#DC2626;--orange:#EA580C;
-  --px:80px;--r:8px;--rl:14px;
+  --px:clamp(80px,7vw,140px);--r:8px;--rl:14px;
   --sh-sm:0 1px 4px rgba(0,0,0,.07);--sh-md:0 4px 20px rgba(0,0,0,.11);--sh-lg:0 10px 40px rgba(0,0,0,.14);
   --t:.22s ease;
 }
@@ -22,73 +22,71 @@ html{scroll-behavior:smooth;overflow-x:hidden;}
 body{
   font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   background:var(--white);color:var(--ink);
-  max-width:1440px;width:100%;margin:0 auto;overflow-x:hidden;font-size:14px;line-height:1.6;
+  width:100%;font-size:14px;line-height:1.6;
 }
 a{text-decoration:none;color:inherit;}
 img{display:block;max-width:100%;}
 ul{list-style:none;}
 button{cursor:pointer;border:none;background:none;font-family:inherit;}
 
-/* ── TOP BAR ── */
-.top-bar{
-  background:var(--ink);color:rgba(255,255,255,.8);font-size:12px;
-  padding:0 var(--px);height:38px;display:flex;align-items:center;justify-content:space-between;
+/* ── LOCALE SWITCH (shared by header + footer) ── */
+.switch{
+  display:flex;align-items:center;gap:2px;
+  background:rgba(17,24,39,.07);border-radius:20px;padding:3px 4px;
 }
-.tb-right{display:flex;align-items:center;gap:14px;}
-.switch{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.08);border-radius:20px;padding:3px 4px;}
-.sw-btn{font-size:11px;font-weight:600;color:rgba(255,255,255,.55);padding:2px 10px;border-radius:16px;cursor:pointer;transition:all var(--t);letter-spacing:.3px;}
-.sw-btn.on{background:var(--y);color:var(--ink);font-weight:800;}
+.sw-btn{
+  font-size:11px;font-weight:600;color:var(--muted);
+  padding:2px 9px;border-radius:16px;cursor:pointer;
+  transition:all var(--t);letter-spacing:.3px;
+}
+.sw-btn.on{background:var(--ink);color:var(--white);font-weight:700;}
 .sw-btn.ar{font-size:12px;}
 
 /* ── HEADER ── */
-header{
-  background:var(--white);padding:0 var(--px);height:72px;
-  display:flex;align-items:center;gap:28px;
-  border-bottom:1px solid var(--border);box-shadow:var(--sh-sm);
-  position:sticky;top:0;z-index:200;
+header {
+  position: sticky; top: 20px; z-index: 200;
+  background: transparent; padding: 0 var(--px);
 }
-.logo{display:flex;align-items:center;gap:10px;flex:1;}
-.logo img{height:40px;width:auto;}
-.logo-fb{display:none;flex-direction:column;justify-content:center;}
-.logo-brand{font-size:22px;font-weight:900;color:var(--ink);letter-spacing:-1px;line-height:1;}
-.logo-brand em{color:var(--y-deeper);font-style:normal;}
-.logo-sub{font-size:8px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:3px;}
-
-.srch{flex:0 1 560px;max-width:560px;min-width:0;position:relative;}
-.srch-wrap{
-  display:flex;align-items:center;height:42px;
-  background:var(--surface);border:1.5px solid var(--border);
-  border-radius:var(--r);overflow:hidden;transition:border-color var(--t),box-shadow var(--t);
+.h-shell {
+  background: rgba(10,14,20,.82);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,.35);
 }
-.srch-wrap:focus-within{border-color:var(--y-deeper);box-shadow:0 0 0 3px rgba(255,209,0,.18);}
-.srch-cat{
-  height:100%;padding:0 28px 0 12px;font-size:12.5px;font-family:inherit;color:var(--body);
-  background:var(--surface);border:none;border-right:1.5px solid var(--border);
-  outline:none;cursor:pointer;white-space:nowrap;appearance:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239CA3AF' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 8px center;min-width:148px;flex-shrink:0;
-}
-.srch-cat:focus{outline:none;}
-.srch-input{flex:1;height:100%;background:transparent;border:none;padding:0 8px 0 12px;font-size:13.5px;font-family:inherit;color:var(--ink);outline:none;}
-.srch-input::placeholder{color:var(--muted);}
-.srch-btn{flex-shrink:0;width:38px;height:34px;margin-right:4px;background:var(--y);border-radius:6px;display:flex;align-items:center;justify-content:center;transition:background var(--t);}
-.srch-btn:hover{background:var(--y-dark);}
-
-.h-acts{display:flex;align-items:center;gap:6px;flex:1;justify-content:flex-end;}
-.h-act{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 10px;border-radius:var(--r);transition:background var(--t);color:var(--body);cursor:pointer;}
-.h-act:hover{background:var(--surface);color:var(--ink);}
-.h-act span{font-size:10px;font-weight:600;letter-spacing:.3px;white-space:nowrap;}
-.h-cta{background:var(--y);color:var(--ink);padding:0 20px;height:40px;border-radius:var(--r);font-size:13px;font-weight:800;display:flex;align-items:center;gap:7px;transition:background var(--t);white-space:nowrap;margin-left:8px;}
-.h-cta:hover{background:var(--y-dark);}
-.h-btn-login{background:transparent;color:var(--ink);border:1.5px solid var(--border);padding:0 18px;height:40px;border-radius:var(--r);font-size:13px;font-weight:700;display:flex;align-items:center;transition:all var(--t);white-space:nowrap;margin-left:8px;}
-.h-btn-login:hover{border-color:var(--ink-3);background:var(--surface);}
-
-/* ── NAV BAR ── */
-.nav-bar{background:var(--ink-2);padding:0 var(--px);display:flex;align-items:center;height:48px;gap:2px;position:sticky;top:72px;z-index:150;overflow:hidden;}
-.nv-item{position:relative;height:100%;display:flex;align-items:center;}
-.nv-link{display:flex;align-items:center;gap:6px;padding:0 16px;height:100%;font-size:13px;font-weight:600;color:rgba(255,255,255,.7);letter-spacing:.1px;white-space:nowrap;transition:all var(--t);cursor:pointer;}
-.nv-link:hover,.nv-item:hover>.nv-link{color:var(--white);background:rgba(255,255,255,.08);}
-.nv-link.act{color:var(--y);}
+.h-row { padding: 0 20px; height: 60px; display: flex; align-items: center; gap: 20px; }
+.logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.logo img { height: 34px; width: auto; }
+.logo-fb { display: none; flex-direction: column; justify-content: center; }
+.logo-brand { font-size: 20px; font-weight: 900; color: var(--white); letter-spacing: -1px; line-height: 1; }
+.logo-brand em { color: var(--y); font-style: normal; }
+.logo-sub { font-size: 8px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.35); margin-top: 3px; }
+.h-acts { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+.h-act { width: 38px; height: 38px; border-radius: var(--r); display: flex; align-items: center; justify-content: center; transition: background var(--t); color: rgba(255,255,255,.8); cursor: pointer; flex-shrink: 0; }
+.h-act:hover { background: rgba(255,255,255,.12); color: var(--white); }
+.h-srch-wrap { position: relative; display: flex; align-items: center; }
+.h-srch-field { position: absolute; right: 100%; top: 50%; transform: translateY(-50%); width: 0; overflow: hidden; transition: width .26s cubic-bezier(.4,0,.2,1); display: flex; align-items: center; background: var(--ink-2); border: 1.5px solid transparent; border-radius: var(--r); margin-right: 4px; }
+.h-srch-wrap.open .h-srch-field { width: 300px; border-color: var(--y-deeper); box-shadow: 0 0 0 3px rgba(var(--y-rgb),.18); }
+.h-srch-input { flex: 1; height: 36px; border: none; background: transparent; padding: 0 10px; font-size: 13px; font-family: inherit; color: var(--white); outline: none; }
+.h-srch-input::placeholder { color: rgba(255,255,255,.38); }
+.h-srch-close { flex-shrink: 0; width: 34px; height: 36px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.5); cursor: pointer; background: none; border: none; transition: color var(--t); }
+.h-srch-close:hover { color: var(--white); }
+.h-acct { position: relative; margin-left: 4px; }
+.h-cta { background: var(--y); color: var(--ink); padding: 0 16px; height: 38px; border-radius: var(--r); font-size: 12.5px; font-weight: 800; display: flex; align-items: center; gap: 6px; transition: background var(--t); white-space: nowrap; cursor: pointer; border: none; }
+.h-cta:hover { background: var(--y-dark); }
+.h-acct-drop { position: absolute; top: calc(100% + 6px); right: 0; background: var(--white); border: 1px solid var(--border); border-radius: var(--r); box-shadow: var(--sh-md); min-width: 160px; padding: 6px; opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity .15s, transform .15s; z-index: 300; }
+.h-acct:hover .h-acct-drop, .h-acct:focus-within .h-acct-drop { opacity: 1; pointer-events: all; transform: translateY(0); }
+.h-acct-link { display: block; padding: 9px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; color: var(--ink); transition: background var(--t); text-decoration: none; }
+.h-acct-link:hover { background: var(--surface); }
+.h-acct-primary { color: var(--y-deeper); }
+.h-locale { display: flex; align-items: center; gap: 5px; padding-left: 10px; margin-left: 4px; border-left: 1px solid rgba(255,255,255,.15); }
+.h-locale .switch { background: rgba(255,255,255,.1); }
+.h-locale .sw-btn { font-size: 10px; padding: 2px 7px; color: rgba(255,255,255,.5); }
+.h-locale .sw-btn.on { background: var(--white); color: var(--ink); }
+.h-nav { padding: 0 12px; display: flex; align-items: center; height: 44px; gap: 2px; border-top: 1px solid rgba(255,255,255,.07); border-radius: 0 0 14px 14px; }
+.nv-item { position: relative; height: 100%; display: flex; align-items: center; }
+.nv-link { display: flex; align-items: center; gap: 6px; padding: 0 16px; height: 100%; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.7); letter-spacing: .1px; white-space: nowrap; transition: all var(--t); cursor: pointer; }
+.nv-link:hover, .nv-item:hover>.nv-link { color: var(--white); background: rgba(255,255,255,.08); }
+.nv-link.act { color: var(--y); }
 
 /* ── CARD STYLES ── */
 .lc{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:box-shadow .25s,transform .25s;cursor:pointer;}
@@ -99,22 +97,23 @@ header{
 .lc-thumb-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:60px;}
 .media-badges{position:absolute;bottom:10px;left:10px;display:flex;gap:6px;z-index:2;}
 .mb{display:flex;align-items:center;gap:4px;padding:4px 8px;border-radius:5px;font-size:10px;font-weight:800;letter-spacing:.5px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);}
-.mb-3d{background:rgba(17,24,39,.75);color:var(--y);border-color:rgba(255,209,0,.35);}
-.mb-vid{background:rgba(220,38,38,.85);color:var(--white);border-color:rgba(255,255,255,.2);}
-.mb-360{background:rgba(22,163,74,.85);color:var(--white);border-color:rgba(255,255,255,.2);}
+.mb-3d{background:rgba(17,24,39,.75);color:var(--y);border-color:rgba(var(--y-rgb),.35);}
 .lc-badge{position:absolute;top:10px;left:10px;background:var(--green);color:var(--white);font-size:9px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:3px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.2);}
 .lc-badge-new{background:var(--y-deeper);color:var(--white);}
 .lc-badge-hot{background:var(--red);}
+.lc-grade{position:absolute;bottom:10px;right:10px;background:rgba(17,24,39,.78);color:var(--white);font-size:10px;font-weight:800;letter-spacing:.4px;padding:3px 9px;border-radius:4px;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);z-index:2;}
 .lc-save{position:absolute;top:10px;right:10px;width:32px;height:32px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);backdrop-filter:blur(6px);transition:all var(--t);}
 .lc-save:hover{color:var(--red);background:white;}
 .play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0);transition:background var(--t);z-index:1;}
 .lc:hover .play-overlay{background:rgba(0,0,0,.15);}
-.play-btn{width:48px;height:48px;background:rgba(255,209,0,.92);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.7);transition:all .25s;box-shadow:0 4px 20px rgba(0,0,0,.3);}
+.play-btn{width:48px;height:48px;background:rgba(var(--y-rgb),.92);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.7);transition:all .25s;box-shadow:0 4px 20px rgba(0,0,0,.3);}
 .lc:hover .play-btn{opacity:1;transform:scale(1);}
 .lc-body{padding:16px;}
 .lc-cat{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--y-deeper);background:var(--y-light);padding:3px 9px;border-radius:4px;margin-bottom:8px;}
 .lc-name{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.3;}
-.lc-specs{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
+.lc-specs{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;}
+.lc-price{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:12px;}
+.lc-price .lc-cur{font-size:11px;font-weight:600;color:var(--muted);margin-right:3px;}
 .sp{display:flex;justify-content:space-between;align-items:center;font-size:12px;}
 .sp-k{color:var(--muted);font-weight:500;}
 .sp-v{font-weight:600;color:var(--ink);}
@@ -130,29 +129,85 @@ header{
 .lc[data-hover-video]:hover .lc-hover-video{opacity:1;}
 .lc[data-hover-video]:hover .lc-thumb>img{opacity:0;}
 
-/* ── BROWSE PAGE ── */
-.pg-bar{
-  background:var(--surface);border-bottom:1px solid var(--border);
-  padding:13px var(--px);display:flex;align-items:center;
-}
-.pg-crumb{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px;}
-.pg-crumb a{color:var(--muted);transition:color var(--t);}
-.pg-crumb a:hover{color:var(--y-deeper);}
-.pg-crumb-sep{opacity:.5;}
-.pg-crumb-cur{color:var(--ink);font-weight:600;}
-.pg-bar-count{margin-left:auto;font-size:12px;color:var(--muted);}
-.pg-bar-count strong{color:var(--ink);}
+/* === Simplified card layout — matches Homepage "Recently Added Equipment" === */
+.browse-grid .lc-cat        { display: none; }
+.browse-grid .lc-specs      { display: none; }
+.browse-grid .lc-badge-new  { display: none; }
+.browse-grid .lc-badge-hot  { display: none; }
+.browse-grid .media-badges  { display: none; }
+.browse-grid .lc-compare    { display: none; }
+.browse-grid .lc-body       { display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 12px; row-gap: 12px; }
+.browse-grid .lc-name       { grid-column: 1/-1; grid-row: 1; margin-bottom: 0; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.browse-grid .lc-price      { grid-column: 1; grid-row: 2; margin-bottom: 0; }
+.browse-grid .lc-ft         { grid-column: 2; grid-row: 2; padding-top: 0; border-top: none; }
+.browse-grid .lc-enq        { flex: none; white-space: nowrap; }
 
+/* ── PAGE BANNER — slides behind floating header, shows page title + breadcrumb ── */
+.page-banner {
+  position: relative;
+  background: var(--ink);
+  margin-top: -104px;
+  padding: 164px var(--px) 60px;
+  overflow: hidden;
+  z-index: 1;
+}
+/* Background image layer */
+.pb-bg {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.05);
+  will-change: transform;
+}
+/* Directional dark overlay — strong on left for text legibility */
+.pb-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(10,14,20,.96) 0%,
+    rgba(10,14,20,.88) 40%,
+    rgba(10,14,20,.72) 75%,
+    rgba(10,14,20,.55) 100%
+  );
+}
+.pb-pattern {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,209,0,.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+.pb-bar {
+  position: absolute; left: 0; top: 124px; bottom: 0;
+  width: 4px; background: var(--y);
+}
+.pb-inner { position: relative; z-index: 2; }
+.pb-crumb {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: rgba(255,255,255,.45);
+  margin-bottom: 12px; flex-wrap: wrap;
+}
+.pb-crumb a { color: rgba(255,255,255,.45); transition: color var(--t); }
+.pb-crumb a:hover { color: var(--y); }
+.pb-crumb-sep { color: rgba(255,255,255,.25); font-size: 10px; }
+.pb-crumb-cur { color: rgba(255,255,255,.72); }
+.pb-title {
+  font-size: 30px; font-weight: 800;
+  color: var(--white); letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+
+/* ── BROWSE PAGE ── */
 .browse-wrap{
   padding:28px var(--px);
   display:grid;
-  grid-template-columns:220px 1fr;
+  grid-template-columns:260px 1fr;
   gap:28px;
   align-items:start;
 }
 
 /* FILTER SIDEBAR */
-.sidebar{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;position:sticky;top:128px;}
+.sidebar{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;position:sticky;top:140px;}
 .sidebar-hd{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--border);background:var(--surface);}
 .sidebar-hd-t{font-size:13px;font-weight:800;color:var(--ink);}
 .sidebar-reset{font-size:11px;font-weight:700;color:var(--y-deeper);cursor:pointer;transition:color var(--t);background:none;border:none;font-family:inherit;}
@@ -172,10 +227,49 @@ header{
 .fg-apply:hover{background:var(--y-dark);}
 
 /* LISTINGS AREA */
-.results-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.results-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:10px;}
+.results-left{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
 .results-count{font-size:13px;color:var(--body);}
 .results-count strong{color:var(--ink);font-weight:700;}
 .results-sort-wrap{display:flex;align-items:center;gap:10px;}
+
+/* Save Search CTA */
+.btn-save-search{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;font-size:12px;font-weight:700;font-family:inherit;color:var(--y-deeper);background:transparent;border:1.5px solid var(--y-deeper);border-radius:6px;cursor:pointer;transition:all var(--t);white-space:nowrap;}
+.btn-save-search:hover{background:var(--y-light);border-color:var(--y-dark);}
+.btn-save-search svg{flex-shrink:0;}
+
+/* Save Search Modal */
+.ss-overlay{position:fixed;inset:0;z-index:10000;background:rgba(17,24,39,.45);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s;}
+.ss-overlay.open{opacity:1;pointer-events:auto;}
+.ss-modal{background:var(--white);border-radius:16px;padding:32px 28px 28px;width:400px;max-width:calc(100vw - 32px);box-shadow:0 20px 60px rgba(0,0,0,.2);transform:scale(.94);transition:transform .2s;}
+.ss-overlay.open .ss-modal{transform:scale(1);}
+.ss-modal-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;}
+.ss-modal-title{font-size:18px;font-weight:800;color:var(--ink);letter-spacing:-.2px;}
+.ss-modal-close{width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:var(--surface);border-radius:6px;cursor:pointer;color:var(--muted);transition:all var(--t);border:none;flex-shrink:0;}
+.ss-modal-close:hover{background:var(--border);color:var(--ink);}
+.ss-modal-sub{font-size:13px;color:var(--body);line-height:1.6;margin-bottom:20px;}
+.ss-modal-sub strong{color:var(--ink);font-weight:700;}
+.ss-label{font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--ink);margin-bottom:8px;display:block;}
+.ss-input{width:100%;height:42px;border:1.5px solid var(--border);border-radius:8px;padding:0 14px;font-size:13.5px;font-family:inherit;color:var(--ink);outline:none;transition:border-color var(--t),box-shadow var(--t);}
+.ss-input::placeholder{color:var(--muted);}
+.ss-input:focus{border-color:var(--y-deeper);box-shadow:0 0 0 3px rgba(var(--y-rgb),.15);}
+.ss-input.error{border-color:var(--red);box-shadow:0 0 0 3px rgba(220,38,38,.1);}
+.ss-error{font-size:11px;color:var(--red);font-weight:600;margin-top:6px;display:none;}
+.ss-error.show{display:block;}
+.ss-submit{width:100%;height:44px;margin-top:16px;border:none;border-radius:8px;background:var(--ink);color:var(--white);font-size:13px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;font-family:inherit;cursor:pointer;transition:background var(--t),transform var(--t);}
+.ss-submit:hover{background:var(--ink-2);}
+.ss-submit:active{transform:scale(.98);}
+
+/* Success Toast */
+.ss-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);z-index:10001;background:var(--ink);color:var(--white);border-radius:10px;padding:14px 20px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 32px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.2,1,.3,1);max-width:calc(100vw - 32px);}
+.ss-toast.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto;}
+.ss-toast-icon{width:28px;height:28px;border-radius:50%;background:var(--y);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ss-toast-body{flex:1;min-width:0;}
+.ss-toast-title{font-size:13px;font-weight:800;margin-bottom:2px;}
+.ss-toast-sub{font-size:12px;color:rgba(255,255,255,.65);}
+.ss-toast-sub a{color:var(--y);text-decoration:none;font-weight:600;}
+.ss-toast-close{background:none;border:none;color:rgba(255,255,255,.45);cursor:pointer;padding:4px;display:flex;transition:color var(--t);}
+.ss-toast-close:hover{color:var(--white);}
 .sort-label{font-size:12px;font-weight:600;color:var(--muted);white-space:nowrap;}
 .sort-sel{
   height:36px;border:1.5px solid var(--border);border-radius:var(--r);
@@ -205,14 +299,14 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
 .ft-logo-s{font-size:8px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.3);display:block;}
 .ft-tag{font-size:13px;color:rgba(255,255,255,.42);line-height:1.75;margin-bottom:24px;max-width:280px;}
 .ft-soc{display:flex;gap:10px;}
-.soc-b{width:36px;height:36px;background:rgba(255,255,255,.07);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:13px;font-weight:800;transition:all var(--t);cursor:pointer;}
+.soc-b{width:36px;height:36px;background:rgba(255,255,255,.07);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:13px;font-weight:800;transition:all var(--t);cursor:pointer;text-decoration:none;}
 .soc-b:hover{background:var(--y);color:var(--ink);}
 .ft-ct{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px;}
 .ft-ls{display:flex;flex-direction:column;gap:10px;}
 .ft-ls a{font-size:13px;color:rgba(255,255,255,.52);transition:color var(--t);}
 .ft-ls a:hover{color:var(--y);}
 .ft-ci{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,.52);margin-bottom:10px;line-height:1.5;}
-.ft-ci-ic{color:var(--y);flex-shrink:0;margin-top:1px;}
+.ft-ci-ic{color:var(--y);flex-shrink:0;margin-top:1px;display:flex;align-items:center;}
 .ft-bot{padding:20px 0;display:flex;align-items:center;justify-content:space-between;}
 .ft-copy{font-size:12px;color:rgba(255,255,255,.28);}
 .ft-leg{display:flex;gap:20px;}
@@ -254,15 +348,13 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
   opacity:0;pointer-events:none;transform:translateY(8px);
 }
 .fab-top.show{opacity:1;pointer-events:all;transform:translateY(0);}
-.fab-top:hover{background:var(--y-dark);transform:translateY(-3px);box-shadow:0 6px 20px rgba(255,209,0,.45);}
+.fab-top:hover{background:var(--y-dark);transform:translateY(-3px);box-shadow:0 6px 20px rgba(var(--y-rgb),.45);}
 .fab-top:active{transform:scale(.94);}
 
 /* ── MICROINTERACTIONS ── */
 .h-cta:active{transform:scale(.97);}
-.h-btn-login:active{transform:scale(.97);}
-.srch-btn:active{transform:scale(.93);}
 .lc-enq{transition:background var(--t),transform var(--t),box-shadow var(--t);}
-.lc-enq:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(255,209,0,.35);}
+.lc-enq:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(var(--y-rgb),.35);}
 .lc-enq:active{transform:scale(.96);}
 .lc-save:hover{transform:scale(1.14);background:white;}
 .lc-save:active{transform:scale(.9);}
@@ -278,10 +370,10 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
 .fg-opt{transition:color var(--t),transform var(--t);}
 .fg-opt:hover{color:var(--ink);transform:translateX(2px);}
 .fg-apply{transition:background var(--t),box-shadow var(--t),transform var(--t);}
-.fg-apply:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(255,209,0,.4);}
+.fg-apply:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(var(--y-rgb),.4);}
 .fg-apply:active{transform:scale(.97);}
-.fg-input:focus{border-color:var(--y-deeper);box-shadow:0 0 0 3px rgba(255,209,0,.15);outline:none;}
-.sort-sel:focus{border-color:var(--y-deeper);box-shadow:0 0 0 3px rgba(255,209,0,.18);outline:none;}
+.fg-input:focus{border-color:var(--y-deeper);box-shadow:0 0 0 3px rgba(var(--y-rgb),.15);outline:none;}
+.sort-sel:focus{border-color:var(--y-deeper);box-shadow:0 0 0 3px rgba(var(--y-rgb),.18);outline:none;}
 /* Pagination */
 .pg-btn{transition:all var(--t);}
 .pg-btn:not(.on):not([disabled]):hover{background:var(--y-light);border-color:var(--y);color:var(--y-deeper);transform:scale(1.06);}
@@ -327,91 +419,65 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
 }
 
 /* ── 1200px ── */
+@media (max-width:1400px) {
+  .browse-wrap { grid-template-columns: 248px 1fr; gap: 24px; }
+  .browse-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
 @media (max-width:1200px) {
   :root { --px: 48px; }
+  .browse-wrap { grid-template-columns: 236px 1fr; gap: 20px; }
   .browse-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* ── 1024px: Sidebar stacks above listing ── */
+/* ── 1024px: Sidebar narrows, grid stays 2-col ── */
 @media (max-width:1024px) {
   :root { --px: 32px; }
 
-  /* Nav */
-  .nav-bar .nv-item { display: none; }
-  .nav-hamburger { display: flex; }
+  .h-shell { border-radius: 12px; }
+  .h-locale { display: none; }
 
-  /* Header search shrink */
-  .srch { flex: 0 1 300px; }
-  .srch-cat { min-width: 90px; }
-  .h-act span { display: none; }
-
-  /* Browse layout: stack sidebar above grid */
+  /* Browse layout: keep sidebar beside content */
   .browse-wrap {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: 190px 1fr;
+    gap: 18px;
   }
 
-  /* Sidebar: unsticky, horizontal-ish layout */
+  /* Sidebar: stays beside grid, slightly narrower */
   .sidebar {
-    position: static;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-  }
-  .sidebar-hd {
-    grid-column: 1 / -1;
-  }
-  .filter-group {
-    border-bottom: none;
-    border-right: 1px solid var(--border);
-  }
-  .filter-group:last-child {
-    border-right: none;
+    position: sticky;
+    top: 128px;
   }
 
-  /* Show filter toggle for collapse behavior */
-  .filter-toggle-btn { display: flex; }
-
-  /* Product card grid */
-  .browse-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  /* Product card grid: 2 columns */
+  .browse-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
 
   /* Footer */
   .ft-top { grid-template-columns: 1fr 1fr; gap: 32px; }
 }
 
-/* ── 768px ── */
+/* ── 768px: Sidebar collapses, grid goes full-width ── */
 @media (max-width:768px) {
   :root { --px: 20px; }
 
-  /* Top bar */
-  .top-bar { padding: 0 var(--px); height: auto; flex-wrap: wrap; }
-
-  /* Header — single row on mobile */
-  header {
-    padding: 0 var(--px);
-    height: 60px;
-    min-height: 60px;
-    flex-wrap: nowrap;
-    gap: 12px;
-  }
-  .logo { flex: 1; min-width: 0; }
-  .srch { display: none; }
+  /* Header */
+  header { top: 10px; padding: 0 14px; }
+  .h-shell { border-radius: 10px; }
+  .h-row { height: 54px; padding: 0 14px; }
   .h-acts { flex: 0 0 auto; gap: 4px; }
-  .h-act { padding: 4px 6px; }
-  .h-btn-login { padding: 0 12px; font-size: 12px; height: 36px; margin-left: 4px; }
-  .h-cta { padding: 0 14px; font-size: 12px; height: 36px; margin-left: 4px; }
+  .h-cta { padding: 0 12px; font-size: 12px; height: 36px; }
+  .h-locale { display: none; }
+  .page-banner { margin-top: -98px; padding-top: 140px; }
+  .pb-bar { top: 108px; }
 
-  /* Nav */
-  .nav-bar { top: 60px; }
+  /* Browse layout: single column, no sidebar beside grid */
+  .browse-wrap {
+    padding: 16px var(--px);
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 
-  /* Breadcrumb */
-  .pg-bar { padding: 10px var(--px); flex-wrap: wrap; gap: 6px; }
-  .pg-bar-count { margin-left: 0; }
-
-  /* Browse layout */
-  .browse-wrap { padding: 16px var(--px); }
-
-  /* Sidebar: collapse into vertical list, hidden by default */
+  /* Sidebar: collapse, hidden by default */
   .sidebar {
     display: none;
     grid-template-columns: 1fr;
@@ -421,12 +487,15 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
   .filter-group { border-right: none; border-bottom: 1px solid var(--border); }
   .filter-group:last-child { border-bottom: none; }
 
+  /* Show filter toggle */
+  .filter-toggle-btn { display: flex; }
+
   /* Results bar */
   .results-bar { flex-wrap: wrap; gap: 10px; }
   .results-bar > * { flex: 1 1 auto; }
   .results-sort-wrap { justify-content: flex-end; }
 
-  /* Card grid */
+  /* Card grid: 2 columns */
   .browse-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
 
   /* Pagination */
@@ -438,13 +507,27 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
   .ft-leg { flex-wrap: wrap; justify-content: center; }
 }
 
+/* ── 640px ── */
+@media (max-width:640px) {
+  .h-nav { display: none; }
+  .nav-hamburger { display: flex; }
+  header { top: 12px; padding: 0 12px; }
+  .h-shell { border-radius: 12px; }
+  .h-row { height: 52px; padding: 0 14px; }
+  .logo img { height: 24px; }
+  .logo-brand { font-size: 15px; }
+  .h-saved { display: none; }
+  .h-cta-txt { display: none; }
+  .h-cta-chevron { display: none; }
+  .h-cta { padding: 0 10px; gap: 0; height: 34px; }
+  .page-banner { margin-top: -52px; padding-top: 92px; }
+  .pb-bar { top: 64px; }
+  .pb-title { font-size: 20px; }
+}
+
 /* ── 576px ── */
 @media (max-width:576px) {
   :root { --px: 16px; }
-
-  /* Header simplification */
-  .srch-cat { display: none; }
-  .h-btn-login { display: none; }
 
   /* Card grid: 1 column */
   .browse-grid { grid-template-columns: 1fr; gap: 12px; }
@@ -458,18 +541,72 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
   .fab-wrap { bottom: 20px; right: 16px; }
 }
 
+/* ── 480px: collapse 2-col grid to 1 col ── */
+@media (max-width:480px) {
+  /* grid: single column */
+  .browse-grid { grid-template-columns: 1fr; gap: 12px; }
+
+  /* card footer stack */
+  .lc-enq { width: 100%; }
+
+  /* results bar */
+  .results-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .results-sort-wrap { width: 100%; }
+  .sort-sel { width: 100%; }
+
+  /* pagination: smaller buttons */
+  .pg-btn { min-width: 32px; height: 32px; font-size: 12px; padding: 0 8px; }
+
+  /* footer: single column */
+  .ft-top { grid-template-columns: 1fr; gap: 24px; }
+}
+
 /* ── 390px ── */
 @media (max-width:390px) {
   :root { --px: 12px; }
 
   .browse-grid { grid-template-columns: 1fr; gap: 10px; }
 
-  .lc-ft { flex-direction: column; }
-  .lc-enq, .lc-compare { width: 100%; }
+  .lc-enq { width: 100%; }
 
   .results-bar { flex-direction: column; align-items: flex-start; }
   .results-sort-wrap { width: 100%; }
   .sort-sel { width: 100%; }
+
+  /* footer */
+  .ft-top { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* ── 320px: Very small mobile ── */
+@media (max-width:320px) {
+  :root { --px: 10px; }
+
+  /* results bar */
+  .results-count { font-size: 12px; }
+  .filter-toggle-btn { padding: 0 10px; font-size: 12px; }
+  .sort-sel { font-size: 12px; }
+
+  /* filter sidebar: ensure it doesn't overflow */
+  .sidebar { width: 100%; }
+  .fg-input { font-size: 11px; }
+
+  /* pagination */
+  .pagination { gap: 3px; }
+  .pg-btn { min-width: 28px; height: 28px; font-size: 11px; padding: 0 6px; }
+  .pg-ellipsis { font-size: 12px; }
+
+  /* footer */
+  .ft-top { grid-template-columns: 1fr; gap: 16px; }
+  .ft-bot { font-size: 11px; }
+  .ft-leg { gap: 12px; }
+
+  /* fab */
+  .fab-wrap { bottom: 16px; right: 10px; }
+  .fab-wa { width: 46px; height: 46px; }
+  .fab-top { width: 38px; height: 38px; }
+
+  /* prevent long text overflow */
+  .lc-name, .fg-opt { word-break: break-word; overflow-wrap: break-word; }
 }
 
 /* ── Mobile Nav Drawer ── */
@@ -511,7 +648,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
   transition: background .2s, color .2s; border-left: 3px solid transparent;
 }
 .nav-drawer-link:hover { background: rgba(255,255,255,.07); color: var(--white); }
-.nav-drawer-link.act { color: var(--y); border-left-color: var(--y); background: rgba(255,209,0,.08); }
+.nav-drawer-link.act { color: var(--y); border-left-color: var(--y); background: rgba(var(--y-rgb),.08); }
 
 </style>
 </head>
@@ -534,89 +671,89 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
     <a href="Homepage.html" class="nav-drawer-link">Home</a>
     <a href="BrowseEquipment.html" class="nav-drawer-link act">Browse Equipment</a>
     <a href="#" class="nav-drawer-link">Sell Your Equipment</a>
-    <a href="#" class="nav-drawer-link">FAMCO Approved Process</a>
-    <a href="#" class="nav-drawer-link">Finance</a>
     <a href="#" class="nav-drawer-link">About Us</a>
     <a href="#" class="nav-drawer-link">Contact</a>
   </nav>
 </div>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  <span><strong style="color:var(--y);font-weight:700;">FAMCO Approved</strong> — UAE's Sole Volvo Distributor · Inspected · Certified · Ready to Work · Since 1978</span>
-  <div class="tb-right">
-    <div class="switch">
-      <span class="sw-btn on">AED</span>
-      <span class="sw-btn">USD</span>
-    </div>
-    <div class="switch">
-      <span class="sw-btn on">EN</span>
-      <span class="sw-btn ar">عربي</span>
-    </div>
-  </div>
-</div>
-
 <!-- HEADER -->
 <header>
-  <a href="Homepage.html" class="logo">
-    <img src="images/branding-famco-logo.png" alt="FAMCO"
-         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-    <div class="logo-fb">
-      <div class="logo-brand">FAM<em>CO</em></div>
-      <div class="logo-sub">Used Equipment</div>
-    </div>
-  </a>
-  <div class="srch">
-    <div class="srch-wrap">
-      <select class="srch-cat">
-        <option>All Categories</option>
-        <option>Construction Equipment</option>
-        <option>Trucks &amp; Commercial</option>
-        <option>Material Handling</option>
-        <option>Buses &amp; Coaches</option>
-        <option>Industrial Machinery</option>
-      </select>
-      <input class="srch-input" type="text" placeholder="Search by make, model, year…">
-      <button class="srch-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+<div class="h-shell">
+  <div class="h-row">
+    <a href="Homepage.html" class="logo">
+      <img src="images/branding-famco-logo.png" alt="FAMCO"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="logo-fb">
+        <div class="logo-brand">FAM<em>CO</em></div>
+        <div class="logo-sub">Used Equipment</div>
+      </div>
+    </a>
+    <div class="h-acts">
+      <div class="h-srch-wrap" id="hSrchWrap">
+        <div class="h-srch-field" id="hSrchField">
+          <input type="text" class="h-srch-input" placeholder="Search equipment…" id="hSrchInput" autocomplete="off">
+          <button class="h-srch-close" id="hSrchClose" aria-label="Close search">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <button class="h-act h-srch-btn" id="hSrchBtn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+      </div>
+      <button class="h-act h-saved" aria-label="Saved items">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
       </button>
+      <div class="h-acct">
+        <button class="h-cta">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="h-cta-txt">Account</span>
+          <svg class="h-cta-chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="h-acct-drop">
+          <a href="#login" class="h-acct-link h-acct-primary">Sign In</a>
+          <a href="#register" class="h-acct-link">Create Account</a>
+        </div>
+      </div>
+      <div class="h-locale">
+        <div class="switch">
+          <span class="sw-btn on">AED</span>
+          <span class="sw-btn">USD</span>
+        </div>
+        <div class="switch">
+          <span class="sw-btn on">EN</span>
+          <span class="sw-btn ar">عربي</span>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="h-acts">
-    <button class="h-act">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-      <span>Saved</span>
+    <button class="nav-hamburger" aria-label="Open navigation menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
-    <a href="#login" class="h-btn-login">Login</a>
-    <a href="#register" class="h-cta">Register</a>
-  </div>
+  </div><!-- /.h-row -->
+  <nav class="h-nav">
+    <div class="nv-item"><a href="Homepage.html" class="nv-link">Home</a></div>
+    <div class="nv-item"><a href="BrowseEquipment.html" class="nv-link act">Browse Equipment</a></div>
+    <div class="nv-item"><a href="#" class="nv-link">Sell Your Equipment</a></div>
+    <div class="nv-item"><a href="#" class="nv-link">About Us</a></div>
+    <div class="nv-item"><a href="#" class="nv-link">Contact</a></div>
+  </nav>
+</div><!-- /.h-shell -->
 </header>
 
-<!-- NAV BAR -->
-<nav class="nav-bar">
-  <div class="nv-item"><a href="Homepage.html" class="nv-link">Home</a></div>
-  <div class="nv-item">
-    <a href="BrowseEquipment.html" class="nv-link act">Browse Equipment</a>
+<!-- PAGE BANNER -->
+<section class="page-banner">
+  <div class="pb-bg" style="background-image:url('images/metal-fabrication-construction-equipment-hero-1.jpg');"></div>
+  <div class="pb-overlay"></div>
+  <div class="pb-pattern"></div>
+  <div class="pb-bar"></div>
+  <div class="pb-inner">
+    <nav class="pb-crumb">
+      <a href="Homepage.html">Home</a>
+      <span class="pb-crumb-sep">›</span>
+      <span class="pb-crumb-cur">Browse Equipment</span>
+    </nav>
+    <h1 class="pb-title">Browse Equipment</h1>
   </div>
-  <div class="nv-item"><a href="#" class="nv-link">Sell Your Equipment</a></div>
-  <div class="nv-item"><a href="#" class="nv-link">FAMCO Approved Process</a></div>
-  <div class="nv-item"><a href="#" class="nv-link">Finance</a></div>
-  <div class="nv-item"><a href="#" class="nv-link">About Us</a></div>
-  <div class="nv-item"><a href="#" class="nv-link">Contact</a></div>
-  <button class="nav-hamburger" aria-label="Open navigation menu">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  </button>
-</nav>
-
-<!-- BREADCRUMB BAR -->
-<div class="pg-bar">
-  <nav class="pg-crumb">
-    <a href="Homepage.html">Home</a>
-    <span class="pg-crumb-sep">›</span>
-    <span class="pg-crumb-cur">Browse Equipment</span>
-  </nav>
-  <span class="pg-bar-count"><strong>142</strong> listings available</span>
-</div>
+</section>
 
 <!-- BROWSE LAYOUT -->
 <div class="browse-wrap">
@@ -693,7 +830,13 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
 
     <!-- Results bar -->
     <div class="results-bar">
-      <div class="results-count">Showing <strong>1–9</strong> of <strong>142</strong> results</div>
+      <div class="results-left">
+        <div class="results-count">Showing <strong>1–9</strong> of <strong>142</strong> results</div>
+        <button class="btn-save-search" id="btnSaveSearch" onclick="openSaveSearch()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save this search
+        </button>
+      </div>
       <button class="filter-toggle-btn" onclick="document.querySelector('.sidebar').classList.toggle('open')">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
         Filters
@@ -723,9 +866,9 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
           <span class="lc-badge">FAMCO Approved</span>
           <button class="lc-save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
           <div class="media-badges">
-            <span class="mb mb-vid"><svg width="10" height="10" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> VIDEO</span>
-            <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg> 3D VIEW</span>
+            <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12"/><path d="M22 7L12 12 2 7"/></svg> 360 VIEW</span>
           </div>
+          <span class="lc-grade">Grade A</span>
         </div>
         <div class="lc-body">
           <span class="lc-cat">Truck</span>
@@ -736,6 +879,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
             <div class="sp"><span class="sp-k">Engine</span><span class="sp-v">D13, 500 HP</span></div>
             <div class="sp"><span class="sp-k">Location</span><span class="sp-v">Dubai, UAE</span></div>
           </div>
+          <div class="lc-price"><span class="lc-cur">AED</span>185,000</div>
           <div class="lc-ft">
             <button class="lc-compare" onclick="event.stopPropagation()">Compare</button>
             <a href="EquipmentDetail.html" class="lc-enq">View Details</a>
@@ -752,8 +896,9 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
           <span class="lc-badge">FAMCO Approved</span>
           <button class="lc-save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
           <div class="media-badges">
-            <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg> 3D VIEW</span>
+            <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12"/><path d="M22 7L12 12 2 7"/></svg> 360 VIEW</span>
           </div>
+          <span class="lc-grade">Grade B</span>
         </div>
         <div class="lc-body">
           <span class="lc-cat">Construction</span>
@@ -764,6 +909,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
             <div class="sp"><span class="sp-k">Weight</span><span class="sp-v">21,800 kg</span></div>
             <div class="sp"><span class="sp-k">Location</span><span class="sp-v">Sharjah, UAE</span></div>
           </div>
+          <div class="lc-price"><span class="lc-cur">AED</span>310,000</div>
           <div class="lc-ft">
             <button class="lc-compare" onclick="event.stopPropagation()">Compare</button>
             <a href="EquipmentDetail.html" class="lc-enq">View Details</a>
@@ -774,11 +920,15 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
       <!-- Card 3 -->
       <div class="lc" onclick="location.href='EquipmentDetail.html'">
         <div class="lc-thumb">
-          <img src="images/Toyota 8FBN25 Forklift.jpg" alt="Toyota 8FG25 Forklift"
+          <img src="images/Productimage1.jpg" alt="Toyota 8FG25 Forklift"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
           <div class="lc-thumb-fallback" style="display:none;background:linear-gradient(135deg,#1a1a2a,#0d0d1a);">🏭</div>
           <span class="lc-badge lc-badge-new">New Listing</span>
           <button class="lc-save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+          <div class="media-badges">
+            <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12"/><path d="M22 7L12 12 2 7"/></svg> 360 VIEW</span>
+          </div>
+          <span class="lc-grade">Grade A</span>
         </div>
         <div class="lc-body">
           <span class="lc-cat">Material Handling</span>
@@ -789,6 +939,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
             <div class="sp"><span class="sp-k">Capacity</span><span class="sp-v">2,500 kg</span></div>
             <div class="sp"><span class="sp-k">Location</span><span class="sp-v">Dubai, UAE</span></div>
           </div>
+          <div class="lc-price"><span class="lc-cur">AED</span>45,000</div>
           <div class="lc-ft">
             <button class="lc-compare" onclick="event.stopPropagation()">Compare</button>
             <a href="EquipmentDetail.html" class="lc-enq">View Details</a>
@@ -799,15 +950,16 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
       <!-- Card 4 -->
       <div class="lc" onclick="location.href='EquipmentDetail.html'">
         <div class="lc-thumb">
-          <img src="images/jcb.png" alt="JCB 3CX Backhoe Loader"
+          <img src="images/Productimage21.jpg" alt="JCB 3CX Backhoe Loader"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
           <div class="lc-thumb-fallback" style="display:none;background:linear-gradient(135deg,#2a1a0e,#180f07);">🚜</div>
           <div class="play-overlay"><div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="var(--ink)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
           <span class="lc-badge">FAMCO Approved</span>
           <button class="lc-save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
           <div class="media-badges">
-            <span class="mb mb-vid"><svg width="10" height="10" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> VIDEO</span>
+            <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12"/><path d="M22 7L12 12 2 7"/></svg> 360 VIEW</span>
           </div>
+          <span class="lc-grade">Grade B</span>
         </div>
         <div class="lc-body">
           <span class="lc-cat">Construction</span>
@@ -818,6 +970,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
             <div class="sp"><span class="sp-k">Engine</span><span class="sp-v">EcoMAX, 93 HP</span></div>
             <div class="sp"><span class="sp-k">Location</span><span class="sp-v">Abu Dhabi, UAE</span></div>
           </div>
+          <div class="lc-price"><span class="lc-cur">AED</span>125,000</div>
           <div class="lc-ft">
             <button class="lc-compare" onclick="event.stopPropagation()">Compare</button>
             <a href="EquipmentDetail.html" class="lc-enq">View Details</a>
@@ -828,14 +981,15 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
       <!-- Card 5 -->
       <div class="lc" onclick="location.href='EquipmentDetail.html'">
         <div class="lc-thumb">
-          <img src="images/Hyster R1.6H Reach Truck.jpg" alt="Hyster H5.0FT"
+          <img src="images/Productimage31.jpg" alt="Hyster H5.0FT"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
           <div class="lc-thumb-fallback" style="display:none;background:linear-gradient(135deg,#1e2a1a,#111a0d);">⚙️</div>
           <span class="lc-badge lc-badge-hot">Hot Deal</span>
           <button class="lc-save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
           <div class="media-badges">
-            <span class="mb mb-360"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/></svg> 360°</span>
+            <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12"/><path d="M22 7L12 12 2 7"/></svg> 360 VIEW</span>
           </div>
+          <span class="lc-grade">Grade C</span>
         </div>
         <div class="lc-body">
           <span class="lc-cat">Material Handling</span>
@@ -846,6 +1000,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
             <div class="sp"><span class="sp-k">Capacity</span><span class="sp-v">5,000 kg</span></div>
             <div class="sp"><span class="sp-k">Location</span><span class="sp-v">Dubai, UAE</span></div>
           </div>
+          <div class="lc-price"><span class="lc-cur">AED</span>58,000</div>
           <div class="lc-ft">
             <button class="lc-compare" onclick="event.stopPropagation()">Compare</button>
             <a href="EquipmentDetail.html" class="lc-enq">View Details</a>
@@ -856,15 +1011,15 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
       <!-- Card 6 -->
       <div class="lc" onclick="location.href='EquipmentDetail.html'">
         <div class="lc-thumb">
-          <img src="images/Volvo EC220E Crawler.jpg" alt="Komatsu PC200-8"
+          <img src="images/Productimage41.jpg" alt="Komatsu PC200-8"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
           <div class="lc-thumb-fallback" style="display:none;background:linear-gradient(135deg,#2a200e,#1a140a);">🏗</div>
           <span class="lc-badge">FAMCO Approved</span>
           <button class="lc-save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
           <div class="media-badges">
-            <span class="mb mb-vid"><svg width="10" height="10" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> VIDEO</span>
-            <span class="mb mb-360"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/></svg> 360°</span>
+            <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12"/><path d="M22 7L12 12 2 7"/></svg> 360 VIEW</span>
           </div>
+          <span class="lc-grade">Grade A</span>
         </div>
         <div class="lc-body">
           <span class="lc-cat">Construction</span>
@@ -875,6 +1030,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
             <div class="sp"><span class="sp-k">Weight</span><span class="sp-v">20,200 kg</span></div>
             <div class="sp"><span class="sp-k">Location</span><span class="sp-v">Sharjah, UAE</span></div>
           </div>
+          <div class="lc-price"><span class="lc-cur">AED</span>275,000</div>
           <div class="lc-ft">
             <button class="lc-compare" onclick="event.stopPropagation()">Compare</button>
             <a href="EquipmentDetail.html" class="lc-enq">View Details</a>
@@ -885,15 +1041,16 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
       <!-- Card 7 -->
       <div class="lc" onclick="location.href='EquipmentDetail.html'">
         <div class="lc-thumb">
-          <img src="images/Volvo FM460.jpg" alt="Mercedes-Benz Actros 2546"
+          <img src="images/Productimage51.jpg" alt="Mercedes-Benz Actros 2546"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
           <div class="lc-thumb-fallback" style="display:none;background:linear-gradient(135deg,#1a1a2a,#0d0d1a);">🚚</div>
           <div class="play-overlay"><div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="var(--ink)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
           <span class="lc-badge">FAMCO Approved</span>
           <button class="lc-save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
           <div class="media-badges">
-            <span class="mb mb-vid"><svg width="10" height="10" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> VIDEO</span>
+            <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12"/><path d="M22 7L12 12 2 7"/></svg> 360 VIEW</span>
           </div>
+          <span class="lc-grade">Grade A</span>
         </div>
         <div class="lc-body">
           <span class="lc-cat">Truck</span>
@@ -904,6 +1061,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
             <div class="sp"><span class="sp-k">Engine</span><span class="sp-v">OM 471, 460 HP</span></div>
             <div class="sp"><span class="sp-k">Location</span><span class="sp-v">Dubai, UAE</span></div>
           </div>
+          <div class="lc-price"><span class="lc-cur">AED</span>195,000</div>
           <div class="lc-ft">
             <button class="lc-compare" onclick="event.stopPropagation()">Compare</button>
             <a href="EquipmentDetail.html" class="lc-enq">View Details</a>
@@ -914,14 +1072,15 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
       <!-- Card 8 -->
       <div class="lc" onclick="location.href='EquipmentDetail.html'">
         <div class="lc-thumb">
-          <img src="images/Toyota 8FBN25 Forklift.jpg" alt="Linde E20 Electric Forklift"
+          <img src="images/Productimage61.jpg" alt="Linde E20 Electric Forklift"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
           <div class="lc-thumb-fallback" style="display:none;background:linear-gradient(135deg,#0e1a2a,#091018);">🔋</div>
           <span class="lc-badge lc-badge-new">New Listing</span>
           <button class="lc-save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
           <div class="media-badges">
-            <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg> 3D VIEW</span>
+            <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12"/><path d="M22 7L12 12 2 7"/></svg> 360 VIEW</span>
           </div>
+          <span class="lc-grade">Grade A</span>
         </div>
         <div class="lc-body">
           <span class="lc-cat">Material Handling</span>
@@ -932,6 +1091,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
             <div class="sp"><span class="sp-k">Capacity</span><span class="sp-v">2,000 kg</span></div>
             <div class="sp"><span class="sp-k">Location</span><span class="sp-v">Fujairah, UAE</span></div>
           </div>
+          <div class="lc-price"><span class="lc-cur">AED</span>72,000</div>
           <div class="lc-ft">
             <button class="lc-compare" onclick="event.stopPropagation()">Compare</button>
             <a href="EquipmentDetail.html" class="lc-enq">View Details</a>
@@ -942,17 +1102,16 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
       <!-- Card 9 -->
       <div class="lc" onclick="location.href='EquipmentDetail.html'">
         <div class="lc-thumb">
-          <img src="images/Volvo EC220E Crawler.jpg" alt="Volvo EC300E Excavator"
+          <img src="images/Productimage71.jpg" alt="Volvo EC300E Excavator"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
           <div class="lc-thumb-fallback" style="display:none;background:linear-gradient(135deg,#2a1a0e,#1a0f07);">🏗</div>
           <div class="play-overlay"><div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="var(--ink)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
           <span class="lc-badge lc-badge-hot">Hot Deal</span>
           <button class="lc-save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
           <div class="media-badges">
-            <span class="mb mb-vid"><svg width="10" height="10" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg> VIDEO</span>
-            <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg> 3D VIEW</span>
-            <span class="mb mb-360"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/></svg> 360°</span>
+            <span class="mb mb-3d"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12"/><path d="M22 7L12 12 2 7"/></svg> 360 VIEW</span>
           </div>
+          <span class="lc-grade">Grade B</span>
         </div>
         <div class="lc-body">
           <span class="lc-cat">Construction</span>
@@ -963,6 +1122,7 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
             <div class="sp"><span class="sp-k">Weight</span><span class="sp-v">29,800 kg</span></div>
             <div class="sp"><span class="sp-k">Location</span><span class="sp-v">Dubai, UAE</span></div>
           </div>
+          <div class="lc-price"><span class="lc-cur">AED</span>385,000</div>
           <div class="lc-ft">
             <button class="lc-compare" onclick="event.stopPropagation()">Compare</button>
             <a href="EquipmentDetail.html" class="lc-enq">View Details</a>
@@ -997,10 +1157,10 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
       </div>
       <p class="ft-tag">UAE's trusted source for certified used heavy equipment since 1978. An Al-Futtaim Group company and sole UAE distributor for Volvo CE, Trucks, and Buses.</p>
       <div class="ft-soc">
-        <div class="soc-b">f</div>
-        <div class="soc-b">in</div>
-        <div class="soc-b">ig</div>
-        <div class="soc-b">▶</div>
+        <a href="#" class="soc-b" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="#" class="soc-b" aria-label="LinkedIn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="#" class="soc-b" aria-label="Instagram"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="#" class="soc-b" aria-label="YouTube"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
       </div>
     </div>
     <div>
@@ -1035,9 +1195,9 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
     </div>
     <div>
       <div class="ft-ct">Contact</div>
-      <div class="ft-ci"><span class="ft-ci-ic">📞</span>800 32626</div>
-      <div class="ft-ci"><span class="ft-ci-ic">✉️</span>info@famco.ae</div>
-      <div class="ft-ci"><span class="ft-ci-ic">📍</span>Dubai, UAE · 3 Locations</div>
+      <div class="ft-ci"><span class="ft-ci-ic"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5 19.79 19.79 0 01.98 4.73 2 2 0 012.96 2.5h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0121.5 16.92z"/></svg></span>800 32626</div>
+      <div class="ft-ci"><span class="ft-ci-ic"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg></span>info@famco.ae</div>
+      <div class="ft-ci"><span class="ft-ci-ic"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Dubai, UAE · 3 Locations</div>
       <div style="margin-top:16px;" class="ft-lang">
         <span class="on">English</span>
         <span class="sep">|</span>
@@ -1125,6 +1285,215 @@ footer{background:var(--ink);padding:64px var(--px) 0;}
 })();
 </script>
 
+<script>
+/* ── SEARCH FILTER ON PAGE LOAD ── */
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var q = params.get('q');
+  if (!q) return;
 
+  /* Populate the search input */
+  var inp = document.getElementById('hSrchInput');
+  if (inp) { inp.value = q; document.getElementById('hSrchWrap').classList.add('open'); }
+
+  var qLow = q.toLowerCase();
+  var tokens = qLow.split(/\s+/).filter(Boolean);
+  var cards = document.querySelectorAll('.browse-grid .lc');
+  var visible = 0;
+
+  cards.forEach(function(card){
+    var name = (card.querySelector('.lc-name') || {}).textContent || '';
+    var cat  = (card.querySelector('.lc-cat')  || {}).textContent || '';
+    var specs = (card.querySelector('.lc-specs') || {}).textContent || '';
+    var hay  = (name + ' ' + cat + ' ' + specs).toLowerCase();
+
+    var match = tokens.every(function(t){ return hay.indexOf(t) !== -1; });
+    if (match) {
+      card.style.display = '';
+      visible++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  /* Update results count */
+  var countEl = document.querySelector('.results-count');
+  if (countEl) {
+    countEl.innerHTML = 'Showing <strong>' + visible + '</strong> result' +
+      (visible !== 1 ? 's' : '') + ' for <strong>' + q.replace(/</g,'&lt;') + '</strong>';
+  }
+
+  /* Hide pagination when filtered */
+  var pag = document.querySelector('.pagination');
+  if (pag) pag.style.display = visible < 9 ? 'none' : '';
+})();
+</script>
+
+<!-- Save Search Modal -->
+<div class="ss-overlay" id="ssOverlay">
+  <div class="ss-modal" id="ssModal">
+    <div class="ss-modal-head">
+      <div class="ss-modal-title">Save This Search</div>
+      <button class="ss-modal-close" onclick="closeSaveSearch()" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="ss-modal-sub" id="ssSubtext">Get notified when new items matching your search are listed.</div>
+    <label class="ss-label" for="ssEmail">Email address</label>
+    <input class="ss-input" type="email" id="ssEmail" placeholder="your@email.com" autocomplete="email">
+    <div class="ss-error" id="ssError">Please enter a valid email address.</div>
+    <button class="ss-submit" onclick="submitSaveSearch()">Save Search</button>
+  </div>
+</div>
+
+<!-- Success Toast -->
+<div class="ss-toast" id="ssToast">
+  <div class="ss-toast-icon">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <div class="ss-toast-body">
+    <div class="ss-toast-title">Search Saved Successfully!</div>
+    <div class="ss-toast-sub" id="ssToastSub">Alerts will be sent to your email.</div>
+  </div>
+  <button class="ss-toast-close" onclick="closeSsToast()" aria-label="Close">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+</div>
+
+<script>
+/* ── SAVE SEARCH FLOW ── */
+(function(){
+  var overlay  = document.getElementById('ssOverlay');
+  var modal    = document.getElementById('ssModal');
+  var emailInp = document.getElementById('ssEmail');
+  var errEl    = document.getElementById('ssError');
+  var subtext  = document.getElementById('ssSubtext');
+  var toast    = document.getElementById('ssToast');
+  var toastSub = document.getElementById('ssToastSub');
+  var toastTimer;
+
+  function getSearchQuery(){
+    var inp = document.getElementById('hSrchInput');
+    return inp && inp.value.trim() ? inp.value.trim() : '';
+  }
+
+  window.openSaveSearch = function(){
+    var q = getSearchQuery();
+    if(q){
+      subtext.innerHTML = 'Get notified when new items matching <strong>"'+q+'"</strong> are listed.';
+    } else {
+      subtext.textContent = 'Get notified when new items matching your search are listed.';
+    }
+    emailInp.value = '';
+    errEl.classList.remove('show');
+    emailInp.classList.remove('error');
+    overlay.classList.add('open');
+    setTimeout(function(){ emailInp.focus(); },200);
+  };
+
+  window.closeSaveSearch = function(){
+    overlay.classList.remove('open');
+  };
+
+  /* close on overlay click */
+  overlay.addEventListener('click', function(e){
+    if(e.target === overlay) closeSaveSearch();
+  });
+
+  /* close on Escape */
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && overlay.classList.contains('open')) closeSaveSearch();
+  });
+
+  window.submitSaveSearch = function(){
+    var email = emailInp.value.trim();
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!email || !re.test(email)){
+      emailInp.classList.add('error');
+      errEl.classList.add('show');
+      emailInp.focus();
+      return;
+    }
+    errEl.classList.remove('show');
+    emailInp.classList.remove('error');
+
+    /* Build payload for future API integration */
+    var payload = {
+      email: email,
+      query: getSearchQuery(),
+      category: '',
+      filters: {},
+      savedAt: new Date().toISOString()
+    };
+
+    /*
+     * TODO: Replace with real API call, e.g.:
+     * fetch('/api/saved-searches', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
+     *   .then(r => r.json()).then(showSuccess).catch(showError);
+     */
+    console.log('[SaveSearch] Payload ready for API:', payload);
+
+    /* Simulate success */
+    closeSaveSearch();
+    toastSub.innerHTML = 'Alerts will be sent to <a href="mailto:'+email+'">'+email+'</a>';
+    showToast();
+  };
+
+  function showToast(){
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 5000);
+  }
+
+  window.closeSsToast = function(){
+    clearTimeout(toastTimer);
+    toast.classList.remove('show');
+  };
+
+  /* Enter key submits modal */
+  emailInp.addEventListener('keydown', function(e){
+    if(e.key === 'Enter') submitSaveSearch();
+  });
+
+  /* Clear error on input */
+  emailInp.addEventListener('input', function(){
+    if(emailInp.classList.contains('error')){
+      emailInp.classList.remove('error');
+      errEl.classList.remove('show');
+    }
+  });
+})();
+</script>
+
+<script src="autocomplete.js"></script>
+<script src="color-picker.js"></script>
+
+<script>
+/* ── Expandable header search ── */
+(function(){
+  var wrap  = document.getElementById('hSrchWrap');
+  var btn   = document.getElementById('hSrchBtn');
+  var close = document.getElementById('hSrchClose');
+  var input = document.getElementById('hSrchInput');
+  if(!wrap) return;
+  function open(){
+    wrap.classList.add('open');
+    setTimeout(function(){input.focus();},270);
+  }
+  function close_(){
+    wrap.classList.remove('open');
+    input.value='';
+  }
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    wrap.classList.contains('open') ? close_() : open();
+  });
+  close.addEventListener('click',function(e){e.stopPropagation();close_();});
+  document.addEventListener('click',function(e){
+    if(!wrap.contains(e.target)) close_();
+  },{passive:true});
+  input.addEventListener('keydown',function(e){if(e.key==='Escape') close_();});
+})();
+</script>
 </body>
 </html>
